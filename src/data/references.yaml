@@ -1,0 +1,625 @@
+# Shared bibliography. Entries with `source: crossref` were generated from Crossref by DOI
+# (npm run ref:add -- <doi>). `source: manual` entries were typed by hand and should be checked.
+- id: melzack1965
+  type: article
+  authors:
+    - Melzack, R.
+    - Wall, P. D.
+  year: 1965
+  title: "Pain Mechanisms: A New Theory"
+  container: Science
+  volume: "150"
+  issue: "3699"
+  pages: 971-979
+  doi: 10.1126/science.150.3699.971
+  source: crossref
+- id: melzack1999
+  type: article
+  authors:
+    - Melzack, R.
+  year: 1999
+  title: From the gate to the neuromatrix
+  container: Pain
+  volume: "82"
+  issue: Supplement 1
+  pages: S121-S126
+  doi: 10.1016/s0304-3959(99)00145-1
+  source: crossref
+- id: melzack2001
+  type: article
+  authors:
+    - Melzack, R.
+  year: 2001
+  title: Pain and the Neuromatrix in the Brain
+  container: Journal of Dental Education
+  volume: "65"
+  issue: "12"
+  pages: 1378-1382
+  doi: 10.1002/j.0022-0337.2001.65.12.tb03497.x
+  source: crossref
+- id: sinclair1955
+  type: article
+  authors:
+    - Sinclair, D. C.
+  year: 1955
+  title: Cutaneous sensation and the doctrine of specific energy
+  container: Brain
+  volume: "78"
+  issue: "4"
+  pages: 584-614
+  doi: 10.1093/brain/78.4.584
+  source: crossref
+- id: vlaeyen2000
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - Linton, S. J.
+  year: 2000
+  title: "Fear-avoidance and its consequences in chronic musculoskeletal pain: a state of the art"
+  container: Pain
+  volume: "85"
+  issue: "3"
+  pages: 317-332
+  doi: 10.1016/s0304-3959(99)00242-0
+  source: crossref
+- id: lethem1983
+  type: article
+  authors:
+    - Lethem, J.
+    - Slade, P. D.
+    - Troup, J. D. G.
+    - Bentley, G.
+  year: 1983
+  title: Outline of a fear-avoidance model of exaggerated pain perception—I
+  container: Behaviour Research and Therapy
+  volume: "21"
+  issue: "4"
+  pages: 401-408
+  doi: 10.1016/0005-7967(83)90009-8
+  source: crossref
+- id: vlaeyen2012
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - Linton, S. J.
+  year: 2012
+  title: "Fear-avoidance model of chronic musculoskeletal pain: 12 years on"
+  container: Pain
+  volume: "153"
+  issue: "6"
+  pages: 1144-1147
+  doi: 10.1016/j.pain.2011.12.009
+  source: crossref
+- id: woolf1983
+  type: article
+  authors:
+    - Woolf, C. J.
+  year: 1983
+  title: Evidence for a central component of post-injury pain hypersensitivity
+  container: Nature
+  volume: "306"
+  issue: "5944"
+  pages: 686-688
+  doi: 10.1038/306686a0
+  source: crossref
+- id: woolf2011
+  type: article
+  authors:
+    - Woolf, C. J.
+  year: 2011
+  title: "Central sensitization: Implications for the diagnosis and treatment of pain"
+  container: Pain
+  volume: "152"
+  issue: "3"
+  pages: S2-S15
+  doi: 10.1016/j.pain.2010.09.030
+  source: crossref
+- id: latremoliere2009
+  type: article
+  authors:
+    - Latremoliere, A.
+    - Woolf, C. J.
+  year: 2009
+  title: "Central Sensitization: A Generator of Pain Hypersensitivity by Central Neural Plasticity"
+  container: The Journal of Pain
+  volume: "10"
+  issue: "9"
+  pages: 895-926
+  doi: 10.1016/j.jpain.2009.06.012
+  source: crossref
+- id: buchel2014
+  type: article
+  authors:
+    - Büchel, C.
+    - Geuter, S.
+    - Sprenger, C.
+    - Eippert, F.
+  year: 2014
+  title: "Placebo Analgesia: A Predictive Coding Perspective"
+  container: Neuron
+  volume: "81"
+  issue: "6"
+  pages: 1223-1239
+  doi: 10.1016/j.neuron.2014.02.042
+  source: crossref
+- id: ongaro2018
+  type: article
+  authors:
+    - Ongaro, G.
+    - Kaptchuk, T. J.
+  year: 2018
+  title: Symptom perception, placebo effects, and the Bayesian brain
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 1-4
+  doi: 10.1097/j.pain.0000000000001367
+  source: crossref
+- id: wiech2016
+  type: article
+  authors:
+    - Wiech, K.
+  year: 2016
+  title: "Deconstructing the sensation of pain: The influence of cognitive processes on pain perception"
+  container: Science
+  volume: "354"
+  issue: "6312"
+  pages: 584-587
+  doi: 10.1126/science.aaf8934
+  source: crossref
+- id: engel1977
+  type: article
+  authors:
+    - Engel, G. L.
+  year: 1977
+  title: "The Need for a New Medical Model: A Challenge for Biomedicine"
+  container: Science
+  volume: "196"
+  issue: "4286"
+  pages: 129-136
+  doi: 10.1126/science.847460
+  source: crossref
+- id: gatchel2007
+  type: article
+  authors:
+    - Gatchel, R. J.
+    - Peng, Y. B.
+    - Peters, M. L.
+    - Fuchs, P. N.
+    - Turk, D. C.
+  year: 2007
+  title: "The biopsychosocial approach to chronic pain: Scientific advances and future directions."
+  container: Psychological Bulletin
+  volume: "133"
+  issue: "4"
+  pages: 581-624
+  doi: 10.1037/0033-2909.133.4.581
+  source: crossref
+- id: wall1978
+  type: article
+  authors:
+    - Wall, P. D.
+  year: 1978
+  title: The gate control theory of pain mechanisms
+  container: Brain
+  volume: "101"
+  issue: "1"
+  pages: 1-18
+  doi: 10.1093/brain/101.1.1
+  source: crossref
+- id: nathan1976
+  type: article
+  authors:
+    - Nathan, P. W.
+  year: 1976
+  title: The gate-control theory of pain
+  container: Brain
+  volume: "99"
+  issue: "1"
+  pages: 123-158
+  doi: 10.1093/brain/99.1.123
+  source: crossref
+- id: moayedi2013
+  type: article
+  authors:
+    - Moayedi, M.
+    - Davis, K. D.
+  year: 2013
+  title: "Theories of pain: from specificity to gate control"
+  container: Journal of Neurophysiology
+  volume: "109"
+  issue: "1"
+  pages: 5-12
+  doi: 10.1152/jn.00457.2012
+  source: crossref
+- id: perl2007
+  type: article
+  authors:
+    - Perl, E. R.
+  year: 2007
+  title: Ideas about pain, a historical view
+  container: Nature Reviews Neuroscience
+  volume: "8"
+  issue: "1"
+  pages: 71-80
+  doi: 10.1038/nrn2042
+  source: crossref
+- id: mendell2014
+  type: article
+  authors:
+    - Mendell, L. M.
+  year: 2014
+  title: Constructing and deconstructing the gate theory of pain
+  container: Pain
+  volume: "155"
+  issue: "2"
+  pages: 210-216
+  doi: 10.1016/j.pain.2013.12.010
+  source: crossref
+- id: ma2010
+  type: article
+  authors:
+    - Ma, Q.
+  year: 2010
+  title: "Labeled lines meet and talk: population coding of somatic sensations"
+  container: Journal of Clinical Investigation
+  volume: "120"
+  issue: "11"
+  pages: 3773-3778
+  doi: 10.1172/jci43426
+  source: crossref
+- id: melzack2012
+  type: article
+  authors:
+    - Melzack, R.
+    - Katz, J.
+  year: 2012
+  title: Pain
+  container: WIREs Cognitive Science
+  volume: "4"
+  issue: "1"
+  pages: 1-15
+  doi: 10.1002/wcs.1201
+  source: crossref
+- id: iannetti2010
+  type: article
+  authors:
+    - Iannetti, G. D.
+    - Mouraux, A.
+  year: 2010
+  title: From the neuromatrix to the pain matrix (and back)
+  container: Experimental Brain Research
+  volume: "205"
+  issue: "1"
+  pages: 1-12
+  doi: 10.1007/s00221-010-2340-1
+  source: crossref
+- id: crombez2012
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - Van Damme, S.
+    - Vlaeyen, J. W. S.
+    - Karoly, P.
+  year: 2012
+  title: Fear-Avoidance Model of Chronic Pain
+  container: The Clinical Journal of Pain
+  volume: "28"
+  issue: "6"
+  pages: 475-483
+  doi: 10.1097/ajp.0b013e3182385392
+  source: crossref
+- id: tabor2017
+  type: article
+  authors:
+    - Tabor, A.
+    - Thacker, M. A.
+    - Moseley, G. L.
+    - Körding, K. P.
+  year: 2017
+  title: "Pain: A Statistical Account"
+  container: PLOS Computational Biology
+  volume: "13"
+  issue: "1"
+  pages: e1005142
+  doi: 10.1371/journal.pcbi.1005142
+  source: crossref
+- id: kosek2016
+  type: article
+  authors:
+    - Kosek, E.
+    - Cohen, M.
+    - Baron, R.
+    - Gebhart, G. F.
+    - Mico, J. A.
+    - Rice, A. S. C.
+    - Rief, W.
+    - Sluka, A. K.
+  year: 2016
+  title: Do we need a third mechanistic descriptor for chronic pain states?
+  container: Pain
+  volume: "157"
+  issue: "7"
+  pages: 1382-1386
+  doi: 10.1097/j.pain.0000000000000507
+  source: crossref
+- id: raja2020
+  type: article
+  authors:
+    - Raja, S. N.
+    - Carr, D. B.
+    - Cohen, M.
+    - Finnerup, N. B.
+    - Flor, H.
+    - Gibson, S.
+    - Keefe, F. J.
+    - Mogil, J. S.
+    - Ringkamp, M.
+    - Sluka, K. A.
+    - Song, X. J.
+    - Stevens, B.
+    - Sullivan, M. D.
+    - Tutelman, P. R.
+    - Ushida, T.
+    - Vader, K.
+  year: 2020
+  title: "The revised International Association for the Study of Pain definition of pain: concepts, challenges, and compromises"
+  container: Pain
+  volume: "161"
+  issue: "9"
+  pages: 1976-1982
+  doi: 10.1097/j.pain.0000000000001939
+  source: crossref
+- id: craig2003
+  type: article
+  authors:
+    - Craig, A. D.
+  year: 2003
+  title: A new view of pain as a homeostatic emotion
+  container: Trends in Neurosciences
+  volume: "26"
+  issue: "6"
+  pages: 303-307
+  doi: 10.1016/s0166-2236(03)00123-1
+  source: crossref
+- id: norrsell1999
+  type: article
+  authors:
+    - Norrsell, U.
+    - Finger, S.
+    - Lajonchere, C.
+  year: 1999
+  title: "Cutaneous sensory spots and the “law of specific nerve energies”: history and development of ideas"
+  container: Brain Research Bulletin
+  volume: "48"
+  issue: "5"
+  pages: 457-465
+  doi: 10.1016/s0361-9230(98)00067-7
+  source: crossref
+- id: moseley2015
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Vlaeyen, J. W. S.
+  year: 2015
+  title: Beyond nociception
+  container: Pain
+  volume: "156"
+  issue: "1"
+  pages: 35-38
+  doi: 10.1016/j.pain.0000000000000014
+  source: crossref
+- id: moseley2003
+  type: article
+  authors:
+    - Moseley, G. L.
+  year: 2003
+  title: A pain neuromatrix approach to patients with chronic pain
+  container: Manual Therapy
+  volume: "8"
+  issue: "3"
+  pages: 130-140
+  doi: 10.1016/s1356-689x(03)00051-1
+  source: crossref
+- id: leeuw2006
+  type: article
+  authors:
+    - Leeuw, M.
+    - Goossens, M. E. J. B.
+    - Linton, S. J.
+    - Crombez, G.
+    - Boersma, K.
+    - Vlaeyen, J. W. S.
+  year: 2006
+  title: "The Fear-Avoidance Model of Musculoskeletal Pain: Current State of Scientific Evidence"
+  container: Journal of Behavioral Medicine
+  volume: "30"
+  issue: "1"
+  pages: 77-94
+  doi: 10.1007/s10865-006-9085-0
+  source: crossref
+- id: ji2018
+  type: article
+  authors:
+    - Ji, R. R.
+    - Nackley, A.
+    - Huh, Y.
+    - Terrando, N.
+    - Maixner, W.
+  year: 2018
+  title: Neuroinflammation and Central Sensitization in Chronic and Widespread Pain
+  container: Anesthesiology
+  volume: "129"
+  issue: "2"
+  pages: 343-366
+  doi: 10.1097/aln.0000000000002130
+  source: crossref
+- id: woolf2000
+  type: article
+  authors:
+    - Woolf, C. J.
+    - Salter, M. W.
+  year: 2000
+  title: "Neuronal Plasticity: Increasing the Gain in Pain"
+  container: Science
+  volume: "288"
+  issue: "5472"
+  pages: 1765-1768
+  doi: 10.1126/science.288.5472.1765
+  source: crossref
+- id: kuner2016
+  type: article
+  authors:
+    - Kuner, R.
+    - Flor, H.
+  year: 2016
+  title: Structural plasticity and reorganisation in chronic pain
+  container: Nature Reviews Neuroscience
+  volume: "18"
+  issue: "1"
+  pages: 20-30
+  doi: 10.1038/nrn.2016.162
+  source: crossref
+- id: stilwell2019
+  type: article
+  authors:
+    - Stilwell, P.
+    - Harman, K.
+  year: 2019
+  title: "An enactive approach to pain: beyond the biopsychosocial model"
+  container: Phenomenology and the Cognitive Sciences
+  volume: "18"
+  issue: "4"
+  pages: 637-665
+  doi: 10.1007/s11097-019-09624-7
+  source: crossref
+- id: ghaemi2009
+  type: article
+  authors:
+    - Ghaemi, S. N.
+  year: 2009
+  title: The rise and fall of the biopsychosocial model
+  container: British Journal of Psychiatry
+  volume: "195"
+  issue: "1"
+  pages: 3-4
+  doi: 10.1192/bjp.bp.109.063859
+  source: crossref
+- id: nafe1929
+  type: article
+  authors:
+    - Nafe, J. P.
+  year: 1929
+  title: A Quantitative Theory of Feeling
+  container: The Journal of General Psychology
+  volume: "2"
+  issue: 2-3
+  pages: 199-211
+  doi: 10.1080/00221309.1929.9918059
+  source: crossref
+- id: weddell1955
+  type: article
+  authors:
+    - Weddell, G.
+  year: 1955
+  title: Somesthesis and the Chemical Senses
+  container: Annual Review of Psychology
+  volume: "6"
+  issue: "1"
+  pages: 119-136
+  doi: 10.1146/annurev.ps.06.020155.001003
+  source: crossref
+- id: dallenbach1939
+  type: article
+  authors:
+    - Dallenbach, K. M.
+  year: 1939
+  title: "Pain: History and Present Status"
+  container: The American Journal of Psychology
+  volume: "52"
+  issue: "3"
+  pages: "331"
+  doi: 10.2307/1416740
+  source: crossref
+- id: anchisi2015
+  type: article
+  authors:
+    - Anchisi, D.
+    - Zanon, M.
+  year: 2015
+  title: A Bayesian Perspective on Sensory and Cognitive Integration in Pain Perception and Placebo Analgesia
+  container: PLOS ONE
+  volume: "10"
+  issue: "2"
+  pages: e0117270
+  doi: 10.1371/journal.pone.0117270
+  source: crossref
+- id: geuter2017
+  type: article
+  authors:
+    - Geuter, S.
+    - Boll, S.
+    - Eippert, F.
+    - Büchel, C.
+  year: 2017
+  title: Functional dissociation of stimulus intensity encoding and predictive coding of pain in the insula
+  container: eLife
+  volume: "6"
+  pages: e24770
+  doi: 10.7554/elife.24770
+  source: crossref
+- id: kiverstein2022
+  type: article
+  authors:
+    - Kiverstein, J.
+    - Kirchhoff, M. D.
+    - Thacker, M.
+  year: 2022
+  title: An Embodied Predictive Processing Theory of Pain Experience
+  container: Review of Philosophy and Psychology
+  volume: "13"
+  issue: "4"
+  pages: 973-998
+  doi: 10.1007/s13164-022-00616-2
+  source: crossref
+- id: descartes1664
+  type: book
+  authors:
+    - Descartes, R.
+  year: 1664
+  title: L’Homme de René Descartes
+  publisher: Charles Angot
+  source: manual
+  note: "Written c. 1633; published posthumously. English translation: Treatise of Man (T. S. Hall, Trans.), Harvard University Press, 1972."
+- id: vonfrey1894
+  type: article
+  authors:
+    - von Frey, M.
+  year: 1894
+  title: Beiträge zur Physiologie des Schmerzsinns
+  container: Berichte über die Verhandlungen der Königlich Sächsischen Gesellschaft der Wissenschaften zu Leipzig, Mathematisch-Physische Classe
+  volume: "46"
+  pages: 185–196
+  source: manual
+- id: goldscheider1894
+  type: book
+  authors:
+    - Goldscheider, A.
+  year: 1894
+  title: Ueber den Schmerz in physiologischer und klinischer Hinsicht
+  publisher: Hirschwald
+  source: manual
+- id: melzack1968
+  type: chapter
+  authors:
+    - Melzack, R.
+    - Casey, K. L.
+  year: 1968
+  title: "Sensory, motivational, and central control determinants of pain: a new conceptual model"
+  container: The Skin Senses
+  editors:
+    - Kenshalo, D. R.
+  pages: 423–443
+  publisher: Charles C Thomas
+  source: manual

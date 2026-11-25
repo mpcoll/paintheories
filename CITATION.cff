@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this map or its data, please cite it as below."
+title: "Pain Theories Map"
+type: dataset
+authors:
+  - family-names: Coll
+    given-names: Michel-Pierre
+url: "https://mpcoll.github.io/paintheories/"
+repository-code: "https://github.com/mpcoll/paintheories"
+license: CC-BY-4.0
+version: 0.1.0
+date-released: 2026-11-25
+keywords: [pain, pain theories, nociception, chronic pain, history of science]

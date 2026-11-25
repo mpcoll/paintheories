@@ -1,0 +1,6 @@
+---
+import { DOMAINS, DOMAIN_STYLE } from '../data/taxonomy';
+interface Props { domain: keyof typeof DOMAINS }
+const { domain } = Astro.props;
+---
+<span class="tag"><span class={`dom dom-${domain}`} aria-hidden="true">{DOMAIN_STYLE[domain].symbol}</span>{DOMAINS[domain].label}</span>

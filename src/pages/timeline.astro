@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { getTheories, url } from '../lib/data';
+import { DOMAINS, DOMAIN_STYLE, KINDS } from '../data/taxonomy';
+
+const theories = await getTheories();
+const era = (y: number) => (y < 1800 ? 'Before 1800' : y < 1900 ? '19th century' : `${Math.floor(y / 10) * 10}s`);
+const groups = new Map<string, typeof theories>();
+for (const t of theories) groups.set(era(t.data.year), [...(groups.get(era(t.data.year)) ?? []), t]);
+---
+
+<Base title="Timeline" description="Chronology of pain theories from Descartes to the present.">
+  <h1>Timeline</h1>
+  <p class="lede">Theories in order of their founding publication. Symbols show the domain.</p>
+  <ul class="legend" aria-label="Legend">
+    {Object.entries(DOMAINS).map(([k, v]) => (
+      <li><span class={`sym dom-${k}`} aria-hidden="true">{DOMAIN_STYLE[k as keyof typeof DOMAIN_STYLE].symbol}</span>{v.label}</li>
+    ))}
+  </ul>
+
+  <div class="timeline">
+    {[...groups].map(([label, items]) => (
+      <section>
+        <h2 class="era">{label}</h2>
+        <ol>
+          {items.map((t) => (
+            <li>
+              <span class="year">{t.data.year}</span>
+              <span class={`node dom-${t.data.domain}`} aria-hidden="true">{DOMAIN_STYLE[t.data.domain].symbol}</span>
+              <div class="body">
+                <a href={url(`theories/${t.id}/`)}><strong>{t.data.title}</strong></a>
+                <span class="muted"> · {t.data.proponents.slice(0, 2).join(', ')} · {KINDS[t.data.kind].label}</span>
+                <p>{t.data.summary}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </div>
+
+  <style>
+    .timeline { max-width: 860px; }
+    .era { font-size: 1rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; margin: 2rem 0 .5rem; }
+    .timeline ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line-strong); margin-left: 4.5rem; }
+    .timeline li { position: relative; padding: 0 0 1.25rem 1.5rem; }
+    .year { position: absolute; left: -4.6rem; width: 3.6rem; text-align: right; top: .05rem; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink-2); }
+    .node { position: absolute; left: -0.62rem; top: .05rem; font-size: 1.05rem; line-height: 1.4; background: var(--bg); }
+    .body p { margin: .2rem 0 0; font-size: .93rem; color: var(--ink-2); }
+    @media (max-width: 520px) {
+      .timeline ol { margin-left: .5rem; }
+      .year { position: static; display: block; width: auto; text-align: left; }
+    }
+  </style>
+</Base>

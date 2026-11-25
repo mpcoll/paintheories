@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import DomainBadge from '../../components/DomainBadge.astro';
+import { getTheories, url } from '../../lib/data';
+import { KINDS, DOMAINS, LEVELS, QUESTIONS, STATUSES, PAIN_TYPES } from '../../data/taxonomy';
+
+const theories = await getTheories();
+const filters = [
+  ['domain', 'Domain', DOMAINS],
+  ['kind', 'Kind', KINDS],
+  ['status', 'Status', STATUSES],
+  ['levels', 'Level', LEVELS],
+  ['questions', 'Question', QUESTIONS],
+  ['painTypes', 'Pain type', PAIN_TYPES],
+] as const;
+---
+
+<Base title="All theories" description="Filterable table of all theories and models of pain on the map.">
+  <h1>Theories and models</h1>
+  <p class="lede">{theories.length} entries. Filter by classification or search by name, author or claim. Click a column heading to sort.</p>
+
+  <form class="filters" id="filters" data-pagefind-ignore>
+    <label>Search<input type="search" name="q" placeholder="e.g. Melzack, fear, spinal" /></label>
+    {filters.map(([key, label, vocab]) => (
+      <label>{label}
+        <select name={key}>
+          <option value="">All</option>
+          {Object.entries(vocab).map(([k, v]) => <option value={k}>{v.label}</option>)}
+        </select>
+      </label>
+    ))}
+    <button class="btn" type="reset">Clear</button>
+  </form>
+  <p class="muted" id="count" aria-live="polite" style="font-size:.9rem"></p>
+
+  <div class="table-wrap">
+    <table id="theory-table">
+      <thead>
+        <tr>
+          <th><button data-sort="title">Name</button></th>
+          <th><button data-sort="year">Year</button></th>
+          <th><button data-sort="domain">Domain</button></th>
+          <th><button data-sort="kind">Kind</button></th>
+          <th><button data-sort="status">Status</button></th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        {theories.map((t) => (
+          <tr
+            data-title={t.data.title}
+            data-year={t.data.year}
+            data-domain={t.data.domain}
+            data-kind={t.data.kind}
+            data-status={t.data.status}
+            data-levels={t.data.levels.join(' ')}
+            data-questions={t.data.questions.join(' ')}
+            data-paintypes={t.data.painTypes.join(' ')}
+            data-text={[t.data.title, ...t.data.aliases, ...t.data.proponents, t.data.summary, ...t.data.coreClaims].join(' ').toLowerCase()}
+          >
+            <td><a href={url(`theories/${t.id}/`)}><strong>{t.data.title}</strong></a><br /><span class="muted" style="font-size:.82rem">{t.data.proponents.slice(0, 3).join(', ')}</span></td>
+            <td>{t.data.year}</td>
+            <td><DomainBadge domain={t.data.domain} /></td>
+            <td>{KINDS[t.data.kind].label}</td>
+            <td>{STATUSES[t.data.status].label}</td>
+            <td style="min-width:280px">{t.data.summary}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('filters') as HTMLFormElement;
+    const tbody = document.querySelector('#theory-table tbody') as HTMLTableSectionElement;
+    const rows = Array.from(tbody.rows);
+    const count = document.getElementById('count')!;
+    const multi: Record<string, string> = { levels: 'levels', questions: 'questions', painTypes: 'paintypes' };
+
+    function apply() {
+      const fd = new FormData(form);
+      const q = String(fd.get('q') ?? '').toLowerCase().trim();
+      let shown = 0;
+      for (const row of rows) {
+        let ok = !q || q.split(/\s+/).every((w) => row.dataset.text!.includes(w));
+        for (const [key, value] of fd.entries()) {
+          if (key === 'q' || !value) continue;
+          if (key in multi) ok &&= row.dataset[multi[key]]!.split(' ').includes(String(value));
+          else ok &&= row.dataset[key] === value;
+        }
+        row.hidden = !ok;
+        if (ok) shown++;
+      }
+      count.textContent = `${shown} of ${rows.length} shown`;
+      const params = new URLSearchParams();
+      for (const [k, v] of fd.entries()) if (v) params.set(k, String(v));
+      history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
+    }
+
+    // Restore filters from the URL so filtered views can be shared.
+    const init = new URLSearchParams(location.search);
+    for (const [k, v] of init) {
+      const el = form.elements.namedItem(k) as HTMLInputElement | HTMLSelectElement | null;
+      if (el) el.value = v;
+    }
+    form.addEventListener('input', apply);
+    form.addEventListener('reset', () => setTimeout(apply));
+    form.addEventListener('submit', (e) => e.preventDefault());
+
+    let sortKey = 'year';
+    let dir = 1;
+    document.querySelectorAll<HTMLButtonElement>('th button').forEach((b) =>
+      b.addEventListener('click', () => {
+        const key = b.dataset.sort!;
+        dir = key === sortKey ? -dir : 1;
+        sortKey = key;
+        const val = (r: HTMLTableRowElement) => r.dataset[key]!;
+        rows.sort((a, c) =>
+          key === 'year' ? (Number(val(a)) - Number(val(c))) * dir : val(a).localeCompare(val(c)) * dir,
+        );
+        tbody.append(...rows);
+      }),
+    );
+    apply();
+  </script>
+</Base>

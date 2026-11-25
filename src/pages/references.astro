@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getReferences, getTheories, formatReference, url } from '../lib/data';
+
+const refs = await getReferences();
+const theories = await getTheories();
+const citedBy = (id: string) =>
+  theories.filter((t) => [...t.data.foundational, ...t.data.keyReferences].some((r) => r.id === id));
+---
+<Base title="References" description="Bibliography of all sources cited on the Pain Theories Map.">
+  <h1>References</h1>
+  <p class="lede">{refs.length} sources. Every entry with a DOI was retrieved from and checked against Crossref; entries without a DOI were entered by hand.</p>
+  <p><a class="btn" href={url('data/references.bib')} download>Download BibTeX</a></p>
+  <ol class="refs" style="list-style:none;padding:0;max-width:var(--measure)">
+    {refs.map((r) => {
+      const f = formatReference(r.data);
+      const users = citedBy(r.id);
+      return (
+        <li class="ref-entry" id={r.id}>
+          {f.text} {f.doiUrl && <a href={f.doiUrl}>https://doi.org/{r.data.doi}</a>}
+          {r.data.note && <span class="muted"> {r.data.note}</span>}
+          {users.length > 0 && <div class="muted" style="font-size:.82rem">Cited for: {users.map((t, i) => <>{i > 0 && ', '}<a href={url(`theories/${t.id}/`)}>{t.data.shortTitle ?? t.data.title}</a></>)}</div>}
+          <div class="muted" style="font-size:.75rem"><code>{r.id}</code>{r.data.source === 'manual' && ' · entered manually'}</div>
+        </li>
+      );
+    })}
+  </ol>
+</Base>

@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/data';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Set to false for pages that should not be indexed by site search. */
+  searchable?: boolean;
+}
+const { title, description = 'An open, structured map of theories and models of pain.', searchable = true } = Astro.props;
+const fullTitle = title === 'Pain Theories Map' ? title : `${title} · Pain Theories Map`;
+const nav = [
+  ['theories/', 'Theories'],
+  ['map/', 'Map'],
+  ['timeline/', 'Timeline'],
+  ['compare/', 'Compare'],
+  ['mechanisms/', 'Mechanisms'],
+  ['references/', 'References'],
+  ['search/', 'Search'],
+  ['about/', 'About'],
+];
+const here = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={url()}>Pain Theories <span>Map</span></a>
+        <nav class="nav" aria-label="Main">
+          {
+            nav.map(([href, label]) => (
+              <a href={url(href)} aria-current={here.startsWith(url(href)) ? 'page' : undefined}>
+                {label}
+              </a>
+            ))
+          }
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle light/dark"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+      </div>
+    </header>
+    <main class="wrap" data-pagefind-body={searchable ? '' : undefined}>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        Content licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code MIT.
+        <a href="https://github.com/mpcoll/paintheories">Source on GitHub</a> ·
+        <a href={url('data/')}>Download the data</a> · <a href={url('about/#cite')}>How to cite</a>
+      </div>
+    </footer>
+    <script is:inline>
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const dark =
+          root.dataset.theme === 'dark' ||
+          (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+        root.dataset.theme = dark ? 'light' : 'dark';
+        try {
+          localStorage.setItem('theme', root.dataset.theme);
+        } catch {}
+        window.dispatchEvent(new Event('themechange'));
+      });
+    </script>
+  </body>
+</html>

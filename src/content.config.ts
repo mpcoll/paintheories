@@ -1,0 +1,78 @@
+import { defineCollection, reference } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+import { z } from 'astro/zod';
+import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, keys } from './data/taxonomy';
+
+/**
+ * Bibliography. One shared list so that a paper cited by several theories is
+ * stored once. Entries with a DOI are generated and checked with
+ * `npm run ref:add -- <doi>` / `npm run ref:verify` (Crossref).
+ */
+const references = defineCollection({
+  loader: file('src/data/references.yaml'),
+  schema: z.object({
+    type: z.enum(['article', 'book', 'chapter', 'other']).default('article'),
+    authors: z.array(z.string()).min(1), // "Family, G." format
+    year: z.number().int(),
+    title: z.string(),
+    container: z.string().optional(), // journal or book title
+    volume: z.string().optional(),
+    issue: z.string().optional(),
+    pages: z.string().optional(),
+    publisher: z.string().optional(),
+    editors: z.array(z.string()).optional(),
+    doi: z.string().optional(),
+    url: z.url().optional(),
+    // crossref = metadata pulled from Crossref by DOI; manual = typed by hand and needs checking
+    source: z.enum(['crossref', 'manual']),
+    note: z.string().optional(),
+  }),
+});
+
+/** Mechanisms and constructs that theories invoke (nodes theories point to). */
+const mechanisms = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/mechanisms' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    levels: z.array(z.enum(keys(LEVELS))).min(1),
+    references: z.array(reference('references')).default([]),
+  }),
+});
+
+const theories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/theories' }),
+  schema: z.object({
+    title: z.string(),
+    shortTitle: z.string().optional(), // label used on the map
+    aliases: z.array(z.string()).default([]),
+    kind: z.enum(keys(KINDS)),
+    year: z.number().int(), // year of the founding publication (negative = BCE)
+    proponents: z.array(z.string()).min(1),
+    summary: z.string().max(400), // one or two sentences
+    domain: z.enum(keys(DOMAINS)),
+    levels: z.array(z.enum(keys(LEVELS))).min(1),
+    questions: z.array(z.enum(keys(QUESTIONS))).min(1),
+    painTypes: z.array(z.enum(keys(PAIN_TYPES))).min(1),
+    status: z.enum(keys(STATUSES)),
+    coreClaims: z.array(z.string()).min(1),
+    predictions: z.array(z.string()).default([]),
+    mechanisms: z.array(reference('mechanisms')).default([]),
+    relations: z
+      .array(
+        z.object({
+          type: z.enum(keys(RELATIONS)),
+          target: reference('theories'),
+          note: z.string().optional(),
+        }),
+      )
+      .default([]),
+    foundational: z.array(reference('references')).min(1), // the papers that proposed it
+    keyReferences: z.array(reference('references')).default([]), // reviews, critiques, tests
+    // draft = written but not yet reviewed by a domain expert; reviewed = checked
+    review: z.enum(['stub', 'draft', 'reviewed']).default('draft'),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories };

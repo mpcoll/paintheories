@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getTheories, url } from '../../lib/data';
+import { LEVELS } from '../../data/taxonomy';
+
+const mechanisms = (await getCollection('mechanisms')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const theories = await getTheories();
+const users = (id: string) => theories.filter((t) => t.data.mechanisms.some((m) => m.id === id));
+---
+<Base title="Mechanisms" description="Mechanisms and constructs invoked by pain theories.">
+  <h1>Mechanisms and constructs</h1>
+  <p class="lede">The processes that theories appeal to. Several theories often share a mechanism while disagreeing about its role.</p>
+  <div class="grid">
+    {mechanisms.map((m) => (
+      <article class="card">
+        <a class="stretch" href={url(`mechanisms/${m.id}/`)}><h3>{m.data.title}</h3></a>
+        <p style="margin:0 0 .6rem;font-size:.93rem">{m.data.summary}</p>
+        <p class="muted" style="margin:0;font-size:.82rem">{m.data.levels.map((l) => LEVELS[l].label).join(', ')} · used by {users(m.id).length} {users(m.id).length === 1 ? 'theory' : 'theories'}</p>
+      </article>
+    ))}
+  </div>
+</Base>

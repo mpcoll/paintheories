@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/data';
+---
+<Base title="Search" description="Full-text search across all theories, mechanisms and references." searchable={false}>
+  <h1>Search</h1>
+  <p class="lede">Full-text search across theories, mechanisms and references.</p>
+  <link href={url('pagefind/pagefind-ui.css')} rel="stylesheet" />
+  <div id="search"></div>
+  <noscript>Search needs JavaScript. Use the <a href={url('theories/')}>theories table</a> instead.</noscript>
+  <script is:inline define:vars={{ base: url() }}>
+    const s = document.createElement('script');
+    s.src = base + 'pagefind/pagefind-ui.js';
+    s.onload = () => {
+      const ui = new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) ui.triggerSearch(q);
+    };
+    s.onerror = () => {
+      document.getElementById('search').innerHTML =
+        '<p class="muted">The search index is built with <code>npm run build</code> and is not available in the dev server.</p>';
+    };
+    document.head.append(s);
+  </script>
+  <style is:global>
+    #search {
+      --pagefind-ui-primary: var(--accent);
+      --pagefind-ui-text: var(--ink);
+      --pagefind-ui-background: var(--surface);
+      --pagefind-ui-border: var(--line-strong);
+      --pagefind-ui-tag: var(--surface-2);
+      --pagefind-ui-font: var(--font);
+      max-width: var(--measure);
+    }
+  </style>
+</Base>

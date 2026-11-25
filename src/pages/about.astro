@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/data';
+import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../data/taxonomy';
+
+const vocabs = [
+  ['Kind', KINDS],
+  ['Domain', DOMAINS],
+  ['Level of explanation', LEVELS],
+  ['Question addressed', QUESTIONS],
+  ['Pain type', PAIN_TYPES],
+  ['Status', STATUSES],
+  ['Relation', RELATIONS],
+] as const;
+const year = new Date().getFullYear();
+---
+<Base title="About" description="Aims, inclusion criteria, classification scheme and how to cite the Pain Theories Map.">
+  <div class="prose">
+    <h1>About this map</h1>
+    <p class="lede">The Pain Theories Map aims to be an exhaustive, structured and openly reusable overview of scientific theories and models of pain, for researchers and advanced students.</p>
+
+    <h2 id="scope">Scope and inclusion criteria</h2>
+    <p>An entry is included if it offers an explicit account of what pain is, how nociceptive signals are processed, why pain varies across people and contexts, why pain persists, why pain leads to disability, or what pain is for. The map focuses on scientific theories; philosophical, evolutionary and sociocultural accounts are included where they make claims that bear on scientific research.</p>
+    <p>Entries are classified into three kinds:</p>
+    <ul>{Object.values(KINDS).map((k) => <li><strong>{k.label}.</strong> {k.description}</li>)}</ul>
+    <p>Narrower <a href={url('mechanisms/')}>mechanisms and constructs</a> (e.g. central sensitization as a cellular process, pain catastrophizing) are listed separately and linked from the theories that invoke them.</p>
+
+    <h2 id="method">How entries are written</h2>
+    <ul>
+      <li>Each entry has the same structure: core claims, testable predictions, evidence for, evidence against and critiques, legacy, and teaching notes.</li>
+      <li>Each entry cites the publications that proposed the theory and key reviews, tests and critiques.</li>
+      <li>References with a DOI are retrieved from and checked against <a href="https://www.crossref.org/">Crossref</a>. Older works without a DOI are entered by hand and flagged.</li>
+      <li>Entries are marked <em>stub</em>, <em>draft</em> or <em>reviewed</em>. Drafts have not yet been checked by a domain expert.</li>
+    </ul>
+
+    <h2 id="classification">Classification scheme</h2>
+    <p>Every entry is classified using the controlled vocabularies below. They can be revised as the map grows.</p>
+  </div>
+  {vocabs.map(([title, v]) => (
+    <>
+      <h3>{title}</h3>
+      <div class="table-wrap prose"><table><tbody>
+        {Object.values(v).map((x) => <tr><td style="width:30%"><strong>{x.label}</strong></td><td>{x.description}</td></tr>)}
+      </tbody></table></div>
+    </>
+  ))}
+
+  <div class="prose">
+    <h2 id="cite">How to cite</h2>
+    <p>Coll, M.-P. ({year}). <em>Pain Theories Map</em> [Website and dataset]. https://mpcoll.github.io/paintheories/</p>
+    <p>Please also cite the original publications for any theory you discuss. A <a href="https://github.com/mpcoll/paintheories/blob/main/CITATION.cff">CITATION.cff</a> file is provided in the repository.</p>
+
+    <h2 id="contribute">Corrections and contributions</h2>
+    <p>Corrections, missing theories and suggested references are welcome as <a href="https://github.com/mpcoll/paintheories/issues">GitHub issues</a> or pull requests. Every entry has a link to its source file.</p>
+
+    <h2 id="license">Licence</h2>
+    <p>Content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Code is licensed under the MIT licence.</p>
+  </div>
+</Base>

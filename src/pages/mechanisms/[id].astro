@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getTheories, url, formatReference, resolveRefs, type Mechanism } from '../../lib/data';
+import { LEVELS } from '../../data/taxonomy';
+
+export async function getStaticPaths() {
+  return (await getCollection('mechanisms')).map((m) => ({ params: { id: m.id }, props: { m } }));
+}
+const { m } = Astro.props as { m: Mechanism };
+const { Content } = await render(m);
+const users = (await getTheories()).filter((t) => t.data.mechanisms.some((x) => x.id === m.id));
+const refs = await resolveRefs(m.data.references);
+---
+<Base title={m.data.title} description={m.data.summary}>
+  <p class="muted" style="margin:0"><a href={url('mechanisms/')}>Mechanisms</a></p>
+  <h1>{m.data.title}</h1>
+  <p class="lede">{m.data.summary}</p>
+  <p class="muted">Level: {m.data.levels.map((l) => LEVELS[l].label).join(', ')}</p>
+  <div class="prose"><Content /></div>
+  <h2>Theories that invoke this mechanism</h2>
+  {users.length ? <ul>{users.map((t) => <li><a href={url(`theories/${t.id}/`)}>{t.data.title}</a> ({t.data.year})</li>)}</ul> : <p class="muted">None yet.</p>}
+  {refs.length > 0 && <>
+    <h2>References</h2>
+    <ul class="refs">{refs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a href={f.doiUrl}>doi</a>}</li>; })}</ul>
+  </>}
+</Base>
