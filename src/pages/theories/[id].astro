@@ -2,6 +2,7 @@
 import { getEntries, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import DomainBadge from '../../components/DomainBadge.astro';
+import Notice from '../../components/Notice.astro';
 import { getTheories, url, formatReference, resolveRefs, type Theory, type Mechanism } from '../../lib/data';
 import { KINDS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../../data/taxonomy';
 
@@ -26,23 +27,23 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
 ---
 
 <Base title={d.title} description={d.summary}>
-  <div class="theory-head">
-    <p class="muted" style="margin:0"><a href={url('theories/')}>Theories</a> / {KINDS[d.kind].label}</p>
+  <p class="crumbs"><a href={url('theories/')}>Theories</a> / {KINDS[d.kind].label}</p>
+  <header class={`theory-head d-${d.domain}`}>
+    <p class="eyebrow">{d.year} · {d.proponents.slice(0, 3).join(', ')}{d.proponents.length > 3 ? ' et al.' : ''}</p>
     <h1>{d.title}</h1>
-    {d.aliases.length > 0 && <p class="muted" style="margin:0">Also known as: {d.aliases.join('; ')}</p>}
-    <p class="lede" style="margin:.25rem 0">{d.summary}</p>
+    {d.aliases.length > 0 && <p class="aka">Also known as {d.aliases.join('; ')}</p>}
+    <p class="lede">{d.summary}</p>
     <div class="tags">
       <DomainBadge domain={d.domain} />
       <span class="tag">{KINDS[d.kind].label}</span>
       <span class="tag" title={STATUSES[d.status].description}>Status: {STATUSES[d.status].label}</span>
-      <span class="tag">{d.year}</span>
     </div>
-    {reviewLabel && <p class="notice" data-pagefind-ignore>{reviewLabel} Please report errors via <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>GitHub</a>.</p>}
-  </div>
+  </header>
+  {reviewLabel && <div data-pagefind-ignore><Notice>{reviewLabel} Spotted an error? <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>Report it on GitHub</a>.</Notice></div>}
 
   <div class="theory-layout">
-    <article class="prose">
-      <h2 style="margin-top:0">Core claims</h2>
+    <article class={`prose article d-${d.domain}`}>
+      <h2>Core claims</h2>
       <ol class="claims">{d.coreClaims.map((c) => <li>{c}</li>)}</ol>
       {
         d.predictions.length > 0 && (
@@ -57,12 +58,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
       <h2 id="references">References</h2>
       <h3>Foundational</h3>
       <ul class="refs">
-        {foundational.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a href={f.doiUrl}>doi</a>}</li>; })}
+        {foundational.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a class="doi" href={f.doiUrl}>DOI ↗</a>}</li>; })}
       </ul>
       {keyRefs.length > 0 && <>
         <h3>Key reviews, tests and critiques</h3>
         <ul class="refs">
-          {keyRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a href={f.doiUrl}>doi</a>}</li>; })}
+          {keyRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a class="doi" href={f.doiUrl}>DOI ↗</a>}</li>; })}
         </ul>
       </>}
       <p class="muted" style="font-size:.85rem">Last updated {d.updated.toISOString().slice(0, 10)} · <a href={`https://github.com/mpcoll/paintheories/blob/main/src/content/theories/${theory.id}.md`}>View source</a></p>
@@ -83,10 +84,10 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         <section class="card">
           <h2>Relations</h2>
           <ul>
-            {outgoing.map((r) => <li>{RELATIONS[r.type].label} <a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a>{r.note && <span class="muted"> — {r.note}</span>}</li>)}
-            {incoming.map((r) => <li><a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a> {RELATIONS[r.type].label} this</li>)}
+            {outgoing.map((r) => <li><span class="rel-type">{RELATIONS[r.type].label}</span><a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a>{r.note && <span class="note">{r.note}</span>}</li>)}
+            {incoming.map((r) => <li><span class="rel-type">{RELATIONS[r.type].inverse}</span><a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a></li>)}
           </ul>
-          <p style="margin:.6rem 0 0;font-size:.85rem"><a href={url(`map/?focus=${theory.id}`)}>Show on map →</a></p>
+          <a class="more" href={url(`map/?focus=${theory.id}`)}>Show on map →</a>
         </section>
       )}
       {mechanisms.length > 0 && (
@@ -97,7 +98,8 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
       )}
       <section class="card">
         <h2>Compare</h2>
-        <p style="margin:0;font-size:.9rem"><a href={url(`compare/?ids=${theory.id}`)}>Compare with other theories →</a></p>
+        <p style="margin:0;font-size:.9rem;color:var(--ink-2)">See this theory side by side with others.</p>
+        <a class="more" href={url(`compare/?ids=${theory.id}`)}>Open comparison →</a>
       </section>
     </aside>
   </div>

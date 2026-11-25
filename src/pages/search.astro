@@ -3,8 +3,11 @@ import Base from '../layouts/Base.astro';
 import { url } from '../lib/data';
 ---
 <Base title="Search" description="Full-text search across all theories, mechanisms and references." searchable={false}>
-  <h1>Search</h1>
-  <p class="lede">Full-text search across theories, mechanisms and references.</p>
+  <header class="page-head">
+    <p class="eyebrow">Find</p>
+    <h1>Search</h1>
+    <p class="lede">Full-text search across theories, mechanisms and references.</p>
+  </header>
   <link href={url('pagefind/pagefind-ui.css')} rel="stylesheet" />
   <div id="search"></div>
   <noscript>Search needs JavaScript. Use the <a href={url('theories/')}>theories table</a> instead.</noscript>

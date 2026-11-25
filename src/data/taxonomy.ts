@@ -6,7 +6,7 @@
  * To add a category, add it here — labels and descriptions propagate to the site.
  */
 
-type Vocab = Record<string, { label: string; description: string }>;
+type Vocab = Record<string, { label: string; description: string; inverse?: string }>;
 
 /** What kind of entry this is (inclusion tiers; see PLAN.md §1). */
 export const KINDS = {
@@ -101,11 +101,11 @@ export const STATUSES = {
  * These become the edges of the network map.
  */
 export const RELATIONS = {
-  'builds-on': { label: 'builds on', description: 'Adopts and develops core ideas of the target.' },
-  extends: { label: 'extends', description: 'Is a direct successor or revision of the target by overlapping authors.' },
-  challenges: { label: 'challenges', description: 'Was proposed against, or provides evidence against, the target.' },
-  integrates: { label: 'integrates', description: 'Incorporates the target as one component of a broader framework.' },
-  'related-to': { label: 'related to', description: 'Shares mechanisms or constructs without a direct lineage.' },
+  'builds-on': { label: 'builds on', inverse: 'built upon by', description: 'Adopts and develops core ideas of the target.' },
+  extends: { label: 'extends', inverse: 'extended by', description: 'Is a direct successor or revision of the target by overlapping authors.' },
+  challenges: { label: 'challenges', inverse: 'challenged by', description: 'Was proposed against, or provides evidence against, the target.' },
+  integrates: { label: 'integrates', inverse: 'integrated into', description: 'Incorporates the target as one component of a broader framework.' },
+  'related-to': { label: 'related to', inverse: 'related to', description: 'Shares mechanisms or constructs without a direct lineage.' },
 } as const satisfies Vocab;
 
 export type Key<V> = Extract<keyof V, string>;

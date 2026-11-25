@@ -8,8 +8,11 @@ const citedBy = (id: string) =>
   theories.filter((t) => [...t.data.foundational, ...t.data.keyReferences].some((r) => r.id === id));
 ---
 <Base title="References" description="Bibliography of all sources cited on the Pain Theories Map.">
-  <h1>References</h1>
-  <p class="lede">{refs.length} sources. Every entry with a DOI was retrieved from and checked against Crossref; entries without a DOI were entered by hand.</p>
+  <header class="page-head">
+    <p class="eyebrow">Bibliography</p>
+    <h1>References</h1>
+    <p class="lede">{refs.length} sources. Every entry with a DOI was retrieved from and checked against Crossref; entries without a DOI were entered by hand.</p>
+  </header>
   <p><a class="btn" href={url('data/references.bib')} download>Download BibTeX</a></p>
   <ol class="refs" style="list-style:none;padding:0;max-width:var(--measure)">
     {refs.map((r) => {

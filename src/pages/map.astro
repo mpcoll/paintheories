@@ -15,8 +15,11 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
 ---
 
 <Base title="Network map" description="Interactive network of pain theories and how they relate." searchable={false}>
-  <h1>Network map</h1>
-  <p class="lede">Each node is a theory or model; colour and shape show its domain; lines show how theories relate. Click a node for details, double-click to open its page.</p>
+  <header class="page-head">
+    <p class="eyebrow">Explore</p>
+    <h1>Network map</h1>
+    <p class="lede">Each node is a theory or model; colour and shape show its domain; lines show how theories relate. Click a node for details, double-click to open its page.</p>
+  </header>
 
   <div class="filters" data-pagefind-ignore>
     <label>Layout
@@ -81,7 +84,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       theories: any[];
       mechanisms: { id: string; title: string; summary: string; url: string }[];
       domainStyle: Record<string, { slot: number; shape: string }>;
-      relations: Record<string, { label: string }>;
+      relations: Record<string, { label: string; inverse?: string }>;
       domains: Record<string, { label: string }>;
     };
     const data: Payload = JSON.parse(document.getElementById('map-data')!.textContent!);
@@ -201,8 +204,9 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       const rels = node.connectedEdges().filter((e) => e.data('rel') !== 'mechanism').map((e: cytoscape.EdgeSingular) => {
         const out = e.source().id() === node.id();
         const other = out ? e.target() : e.source();
-        const label = data.relations[e.data('rel')].label;
-        return `<li>${out ? label + ' ' : ''}<strong>${esc(other.data('label'))}</strong>${out ? '' : ' ' + label + ' this'}</li>`;
+        const rel = data.relations[e.data('rel')] as { label: string; inverse?: string };
+        const label = out ? rel.label : rel.inverse ?? rel.label;
+        return `<li><span class="muted" style="font-size:.75rem;text-transform:uppercase;letter-spacing:.05em">${label}</span><br><strong>${esc(other.data('label'))}</strong></li>`;
       });
       panel.innerHTML = `<p class="muted" style="margin:0 0 .25rem;font-size:.8rem">${rec.year} · ${esc(data.domains[rec.domain].label)}</p>
         <h3>${esc(rec.title)}</h3><p>${esc(rec.summary)}</p>

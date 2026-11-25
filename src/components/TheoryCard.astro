@@ -6,10 +6,10 @@ import DomainBadge from './DomainBadge.astro';
 interface Props { theory: Theory }
 const { id, data } = Astro.props.theory;
 ---
-<article class="card">
-  <a class="stretch" href={url(`theories/${id}/`)}><h3>{data.title}</h3></a>
-  <p class="muted" style="margin:0 0 .5rem;font-size:.85rem">{data.year} · {data.proponents.slice(0, 2).join(', ')}{data.proponents.length > 2 ? ' et al.' : ''}</p>
-  <p style="margin:0 0 .75rem;font-size:.93rem">{data.summary}</p>
+<article class={`card tcard d-${data.domain}`}>
+  <p class="meta">{data.year} · {data.proponents.slice(0, 2).join(', ')}{data.proponents.length > 2 ? ' et al.' : ''}</p>
+  <h3><a href={url(`theories/${id}/`)}>{data.title}</a></h3>
+  <p class="sum">{data.summary}</p>
   <div class="tags">
     <DomainBadge domain={data.domain} />
     <span class="tag">{KINDS[data.kind].label}</span>

@@ -9,8 +9,11 @@ const theories = await getTheories();
 const users = (id: string) => theories.filter((t) => t.data.mechanisms.some((m) => m.id === id));
 ---
 <Base title="Mechanisms" description="Mechanisms and constructs invoked by pain theories.">
-  <h1>Mechanisms and constructs</h1>
-  <p class="lede">The processes that theories appeal to. Several theories often share a mechanism while disagreeing about its role.</p>
+  <header class="page-head">
+    <p class="eyebrow">Building blocks</p>
+    <h1>Mechanisms and constructs</h1>
+    <p class="lede">The processes that theories appeal to. Several theories often share a mechanism while disagreeing about its role.</p>
+  </header>
   <div class="grid">
     {mechanisms.map((m) => (
       <article class="card">

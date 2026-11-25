@@ -3,8 +3,11 @@ import Base from '../../layouts/Base.astro';
 import { url } from '../../lib/data';
 ---
 <Base title="Data" description="Download the Pain Theories Map as structured data.">
-  <h1>Data</h1>
-  <p class="lede">Everything on this site is generated from structured files. You can download it for analysis, reviews or teaching material. Licensed CC BY 4.0. Please <a href={url('about/#cite')}>cite</a> the map.</p>
+  <header class="page-head">
+    <p class="eyebrow">Open data</p>
+    <h1>Data</h1>
+    <p class="lede">Everything on this site is generated from structured files. You can download it for analysis, reviews or teaching material. Licensed CC BY 4.0. Please <a href={url('about/#cite')}>cite</a> the map.</p>
+  </header>
   <div class="table-wrap prose">
     <table>
       <thead><tr><th>File</th><th>Contents</th></tr></thead>

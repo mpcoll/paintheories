@@ -16,8 +16,11 @@ const filters = [
 ---
 
 <Base title="All theories" description="Filterable table of all theories and models of pain on the map.">
-  <h1>Theories and models</h1>
-  <p class="lede">{theories.length} entries. Filter by classification or search by name, author or claim. Click a column heading to sort.</p>
+  <header class="page-head">
+    <p class="eyebrow">Catalogue</p>
+    <h1>Theories and models</h1>
+    <p class="lede">{theories.length} entries. Filter by classification or search by name, author or claim. Click a column heading to sort.</p>
+  </header>
 
   <form class="filters" id="filters" data-pagefind-ignore>
     <label>Search<input type="search" name="q" placeholder="e.g. Melzack, fear, spinal" /></label>
