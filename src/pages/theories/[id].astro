@@ -1,5 +1,5 @@
 ---
-import { getEntries, render } from 'astro:content';
+import { getCollection, getEntries, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import DomainBadge from '../../components/DomainBadge.astro';
 import Notice from '../../components/Notice.astro';
@@ -28,6 +28,9 @@ const otherIds = [...new Set([...d.keyReferences, ...d.evidence.flatMap((e) => e
 const keyRefs = (await resolveRefs(otherIds.map((id) => ({ id, collection: 'references' })))).sort(
   (a, b) => a.data.authors[0].localeCompare(b.data.authors[0]) || a.data.year - b.data.year,
 );
+const openQuestions = (await getCollection('gaps'))
+  .filter((g) => g.data.predictions.some((p) => p.theory.id === theory.id))
+  .sort((a, b) => a.data.order - b.data.order);
 const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draft: 'Draft — not yet reviewed by a domain expert.', reviewed: '' }[d.review];
 ---
 
@@ -100,6 +103,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         <section class="card">
           <h2>Mechanisms invoked</h2>
           <ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {openQuestions.length > 0 && (
+        <section class="card">
+          <h2>Open questions</h2>
+          <ul>{openQuestions.map((g) => <li><a href={url(`gaps/#${g.id}`)}>{g.data.title}</a></li>)}</ul>
         </section>
       )}
       <section class="card">

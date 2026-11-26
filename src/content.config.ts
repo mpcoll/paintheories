@@ -86,4 +86,28 @@ const theories = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories };
+/**
+ * Open questions / research gaps: where theories make competing, testable predictions.
+ * Predictions are derived by the editors from each theory's core claims.
+ */
+const gaps = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/gaps' }),
+  schema: z.object({
+    title: z.string(), // phrased as a question
+    order: z.number().int(),
+    summary: z.string().max(500), // why it matters
+    questions: z.array(z.enum(keys(QUESTIONS))).min(1),
+    predictions: z
+      .array(z.object({ theory: reference('theories'), prediction: z.string() }))
+      .min(2),
+    test: z.object({
+      design: z.string(), // a study that would discriminate between the predictions
+      decisive: z.string(), // what result would favour which theory
+    }),
+    references: z.array(reference('references')).default([]),
+    review: z.enum(['stub', 'draft', 'reviewed']).default('draft'),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps };

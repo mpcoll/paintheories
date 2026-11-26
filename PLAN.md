@@ -61,7 +61,7 @@ without a DOI are marked `source: manual`.
 | Full-text search (Pagefind) | ✅ |
 | Key findings per theory (supporting / contradicting / mixed, linked to papers) | ✅ |
 | Evidence page (all findings, balance table, filters) + evidence.csv | ✅ |
-| Prediction matrix (where theories make diverging predictions) | ⬜ Phase 6 |
+| Gaps page: open questions with competing predictions + decisive tests; automatic coverage analysis | ✅ |
 | Learning paths, case vignettes, glossary | ⬜ Phase 5 |
 
 ## 4. Phases
