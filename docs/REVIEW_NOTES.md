@@ -44,6 +44,12 @@ judgement calls. Tick them off or delete them as you review.
 - [ ] Domain: salience detection and imprecision hypothesis = cognitive (could be neurobiological / psychosocial); enactive approach = integrative; allostatic load = integrative.
 - [ ] Founding years: neuromatrix 1990 (Melzack 1989 lecture?); avoidance-endurance 2000; psychological flexibility 2014; evaluativism 2011; evolutionary account and sociocultural model years.
 
+## Added 2026-11-26 (Seymour)
+
+- [ ] **reinforcement-learning-account** and **homeostatic-injury-model**: all findings were written from abstracts (Europe PMC). Neither entry has contradicting findings yet: I couldn't find a verified study that contradicts them. Suggestions welcome (e.g. failures of RL models in clinical samples).
+- [ ] Should the homeostatic injury model be its own entry or folded into the reinforcement learning account? It's separate for now, linked as "extends".
+- [ ] Founding years: RL account 2019 (Seymour, Neuron), with Seymour 2004/2005 as precursors; homeostatic model 2026 (Mahajan, Dayan & Seymour, PLOS Comput Biol).
+
 ## Conflict of interest
 
 - [ ] **social-communication-model** cites Grégoire, Coll et al. 2016 (Eur J Pain) as a supporting finding. Decide whether to keep it.

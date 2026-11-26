@@ -7866,3 +7866,139 @@
   pages: 1324-1336
   doi: 10.1007/s11606-018-4468-9
   source: crossref
+- id: seymour2019
+  type: article
+  authors:
+    - Seymour, B.
+  year: 2019
+  title: "Pain: A Precision Signal for Reinforcement Learning and Control"
+  container: Neuron
+  volume: "101"
+  issue: "6"
+  pages: 1029-1041
+  doi: 10.1016/j.neuron.2019.01.055
+  source: crossref
+- id: seymour2020
+  type: article
+  authors:
+    - Seymour, B.
+    - Mancini, F.
+  year: 2020
+  title: "Hierarchical models of pain: Inference, information-seeking, and adaptive control."
+  container: NeuroImage
+  volume: "222"
+  pages: "117212"
+  doi: 10.1016/j.neuroimage.2020.117212
+  source: crossref
+- id: mahajan2026
+  type: article
+  authors:
+    - Mahajan, P.
+    - Dayan, P.
+    - Seymour, B.
+  year: 2026
+  title: "Homeostasis after injury: How intertwined inference and control underpin post-injury pain and behaviour"
+  container: PLOS Computational Biology
+  volume: "22"
+  issue: "1"
+  pages: e1013538
+  doi: 10.1371/journal.pcbi.1013538
+  source: crossref
+- id: mancini2022
+  type: article
+  authors:
+    - Mancini, F.
+    - Zhang, S.
+    - Seymour, B.
+  year: 2022
+  title: Computational and neural mechanisms of statistical pain learning
+  container: Nature Communications
+  volume: "13"
+  issue: "1"
+  pages: "6613"
+  doi: 10.1038/s41467-022-34283-9
+  source: crossref
+- id: zhang2018
+  type: article
+  authors:
+    - Zhang, S.
+    - Mano, H.
+    - Lee, M.
+    - Yoshida, W.
+    - Kawato, M.
+    - Robbins, T. W.
+    - Seymour, B.
+  year: 2018
+  title: The control of tonic pain by active relief learning
+  container: eLife
+  volume: "7"
+  pages: e31949
+  doi: 10.7554/elife.31949
+  source: crossref
+- id: seymour2005
+  type: article
+  authors:
+    - Seymour, B.
+    - O'Doherty, J. P.
+    - Koltzenburg, M.
+    - Wiech, K.
+    - Frackowiak, R.
+    - Friston, K.
+    - Dolan, R.
+  year: 2005
+  title: Opponent appetitive-aversive neural processes underlie predictive learning of pain relief
+  container: Nature Neuroscience
+  volume: "8"
+  issue: "9"
+  pages: 1234-1240
+  doi: 10.1038/nn1527
+  source: crossref
+- id: seymour2004
+  type: article
+  authors:
+    - Seymour, B.
+    - O'Doherty, J. P.
+    - Dayan, P.
+    - Koltzenburg, M.
+    - Jones, A. K.
+    - Dolan, R. J.
+    - Friston, K. J.
+    - Frackowiak, R. S.
+  year: 2004
+  title: Temporal difference models describe higher-order learning in humans
+  container: Nature
+  volume: "429"
+  issue: "6992"
+  pages: 664-667
+  doi: 10.1038/nature02581
+  source: crossref
+- id: desch2023
+  type: article
+  authors:
+    - Desch, S.
+    - Schweinhardt, P.
+    - Seymour, B.
+    - Flor, H.
+    - Becker, S.
+  year: 2023
+  title: Evidence for dopaminergic involvement in endogenous modulation of pain relief
+  container: eLife
+  volume: "12"
+  pages: e81436
+  doi: 10.7554/elife.81436
+  source: crossref
+- id: hewitt2026
+  type: article
+  authors:
+    - Hewitt, D.
+    - Tong, S.
+    - Schreiber, S.
+    - Seymour, B.
+  year: 2026
+  title: Tonic pain modulates neural correlates of associative phasic pain memories
+  container: Pain
+  volume: "167"
+  issue: "6"
+  pages: 1318-1330
+  doi: 10.1097/j.pain.0000000000003917
+  source: crossref

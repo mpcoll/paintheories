@@ -11,13 +11,14 @@ import { makeTimeScale, tickYears } from '../lib/timescale';
 interface Props { theories: Theory[] }
 const { theories } = Astro.props;
 
-const W = 1200, PAD_L = 60, PAD_R = 70;
+// Left gutter holds the domain labels for each band.
+const W = 1280, GUTTER = 200, PAD_L = GUTTER + 50, PAD_R = 110;
 const years = theories.map((t) => t.data.year);
 const minY = Math.min(...years), maxY = Math.max(...years);
 const xFor = makeTimeScale(minY, maxY, PAD_L, W - PAD_R);
 
 // Pack nodes into sub-rows per domain band so labels don't overlap.
-const MIN_GAP = 150, ROW_H = 42, BAND_GAP = 22, TOP = 26;
+const MIN_GAP = 168, ROW_H = 40, BAND_GAP = 22, TOP = 48;
 const allDomains = Object.keys(DOMAINS) as (keyof typeof DOMAINS)[];
 // Only draw bands for domains that have entries.
 const domains = allDomains.filter((d) => theories.some((t) => t.data.domain === d));
@@ -35,11 +36,12 @@ let y = TOP;
 const bands = domains.map((d) => {
   const n = Math.max(1, sub[d]?.length ?? 0);
   bandY[d] = y;
-  const band = { d, y0: y - 18, h: n * ROW_H + 8 };
-  y += n * ROW_H + BAND_GAP;
+  const h = Math.max(n * ROW_H + 8, 70);
+  const band = { d, y0: y - 18, h, count: theories.filter((t) => t.data.domain === d).length };
+  y += h - 8 + BAND_GAP;
   return band;
 });
-const H = y + 30;
+const H = y + 22;
 const P = (t: Theory) => ({ x: pos[t.id].x, y: bandY[t.data.domain] + pos[t.id].sub * ROW_H });
 
 const byId = new Map(theories.map((t) => [t.id, t]));
@@ -68,16 +70,49 @@ function shape(kind: string, cx: number, cy: number) {
   }
 }
 const ticks = tickYears(minY, maxY);
+const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
+  neurobiological: ['Neurobiological'],
+  cognitive: ['Cognitive &', 'computational'],
+  psychosocial: ['Behavioural &', 'psychosocial'],
+  integrative: ['Integrative'],
+  conceptual: ['Conceptual, evolutionary', '& sociocultural'],
+};
 ---
 
 <figure class="constellation">
+  <figcaption class="cap">
+    <ul class="legend dom-legend" aria-label="Domains">
+      {allDomains.map((d) => <li><span class={`sym dom-${d}`} aria-hidden="true">{DOMAIN_STYLE[d].symbol}</span>{DOMAINS[d].label}</li>)}
+    </ul>
+    <ul class="legend" aria-label="Relation types">
+      <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="currentColor" stroke-width="2" /></svg>builds on / extends</li>
+      <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4" /></svg>challenges</li>
+      <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round" /></svg>integrates / related to</li>
+      <li class="muted">Hover a theory to highlight its links</li>
+    </ul>
+    <span class="hint">Swipe to see the full timeline →</span>
+  </figcaption>
   <div class="scroll">
   <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="const-title">
     <title id="const-title">All theories on the map, positioned by year of proposal and domain, with lines showing relations between them.</title>
-    {bands.map((b, i) => <rect class="band" x="0" y={b.y0} width={W} height={b.h} rx="8" opacity={i % 2 ? 0 : 1} />)}
+    {bands.map((b) => {
+      const st = DOMAIN_STYLE[b.d];
+      const lines = LABEL_LINES[b.d];
+      return (
+        <a href={url(`theories/?domain=${b.d}`)} class="band-group">
+          <title>{`${DOMAINS[b.d].label}: ${DOMAINS[b.d].description}`}</title>
+          <rect class="band" x="0" y={b.y0} width={W} height={b.h} rx="10" style={`--bc: var(--d${st.slot})`} />
+          <rect x="0" y={b.y0} width="5" height={b.h} rx="2.5" style={`fill: var(--d${st.slot})`} />
+          <path d={shape(st.shape, 26, b.y0 + 24)} style={`fill: var(--d${st.slot})`} class="band-sym" />
+          {lines.map((l, i) => <text class="band-label" x="44" y={b.y0 + 29 + i * 18}>{l}</text>)}
+          <text class="band-count" x="44" y={b.y0 + 31 + lines.length * 18}>{b.count} {b.count === 1 ? 'theory' : 'theories'} →</text>
+        </a>
+      );
+    })}
     {ticks.map((t) => (
       <g class="tick">
         <line x1={xFor(t)} x2={xFor(t)} y1={TOP - 18} y2={H - 30} />
+        <text x={xFor(t)} y={TOP - 26} text-anchor="middle">{t}</text>
         <text x={xFor(t)} y={H - 12} text-anchor="middle">{t}</text>
       </g>
     ))}
@@ -97,18 +132,22 @@ const ticks = tickYears(minY, maxY);
     })}
   </svg>
   </div>
-  <figcaption>
-    <span class="hint">Swipe to see the full timeline →</span>
-    <ul class="legend" aria-label="Domains">
-      {allDomains.map((d) => <li><span class={`sym dom-${d}`} aria-hidden="true">{DOMAIN_STYLE[d].symbol}</span>{DOMAINS[d].label}</li>)}
-    </ul>
-  </figcaption>
+
 </figure>
 
 <style>
   .constellation { margin: 0; }
-  svg { width: 100%; height: auto; display: block; overflow: visible; }
-  .band { fill: var(--surface-2); opacity: 0.55; }
+  .scroll > svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .band { fill: color-mix(in srgb, var(--bc) 9%, var(--surface)); stroke: color-mix(in srgb, var(--bc) 22%, transparent); stroke-width: 1; }
+  .band-label { fill: var(--ink); font: 600 15px var(--serif); }
+  .band-count { fill: var(--ink-3); font: 500 12px var(--font); }
+  .band-group:hover .band-count { fill: var(--accent); }
+  .band-group:hover .band { fill: color-mix(in srgb, var(--bc) 14%, var(--surface)); }
+  .band-sym { stroke: var(--surface); stroke-width: 2; }
+  .cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1.5rem; margin-bottom: 0.5rem; }
+  .cap .legend { margin: 0; }
+  .dom-legend { display: none; }
+  @media (max-width: 760px) { .dom-legend { display: flex; } }
   .tick line, .break { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 4; }
   .break { stroke-dasharray: none; stroke-width: 2; opacity: 0.6; }
   .tick text { fill: var(--ink-3); font: 500 12px var(--font); }
@@ -121,10 +160,9 @@ const ticks = tickYears(minY, maxY);
   .node:hover text { fill: var(--accent); }
   svg:has(.node:hover) .edge { opacity: 0.05; }
   svg:has(.node:hover) .edge.on { opacity: 0.95; stroke-width: 2; stroke: var(--ink-2); }
-  figcaption .legend { justify-content: center; margin-top: 0.75rem; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   @media (max-width: 760px) {
-    svg { min-width: 900px; }
+    .scroll > svg { min-width: 960px; }
     .hint { display: block; }
   }
   .hint { display: none; text-align: center; font-size: 0.8rem; color: var(--ink-3); margin-top: 0.4rem; }

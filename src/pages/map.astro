@@ -128,11 +128,19 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
     }
     // Year ticks along the top (time layout only).
     const tickYears = ticksFor(minY, maxY);
+    const bandLabelElements: cytoscape.ElementDefinition[] = domainOrder
+      .filter((d) => data.theories.some((t) => t.domain === d))
+      .map((d) => ({
+        group: 'nodes',
+        data: { id: `band:${d}`, label: `${data.domains[d].label}  (${data.theories.filter((t) => t.domain === d).length})`, kind: 'band', domain: d },
+        position: { x: -330, y: bandTop[d] },
+        selectable: false, grabbable: false,
+      }));
     const tickElements: cytoscape.ElementDefinition[] = tickYears.map((y) => ({
       group: 'nodes', data: { id: `tick:${y}`, label: String(y), kind: 'tick' }, position: { x: xFor(y), y: -70 },
       selectable: false, grabbable: false,
     }));
-    elements.push(...tickElements);
+    elements.push(...tickElements, ...bandLabelElements);
     const timePositions = Object.fromEntries(elements.filter((e) => e.group === 'nodes').map((e) => [e.data.id, { ...e.position! }]));
 
     const mechUsers = new Map<string, string[]>();
@@ -156,6 +164,11 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         { selector: 'node[kind="mechanism"]', style: {
           shape: 'round-rectangle', width: 14, height: 14, 'background-color': css('--surface-2'),
           'border-color': line, 'border-width': 1.5, color: ink2, 'font-size': 11, 'font-style': 'italic',
+        } },
+        { selector: 'node[kind="band"]', style: {
+          width: 22, height: 22, 'border-width': 0, color: ink, 'font-size': 20, 'font-weight': 600,
+          'text-valign': 'center', 'text-halign': 'right', 'text-margin-x': 10, 'text-wrap': 'none',
+          'text-background-opacity': 0, events: 'no',
         } },
         { selector: 'node[kind="tick"]', style: {
           width: 1, height: 1, opacity: 1, 'background-opacity': 0, 'border-width': 0, color: css('--ink-3'),
@@ -191,7 +204,8 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
     const panel = document.getElementById('panel')!;
     function show(node: cytoscape.NodeSingular) {
       const rec = node.data('rec');
-      cy.elements().addClass('faded').removeClass('hl');
+      cy.elements().not('node[kind="band"], node[kind="tick"]').addClass('faded');
+      cy.elements().removeClass('hl');
       const hood = node.closedNeighborhood();
       hood.removeClass('faded');
       hood.edges().addClass('hl');
@@ -211,8 +225,8 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         ${rels.length ? `<ul style="padding-left:1.1rem">${rels.join('')}</ul>` : ''}
         <a href="${rec.url}">Open page →</a>`;
     }
-    cy.on('tap', 'node[kind!="tick"]', (e) => show(e.target));
-    cy.on('dbltap', 'node[kind!="tick"]', (e) => { location.href = e.target.data('rec').url; });
+    cy.on('tap', 'node[kind="theory"], node[kind="mechanism"]', (e) => show(e.target));
+    cy.on('dbltap', 'node[kind="theory"], node[kind="mechanism"]', (e) => { location.href = e.target.data('rec').url; });
     cy.on('tap', (e) => {
       if (e.target === cy) {
         cy.elements().removeClass('faded hl');
@@ -223,9 +237,9 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
     const layoutSel = document.getElementById('layout') as HTMLSelectElement;
     const mechBox = document.getElementById('show-mech') as HTMLInputElement;
     function relayout() {
-      cy.remove('node[kind="tick"]');
+      cy.remove('node[kind="tick"], node[kind="band"]');
       if (layoutSel.value === 'time' && !mechBox.checked) {
-        cy.add(tickElements);
+        cy.add([...tickElements, ...bandLabelElements]);
         cy.nodes().forEach((n) => { if (timePositions[n.id()]) n.position(timePositions[n.id()]); });
         cy.fit(undefined, 40);
       } else {
