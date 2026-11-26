@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getTheories, getReferences, theoryRecord, cite, url } from '../../lib/data';
+import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../../data/taxonomy';
+
+const theories = (await getTheories()).map(theoryRecord);
+const mechanisms = Object.fromEntries((await getCollection('mechanisms')).map((m) => [m.id, { title: m.data.title, url: url(`mechanisms/${m.id}/`) }]));
+const refs = Object.fromEntries((await getReferences()).map((r) => [r.id, cite(r)]));
+const payload = {
+  theories, mechanisms, refs, refUrl: url('references/'),
+  vocab: { kind: KINDS, domain: DOMAINS, levels: LEVELS, questions: QUESTIONS, painTypes: PAIN_TYPES, status: STATUSES, relations: RELATIONS },
+};
+---
+
+<Base title="Compare theories" description="Compare pain theories side by side." searchable={false}>
+  <header class="page-head">
+    <p class="eyebrow">Analyse</p>
+    <h1>Compare theories</h1>
+    <p class="lede">Choose two to four theories to see their claims, scope and evidence base side by side. The URL updates so a comparison can be shared.</p>
+  </header>
+
+  <div class="filters" id="pickers" data-pagefind-ignore></div>
+
+  <div class="table-wrap" id="out" hidden>
+    <table><thead></thead><tbody></tbody></table>
+  </div>
+  <p class="muted" id="empty">Select at least one theory.</p>
+
+  <script type="application/json" id="cmp-data" set:html={JSON.stringify(payload)} />
+
+  <style>
+    #out td, #out th { min-width: 220px; }
+    #out th[scope='row'] { min-width: 130px; position: sticky; left: 0; background: var(--surface-2); }
+    #out ul { margin: 0; padding-left: 1.1rem; }
+    #out li { margin-bottom: .3rem; }
+    .shared { font-weight: 600; }
+  </style>
+
+  <script>
+    const D = JSON.parse(document.getElementById('cmp-data')!.textContent!);
+    const byId = new Map<string, any>(D.theories.map((t: any) => [t.id, t]));
+    const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    const pickers = document.getElementById('pickers')!;
+    const N = 4;
+
+    const options = ['<option value="">—</option>', ...D.theories.map((t: any) => `<option value="${t.id}">${esc(t.title)} (${t.year})</option>`)].join('');
+    for (let i = 0; i < N; i++) {
+      const label = document.createElement('label');
+      label.innerHTML = `Theory ${i + 1}<select data-i="${i}">${options}</select>`;
+      pickers.append(label);
+    }
+    const selects = Array.from(pickers.querySelectorAll('select'));
+    const initial = (new URLSearchParams(location.search).get('ids') ?? '').split(',').filter((id) => byId.has(id));
+    initial.slice(0, N).forEach((id, i) => (selects[i].value = id));
+
+    const vocabList = (field: string, keys: string[], sharedKeys: Set<string>) =>
+      keys.map((k) => `<span class="tag ${sharedKeys.has(k) ? 'shared' : ''}">${esc(D.vocab[field][k].label)}</span>`).join(' ');
+    const list = (items: string[]) => (items.length ? `<ul>${items.map((x) => `<li>${x}</li>`).join('')}</ul>` : '<span class="muted">—</span>');
+
+    function render() {
+      const chosen = selects.map((s) => s.value).filter(Boolean).map((id) => byId.get(id));
+      const ids = chosen.map((t) => t.id);
+      history.replaceState(null, '', ids.length ? `?ids=${ids.join(',')}` : location.pathname);
+      const out = document.getElementById('out')!;
+      document.getElementById('empty')!.hidden = chosen.length > 0;
+      out.hidden = chosen.length === 0;
+      if (!chosen.length) return;
+
+      // Values shared by every selected theory are shown in bold.
+      const shared = (f: string) => new Set<string>(chosen.length > 1 ? chosen[0][f].filter((k: string) => chosen.every((t) => t[f].includes(k))) : []);
+      const rows: [string, (t: any) => string][] = [
+        ['Year', (t) => String(t.year)],
+        ['Proponents', (t) => esc(t.proponents.join(', '))],
+        ['Summary', (t) => esc(t.summary)],
+        ['Kind', (t) => esc(D.vocab.kind[t.kind].label)],
+        ['Domain', (t) => esc(D.vocab.domain[t.domain].label)],
+        ['Status', (t) => esc(D.vocab.status[t.status].label)],
+        ['Levels', (t) => vocabList('levels', t.levels, shared('levels'))],
+        ['Questions', (t) => vocabList('questions', t.questions, shared('questions'))],
+        ['Pain types', (t) => vocabList('painTypes', t.painTypes, shared('painTypes'))],
+        ['Core claims', (t) => list(t.coreClaims.map(esc))],
+        ['Predictions', (t) => list(t.predictions.map(esc))],
+        ['Key findings', (t) => {
+          const n = (d: string) => t.evidence.filter((e: any) => e.direction === d).length;
+          return t.evidence.length ? `✓ ${n('supports')} supporting<br>✕ ${n('contradicts')} contradicting<br>± ${n('mixed')} mixed<br><a href="${t.url}#key-findings">See findings →</a>` : '<span class="muted">—</span>';
+        }],
+        ['Mechanisms', (t) => list(t.mechanisms.map((m: string) => `<a href="${D.mechanisms[m].url}">${esc(D.mechanisms[m].title)}</a>`))],
+        ['Relations', (t) => list(t.relations.map((r: any) => `${esc(D.vocab.relations[r.type].label)} <a href="${byId.get(r.target).url}">${esc(byId.get(r.target).shortTitle)}</a>`))],
+        ['Foundational', (t) => list(t.foundational.map((r: string) => `<a href="${D.refUrl}#${r}">${esc(D.refs[r])}</a>`))],
+      ];
+      out.querySelector('thead')!.innerHTML = `<tr><th></th>${chosen.map((t) => `<th><a href="${t.url}">${esc(t.title)}</a></th>`).join('')}</tr>`;
+      out.querySelector('tbody')!.innerHTML = rows
+        .map(([label, f]) => `<tr><th scope="row">${label}</th>${chosen.map((t) => `<td>${f(t)}</td>`).join('')}</tr>`)
+        .join('');
+    }
+    selects.forEach((s) => s.addEventListener('change', render));
+    render();
+  </script>
+</Base>

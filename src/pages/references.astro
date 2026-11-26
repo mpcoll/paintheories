@@ -7,7 +7,7 @@ const theories = await getTheories();
 const citedBy = (id: string) =>
   theories.filter((t) => [...t.data.foundational, ...t.data.keyReferences].some((r) => r.id === id));
 ---
-<Base title="References" description="Bibliography of all sources cited on the Pain Theories Map.">
+<Base title="References" description="Bibliography of all sources cited on Pain Knowledge.">
   <header class="page-head">
     <p class="eyebrow">Bibliography</p>
     <h1>References</h1>

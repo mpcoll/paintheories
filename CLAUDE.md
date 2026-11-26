@@ -1,6 +1,6 @@
-# Pain Theories Map — notes for Claude
+# Pain Knowledge (repo: paintheories) — notes for Claude
 
-Astro 7 static site deployed to GitHub Pages at base `/paintheories/` (see PLAN.md for roadmap).
+Astro 7 static site on GitHub Pages with custom domain https://painknowledge.com (base `/`, DNS via Cloudflare). Portal home at `/`; the Pain Theories module lives under `/theories/` (overview, all, map, timeline, compare, evidence, gaps); mechanisms, references, search, about and data are portal-wide. Old top-level URLs (/map/ etc.) are redirect stubs. See PLAN.md.
 
 - Content: `src/content/theories/*.md`, `src/content/mechanisms/*.md`, bibliography in
   `src/data/references.yaml`. Schema in `src/content.config.ts`; vocabularies in `src/data/taxonomy.ts`.

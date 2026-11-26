@@ -35,7 +35,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
 ---
 
 <Base title={d.title} description={d.summary}>
-  <p class="crumbs"><a href={url('theories/')}>Theories</a> / {KINDS[d.kind].label}</p>
+  <p class="crumbs"><a href={url('theories/')}>Pain Theories</a> / <a href={url('theories/all/')}>All theories</a> / {KINDS[d.kind].label}</p>
   <header class={`theory-head d-${d.domain}`}>
     <p class="eyebrow">{d.year} · {d.proponents.slice(0, 3).join(', ')}{d.proponents.length > 3 ? ' et al.' : ''}</p>
     <h1>{d.title}</h1>
@@ -96,7 +96,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
             {outgoing.map((r) => <li><span class="rel-type">{RELATIONS[r.type].label}</span><a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a>{r.note && <span class="note">{r.note}</span>}</li>)}
             {incoming.map((r) => <li><span class="rel-type">{RELATIONS[r.type].inverse}</span><a href={url(`theories/${r.other.id}/`)}>{r.other.data.shortTitle ?? r.other.data.title}</a></li>)}
           </ul>
-          <a class="more" href={url(`map/?focus=${theory.id}`)}>Show on map →</a>
+          <a class="more" href={url(`theories/map/?focus=${theory.id}`)}>Show on map →</a>
         </section>
       )}
       {mechanisms.length > 0 && (
@@ -108,13 +108,13 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
       {openQuestions.length > 0 && (
         <section class="card">
           <h2>Open questions</h2>
-          <ul>{openQuestions.map((g) => <li><a href={url(`gaps/#${g.id}`)}>{g.data.title}</a></li>)}</ul>
+          <ul>{openQuestions.map((g) => <li><a href={url(`theories/gaps/#${g.id}`)}>{g.data.title}</a></li>)}</ul>
         </section>
       )}
       <section class="card">
         <h2>Compare</h2>
         <p style="margin:0;font-size:.9rem;color:var(--ink-2)">See this theory side by side with others.</p>
-        <a class="more" href={url(`compare/?ids=${theory.id}`)}>Open comparison →</a>
+        <a class="more" href={url(`theories/compare/?ids=${theory.id}`)}>Open comparison →</a>
       </section>
     </aside>
   </div>

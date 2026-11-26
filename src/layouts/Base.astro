@@ -8,21 +8,35 @@ interface Props {
   /** Set to false for pages that should not be indexed by site search. */
   searchable?: boolean;
 }
-const { title, description = 'An open, structured map of theories and models of pain.', searchable = true } = Astro.props;
-const fullTitle = title === 'Pain Theories Map' ? title : `${title} · Pain Theories Map`;
-const nav = [
+const {
+  title,
+  description = 'Pain Knowledge: an open, structured portal on pain science.',
+  searchable = true,
+} = Astro.props;
+const fullTitle = title === 'Pain Knowledge' ? title : `${title} · Pain Knowledge`;
+const here = Astro.url.pathname;
+const is = (path: string) => here.startsWith(url(path));
+
+// Portal-level navigation (modules + shared resources).
+const nav: [string, string][] = [
   ['theories/', 'Theories'],
-  ['map/', 'Map'],
-  ['timeline/', 'Timeline'],
-  ['compare/', 'Compare'],
-  ['evidence/', 'Evidence'],
-  ['gaps/', 'Gaps'],
   ['mechanisms/', 'Mechanisms'],
   ['references/', 'References'],
   ['search/', 'Search'],
   ['about/', 'About'],
 ];
-const here = Astro.url.pathname;
+
+// Module sub-navigation for Pain Theories.
+const theorySub: [string, string, boolean][] = [
+  ['theories/', 'Overview', here === url('theories/')],
+  ['theories/all/', 'All theories', is('theories/all/') || (/^\/theories\/[^/]+\/$/.test(here.replace(url(), '/')) && !['map', 'timeline', 'compare', 'evidence', 'gaps', 'all'].some((p) => is(`theories/${p}/`)))],
+  ['theories/map/', 'Map', is('theories/map/')],
+  ['theories/timeline/', 'Timeline', is('theories/timeline/')],
+  ['theories/compare/', 'Compare', is('theories/compare/')],
+  ['theories/evidence/', 'Evidence', is('theories/evidence/')],
+  ['theories/gaps/', 'Gaps', is('theories/gaps/')],
+];
+const inTheories = is('theories/');
 ---
 
 <!doctype html>
@@ -45,12 +59,12 @@ const here = Astro.url.pathname;
       <div class="wrap">
         <a class="brand" href={url()}>
           <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><g stroke="currentColor" stroke-width="1.6" fill="none" opacity=".55"><path d="M6 23 L15 9 L26 16 L20 26 Z" /></g><circle cx="6" cy="23" r="3.4" fill="var(--d1)" /><circle cx="15" cy="9" r="3.4" fill="var(--d2)" /><circle cx="26" cy="16" r="3.4" fill="var(--d3)" /><circle cx="20" cy="26" r="3.4" fill="var(--d4)" /></svg>
-          <span>Pain Theories <em>Map</em></span>
+          <span>Pain <em>Knowledge</em></span>
         </a>
         <nav class="nav" aria-label="Main">
           {
             nav.map(([href, label]) => (
-              <a href={url(href)} aria-current={here.startsWith(url(href)) ? 'page' : undefined}>
+              <a href={url(href)} aria-current={is(href) ? 'page' : undefined}>
                 {label}
               </a>
             ))
@@ -58,6 +72,18 @@ const here = Astro.url.pathname;
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle light/dark"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
       </div>
+      {inTheories && (
+        <div class="subnav">
+          <div class="wrap">
+            <a class="module-name" href={url('theories/')}>Pain Theories</a>
+            <nav aria-label="Pain Theories">
+              {theorySub.map(([href, label, active]) => (
+                <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
     <main class="wrap" data-pagefind-body={searchable ? '' : undefined}>
       <slot />
@@ -65,8 +91,8 @@ const here = Astro.url.pathname;
     <footer class="site-footer">
       <div class="wrap footer-grid">
         <div>
-          <p class="brand">Pain Theories <em>Map</em></p>
-          <p>A structured, open map of scientific theories and models of pain. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT.</p>
+          <p class="brand">Pain <em>Knowledge</em></p>
+          <p>An open, structured portal on pain science: theories, mechanisms and the evidence behind them. Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT.</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href={url('data/')}>Download the data</a>

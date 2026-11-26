@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config';
 import remarkCitations from './src/scripts/remark-citations.mjs';
 
-const base = '/paintheories/';
+const base = '/';
 
-// Deployed to GitHub Pages at https://mpcoll.github.io/paintheories/
+// Deployed to GitHub Pages with the custom domain https://painknowledge.com
 export default defineConfig({
-  site: 'https://mpcoll.github.io',
+  site: 'https://painknowledge.com',
   base,
   trailingSlash: 'always',
   markdown: {

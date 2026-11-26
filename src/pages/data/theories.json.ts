@@ -11,7 +11,7 @@ export const GET: APIRoute = async () => {
     ]),
   );
   const body = {
-    name: 'Pain Theories Map',
+    name: 'Pain Knowledge: Pain Theories',
     license: 'CC-BY-4.0',
     source: 'https://github.com/mpcoll/paintheories',
     generated: new Date().toISOString(),

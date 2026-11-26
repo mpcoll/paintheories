@@ -102,7 +102,7 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
       const st = DOMAIN_STYLE[b.d];
       const lines = LABEL_LINES[b.d];
       return (
-        <a href={url(`theories/?domain=${b.d}`)} class="band-group">
+        <a href={url(`theories/all/?domain=${b.d}`)} class="band-group">
           <title>{`${DOMAINS[b.d].label}: ${DOMAINS[b.d].description}`}</title>
           <rect class="band" x="0" y={b.y0} width={W} height={b.h} rx="10" style={`--bc: var(--d${st.slot})`} />
           <rect x="0" y={b.y0} width="5" height={b.h} rx="2.5" style={`fill: var(--d${st.slot})`} />

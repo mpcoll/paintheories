@@ -94,7 +94,7 @@
 }
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 130px;
 }
 body {
   margin: 0;
@@ -239,8 +239,9 @@ code {
   color: var(--ink);
   border-color: var(--line-strong);
 }
-main {
-  padding: 2.5rem 0 5rem;
+main.wrap {
+  padding-top: 1.75rem;
+  padding-bottom: 5rem;
 }
 .site-footer {
   border-top: 1px solid var(--line);
@@ -296,6 +297,52 @@ main {
 }
 .page-head .lede {
   margin: 0;
+}
+
+/* Module sub-navigation */
+.subnav {
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.subnav .wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  min-height: 44px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.subnav .wrap::-webkit-scrollbar {
+  display: none;
+}
+.subnav .module-name {
+  flex: none;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.subnav nav {
+  display: flex;
+  gap: 0.1rem;
+  flex: none;
+}
+.subnav nav a {
+  flex: none;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.55rem 0.6rem;
+  border-bottom: 2px solid transparent;
+}
+.subnav nav a:hover {
+  color: var(--ink);
+}
+.subnav nav a[aria-current='page'] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
 }
 
 /* ---------- Components ---------- */
@@ -618,7 +665,7 @@ input[type='search'] {
   display: grid;
   gap: 1rem;
   position: sticky;
-  top: 86px;
+  top: 128px;
 }
 @media (max-width: 900px) {
   .side {

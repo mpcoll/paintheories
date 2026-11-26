@@ -13,7 +13,7 @@ export const GET: APIRoute = async () => {
     review: g.data.review,
     updated: g.data.updated.toISOString().slice(0, 10),
   }));
-  return new Response(JSON.stringify({ name: 'Pain Theories Map — open questions', license: 'CC-BY-4.0', gaps }, null, 2), {
+  return new Response(JSON.stringify({ name: 'Pain Knowledge: Pain Theories, open questions', license: 'CC-BY-4.0', gaps }, null, 2), {
     headers: { 'Content-Type': 'application/json' },
   });
 };

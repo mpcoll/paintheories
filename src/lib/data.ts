@@ -7,7 +7,7 @@ export type Mechanism = CollectionEntry<'mechanisms'>;
 
 const BASE = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 
-/** Prefix an internal path with the site base ("/paintheories/"). */
+/** Prefix an internal path with the site base (configured in astro.config.mjs). */
 export const url = (path = '') => BASE + path.replace(/^\//, '');
 
 export async function getTheories() {

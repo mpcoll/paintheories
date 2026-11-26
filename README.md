@@ -1,8 +1,8 @@
-# Pain Theories Map
+# Pain Knowledge
 
 An open, structured map of scientific theories and models of pain, for research and teaching.
 
-**Site:** https://mpcoll.github.io/paintheories/
+**Site:** https://painknowledge.com/ (first module: [Pain Theories](https://painknowledge.com/theories/))
 
 Each theory is a Markdown file with structured front matter (classification, core claims,
 predictions, mechanisms, relations to other theories, references). The site generates theory
@@ -13,7 +13,7 @@ downloadable datasets from these files. See [PLAN.md](PLAN.md) for the roadmap.
 
 ```bash
 npm install
-npm run dev          # local preview at http://localhost:4321/paintheories/
+npm run dev          # local preview at http://localhost:4321/
 npm run build        # production build + search index in dist/
 npm run check        # type and schema checks
 ```
