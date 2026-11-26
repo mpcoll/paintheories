@@ -8794,3 +8794,46 @@
   pages: 5247-5259
   doi: 10.1523/jneurosci.3494-14.2015
   source: crossref
+- id: kelley1982
+  type: article
+  authors:
+    - Kelley, A. E.
+    - Domesick, V. B.
+    - Nauta, W. J. H.
+  year: 1982
+  title: The amygdalostriatal projection in the rat—an anatomical study by anterograde and retrograde tracing methods
+  container: Neuroscience
+  volume: "7"
+  issue: "3"
+  pages: 615-630
+  doi: 10.1016/0306-4522(82)90067-7
+  source: crossref
+- id: ghashghaei2007
+  type: article
+  authors:
+    - Ghashghaei, H. T.
+    - Hilgetag, C. C.
+    - Barbas, H.
+  year: 2007
+  title: Sequence of information processing for emotions based on the anatomic dialogue between prefrontal cortex and amygdala
+  container: NeuroImage
+  volume: "34"
+  issue: "3"
+  pages: 905-923
+  doi: 10.1016/j.neuroimage.2006.09.046
+  source: crossref
+- id: chikama1997
+  type: article
+  authors:
+    - Chikama, M.
+    - McFarland, N. R.
+    - Amaral, D. G.
+    - Haber, S. N.
+  year: 1997
+  title: Insular Cortical Projections to Functional Regions of the Striatum Correlate with Cortical Cytoarchitectonic Organization in the Primate
+  container: The Journal of Neuroscience
+  volume: "17"
+  issue: "24"
+  pages: 9686-9705
+  doi: 10.1523/jneurosci.17-24-09686.1997
+  source: crossref

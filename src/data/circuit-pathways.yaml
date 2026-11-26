@@ -71,7 +71,7 @@
   name: Descending modulation
   kind: descending
   summary: Prefrontal and cingulate cortex, amygdala and hypothalamus act on the periaqueductal grey, which acts through the rostral ventromedial medulla on the dorsal horn. Noradrenergic input from the locus coeruleus adds a parallel route. These pathways can inhibit or facilitate pain.
-  stations: [dlpfc, pgacc, cingulate, amygdala, hypothalamus, pag, rvm, locus-coeruleus, dorsal-horn]
+  stations: [dlpfc, pgacc, vmpfc, cingulate, amygdala, hypothalamus, pag, rvm, locus-coeruleus, dorsal-horn]
   edges:
     - from: dlpfc
       to: pgacc
@@ -81,6 +81,10 @@
       to: pag
       note: Medial prefrontal and anterior cingulate areas project to longitudinal columns of the PAG (tracing in monkeys). In humans, rostral ACC–PAG coupling increases during placebo analgesia, and naloxone abolishes it.
       refs: [an1998, eippert2009, bingel2006]
+    - from: vmpfc
+      to: pag
+      note: Medial prefrontal areas 25, 32 and 10m project mainly to the dorsolateral columns of the PAG (tracing in monkeys).
+      refs: [an1998]
     - from: cingulate
       to: pag
       note: Cingulate area 24 projects to the PAG in monkeys, and areas 24 and 32 provide the largest cortical input to the PAG in the rat.
@@ -109,8 +113,8 @@
 - id: cortical
   name: Cortical and corticolimbic integration
   kind: cortical
-  summary: Beyond the first cortical relays, nociceptive signals are integrated across the insula, cingulate and prefrontal cortex. The posterior insula projects to the anterior insula, which is coupled with the anterior cingulate, and nucleus accumbens–medial prefrontal circuits encode the value of pain and relief and are implicated in chronic pain.
-  stations: [posterior-insula, anterior-insula, cingulate, vmpfc, nucleus-accumbens]
+  summary: Beyond the first cortical relays, nociceptive signals are integrated across the insula, cingulate and prefrontal cortex. The insula is interconnected along its length and with the anterior cingulate; the anterior insula, amygdala and medial prefrontal cortex project to the nucleus accumbens, and these corticolimbic circuits encode the value of pain and relief and are implicated in chronic pain.
+  stations: [posterior-insula, anterior-insula, cingulate, vmpfc, amygdala, nucleus-accumbens]
   edges:
     - from: posterior-insula
       to: anterior-insula
@@ -126,4 +130,17 @@
       to: nucleus-accumbens
       note: Medial prefrontal cortex projects to the nucleus accumbens. Activating this projection relieves pain in a rat neuropathy model, and in humans stronger accumbens–medial prefrontal functional connectivity predicts the transition to chronic back pain.
       refs: [lee2015, baliki2012]
+    - from: vmpfc
+      to: amygdala
+      reciprocal: true
+      note: Medial prefrontal cortex and amygdala are connected in both directions; in monkeys the densest prefrontal connections with the amygdala are in posterior orbitofrontal and posterior medial areas, and cingulate areas 25 and 24 send more projections to the amygdala than they receive.
+      refs: [ghashghaei2007]
+    - from: amygdala
+      to: nucleus-accumbens
+      note: The basolateral amygdala sends a large projection to the striatum, including the ventral striatum and nucleus accumbens (tracing in rats).
+      refs: [kelley1982]
+    - from: anterior-insula
+      to: nucleus-accumbens
+      note: Agranular and ventral dysgranular (anterior) insula project to the shell and medial ventral striatum in monkeys, whereas granular insula projects to the dorsolateral, sensorimotor striatum.
+      refs: [chikama1997]
   refs: [craig2009b, baliki2012, navratilova2014]
