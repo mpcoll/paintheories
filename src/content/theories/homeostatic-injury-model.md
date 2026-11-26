@@ -46,6 +46,9 @@ evidence:
     direction: supports
     method: human-experimental
     refs: [hewitt2026]
+diagram:
+  caption: "The brain cannot observe the injury directly and keeps an uncertain internal estimate of its state. This estimate controls tonic pain, which protects the injury and withholds actions; probing reduces uncertainty, and faulty inference can lead to chronic pain."
+  after: [mahajan2026]
 foundational: [mahajan2026]
 keyReferences: [seymour2019, seymour2020]
 review: draft

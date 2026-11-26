@@ -1,0 +1,28 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Homeostatic injury model: the hidden state of an injury that needs recovery sends only indirect signals to an uncertain internal estimate of the injury; this estimate controls tonic pain, which protects the injury and withholds actions; probing reduces uncertainty; faulty inference leads to chronic pain.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="16" y="144" width="140" height="76" rx="10"/>
+<text class="t mid" x="86" y="171">Injury</text>
+<text class="t-xs mid" x="86" y="190">hidden state,</text>
+<text class="t-xs mid" x="86" y="205">needs recovery</text>
+<path class="ln" d="M86,144 V62 H224" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="98" y="52">indirect signals</text>
+<rect class="box-accent" x="230" y="30" width="190" height="64" rx="10"/>
+<text class="t-b mid" x="325" y="57">Internal estimate</text>
+<text class="t-xs mid" x="325" y="76">of the injury (POMDP)</text>
+<path class="ln-accent" d="M325,94 V270" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs" x="334" y="150">control</text>
+<rect class="box-strong" x="230" y="274" width="190" height="56" rx="10"/>
+<text class="t-on mid" x="325" y="307">Tonic pain</text>
+<path class="ln" d="M230,302 H86 V226" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="98" y="264">protect,</text>
+<text class="t-xs" x="98" y="280">withhold actions</text>
+<path class="ln ln-dash" d="M420,290 H456 V80 H426" marker-end="url(#dg-arr)"/>
+<text class="t-xs end" x="446" y="204">probing</text>
+<text class="t-xs end" x="446" y="220">reduces</text>
+<text class="t-xs end" x="446" y="236">uncertainty</text>
+<path class="ln ln-dash" d="M420,44 H560 V268" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="490" y="34">faulty inference</text>
+<rect class="box" x="496" y="274" width="128" height="56" rx="10"/>
+<text class="t mid" x="560" y="307">Chronic pain</text>
+</svg>

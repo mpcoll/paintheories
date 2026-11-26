@@ -67,6 +67,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [williams2020]
+diagram:
+  caption: "Pain can be met with inflexibility, attempts to avoid or control pain and related thoughts and feelings that narrow activity and maintain disability, or with flexibility, built from six interrelated processes, which supports functioning even if pain does not change."
+  after: [mccracken2014]
 foundational: [mccracken2014, mccracken2014b]
 keyReferences: [hayes2006, mccracken2004, vowles2008, ost2014, veehof2016]
 review: draft

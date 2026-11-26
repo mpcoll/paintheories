@@ -71,6 +71,9 @@ evidence:
     direction: supports
     method: neuroimaging
     refs: [wiech2008]
+diagram:
+  caption: "The same stimulus, with the same tissue damage, hurts more when it means danger or damage and less when it means benefit, relief or escape. Meaning acts partly through endogenous modulation."
+  after: [beecher1956]
 foundational: [beecher1946, beecher1956]
 keyReferences: [wall1979, harvie2015]
 review: draft

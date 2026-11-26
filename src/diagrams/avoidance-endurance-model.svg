@@ -1,0 +1,36 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Avoidance-endurance model: responses to pain branch into fear-avoidance, leading to underuse, distress-endurance and eustress-endurance, both leading to overuse and overload, and adaptive responding; underuse and overload raise the risk of persistent pain, adaptive responding carries lower risk.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="16" y="152" width="76" height="56" rx="10"/>
+<text class="t mid" x="54" y="185">Pain</text>
+<path class="ln" d="M92,180 H114 M114,52 V298"/>
+<path class="ln" d="M114,52 H136" marker-end="url(#dg-arr)"/>
+<path class="ln-accent" d="M114,134 H136" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M114,216 H136" marker-end="url(#dg-arr-accent)"/>
+<path class="ln" d="M114,298 H136" marker-end="url(#dg-arr)"/>
+<rect class="box" x="140" y="24" width="200" height="56" rx="10"/>
+<text class="t mid" x="240" y="48">Fear-avoidance</text>
+<text class="t-xs mid" x="240" y="66">catastrophizing, fear</text>
+<rect class="box-accent" x="140" y="106" width="200" height="56" rx="10"/>
+<text class="t mid" x="240" y="130">Distress-endurance</text>
+<text class="t-xs mid" x="240" y="148">suppression, low mood</text>
+<rect class="box-accent" x="140" y="188" width="200" height="56" rx="10"/>
+<text class="t mid" x="240" y="212">Eustress-endurance</text>
+<text class="t-xs mid" x="240" y="230">minimising, positive mood</text>
+<rect class="box" x="140" y="270" width="200" height="56" rx="10"/>
+<text class="t mid" x="240" y="303">Adaptive responding</text>
+<path class="ln" d="M340,52 H380" marker-end="url(#dg-arr)"/>
+<rect class="box" x="384" y="24" width="104" height="56" rx="10"/>
+<text class="t mid" x="436" y="57">Underuse</text>
+<path class="ln-accent" d="M340,134 H380" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M340,216 H380" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="384" y="106" width="104" height="138" rx="10"/>
+<text class="t mid" x="436" y="172">Overload</text>
+<text class="t-xs mid" x="436" y="190">overuse</text>
+<path class="ln" d="M488,52 H516" marker-end="url(#dg-arr)"/>
+<path class="ln-accent" d="M488,175 H516" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="520" y="24" width="104" height="220" rx="10"/>
+<text class="t-on mid" x="572" y="128">Persistent</text>
+<text class="t-on mid" x="572" y="148">pain</text>
+<text class="t-xs" x="356" y="303">lower risk</text>
+</svg>

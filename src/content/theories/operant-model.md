@@ -68,6 +68,9 @@ evidence:
     direction: mixed
     method: clinical
     refs: [newtonjohn2006]
+diagram:
+  caption: "Pain behaviour, first triggered by nociception, is maintained by its consequences: positive reinforcement (attention, solicitude) and negative reinforcement (escape from activity). It can persist after healing, while well behaviour that is not reinforced or is punished extinguishes."
+  after: [fordyce1976]
 foundational: [fordyce1973, fordyce1976]
 keyReferences: [gatzounis2012, turk1987, fordyce1986, block1980, leonard2006, holzl2005, vlaeyen2020]
 review: draft

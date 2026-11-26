@@ -64,6 +64,9 @@ evidence:
     direction: mixed
     method: intervention
     refs: [cherkin2016, turner2016]
+diagram:
+  caption: "Appraisals of pain (its harmfulness and controllability, one's ability to cope, self-efficacy) interact reciprocally with mood, behaviour, physiological arousal and the social environment, which also influence one another."
+  after: [turk1983]
 foundational: [turk1983]
 keyReferences: [turk1992, turk1988, turk1987, morley2013, ehde2014]
 review: draft

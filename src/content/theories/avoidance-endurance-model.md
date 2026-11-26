@@ -63,6 +63,9 @@ evidence:
     direction: mixed
     method: longitudinal
     refs: [morf2026]
+diagram:
+  caption: "Responses to pain branch into four patterns. Fear-avoidance leads to underuse; distress-endurance and eustress-endurance lead to overuse and overload. Both routes raise the risk of persistent pain, whereas adaptive responding carries lower risk."
+  after: [hasenbring2010]
 foundational: [hasenbring2000, hasenbring2010]
 keyReferences: [hasenbring2009, hasenbring2019]
 review: draft

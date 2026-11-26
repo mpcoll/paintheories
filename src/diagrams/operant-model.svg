@@ -1,0 +1,25 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Operant model: pain behaviour, first triggered by nociception, is maintained by its consequences (positive reinforcement such as attention and solicitude, negative reinforcement such as escape from activity) even after healing, while well behaviour that is not reinforced or is punished extinguishes.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="16" y="149" width="140" height="56" rx="10"/>
+<text class="t mid" x="86" y="173">Nociception</text>
+<text class="t-xs mid" x="86" y="191">ends with healing</text>
+<path class="ln ln-dash" d="M156,177 H178 V112 H204" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="210" y="84" width="160" height="56" rx="10"/>
+<text class="t-on mid" x="290" y="117">Pain behaviour</text>
+<path class="ln" d="M370,112 H414" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="420" y="76" width="200" height="72" rx="10"/>
+<text class="t-sm" x="438" y="105">+ attention, solicitude</text>
+<text class="t-sm" x="438" y="129">− escape from activity</text>
+<path class="ln-accent" d="M520,76 V42 H290 V80" marker-end="url(#dg-arr-accent)"/>
+<text class="t-accent mid" x="405" y="32">reinforced</text>
+<rect class="box" x="210" y="214" width="160" height="56" rx="10"/>
+<text class="t mid" x="290" y="238">Well behaviour</text>
+<text class="t-xs mid" x="290" y="256">activity, work, social</text>
+<path class="ln" d="M370,242 H414" marker-end="url(#dg-arr)"/>
+<rect class="box" x="420" y="214" width="200" height="56" rx="10"/>
+<text class="t-sm mid" x="520" y="238">not reinforced</text>
+<text class="t-sm mid" x="520" y="257">or punished</text>
+<path class="ln" d="M520,270 V304 H290 V274" marker-end="url(#dg-bar)"/>
+<text class="t-sm mid" x="405" y="326">extinguishes</text>
+</svg>

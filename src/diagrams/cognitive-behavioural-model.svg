@@ -1,0 +1,26 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Cognitive-behavioural model: appraisals of pain (harm, controllability, coping, self-efficacy) sit at the centre and interact reciprocally with mood, behaviour, physiological arousal and the social environment, which also influence one another.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<path class="ln-thin" d="M196,54 H444" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<path class="ln-thin" d="M196,306 H444" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<path class="ln-thin" d="M105,86 V274" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<path class="ln-thin" d="M535,86 V274" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="320" y="44">reciprocal influences</text>
+<rect class="box" x="20" y="28" width="170" height="52" rx="10"/>
+<text class="t mid" x="105" y="59">Mood</text>
+<rect class="box" x="450" y="28" width="170" height="52" rx="10"/>
+<text class="t mid" x="535" y="59">Behaviour</text>
+<rect class="box" x="20" y="280" width="170" height="52" rx="10"/>
+<text class="t mid" x="105" y="302">Physiology</text>
+<text class="t-xs mid" x="105" y="320">arousal</text>
+<rect class="box" x="450" y="280" width="170" height="52" rx="10"/>
+<text class="t mid" x="535" y="311">Social environment</text>
+<path class="ln-accent" d="M226,136 L180,88" marker-start="url(#dg-arr-accent)" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M414,136 L460,88" marker-start="url(#dg-arr-accent)" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M226,224 L180,272" marker-start="url(#dg-arr-accent)" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M414,224 L460,272" marker-start="url(#dg-arr-accent)" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="220" y="138" width="200" height="84" rx="12"/>
+<text class="t-b mid" x="320" y="167">Appraisals of pain</text>
+<text class="t-xs mid" x="320" y="188">harm, controllability,</text>
+<text class="t-xs mid" x="320" y="204">coping, self-efficacy</text>
+</svg>

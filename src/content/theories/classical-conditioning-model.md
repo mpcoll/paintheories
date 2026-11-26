@@ -67,6 +67,9 @@ evidence:
     direction: supports
     method: intervention
     refs: [denhollander2016]
+diagram:
+  caption: "Schematic trials. A cue such as a movement, paired with pain, comes to elicit a conditioned response (fear, muscular and autonomic changes). A similar cue elicits it too (generalisation), and repeated presentation of the cue without pain weakens it (extinction)."
+  after: [linton1984]
 foundational: [linton1984]
 keyReferences: [vlaeyen2015, meulders2019, meulders2020, vlaeyen2020, moseley2015]
 review: draft

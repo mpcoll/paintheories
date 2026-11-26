@@ -58,6 +58,9 @@ evidence:
     direction: contradicts
     method: longitudinal
     refs: [generaal2016]
+diagram:
+  caption: "Repeated pain episodes and other stressors trigger stress-mediator responses that at first stay within the adaptive range, then grow and fail to settle. Their cumulative cost, allostatic load, changes limbic, prefrontal and hypothalamic circuits, lowering the threshold for further pain."
+  after: [borsook2012]
 foundational: [borsook2012, mcewen1998]
 keyReferences: [mcewen1993, mcewen2010, borsook2016, borsook2025]
 review: draft

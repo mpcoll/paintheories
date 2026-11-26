@@ -1,0 +1,25 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Meaning and context: the same stimulus or injury, with equal tissue damage, produces more pain when it means danger or damage and less pain when it means benefit, relief or escape, partly through endogenous modulation.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="area" x="392" y="36" width="96" height="288" rx="12"/>
+<text class="t-xs mid" x="440" y="176">endogenous</text>
+<text class="t-xs mid" x="440" y="192">modulation</text>
+<rect class="box" x="16" y="146" width="146" height="68" rx="10"/>
+<text class="t mid" x="89" y="174">Same stimulus</text>
+<text class="t-xs mid" x="89" y="193">equal tissue damage</text>
+<path class="ln" d="M162,166 L206,98" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M162,194 L206,262" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="290" y="38">meaning</text>
+<rect class="box-accent" x="208" y="50" width="164" height="60" rx="10"/>
+<text class="t mid" x="290" y="76">Danger or damage</text>
+<text class="t-xs mid" x="290" y="95">threat, disability</text>
+<rect class="box-accent" x="208" y="250" width="164" height="60" rx="10"/>
+<text class="t mid" x="290" y="276">Benefit or relief</text>
+<text class="t-xs mid" x="290" y="295">harmless, escape</text>
+<path class="ln-accent" d="M372,80 H500" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M372,280 H500" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="504" y="64" width="120" height="32" rx="6"/>
+<text class="t-sm" x="504" y="122">more pain</text>
+<rect class="box-strong" x="504" y="264" width="40" height="32" rx="6"/>
+<text class="t-sm" x="504" y="322">less pain</text>
+</svg>
