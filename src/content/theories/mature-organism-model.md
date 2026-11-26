@@ -42,6 +42,9 @@ evidence:
     direction: supports
     method: intervention
     refs: [moseley2004b]
+diagram:
+  caption: "Input from the tissues and the environment is evaluated by the central nervous system against past experience, knowledge, beliefs and context. The output is a coordinated set of responses, led by pain, that protects the tissues and promotes recovery."
+  after: [gifford1998]
 foundational: [gifford1998]
 keyReferences: []
 review: draft

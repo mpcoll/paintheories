@@ -1,0 +1,23 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Communal coping: catastrophizing leads to intense pain expression that seeks proximity, help and empathy from others; their solicitous responses reinforce catastrophizing, and reliance on others displaces self-management, so pain and disability increase.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="area" x="24" y="20" width="220" height="324" rx="14"/>
+<text class="t-xs" x="36" y="334">Person in pain</text>
+<rect class="box-strong" x="44" y="48" width="180" height="52" rx="10"/>
+<text class="t-on mid" x="134" y="79">Catastrophizing</text>
+<path class="ln" d="M134,100 V146" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="44" y="150" width="180" height="58" rx="10"/>
+<text class="t mid" x="134" y="174">Intense pain</text>
+<text class="t mid" x="134" y="194">expression</text>
+<path class="ln-accent" d="M224,179 H456" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="340" y="169">seeks proximity, help, empathy</text>
+<rect class="box" x="460" y="151" width="150" height="56" rx="10"/>
+<text class="t-b mid" x="535" y="184">Others</text>
+<path class="ln-accent" d="M535,151 V74 H228" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="380" y="64">solicitous responses reinforce</text>
+<path class="ln" d="M535,207 V291 H228" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="380" y="281">reliance displaces self-management</text>
+<rect class="box" x="44" y="262" width="180" height="58" rx="10"/>
+<text class="t mid" x="134" y="286">More pain and</text>
+<text class="t mid" x="134" y="306">disability</text>
+</svg>

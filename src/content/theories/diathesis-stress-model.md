@@ -67,6 +67,9 @@ evidence:
     direction: mixed
     method: review
     refs: [pincus2002]
+diagram:
+  caption: "A pre-existing, often latent vulnerability and the stress of pain or injury interact. Together, not alone, they set off catastrophizing, fear, avoidance and reinforcement that lead to depression, chronic pain and disability."
+  after: [banks1996, turk2002]
 foundational: [banks1996, turk2002]
 keyReferences: [carroll2004, leeuw2006]
 review: draft

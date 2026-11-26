@@ -63,6 +63,9 @@ evidence:
     direction: contradicts
     method: human-experimental
     refs: [vlaeyen2009]
+diagram:
+  caption: "Catastrophizing drives intense pain expression aimed at gaining proximity, help and empathy from others. Their solicitous responses reinforce catastrophizing, and reliance on others displaces self-management, so pain and disability increase."
+  after: [sullivan2001, thorn2003]
 foundational: [sullivan2001, thorn2003]
 keyReferences: [cano2004]
 review: draft

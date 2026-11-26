@@ -1,0 +1,29 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Diathesis-stress: a pre-existing, often latent vulnerability (diathesis) and the stress of pain or injury interact; together they set off catastrophizing, fear, avoidance and reinforcement, leading to depression, chronic pain and disability. Neither alone is enough.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box-accent" x="24" y="40" width="200" height="74" rx="10"/>
+<text class="t-b mid" x="124" y="66">Diathesis</text>
+<text class="t-xs mid" x="124" y="86">latent vulnerability,</text>
+<text class="t-xs mid" x="124" y="102">e.g. anxiety sensitivity</text>
+<rect class="box-accent" x="24" y="246" width="200" height="74" rx="10"/>
+<text class="t-b mid" x="124" y="272">Stress</text>
+<text class="t-xs mid" x="124" y="292">pain or injury, limitation,</text>
+<text class="t-xs mid" x="124" y="308">life difficulties</text>
+<path class="ln-accent" d="M224,77 H272 V154" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M224,283 H272 V206" marker-end="url(#dg-arr-accent)"/>
+<circle class="box-strong" cx="272" cy="180" r="22"/>
+<text class="t-on mid" x="272" y="186">×</text>
+<path class="ln" d="M294,180 H328" marker-end="url(#dg-arr)"/>
+<rect class="box" x="332" y="122" width="140" height="116" rx="10"/>
+<text class="t-sm mid" x="402" y="150">catastrophizing</text>
+<text class="t-sm mid" x="402" y="174">fear</text>
+<text class="t-sm mid" x="402" y="198">avoidance</text>
+<text class="t-sm mid" x="402" y="222">reinforcement</text>
+<path class="ln" d="M472,180 H500" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="504" y="134" width="116" height="92" rx="10"/>
+<text class="t-on mid" x="562" y="161">Depression</text>
+<text class="t-on mid" x="562" y="184">chronic pain</text>
+<text class="t-on mid" x="562" y="207">disability</text>
+<text class="t-xs end" x="240" y="177">neither alone</text>
+<text class="t-xs end" x="240" y="193">is enough</text>
+</svg>

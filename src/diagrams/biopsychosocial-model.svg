@@ -1,0 +1,20 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Biopsychosocial model: biological, psychological and social factors overlap and interact to shape pain and its consequences, none sufficient alone; assessment and treatment should therefore address all three.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<circle class="area" cx="165" cy="140" r="100"/>
+<circle class="area" cx="285" cy="140" r="100"/>
+<circle class="area" cx="225" cy="240" r="100"/>
+<circle class="ln-thin" cx="165" cy="140" r="100"/>
+<circle class="ln-thin" cx="285" cy="140" r="100"/>
+<circle class="ln-thin" cx="225" cy="240" r="100"/>
+<text class="t-b mid" x="136" y="112">Biological</text>
+<text class="t-b mid" x="320" y="112">Psychological</text>
+<text class="t-b mid" x="225" y="304">Social</text>
+<rect class="box-strong" x="185" y="158" width="80" height="34" rx="17"/>
+<text class="t-on mid" x="225" y="180">Pain</text>
+<path class="ln" d="M380,190 H436" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="440" y="150" width="180" height="80" rx="10"/>
+<text class="t mid" x="530" y="176">Assess and</text>
+<text class="t mid" x="530" y="196">treat all three</text>
+<text class="t-xs mid" x="530" y="216">interdisciplinary</text>
+</svg>

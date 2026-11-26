@@ -44,6 +44,9 @@ evidence:
     direction: supports
     method: meta-analysis
     refs: [labus2003]
+diagram:
+  caption: "Four nested layers, from nociception at the core through pain and suffering to pain behaviour, within the social environment. Only pain behaviour is observable, and suffering can also arise from fear, anxiety and loss."
+  after: [loeser1982]
 foundational: [loeser1982]
 keyReferences: [loeser1999, loeser2000, cassel1982, waddell1987]
 review: draft

@@ -1,0 +1,21 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Mutual maintenance: chronic pain and PTSD often follow the same trauma; once both are present, each maintains and worsens the other through shared pathways such as attention to threat, anxiety sensitivity, pain as a trauma reminder, avoidance, and depression with inactivity.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="250" y="20" width="140" height="44" rx="10"/>
+<text class="t mid" x="320" y="47">Trauma</text>
+<path class="ln" d="M250,42 H99 V146" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M390,42 H541 V146" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="24" y="150" width="150" height="60" rx="10"/>
+<text class="t-on mid" x="99" y="185">Chronic pain</text>
+<rect class="box-strong" x="466" y="150" width="150" height="60" rx="10"/>
+<text class="t-on mid" x="541" y="185">PTSD</text>
+<path class="ln-accent" d="M174,166 C240,96 400,96 462,164" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M466,196 C400,296 240,296 178,198" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="320" y="146">shared pathways</text>
+<text class="t-sm mid" x="320" y="168">attention to threat</text>
+<text class="t-sm mid" x="320" y="187">anxiety sensitivity</text>
+<text class="t-sm mid" x="320" y="206">pain as trauma reminder</text>
+<text class="t-sm mid" x="320" y="225">avoidance</text>
+<text class="t-sm mid" x="320" y="244">depression, inactivity</text>
+<text class="t-accent mid" x="320" y="318">each maintains and worsens the other</text>
+</svg>

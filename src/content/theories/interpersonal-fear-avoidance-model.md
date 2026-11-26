@@ -56,6 +56,9 @@ evidence:
     direction: supports
     method: meta-analysis
     refs: [donnelly2020]
+diagram:
+  caption: "A parent's catastrophizing about the child's pain leads to fear and distress and to protective, avoidant behaviour. Together with the child's own catastrophizing, fear of pain and avoidance, this promotes the child's functional disability."
+  after: [goubert2013]
 foundational: [goubert2013]
 keyReferences: [asmundson2012, simons2012, simons2016]
 review: draft

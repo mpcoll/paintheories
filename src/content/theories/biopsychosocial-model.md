@@ -45,6 +45,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [williams2020]
+diagram:
+  caption: "Biological, psychological and social factors overlap and interact to shape pain and its consequences, and none is sufficient alone. Assessment and treatment should therefore address all three."
+  after: [engel1977]
 foundational: [engel1977]
 keyReferences: [gatchel2007, ghaemi2009, stilwell2019, raja2020]
 review: draft

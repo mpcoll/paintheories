@@ -29,7 +29,10 @@
 .dg .t-b { fill: var(--ink); font-size: 15px; font-weight: 650; }
 .dg .t-sm { fill: var(--ink-2); font-size: 13px; }
 .dg .t-xs { fill: var(--ink-3); font-size: 12px; }
-.dg .t-on { fill: #fff; font-size: 15px; font-weight: 600; }
-.dg .t-accent { fill: var(--dc); font-size: 15px; font-weight: 650; }
+.dg .t-on { fill: var(--dc-on, #fff); font-size: 15px; font-weight: 600; }
+.dg .t-accent { fill: color-mix(in srgb, var(--dc) 72%, var(--ink)); font-size: 15px; font-weight: 650; }
 .dg .mid { text-anchor: middle; }
 .dg .end { text-anchor: end; }
+
+/* Text on solid domain fills: dark ink on the light yellow and pink fills (contrast). */
+.d-integrative, .d-conceptual { --dc-on: #0b0b0b; }

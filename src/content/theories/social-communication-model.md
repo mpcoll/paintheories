@@ -65,6 +65,9 @@ evidence:
     direction: mixed
     method: review
     refs: [krahe2013]
+diagram:
+  caption: "The experience of the person in pain is encoded in relatively automatic facial expression and more controlled self-report. Observers decode these cues through their own beliefs, empathy and biases and act, and their responses shape the sufferer's experience and expression in turn."
+  after: [hadjistavropoulos2002, craig2009]
 foundational: [hadjistavropoulos2002, craig2009]
 keyReferences: [hadjistavropoulos2011, williams2002]
 review: draft

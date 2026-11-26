@@ -1,0 +1,30 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Interpersonal fear-avoidance: the parent's catastrophizing about the child's pain leads to parental fear and distress and then to protective, avoidant behaviour; this, together with the child's own catastrophizing, fear of pain and avoidance, promotes the child's functional disability.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="area" x="16" y="34" width="608" height="120" rx="14"/>
+<text class="t-xs" x="28" y="54">Parent</text>
+<rect class="area" x="16" y="206" width="608" height="120" rx="14"/>
+<text class="t-xs" x="28" y="226">Child</text>
+<rect class="box-accent" x="28" y="70" width="144" height="56" rx="10"/>
+<text class="t mid" x="100" y="103">Catastrophizing</text>
+<path class="ln-accent" d="M172,98 H192" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="196" y="70" width="132" height="56" rx="10"/>
+<text class="t mid" x="262" y="103">Fear, distress</text>
+<path class="ln-accent" d="M328,98 H352" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="356" y="70" width="176" height="56" rx="10"/>
+<text class="t mid" x="444" y="93">Protective and</text>
+<text class="t mid" x="444" y="113">avoidant behaviour</text>
+<path class="ln-accent" d="M418,126 V238" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs" x="428" y="186">e.g. restricting activity</text>
+<rect class="box" x="28" y="242" width="144" height="56" rx="10"/>
+<text class="t mid" x="100" y="275">Catastrophizing</text>
+<path class="ln" d="M172,270 H192" marker-end="url(#dg-arr)"/>
+<rect class="box" x="196" y="242" width="132" height="56" rx="10"/>
+<text class="t mid" x="262" y="275">Fear of pain</text>
+<path class="ln" d="M328,270 H352" marker-end="url(#dg-arr)"/>
+<rect class="box" x="356" y="242" width="124" height="56" rx="10"/>
+<text class="t mid" x="418" y="275">Avoidance</text>
+<path class="ln" d="M480,270 H504" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="508" y="242" width="104" height="56" rx="10"/>
+<text class="t-on mid" x="560" y="275">Disability</text>
+</svg>

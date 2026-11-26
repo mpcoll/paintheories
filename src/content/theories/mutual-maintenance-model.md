@@ -63,6 +63,9 @@ evidence:
     direction: mixed
     method: intervention
     refs: [held2026]
+diagram:
+  caption: "Chronic pain and PTSD often follow the same trauma. Once both are present, each maintains and worsens the other through shared pathways such as attention to threat, anxiety sensitivity, pain as a trauma reminder, avoidance, and depression with inactivity."
+  after: [sharp2001]
 foundational: [sharp2001]
 keyReferences: [asmundson2002, asmundson2009, otis2009]
 review: draft

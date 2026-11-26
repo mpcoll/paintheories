@@ -1,0 +1,33 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Mature organism model: input sampled from tissues and environment is evaluated by the central nervous system against past experience, knowledge, beliefs and context; the output is a coordinated set of responses (pain, movement, sympathetic, neuroendocrine, behaviour) that protects the tissues and promotes recovery.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<text class="t-xs mid" x="88" y="40">Input</text>
+<text class="t-xs mid" x="288" y="40">Processing</text>
+<text class="t-xs mid" x="526" y="40">Output</text>
+<rect class="box" x="24" y="104" width="128" height="48" rx="10"/>
+<text class="t mid" x="88" y="133">Tissues</text>
+<rect class="box" x="24" y="208" width="128" height="48" rx="10"/>
+<text class="t mid" x="88" y="237">Environment</text>
+<path class="ln" d="M152,128 H192" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M152,232 H192" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="196" y="90" width="184" height="180" rx="10"/>
+<text class="t-b mid" x="288" y="124">CNS evaluation</text>
+<text class="t-xs mid" x="288" y="148">in the light of</text>
+<text class="t-sm mid" x="288" y="178">past experience</text>
+<text class="t-sm mid" x="288" y="202">knowledge, beliefs</text>
+<text class="t-sm mid" x="288" y="226">current context</text>
+<path class="ln-accent" d="M380,180 H424" marker-end="url(#dg-arr-accent)"/>
+<rect class="area" x="428" y="52" width="196" height="268" rx="14"/>
+<rect class="box-strong" x="440" y="64" width="172" height="32" rx="8"/>
+<text class="t-on mid" x="526" y="85">Pain</text>
+<rect class="box" x="440" y="104" width="172" height="32" rx="8"/>
+<text class="t-sm mid" x="526" y="125">Movement</text>
+<rect class="box" x="440" y="144" width="172" height="32" rx="8"/>
+<text class="t-sm mid" x="526" y="165">Sympathetic</text>
+<rect class="box" x="440" y="184" width="172" height="32" rx="8"/>
+<text class="t-sm mid" x="526" y="205">Neuroendocrine</text>
+<rect class="box" x="440" y="224" width="172" height="32" rx="8"/>
+<text class="t-sm mid" x="526" y="245">Behaviour</text>
+<text class="t-accent mid" x="526" y="284">Protection and</text>
+<text class="t-accent mid" x="526" y="304">recovery</text>
+</svg>

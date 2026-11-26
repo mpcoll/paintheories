@@ -1,0 +1,22 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Onion model: four nested layers, from nociception at the core through pain and suffering to pain behaviour, all within the social environment. Only pain behaviour is observable, and suffering can also arise from fear, anxiety and loss.</title>
+<defs></defs>
+<rect class="area" x="16" y="16" width="458" height="328" rx="14"/>
+<text class="t-xs" x="30" y="36">Social environment</text>
+<ellipse class="box" cx="245" cy="184" rx="208" ry="134"/>
+<ellipse class="box" cx="245" cy="184" rx="160" ry="100"/>
+<ellipse class="box-accent" cx="245" cy="184" rx="112" ry="66"/>
+<ellipse class="box-strong" cx="245" cy="184" rx="66" ry="32"/>
+<text class="t mid" x="245" y="73">Pain behaviour</text>
+<text class="t mid" x="245" y="107">Suffering</text>
+<text class="t mid" x="245" y="141">Pain</text>
+<text class="t-on mid" x="245" y="189">Nociception</text>
+<path class="ln-thin" d="M404,126 L486,100"/>
+<circle class="dot" cx="404" cy="126" r="3.5"/>
+<text class="t-sm" x="492" y="98">only observable</text>
+<text class="t-sm" x="492" y="116">layer</text>
+<path class="ln-thin" d="M372,232 L486,262"/>
+<circle class="dot" cx="372" cy="232" r="3.5"/>
+<text class="t-sm" x="492" y="260">also from fear,</text>
+<text class="t-sm" x="492" y="278">anxiety, loss</text>
+</svg>
