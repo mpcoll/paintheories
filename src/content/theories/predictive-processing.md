@@ -28,22 +28,46 @@ relations:
   - type: related-to
     target: fear-avoidance-model
     note: Imprecise threat learning links the two.
+evidence:
+  - finding: During cued heat pain in healthy volunteers, anterior insula responses (and skin conductance and pupil dilation) followed the pattern predicted by a predictive coding model combining expectation and prediction error, whereas posterior insula encoded stimulus intensity; a follow-up found ventral anterior insula prediction-error signals only when pain, not an aversive picture, was expected.
+    direction: supports
+    method: neuroimaging
+    refs: [geuter2017, fazeli2018]
+  - finding: In 62 healthy volunteers, placebo hypoalgesia was larger in those with more precise treatment expectations and correlated with the relative precision of the prior, with neural correlates of precision in the periaqueductal grey and rostral ventromedial medulla.
+    direction: supports
+    method: neuroimaging
+    refs: [grahl2018]
+  - finding: In a cue-based pain task, a Bayesian prior-to-posterior model predicted pain ratings better than simpler models; expectations shifted perception and more uncertain expectations had less influence.
+    direction: supports
+    method: computational
+    refs: [hoskin2019]
+  - finding: Cues predicting high versus low pain changed reported pain and heat-evoked responses to identical stimuli, with effects mediated by anterior cingulate, anterior insula and thalamus and by anticipatory activity in medial orbitofrontal cortex and ventral striatum.
+    direction: supports
+    method: neuroimaging
+    refs: [atlas2010]
+  - finding: Drift-diffusion modelling of pain decisions indicated that prior information changed pain perception mainly by biasing perceptual decision-making rather than by altering the processing of sensory evidence.
+    direction: mixed
+    method: computational
+    refs: [wiech2014]
+  - finding: When people observed others' ratings before receiving the same heat stimulus, the mean observed rating pulled pain towards it, but greater uncertainty (spread) in the observed ratings increased pain, an effect related to periaqueductal grey activity.
+    direction: mixed
+    method: neuroimaging
+    refs: [yoshida2013]
+  - finding: Pain reports and brain responses assimilated towards cue-based expectations, but expectation updating showed a confirmation bias (higher-than-expected pain drove more updating after high-pain cues, lower-than-expected pain after low-pain cues), making expectations self-reinforcing.
+    direction: mixed
+    method: computational
+    refs: [jepma2018]
 foundational: [buchel2014, tabor2017]
 keyReferences: [wiech2016, ongaro2018, anchisi2015, geuter2017, moseley2015, kiverstein2022]
 review: draft
-updated: 2026-11-25
+updated: 2026-11-26
 ---
 
 ## Overview
 
-Predictive processing accounts apply general theories of perception as inference to pain. Büchel and colleagues framed placebo analgesia as the result of expectations (priors) being combined with nociceptive input according to their precision [@buchel2014]. Tabor and colleagues described pain as a statistical decision about bodily threat [@tabor2017], and similar Bayesian accounts have been proposed for symptom perception more broadly [@ongaro2018].
+Predictive processing accounts apply general theories of perception as inference to pain. Büchel and colleagues framed placebo analgesia as the result of expectations (priors) being combined with nociceptive input according to their precision [@buchel2014]. Tabor and colleagues described pain as a statistical decision about bodily threat [@tabor2017], and similar Bayesian accounts have been proposed for symptom perception more broadly [@ongaro2018]. Formal Bayesian models have been used to capture how expectations, attention and beliefs shape pain [@anchisi2015; @wiech2016].
 
-## Evidence for
-
-- Expectations, attention and beliefs shape pain in ways that formal Bayesian models capture quantitatively [@anchisi2015; @wiech2016].
-- Neuroimaging dissociates prediction-error signals from stimulus intensity signals within the insula [@geuter2017].
-
-## Evidence against and critiques
+## Critiques
 
 - Because priors and precision can be adjusted freely, the framework is very flexible and can be hard to falsify unless its quantities are specified in advance.
 - Many findings cited in support (expectation effects) are also predicted by simpler accounts; distinguishing predictive coding from other expectation models requires targeted designs.

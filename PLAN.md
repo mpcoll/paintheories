@@ -59,6 +59,8 @@ without a DOI are marked `source: manual`.
 | Bibliography with BibTeX export | ✅ |
 | Data exports: JSON, CSV, edge list, BibTeX | ✅ |
 | Full-text search (Pagefind) | ✅ |
+| Key findings per theory (supporting / contradicting / mixed, linked to papers) | ✅ |
+| Evidence page (all findings, balance table, filters) + evidence.csv | ✅ |
 | Prediction matrix (where theories make diverging predictions) | ⬜ Phase 6 |
 | Learning paths, case vignettes, glossary | ⬜ Phase 5 |
 
@@ -69,27 +71,16 @@ without a DOI are marked `source: manual`.
    control, Melzack–Casey, neuromatrix, central sensitization, fear-avoidance, biopsychosocial,
    predictive processing). ✅ drafted → **owner review** ⬜, then revise schema if needed.
 3. **Core views** — ✅ (see table above).
-4. **Breadth** — stub entries for the full candidate list (below), then fill by priority. ⬜
+4. **Breadth** — 53 draft entries with 336 key findings and 522 Crossref-verified references (2026-11-26). ✅ drafted → **owner review** ⬜
 5. **Teaching layer** — learning paths, case vignettes, glossary. ⬜
 6. **Research layer** — prediction matrix, Zenodo DOI per release, contributor guide. ⬜
 
 ## 5. Candidate entries still to add
 
-- **Historical:** Müller's specific nerve energies (as its own entry?), Livingston's reverberatory
-  circuits, Noordenbos fast/slow fibre theory, Beecher's context effects, Sherrington's nociception.
-- **Neural:** labeled lines vs population coding, pain as homeostatic emotion (Craig), dynamic pain
-  connectome, corticostriatal / mesolimbic learning theory of chronic pain (Apkarian, Baliki),
-  neuroimmune / glial theories, allostatic load (Borsook), sensorimotor incongruence (Harris),
-  cortical body matrix (Moseley), nociplastic pain, peripheral sensitization, salience / pain matrix critique.
-- **Cognitive:** motivation-decision model (Fields), interruptive function of pain and
-  neurocognitive model of attention (Eccleston & Crombez; Legrain), misdirected problem solving,
-  expectation / placebo theories, imprecision hypothesis.
-- **Behavioural & psychosocial:** operant model (Fordyce), respondent / classical conditioning,
-  avoidance-endurance (Hasenbring), cognitive-behavioural model (Turk), psychological flexibility
-  (McCracken), shared vulnerability and mutual maintenance, diathesis-stress, communal coping
-  (Sullivan), interpersonal fear-avoidance, social communication model (Craig, K.).
-- **Integrative:** Loeser's onion model, mature organism model, pain as protective output
-  (Moseley & Butler), enactive approaches.
-- **Conceptual:** evolutionary accounts (Williams), social pain overlap (Eisenberger),
-  sociocultural accounts (Morris, Kleinman), perceptualist / evaluativist / imperativist
-  philosophical theories, pain asymbolia as a test case.
+- Müller's doctrine of specific nerve energies (separate from specificity theory?)
+- Sherrington's nociception concept; Hardy–Wolff–Goodell
+- Peripheral sensitization as its own entry
+- Pain as need state (Wall 1999)
+- Social/interpersonal: empathy and vicarious pain accounts
+- Sex/gender and developmental accounts (e.g. early-life programming of pain)
+- Computational: reinforcement-learning models of pain avoidance

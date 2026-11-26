@@ -79,6 +79,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
 
   <script>
     import cytoscape from 'cytoscape';
+    import { makeTimeScale, tickYears as ticksFor } from '../lib/timescale';
 
     type Payload = {
       theories: any[];
@@ -96,12 +97,9 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
     const minY = Math.min(...years), maxY = Math.max(...years);
     // Compress early history: position on a sqrt scale of years since the earliest entry.
     // Piecewise time scale: everything before 1850 is compressed into a narrow band on the left.
-    const SPLIT = 1850;
-    const xFor = (y: number) =>
-      y < SPLIT ? ((y - minY) / Math.max(1, SPLIT - minY)) * 120 : 220 + ((y - SPLIT) / Math.max(1, maxY - SPLIT)) * 1500;
+    const xFor = makeTimeScale(minY, maxY, 0, 2600, 120, 120);
 
-    // One horizontal band per domain; inside a band, nodes are packed into sub-rows so labels don't collide.
-    const MIN_GAP = 175, ROW_H = 72, BAND_GAP = 60;
+    const MIN_GAP = 190, ROW_H = 70, BAND_GAP = 70;
     const placed: Record<string, { x: number; sub: number }> = {};
     const subRows: Record<string, number[]> = {};
     for (const t of data.theories) {
@@ -129,7 +127,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         elements.push({ group: 'edges', data: { id: `${t.id}-${r.type}-${r.target}`, source: t.id, target: r.target, rel: r.type, note: r.note } });
     }
     // Year ticks along the top (time layout only).
-    const tickYears = [...(minY < SPLIT ? [minY] : []), ...[1850, 1900, 1950, 2000].filter((y) => y <= maxY + 10)];
+    const tickYears = ticksFor(minY, maxY);
     const tickElements: cytoscape.ElementDefinition[] = tickYears.map((y) => ({
       group: 'nodes', data: { id: `tick:${y}`, label: String(y), kind: 'tick' }, position: { x: xFor(y), y: -70 },
       selectable: false, grabbable: false,
@@ -164,7 +162,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
           'font-size': 12, 'text-valign': 'top', 'text-background-opacity': 0, events: 'no',
         } },
         { selector: 'edge', style: {
-          width: 2, 'line-color': edge, 'target-arrow-color': edge, 'target-arrow-shape': 'triangle',
+          width: 1.5, opacity: 0.35, 'line-color': edge, 'target-arrow-color': edge, 'target-arrow-shape': 'triangle',
           'curve-style': 'bezier', 'arrow-scale': 0.9,
         } },
         { selector: 'edge[rel="challenges"]', style: { 'line-style': 'dashed', 'line-dash-pattern': [6, 4] } },
@@ -173,7 +171,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         { selector: 'edge[rel="mechanism"]', style: { width: 1, 'line-style': 'dotted', 'target-arrow-shape': 'none', opacity: 0.6 } },
         { selector: '.faded', style: { opacity: 0.15 } },
         { selector: 'node:selected', style: { 'border-color': css('--accent'), 'border-width': 3 } },
-        { selector: 'edge.hl', style: { 'line-color': ink2, 'target-arrow-color': ink2, width: 2.5 } },
+        { selector: 'edge.hl', style: { 'line-color': ink2, 'target-arrow-color': ink2, width: 2.5, opacity: 1 } },
       ];
       for (const [d, st] of Object.entries(data.domainStyle))
         s.push({ selector: `node[domain="${d}"]`, style: { 'background-color': css(`--d${st.slot}`), shape: st.shape as any } });

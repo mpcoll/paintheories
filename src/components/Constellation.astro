@@ -6,20 +6,18 @@
 import type { Theory } from '../lib/data';
 import { url } from '../lib/data';
 import { DOMAINS, DOMAIN_STYLE } from '../data/taxonomy';
+import { makeTimeScale, tickYears } from '../lib/timescale';
 
 interface Props { theories: Theory[] }
 const { theories } = Astro.props;
 
-const W = 1000, PAD_L = 60, PAD_R = 70, SPLIT = 1850;
+const W = 1200, PAD_L = 60, PAD_R = 70;
 const years = theories.map((t) => t.data.year);
 const minY = Math.min(...years), maxY = Math.max(...years);
-const early = minY < SPLIT;
-const x0 = early ? 190 : PAD_L;
-const xFor = (y: number) =>
-  y < SPLIT ? PAD_L + ((y - minY) / Math.max(1, SPLIT - minY)) * 60 : x0 + ((y - SPLIT) / Math.max(1, maxY - SPLIT)) * (W - PAD_R - x0);
+const xFor = makeTimeScale(minY, maxY, PAD_L, W - PAD_R);
 
 // Pack nodes into sub-rows per domain band so labels don't overlap.
-const MIN_GAP = 118, ROW_H = 46, BAND_GAP = 22, TOP = 26;
+const MIN_GAP = 150, ROW_H = 42, BAND_GAP = 22, TOP = 26;
 const allDomains = Object.keys(DOMAINS) as (keyof typeof DOMAINS)[];
 // Only draw bands for domains that have entries.
 const domains = allDomains.filter((d) => theories.some((t) => t.data.domain === d));
@@ -69,7 +67,7 @@ function shape(kind: string, cx: number, cy: number) {
     default: return `M${cx - R},${cy} a${R},${R} 0 1,0 ${2 * R},0 a${R},${R} 0 1,0 ${-2 * R},0`;
   }
 }
-const ticks = [...(early ? [minY] : []), 1850, 1900, 1950, 2000].filter((t) => t <= maxY + 5);
+const ticks = tickYears(minY, maxY);
 ---
 
 <figure class="constellation">
@@ -114,19 +112,19 @@ const ticks = [...(early ? [minY] : []), 1850, 1900, 1950, 2000].filter((t) => t
   .tick line, .break { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 4; }
   .break { stroke-dasharray: none; stroke-width: 2; opacity: 0.6; }
   .tick text { fill: var(--ink-3); font: 500 12px var(--font); }
-  .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.4; opacity: 0.45; transition: opacity .2s, stroke-width .2s; }
+  .edge { fill: none; stroke: var(--ink-3); stroke-width: 1.2; opacity: 0.14; transition: opacity .2s, stroke-width .2s; }
   .e-challenges { stroke-dasharray: 5 4; }
   .e-integrates, .e-related-to { stroke-dasharray: 1 4; stroke-linecap: round; }
   .node path { stroke: var(--surface); stroke-width: 2.5; transition: transform .2s; transform-box: fill-box; transform-origin: center; }
   .node text { fill: var(--ink); font: 500 12.5px var(--font); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
   .node:hover path, .node:focus-visible path { transform: scale(1.35); }
   .node:hover text { fill: var(--accent); }
-  svg:has(.node:hover) .edge { opacity: 0.12; }
+  svg:has(.node:hover) .edge { opacity: 0.05; }
   svg:has(.node:hover) .edge.on { opacity: 0.95; stroke-width: 2; stroke: var(--ink-2); }
   figcaption .legend { justify-content: center; margin-top: 0.75rem; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   @media (max-width: 760px) {
-    svg { min-width: 760px; }
+    svg { min-width: 900px; }
     .hint { display: block; }
   }
   .hint { display: none; text-align: center; font-size: 0.8rem; color: var(--ink-3); margin-top: 0.4rem; }

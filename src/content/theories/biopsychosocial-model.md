@@ -24,25 +24,42 @@ relations:
     note: Gate control gave a physiological basis for psychological influences on pain.
   - type: integrates
     target: fear-avoidance-model
+evidence:
+  - finding: A systematic review of prospective cohorts of low back pain found that psychological distress, depressive mood and, to a lesser extent, somatization predicted the transition to chronic pain and disability; evidence for other psychological factors was weak.
+    direction: supports
+    method: review
+    refs: [pincus2002]
+  - finding: A meta-analysis of 65 studies found multidisciplinary treatment for chronic back pain superior to no treatment, waiting list and single-discipline treatments, with benefits extending to return to work and health-care use, though study quality was marginal.
+    direction: supports
+    method: meta-analysis
+    refs: [flor1992]
+  - finding: A Cochrane-derived meta-analysis of 41 trials (6858 participants) found that multidisciplinary biopsychosocial rehabilitation for chronic low back pain reduced pain and disability more than usual care (small effects, moderate-quality evidence) and physical treatments (low-quality evidence), and improved work outcomes relative to physical treatment but not usual care.
+    direction: supports
+    method: meta-analysis
+    refs: [kamper2015]
+  - finding: Stratifying primary care for back pain by prognostic risk, with psychologically informed treatment for high-risk patients, improved disability more than current best practice in a UK randomised trial, but a US cluster-randomised implementation found no effect on outcomes, as clinicians did not change their treatment recommendations.
+    direction: mixed
+    method: intervention
+    refs: [hill2011, cherkin2018]
+  - finding: A Cochrane review of 75 trials found that cognitive behavioural therapy has small or very small benefits for pain, disability and distress in chronic pain compared with active controls or usual care.
+    direction: mixed
+    method: meta-analysis
+    refs: [williams2020]
 foundational: [engel1977]
 keyReferences: [gatchel2007, ghaemi2009, stilwell2019, raja2020]
 review: draft
-updated: 2026-11-25
+updated: 2026-11-26
 ---
 
 ## Overview
 
-Engel proposed the biopsychosocial model as an alternative to the biomedical model in medicine generally [@engel1977]. In pain research it was taken up through Loeser's "onion" model and cognitive-behavioural approaches, and it underpins interdisciplinary pain management [@gatchel2007].
+Engel proposed the biopsychosocial model as an alternative to the biomedical model in medicine generally [@engel1977]. In pain research it was taken up through Loeser's "onion" model and cognitive-behavioural approaches, and it underpins interdisciplinary pain management. Reviews of the evidence emphasise that psychological and social factors such as depression, catastrophizing, fear and work conditions predict chronic pain outcomes [@gatchel2007].
 
-## Evidence for
-
-- Psychological and social factors such as depression, catastrophizing, fear and work conditions predict chronic pain outcomes [@gatchel2007].
-- Interdisciplinary programmes addressing several domains are effective for many people with chronic pain.
-
-## Evidence against and critiques
+## Critiques
 
 - The model is a framework rather than a theory: it says that several kinds of factors matter but not how they interact or which matters most in a given case [@ghaemi2009].
 - In practice the three domains are often treated as separate boxes, which can reproduce mind–body dualism; enactive approaches propose an alternative [@stilwell2019].
+- Because almost any outcome can be attributed to some combination of biological, psychological and social factors, the framework is difficult to test; trials of "biopsychosocial" treatment test particular interventions rather than the model itself.
 
 ## Legacy
 

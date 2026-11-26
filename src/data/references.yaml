@@ -736,3 +736,7133 @@
   pages: 1289-1304
   doi: 10.1016/j.neuron.2015.02.028
   source: crossref
+- id: prescott2014
+  type: article
+  authors:
+    - Prescott, S. A.
+    - Ma, Q.
+    - De Koninck, Y.
+  year: 2014
+  title: Normal and abnormal coding of somatosensory stimuli causing pain
+  container: Nature Neuroscience
+  volume: "17"
+  issue: "2"
+  pages: 183-191
+  doi: 10.1038/nn.3629
+  source: crossref
+- id: liu2010
+  type: article
+  authors:
+    - Liu, Y.
+    - Abdel Samad, O.
+    - Zhang, L.
+    - Duan, B.
+    - Tong, Q.
+    - Lopes, C.
+    - Ji, R. R.
+    - Lowell, B. B.
+    - Ma, Q.
+  year: 2010
+  title: VGLUT2-Dependent Glutamate Release from Nociceptors Is Required to Sense Pain and Suppress Itch
+  container: Neuron
+  volume: "68"
+  issue: "3"
+  pages: 543-556
+  doi: 10.1016/j.neuron.2010.09.008
+  source: crossref
+- id: lagerstrom2010
+  type: article
+  authors:
+    - Lagerström, M. C.
+    - Rogoz, K.
+    - Abrahamsen, B.
+    - Persson, E.
+    - Reinius, B.
+    - Nordenankar, K.
+    - Ölund, C.
+    - Smith, C.
+    - Mendez, J. A.
+    - Chen, Z. F.
+    - Wood, J. N.
+    - Wallén-Mackenzie, Å.
+    - Kullander, K.
+  year: 2010
+  title: VGLUT2-Dependent Sensory Neurons in the TRPV1 Population Regulate Pain and Itch
+  container: Neuron
+  volume: "68"
+  issue: "3"
+  pages: 529-542
+  doi: 10.1016/j.neuron.2010.09.016
+  source: crossref
+- id: ross2010
+  type: article
+  authors:
+    - Ross, S. E.
+    - Mardinly, A. R.
+    - McCord, A. E.
+    - Zurawski, J.
+    - Cohen, S.
+    - Jung, C.
+    - Hu, L.
+    - Mok, S. I.
+    - Shah, A.
+    - Savner, E. M.
+    - Tolias, C.
+    - Corfas, R.
+    - Chen, S.
+    - Inquimbert, P.
+    - Xu, Y.
+    - McInnes, R. R.
+    - Rice, F. L.
+    - Corfas, G.
+    - Ma, Q.
+    - Woolf, C. J.
+    - Greenberg, M. E.
+  year: 2010
+  title: Loss of Inhibitory Interneurons in the Dorsal Spinal Cord and Elevated Itch in Bhlhb5 Mutant Mice
+  container: Neuron
+  volume: "65"
+  issue: "6"
+  pages: 886-898
+  doi: 10.1016/j.neuron.2010.02.025
+  source: crossref
+- id: han2012
+  type: article
+  authors:
+    - Han, L.
+    - Ma, C.
+    - Liu, Q.
+    - Weng, H. J.
+    - Cui, Y.
+    - Tang, Z.
+    - Kim, Y.
+    - Nie, H.
+    - Qu, L.
+    - Patel, K. N.
+    - Li, Z.
+    - McNeil, B.
+    - He, S.
+    - Guan, Y.
+    - Xiao, B.
+    - LaMotte, R. H.
+    - Dong, X.
+  year: 2012
+  title: A subpopulation of nociceptors specifically linked to itch
+  container: Nature Neuroscience
+  volume: "16"
+  issue: "2"
+  pages: 174-182
+  doi: 10.1038/nn.3289
+  source: crossref
+- id: sun2009
+  type: article
+  authors:
+    - Sun, Y. G.
+    - Zhao, Z. Q.
+    - Meng, X. L.
+    - Yin, J.
+    - Liu, X. Y.
+    - Chen, Z. F.
+  year: 2009
+  title: Cellular Basis of Itch Sensation
+  container: Science
+  volume: "325"
+  issue: "5947"
+  pages: 1531-1534
+  doi: 10.1126/science.1174868
+  source: crossref
+- id: cavanaugh2009
+  type: article
+  authors:
+    - Cavanaugh, D. J.
+    - Lee, H.
+    - Lo, L.
+    - Shields, S. D.
+    - Zylka, M. J.
+    - Basbaum, A. I.
+    - Anderson, D. J.
+  year: 2009
+  title: Distinct subsets of unmyelinated primary sensory fibers mediate behavioral responses to noxious thermal and mechanical stimuli
+  container: Proceedings of the National Academy of Sciences
+  volume: "106"
+  issue: "22"
+  pages: 9075-9080
+  doi: 10.1073/pnas.0901507106
+  source: crossref
+- id: emery2016
+  type: article
+  authors:
+    - Emery, E. C.
+    - Luiz, A. P.
+    - Sikandar, S.
+    - Magnúsdóttir, R.
+    - Dong, X.
+    - Wood, J. N.
+  year: 2016
+  title: In vivo characterization of distinct modality-specific subsets of somatosensory neurons using GCaMP
+  container: Science Advances
+  volume: "2"
+  issue: "11"
+  pages: e1600990
+  doi: 10.1126/sciadv.1600990
+  source: crossref
+- id: craig2003b
+  type: article
+  authors:
+    - Craig, A. D.
+  year: 2003
+  title: "Pain mechanisms: labeled lines versus convergence in central processing"
+  container: Annual Review of Neuroscience
+  volume: "26"
+  issue: "1"
+  pages: 1-30
+  doi: 10.1146/annurev.neuro.26.041002.131022
+  source: crossref
+- id: craig2002
+  type: article
+  authors:
+    - Craig, A. D.
+  year: 2002
+  title: "How do you feel? Interoception: the sense of the physiological condition of the body"
+  container: Nature Reviews Neuroscience
+  volume: "3"
+  issue: "8"
+  pages: 655-666
+  doi: 10.1038/nrn894
+  source: crossref
+- id: craig2009b
+  type: article
+  authors:
+    - (Bud) Craig, A. D.
+  year: 2009
+  title: How do you feel — now? The anterior insula and human awareness
+  container: Nature Reviews Neuroscience
+  volume: "10"
+  issue: "1"
+  pages: 59-70
+  doi: 10.1038/nrn2555
+  source: crossref
+- id: craig1994
+  type: article
+  authors:
+    - Craig, A. D.
+    - Bushnell, M. C.
+    - Zhang, E. T.
+    - Blomqvist, A.
+  year: 1994
+  title: A thalamic nucleus specific for pain and temperature sensation
+  container: Nature
+  volume: "372"
+  issue: "6508"
+  pages: 770-773
+  doi: 10.1038/372770a0
+  source: crossref
+- id: craig2000
+  type: article
+  authors:
+    - Craig, A. D.
+    - Chen, K.
+    - Bandy, D.
+    - Reiman, E. M.
+  year: 2000
+  title: Thermosensory activation of insular cortex
+  container: Nature Neuroscience
+  volume: "3"
+  issue: "2"
+  pages: 184-190
+  doi: 10.1038/72131
+  source: crossref
+- id: craig1996
+  type: article
+  authors:
+    - Craig, A. D.
+    - Reiman, E. M.
+    - Evans, A.
+    - Bushnell, M. C.
+  year: 1996
+  title: Functional imaging of an illusion of pain
+  container: Nature
+  volume: "384"
+  issue: "6606"
+  pages: 258-260
+  doi: 10.1038/384258a0
+  source: crossref
+- id: andrew2001
+  type: article
+  authors:
+    - Andrew, D.
+    - Craig, A. D.
+  year: 2001
+  title: "Spinothalamic lamina I neurons selectively sensitive to histamine: a central neural pathway for itch"
+  container: Nature Neuroscience
+  volume: "4"
+  issue: "1"
+  pages: 72-77
+  doi: 10.1038/82924
+  source: crossref
+- id: ostrowsky2002
+  type: article
+  authors:
+    - Ostrowsky, K.
+  year: 2002
+  title: "Representation of Pain and Somatic Sensation in the Human Insula: a Study of Responses to Direct Electrical Cortical Stimulation"
+  container: Cerebral Cortex
+  volume: "12"
+  issue: "4"
+  pages: 376-385
+  doi: 10.1093/cercor/12.4.376
+  source: crossref
+- id: graziano2004
+  type: article
+  authors:
+    - Graziano, A.
+    - Jones, E. G.
+  year: 2004
+  title: Widespread Thalamic Terminations of Fibers Arising in the Superficial Medullary Dorsal Horn of Monkeys and Their Relation to Calbindin Immunoreactivity
+  container: The Journal of Neuroscience
+  volume: "24"
+  issue: "1"
+  pages: 248-256
+  doi: 10.1523/jneurosci.4122-03.2004
+  source: crossref
+- id: willis2002
+  type: article
+  authors:
+    - Willis, W. D.
+    - Zhang, X.
+    - Honda, C. N.
+    - Giesler, G. J.
+  year: 2002
+  title: A critical review of the role of the proposed VMpo nucleus in pain
+  container: The Journal of Pain
+  volume: "3"
+  issue: "2"
+  pages: 79-94
+  doi: 10.1054/jpai.2002.122949
+  source: crossref
+- id: starr2009
+  type: article
+  authors:
+    - Starr, C. J.
+    - Sawaki, L.
+    - Wittenberg, G. F.
+    - Burdette, J. H.
+    - Oshiro, Y.
+    - Quevedo, A. S.
+    - Coghill, R. C.
+  year: 2009
+  title: "Roles of the Insular Cortex in the Modulation of Pain: Insights from Brain Lesions"
+  container: The Journal of Neuroscience
+  volume: "29"
+  issue: "9"
+  pages: 2684-2694
+  doi: 10.1523/jneurosci.5173-08.2009
+  source: crossref
+- id: feinstein2015
+  type: article
+  authors:
+    - Feinstein, J. S.
+    - Khalsa, S. S.
+    - Salomons, T. V.
+    - Prkachin, K. M.
+    - Frey-Law, L. A.
+    - Lee, J. E.
+    - Tranel, D.
+    - Rudrauf, D.
+  year: 2015
+  title: Preserved emotional awareness of pain in a patient with extensive bilateral damage to the insula, anterior cingulate, and amygdala
+  container: Brain Structure and Function
+  volume: "221"
+  issue: "3"
+  pages: 1499-1511
+  doi: 10.1007/s00429-014-0986-3
+  source: crossref
+- id: kucyi2015
+  type: article
+  authors:
+    - Kucyi, A.
+    - Davis, K. D.
+  year: 2015
+  title: The dynamic pain connectome
+  container: Trends in Neurosciences
+  volume: "38"
+  issue: "2"
+  pages: 86-95
+  doi: 10.1016/j.tins.2014.11.006
+  source: crossref
+- id: kucyi2016
+  type: article
+  authors:
+    - Kucyi, A.
+    - Davis, K. D.
+  year: 2016
+  title: "The Neural Code for Pain: From Single-Cell Electrophysiology to the Dynamic Pain Connectome"
+  container: The Neuroscientist
+  volume: "23"
+  issue: "4"
+  pages: 397-414
+  doi: 10.1177/1073858416667716
+  source: crossref
+- id: kucyi2013
+  type: article
+  authors:
+    - Kucyi, A.
+    - Salomons, T. V.
+    - Davis, K. D.
+  year: 2013
+  title: Mind wandering away from pain dynamically engages antinociceptive and default mode brain networks
+  container: Proceedings of the National Academy of Sciences
+  volume: "110"
+  issue: "46"
+  pages: 18692-18697
+  doi: 10.1073/pnas.1312902110
+  source: crossref
+- id: kucyi2014
+  type: article
+  authors:
+    - Kucyi, A.
+    - Moayedi, M.
+    - Weissman-Fogel, I.
+    - Goldberg, M. B.
+    - Freeman, B. V.
+    - Tenenbaum, H. C.
+    - Davis, K. D.
+  year: 2014
+  title: Enhanced Medial Prefrontal-Default Mode Network Functional Connectivity in Chronic Pain and Its Association with Pain Rumination
+  container: The Journal of Neuroscience
+  volume: "34"
+  issue: "11"
+  pages: 3969-3975
+  doi: 10.1523/jneurosci.5055-13.2014
+  source: crossref
+- id: hemington2015
+  type: article
+  authors:
+    - Hemington, K. S.
+    - Wu, Q.
+    - Kucyi, A.
+    - Inman, R. D.
+    - Davis, K. D.
+  year: 2015
+  title: Abnormal cross-network functional connectivity in chronic pain and its association with clinical symptoms
+  container: Brain Structure and Function
+  volume: "221"
+  issue: "8"
+  pages: 4203-4219
+  doi: 10.1007/s00429-015-1161-1
+  source: crossref
+- id: cheng2018
+  type: article
+  authors:
+    - Cheng, J. C.
+    - Rogachov, A.
+    - Hemington, K. S.
+    - Kucyi, A.
+    - Bosma, R. L.
+    - Lindquist, M. A.
+    - Inman, R. D.
+    - Davis, K. D.
+  year: 2018
+  title: Multivariate machine learning distinguishes cross-network dynamic functional connectivity patterns in state and trait neuropathic pain
+  container: Pain
+  volume: "159"
+  issue: "9"
+  pages: 1764-1776
+  doi: 10.1097/j.pain.0000000000001264
+  source: crossref
+- id: baliki2008
+  type: article
+  authors:
+    - Baliki, M. N.
+    - Geha, P. Y.
+    - Apkarian, A. V.
+    - Chialvo, D. R.
+  year: 2008
+  title: "Beyond Feeling: Chronic Pain Hurts the Brain, Disrupting the Default-Mode Network Dynamics"
+  container: The Journal of Neuroscience
+  volume: "28"
+  issue: "6"
+  pages: 1398-1403
+  doi: 10.1523/jneurosci.4123-07.2008
+  source: crossref
+- id: mano2018
+  type: article
+  authors:
+    - Mano, H.
+    - Kotecha, G.
+    - Leibnitz, K.
+    - Matsubara, T.
+    - Sprenger, C.
+    - Nakae, A.
+    - Shenker, N.
+    - Shibata, M.
+    - Voon, V.
+    - Yoshida, W.
+    - Lee, M.
+    - Yanagida, T.
+    - Kawato, M.
+    - Rosa, M. J.
+    - Seymour, B.
+  year: 2018
+  title: "Classification and characterisation of brain network changes in chronic back pain: A multicenter study"
+  container: Wellcome Open Research
+  volume: "3"
+  pages: "19"
+  doi: 10.12688/wellcomeopenres.14069.2
+  source: crossref
+- id: apkarian2009
+  type: article
+  authors:
+    - Apkarian, A. V.
+    - Baliki, M. N.
+    - Geha, P. Y.
+  year: 2009
+  title: Towards a theory of chronic pain
+  container: Progress in Neurobiology
+  volume: "87"
+  issue: "2"
+  pages: 81-97
+  doi: 10.1016/j.pneurobio.2008.09.018
+  source: crossref
+- id: baliki2012
+  type: article
+  authors:
+    - Baliki, M. N.
+    - Petre, B.
+    - Torbey, S.
+    - Herrmann, K. M.
+    - Huang, L.
+    - Schnitzer, T. J.
+    - Fields, H. L.
+    - Apkarian, A. V.
+  year: 2012
+  title: Corticostriatal functional connectivity predicts transition to chronic back pain
+  container: Nature Neuroscience
+  volume: "15"
+  issue: "8"
+  pages: 1117-1119
+  doi: 10.1038/nn.3153
+  source: crossref
+- id: hashmi2013
+  type: article
+  authors:
+    - Hashmi, J. A.
+    - Baliki, M. N.
+    - Huang, L.
+    - Baria, A. T.
+    - Torbey, S.
+    - Hermann, K. M.
+    - Schnitzer, T. J.
+    - Apkarian, A. V.
+  year: 2013
+  title: "Shape shifting pain: chronification of back pain shifts brain representation from nociceptive to emotional circuits"
+  container: Brain
+  volume: "136"
+  issue: "9"
+  pages: 2751-2768
+  doi: 10.1093/brain/awt211
+  source: crossref
+- id: vachonpresseau2016
+  type: article
+  authors:
+    - Vachon-Presseau, E.
+    - Tétreault, P.
+    - Petre, B.
+    - Huang, L.
+    - Berger, S. E.
+    - Torbey, S.
+    - Baria, A. T.
+    - Mansour, A. R.
+    - Hashmi, J. A.
+    - Griffith, J. W.
+    - Comasco, E.
+    - Schnitzer, T. J.
+    - Baliki, M. N.
+    - Apkarian, A. V.
+  year: 2016
+  title: Corticolimbic anatomical characteristics predetermine risk for chronic pain
+  container: Brain
+  volume: "139"
+  issue: "7"
+  pages: 1958-1970
+  doi: 10.1093/brain/aww100
+  source: crossref
+- id: baliki2015
+  type: article
+  authors:
+    - Baliki, M. N.
+    - Apkarian, A. V.
+  year: 2015
+  title: Nociception, Pain, Negative Moods, and Behavior Selection
+  container: Neuron
+  volume: "87"
+  issue: "3"
+  pages: 474-491
+  doi: 10.1016/j.neuron.2015.06.005
+  source: crossref
+- id: vachonpresseau2018
+  type: article
+  authors:
+    - Vachon-Presseau, E.
+    - Berger, S. E.
+    - Abdullah, T. B.
+    - Huang, L.
+    - Cecchi, G. A.
+    - Griffith, J. W.
+    - Schnitzer, T. J.
+    - Apkarian, A. V.
+  year: 2018
+  title: Brain and psychological determinants of placebo pill response in chronic pain patients
+  container: Nature Communications
+  volume: "9"
+  issue: "1"
+  pages: "3397"
+  doi: 10.1038/s41467-018-05859-1
+  source: crossref
+- id: schwartz2014
+  type: article
+  authors:
+    - Schwartz, N.
+    - Temkin, P.
+    - Jurado, S.
+    - Lim, B. K.
+    - Heifets, B. D.
+    - Polepalli, J. S.
+    - Malenka, R. C.
+  year: 2014
+  title: Decreased motivation during chronic pain requires long-term depression in the nucleus accumbens
+  container: Science
+  volume: "345"
+  issue: "6196"
+  pages: 535-542
+  doi: 10.1126/science.1253994
+  source: crossref
+- id: loffler2022
+  type: article
+  authors:
+    - Löffler, M.
+    - Levine, S. M.
+    - Usai, K.
+    - Desch, S.
+    - Kandić, M.
+    - Nees, F.
+    - Flor, H.
+  year: 2022
+  title: "Corticostriatal circuits in the transition to chronic back pain: The predictive role of reward learning"
+  container: Cell Reports Medicine
+  volume: "3"
+  issue: "7"
+  pages: "100677"
+  doi: 10.1016/j.xcrm.2022.100677
+  source: crossref
+- id: fillingim2025
+  type: article
+  authors:
+    - Fillingim, M.
+    - Tanguay-Sabourin, C.
+    - Parisien, M.
+    - Zare, A.
+    - Guglietti, G. V.
+    - Norman, J.
+    - Petre, B.
+    - Bortsov, A.
+    - Ware, M.
+    - Perez, J.
+    - Roy, M.
+    - Diatchenko, L.
+    - Vachon-Presseau, E.
+  year: 2025
+  title: Biological markers and psychosocial factors predict chronic pain conditions
+  container: Nature Human Behaviour
+  volume: "9"
+  issue: "8"
+  pages: 1710-1725
+  doi: 10.1038/s41562-025-02156-y
+  source: crossref
+- id: watkins2001
+  type: article
+  authors:
+    - Watkins, L. R.
+    - Milligan, E. D.
+    - Maier, S. F.
+  year: 2001
+  title: "Glial activation: a driving force for pathological pain"
+  container: Trends in Neurosciences
+  volume: "24"
+  issue: "8"
+  pages: 450-455
+  doi: 10.1016/s0166-2236(00)01854-3
+  source: crossref
+- id: watkins2003
+  type: article
+  authors:
+    - Watkins, L. R.
+    - Maier, S. F.
+  year: 2003
+  title: "GLIA: A novel drug discovery target for clinical pain"
+  container: Nature Reviews Drug Discovery
+  volume: "2"
+  issue: "12"
+  pages: 973-985
+  doi: 10.1038/nrd1251
+  source: crossref
+- id: ji2013
+  type: article
+  authors:
+    - Ji, R. R.
+    - Berta, T.
+    - Nedergaard, M.
+  year: 2013
+  title: "Glia and pain: Is chronic pain a gliopathy?"
+  container: Pain
+  volume: "154"
+  issue: Supplement 1
+  pages: S10-S28
+  doi: 10.1016/j.pain.2013.06.022
+  source: crossref
+- id: grace2014
+  type: article
+  authors:
+    - Grace, P. M.
+    - Hutchinson, M. R.
+    - Maier, S. F.
+    - Watkins, L. R.
+  year: 2014
+  title: Pathological pain and the neuroimmune interface
+  container: Nature Reviews Immunology
+  volume: "14"
+  issue: "4"
+  pages: 217-231
+  doi: 10.1038/nri3621
+  source: crossref
+- id: tsuda2003
+  type: article
+  authors:
+    - Tsuda, M.
+    - Shigemoto-Mogami, Y.
+    - Koizumi, S.
+    - Mizokoshi, A.
+    - Kohsaka, S.
+    - Salter, M. W.
+    - Inoue, K.
+  year: 2003
+  title: P2X4 receptors induced in spinal microglia gate tactile allodynia after nerve injury
+  container: Nature
+  volume: "424"
+  issue: "6950"
+  pages: 778-783
+  doi: 10.1038/nature01786
+  source: crossref
+- id: coull2005
+  type: article
+  authors:
+    - Coull, J. A. M.
+    - Beggs, S.
+    - Boudreau, D.
+    - Boivin, D.
+    - Tsuda, M.
+    - Inoue, K.
+    - Gravel, C.
+    - Salter, M. W.
+    - De Koninck, Y.
+  year: 2005
+  title: BDNF from microglia causes the shift in neuronal anion gradient underlying neuropathic pain
+  container: Nature
+  volume: "438"
+  issue: "7070"
+  pages: 1017-1021
+  doi: 10.1038/nature04223
+  source: crossref
+- id: sorge2015
+  type: article
+  authors:
+    - Sorge, R. E.
+    - Mapplebeck, J. C. S.
+    - Rosen, S.
+    - Beggs, S.
+    - Taves, S.
+    - Alexander, J. K.
+    - Martin, L. J.
+    - Austin, J. S.
+    - Sotocinal, S. G.
+    - Chen, D.
+    - Yang, M.
+    - Shi, X. Q.
+    - Huang, H.
+    - Pillon, N. J.
+    - Bilan, P. J.
+    - Tu, Y.
+    - Klip, A.
+    - Ji, R. R.
+    - Zhang, J.
+    - Salter, M. W.
+    - Mogil, J. S.
+  year: 2015
+  title: Different immune cells mediate mechanical pain hypersensitivity in male and female mice
+  container: Nature Neuroscience
+  volume: "18"
+  issue: "8"
+  pages: 1081-1083
+  doi: 10.1038/nn.4053
+  source: crossref
+- id: loggia2015
+  type: article
+  authors:
+    - Loggia, M. L.
+    - Chonde, D. B.
+    - Akeju, O.
+    - Arabasz, G.
+    - Catana, C.
+    - Edwards, R. R.
+    - Hill, E.
+    - Hsu, S.
+    - Izquierdo-Garcia, D.
+    - Ji, R. R.
+    - Riley, M.
+    - Wasan, A. D.
+    - Zürcher, N. R.
+    - Albrecht, D. S.
+    - Vangel, M. G.
+    - Rosen, B. R.
+    - Napadow, V.
+    - Hooker, J. M.
+  year: 2015
+  title: Evidence for brain glial activation in chronic pain patients
+  container: Brain
+  volume: "138"
+  issue: "3"
+  pages: 604-615
+  doi: 10.1093/brain/awu377
+  source: crossref
+- id: albrecht2019
+  type: article
+  authors:
+    - Albrecht, D. S.
+    - Forsberg, A.
+    - Sandström, A.
+    - Bergan, C.
+    - Kadetoff, D.
+    - Protsenko, E.
+    - Lampa, J.
+    - Lee, Y. C.
+    - Höglund, C. O.
+    - Catana, C.
+    - Cervenka, S.
+    - Akeju, O.
+    - Lekander, M.
+    - Cohen, G.
+    - Halldin, C.
+    - Taylor, N.
+    - Kim, M.
+    - Hooker, J. M.
+    - Edwards, R. R.
+    - Napadow, V.
+    - Kosek, E.
+    - Loggia, M. L.
+  year: 2019
+  title: Brain glial activation in fibromyalgia – A multi-site positron emission tomography investigation
+  container: Brain, Behavior, and Immunity
+  volume: "75"
+  pages: 72-83
+  doi: 10.1016/j.bbi.2018.09.018
+  source: crossref
+- id: landry2012
+  type: article
+  authors:
+    - Landry, R. P.
+    - Jacobs, V. L.
+    - Romero-Sandoval, E. A.
+    - DeLeo, J. A.
+  year: 2012
+  title: "Propentofylline, a CNS glial modulator does not decrease pain in post-herpetic neuralgia patients: In vitro evidence for differential responses in human and rodent microglia and macrophages"
+  container: Experimental Neurology
+  volume: "234"
+  issue: "2"
+  pages: 340-350
+  doi: 10.1016/j.expneurol.2011.11.006
+  source: crossref
+- id: johnson2015
+  type: article
+  authors:
+    - Johnson, J. L.
+    - Kwok, Y. H.
+    - Sumracki, N. M.
+    - Swift, J. E.
+    - Hutchinson, M. R.
+    - Johnson, K.
+    - Williams, D. B.
+    - Tuke, J.
+    - Rolan, P. E.
+  year: 2015
+  title: "Glial Attenuation With Ibudilast in the Treatment of Medication Overuse Headache: A Double‐Blind, Randomized, Placebo‐Controlled Pilot Trial of Efficacy and Safety"
+  container: "Headache: The Journal of Head and Face Pain"
+  volume: "55"
+  issue: "9"
+  pages: 1192-1208
+  doi: 10.1111/head.12655
+  source: crossref
+- id: vanelderen2015
+  type: article
+  authors:
+    - Vanelderen, P.
+    - Van Zundert, J.
+    - Kozicz, T.
+    - Puylaert, M.
+    - De Vooght, P.
+    - Mestrum, R.
+    - Heylen, R.
+    - Roubos, E.
+    - Vissers, K.
+  year: 2015
+  title: Effect of Minocycline on Lumbar Radicular Neuropathic Pain
+  container: Anesthesiology
+  volume: "122"
+  issue: "2"
+  pages: 399-406
+  doi: 10.1097/aln.0000000000000508
+  source: crossref
+- id: owen2017
+  type: article
+  authors:
+    - Owen, D. R.
+    - Narayan, N.
+    - Wells, L.
+    - Healy, L.
+    - Smyth, E.
+    - Rabiner, E. A.
+    - Galloway, D.
+    - Williams, J. B.
+    - Lehr, J.
+    - Mandhair, H.
+    - Peferoen, L. A.
+    - Taylor, P. C.
+    - Amor, S.
+    - Antel, J. P.
+    - Matthews, P. M.
+    - Moore, C. S.
+  year: 2017
+  title: Pro-inflammatory activation of primary microglia and macrophages increases 18 kDa translocator protein expression in rodents but not humans
+  container: Journal of Cerebral Blood Flow &amp; Metabolism
+  volume: "37"
+  issue: "8"
+  pages: 2679-2690
+  doi: 10.1177/0271678x17710182
+  source: crossref
+- id: fitzcharles2021
+  type: article
+  authors:
+    - Fitzcharles, M. A.
+    - Cohen, S. P.
+    - Clauw, D. J.
+    - Littlejohn, G.
+    - Usui, C.
+    - Häuser, W.
+  year: 2021
+  title: "Nociplastic pain: towards an understanding of prevalent pain conditions"
+  container: The Lancet
+  volume: "397"
+  issue: "10289"
+  pages: 2098-2110
+  doi: 10.1016/s0140-6736(21)00392-5
+  source: crossref
+- id: kosek2021
+  type: article
+  authors:
+    - Kosek, E.
+    - Clauw, D.
+    - Nijs, J.
+    - Baron, R.
+    - Gilron, I.
+    - Harris, R. E.
+    - Mico, J. A.
+    - Rice, A. S. C.
+    - Sterling, M.
+  year: 2021
+  title: "Chronic nociplastic pain affecting the musculoskeletal system: clinical criteria and grading system"
+  container: Pain
+  volume: "162"
+  issue: "11"
+  pages: 2629-2634
+  doi: 10.1097/j.pain.0000000000002324
+  source: crossref
+- id: kosek2024
+  type: article
+  authors:
+    - Kosek, E.
+  year: 2024
+  title: The concept of nociplastic pain—where to from here?
+  container: Pain
+  volume: "165"
+  issue: 11S
+  pages: S50-S57
+  doi: 10.1097/j.pain.0000000000003305
+  source: crossref
+- id: cohen2022
+  type: article
+  authors:
+    - Cohen, M. L.
+  year: 2022
+  title: Proposed clinical criteria for nociplastic pain in the musculoskeletal system are flawed
+  container: Pain
+  volume: "163"
+  issue: "4"
+  pages: e606-e607
+  doi: 10.1097/j.pain.0000000000002505
+  source: crossref
+- id: clauw2014
+  type: article
+  authors:
+    - Clauw, D. J.
+  year: 2014
+  title: Fibromyalgia
+  container: JAMA
+  volume: "311"
+  issue: "15"
+  pages: "1547"
+  doi: 10.1001/jama.2014.3266
+  source: crossref
+- id: gracely2002
+  type: article
+  authors:
+    - Gracely, R. H.
+    - Petzke, F.
+    - Wolf, J. M.
+    - Clauw, D. J.
+  year: 2002
+  title: Functional magnetic resonance imaging evidence of augmented pain processing in fibromyalgia
+  container: Arthritis &amp; Rheumatism
+  volume: "46"
+  issue: "5"
+  pages: 1333-1343
+  doi: 10.1002/art.10225
+  source: crossref
+- id: brummett2013
+  type: article
+  authors:
+    - Brummett, C. M.
+    - Janda, A. M.
+    - Schueller, C. M.
+    - Tsodikov, A.
+    - Morris, M.
+    - Williams, D. A.
+    - Clauw, D. J.
+  year: 2013
+  title: Survey Criteria for Fibromyalgia Independently Predict Increased Postoperative Opioid Consumption after Lower-extremity Joint Arthroplasty
+  container: Anesthesiology
+  volume: "119"
+  issue: "6"
+  pages: 1434-1443
+  doi: 10.1097/aln.0b013e3182a8eb1f
+  source: crossref
+- id: brummett2015
+  type: article
+  authors:
+    - Brummett, C. M.
+    - Urquhart, A. G.
+    - Hassett, A. L.
+    - Tsodikov, A.
+    - Hallstrom, B. R.
+    - Wood, N. I.
+    - Williams, D. A.
+    - Clauw, D. J.
+  year: 2015
+  title: Characteristics of Fibromyalgia Independently Predict Poorer Long‐Term Analgesic Outcomes Following Total Knee and Hip Arthroplasty
+  container: Arthritis &amp; Rheumatology
+  volume: "67"
+  issue: "5"
+  pages: 1386-1394
+  doi: 10.1002/art.39051
+  source: crossref
+- id: vervullens2024
+  type: article
+  authors:
+    - Vervullens, S.
+    - Meert, L.
+    - Meeus, M.
+    - Heusdens, C. H. W.
+    - Verdonk, P.
+    - Foubert, A.
+    - Abatih, E.
+    - Durnez, L.
+    - Verbrugghe, J.
+    - Smeets, R. J. E. M.
+  year: 2024
+  title: Application of the IASP Grading System to Identify Underlying Pain Mechanisms in Patients With Knee Osteoarthritis
+  container: The Clinical Journal of Pain
+  volume: "40"
+  issue: "10"
+  pages: 563-577
+  doi: 10.1097/ajp.0000000000001234
+  source: crossref
+- id: schmidt2024
+  type: article
+  authors:
+    - Schmidt, H.
+    - Drusko, A.
+    - Renz, M. P.
+    - Schlömp, L.
+    - Tost, H.
+    - Schuh-Hofer, S.
+    - Tesarz, J.
+    - Meyer-Lindenberg, A.
+    - Treede, R. D.
+  year: 2024
+  title: "Application of the grading system for “nociplastic pain” in chronic primary and chronic secondary pain conditions: a field study"
+  container: Pain
+  volume: "166"
+  issue: "1"
+  pages: 196-211
+  doi: 10.1097/j.pain.0000000000003355
+  source: crossref
+- id: uceyler2013
+  type: article
+  authors:
+    - Üçeyler, N.
+    - Zeller, D.
+    - Kahn, A. K.
+    - Kewenig, S.
+    - Kittel-Schneider, S.
+    - Schmid, A.
+    - Casanova-Molla, J.
+    - Reiners, K.
+    - Sommer, C.
+  year: 2013
+  title: Small fibre pathology in patients with fibromyalgia syndrome
+  container: Brain
+  volume: "136"
+  issue: "6"
+  pages: 1857-1867
+  doi: 10.1093/brain/awt053
+  source: crossref
+- id: oaklander2013
+  type: article
+  authors:
+    - Oaklander, A. L.
+    - Herzog, Z. D.
+    - Downs, H. M.
+    - Klein, M. M.
+  year: 2013
+  title: Objective evidence that small-fiber polyneuropathy underlies some illnesses currently labeled as fibromyalgia
+  container: Pain
+  volume: "154"
+  issue: "11"
+  pages: 2310-2316
+  doi: 10.1016/j.pain.2013.06.001
+  source: crossref
+- id: grayston2019
+  type: article
+  authors:
+    - Grayston, R.
+    - Czanner, G.
+    - Elhadd, K.
+    - Goebel, A.
+    - Frank, B.
+    - Üçeyler, N.
+    - Malik, R. A.
+    - Alam, U.
+  year: 2019
+  title: "A systematic review and meta-analysis of the prevalence of small fiber pathology in fibromyalgia: Implications for a new paradigm in fibromyalgia etiopathogenesis"
+  container: Seminars in Arthritis and Rheumatism
+  volume: "48"
+  issue: "5"
+  pages: 933-940
+  doi: 10.1016/j.semarthrit.2018.08.003
+  source: crossref
+- id: goebel2021
+  type: article
+  authors:
+    - Goebel, A.
+    - Krock, E.
+    - Gentry, C.
+    - Israel, M. R.
+    - Jurczak, A.
+    - Urbina, C. M.
+    - Sandor, K.
+    - Vastani, N.
+    - Maurer, M.
+    - Cuhadar, U.
+    - Sensi, S.
+    - Nomura, Y.
+    - Menezes, J.
+    - Baharpoor, A.
+    - Brieskorn, L.
+    - Sandström, A.
+    - Tour, J.
+    - Kadetoff, D.
+    - Haglund, L.
+    - Kosek, E.
+    - Bevan, S.
+    - Svensson, C. I.
+    - Andersson, D. A.
+  year: 2021
+  title: Passive transfer of fibromyalgia symptoms from patients to mice
+  container: Journal of Clinical Investigation
+  volume: "131"
+  issue: "13"
+  pages: e144201
+  doi: 10.1172/jci144201
+  source: crossref
+- id: borsook2012
+  type: article
+  authors:
+    - Borsook, D.
+    - Maleki, N.
+    - Becerra, L.
+    - McEwen, B.
+  year: 2012
+  title: "Understanding Migraine through the Lens of Maladaptive Stress Responses: A Model Disease of Allostatic Load"
+  container: Neuron
+  volume: "73"
+  issue: "2"
+  pages: 219-234
+  doi: 10.1016/j.neuron.2012.01.001
+  source: crossref
+- id: borsook2016
+  type: article
+  authors:
+    - Borsook, D.
+    - Linnman, C.
+    - Faria, V.
+    - Strassman, A. M.
+    - Becerra, L.
+    - Elman, I.
+  year: 2016
+  title: Reward deficiency and anti-reward in pain chronification
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "68"
+  pages: 282-297
+  doi: 10.1016/j.neubiorev.2016.05.033
+  source: crossref
+- id: borsook2025
+  type: article
+  authors:
+    - Borsook, D.
+  year: 2025
+  title: "Allostatic load and pain: instability of a bio-social ecosystem"
+  container: Pain
+  volume: "166"
+  issue: 11S
+  pages: S27-S32
+  doi: 10.1097/j.pain.0000000000003716
+  source: crossref
+- id: mcewen1993
+  type: article
+  authors:
+    - McEwen, B. S.
+  year: 1993
+  title: Stress and the Individual
+  container: Archives of Internal Medicine
+  volume: "153"
+  issue: "18"
+  pages: "2093"
+  doi: 10.1001/archinte.1993.00410180039004
+  source: crossref
+- id: mcewen1998
+  type: article
+  authors:
+    - McEwen, B. S.
+  year: 1998
+  title: Protective and Damaging Effects of Stress Mediators
+  container: New England Journal of Medicine
+  volume: "338"
+  issue: "3"
+  pages: 171-179
+  doi: 10.1056/nejm199801153380307
+  source: crossref
+- id: mcewen2010
+  type: article
+  authors:
+    - McEwen, B. S.
+    - Kalia, M.
+  year: 2010
+  title: The role of corticosteroids and stress in chronic pain conditions
+  container: Metabolism
+  volume: "59"
+  pages: S9-S15
+  doi: 10.1016/j.metabol.2010.07.012
+  source: crossref
+- id: vachonpresseau2013
+  type: article
+  authors:
+    - Vachon-Presseau, E.
+    - Roy, M.
+    - Martel, M. O.
+    - Caron, E.
+    - Marin, M. F.
+    - Chen, J.
+    - Albouy, G.
+    - Plante, I.
+    - Sullivan, M. J.
+    - Lupien, S. J.
+    - Rainville, P.
+  year: 2013
+  title: "The stress model of chronic pain: evidence from basal cortisol and hippocampal structure and function in humans"
+  container: Brain
+  volume: "136"
+  issue: "3"
+  pages: 815-827
+  doi: 10.1093/brain/aws371
+  source: crossref
+- id: mcbeth2007
+  type: article
+  authors:
+    - McBeth, J.
+    - Silman, A. J.
+    - Gupta, A.
+    - Chiu, Y. H.
+    - Ray, D.
+    - Morriss, R.
+    - Dickens, C.
+    - King, Y.
+    - Macfarlane, G. J.
+  year: 2007
+  title: "Moderation of psychosocial risk factors through dysfunction of the hypothalamic–pituitary–adrenal stress axis in the onset of chronic widespread musculoskeletal pain : Findings of a population‐based prospective cohort study"
+  container: Arthritis &amp; Rheumatism
+  volume: "56"
+  issue: "1"
+  pages: 360-371
+  doi: 10.1002/art.22336
+  source: crossref
+- id: sibille2017
+  type: article
+  authors:
+    - Sibille, K. T.
+    - McBeth, J.
+    - Smith, D.
+    - Wilkie, R.
+  year: 2017
+  title: "Allostatic load and pain severity in older adults: Results from the English Longitudinal Study of Ageing"
+  container: Experimental Gerontology
+  volume: "88"
+  pages: 51-58
+  doi: 10.1016/j.exger.2016.12.013
+  source: crossref
+- id: slade2012
+  type: article
+  authors:
+    - Slade, G. D.
+    - Sanders, A. E.
+    - By, K.
+  year: 2012
+  title: Role of Allostatic Load in Sociodemographic Patterns of Pain Prevalence in the U.S. Population
+  container: The Journal of Pain
+  volume: "13"
+  issue: "7"
+  pages: 666-675
+  doi: 10.1016/j.jpain.2012.04.003
+  source: crossref
+- id: tak2011
+  type: article
+  authors:
+    - Tak, L. M.
+    - Cleare, A. J.
+    - Ormel, J.
+    - Manoharan, A.
+    - Kok, I. C.
+    - Wessely, S.
+    - Rosmalen, J. G. M.
+  year: 2011
+  title: Meta-analysis and meta-regression of hypothalamic-pituitary-adrenal axis activity in functional somatic disorders
+  container: Biological Psychology
+  volume: "87"
+  issue: "2"
+  pages: 183-194
+  doi: 10.1016/j.biopsycho.2011.02.002
+  source: crossref
+- id: generaal2016
+  type: article
+  authors:
+    - Generaal, E.
+    - Vogelzangs, N.
+    - Macfarlane, G. J.
+    - Geenen, R.
+    - Smit, J. H.
+    - de Geus, E. J. C. N.
+    - Penninx, B. W. J. H.
+    - Dekker, J.
+  year: 2016
+  title: "Biological stress systems, adverse life events and the onset of chronic multisite musculoskeletal pain: a 6-year cohort study"
+  container: Annals of the Rheumatic Diseases
+  volume: "75"
+  issue: "5"
+  pages: 847-854
+  doi: 10.1136/annrheumdis-2014-206741
+  source: crossref
+- id: lebars1979
+  type: article
+  authors:
+    - Le Bars, D.
+    - Dickenson, A. H.
+    - Besson, J. M.
+  year: 1979
+  title: Diffuse noxious inhibitory controls (DNIC). I. Effects on dorsal horn convergent neurones in the rat
+  container: Pain
+  volume: "6"
+  issue: "3"
+  pages: 283-304
+  doi: 10.1016/0304-3959(79)90049-6
+  source: crossref
+- id: levine1978
+  type: article
+  authors:
+    - Levine, J.
+    - Gordon, N.
+    - Fields, H.
+  year: 1978
+  title: The mechanism of placebo analgesia
+  container: The Lancet
+  volume: "312"
+  issue: "8091"
+  pages: 654-657
+  doi: 10.1016/s0140-6736(78)92762-9
+  source: crossref
+- id: eippert2009
+  type: article
+  authors:
+    - Eippert, F.
+    - Bingel, U.
+    - Schoell, E. D.
+    - Yacubian, J.
+    - Klinger, R.
+    - Lorenz, J.
+    - Büchel, C.
+  year: 2009
+  title: Activation of the Opioidergic Descending Pain Control System Underlies Placebo Analgesia
+  container: Neuron
+  volume: "63"
+  issue: "4"
+  pages: 533-543
+  doi: 10.1016/j.neuron.2009.07.014
+  source: crossref
+- id: burgess2002
+  type: article
+  authors:
+    - Burgess, S. E.
+    - Gardell, L. R.
+    - Ossipov, M. H.
+    - Malan, T. P.
+    - Vanderah, T. W.
+    - Lai, J.
+    - Porreca, F.
+  year: 2002
+  title: Time-Dependent Descending Facilitation from the Rostral Ventromedial Medulla Maintains, But Does Not Initiate, Neuropathic Pain
+  container: The Journal of Neuroscience
+  volume: "22"
+  issue: "12"
+  pages: 5129-5136
+  doi: 10.1523/jneurosci.22-12-05129.2002
+  source: crossref
+- id: lewis2012
+  type: article
+  authors:
+    - Lewis, G. N.
+    - Rice, D. A.
+    - McNair, P. J.
+  year: 2012
+  title: "Conditioned Pain Modulation in Populations With Chronic Pain: A Systematic Review and Meta-Analysis"
+  container: The Journal of Pain
+  volume: "13"
+  issue: "10"
+  pages: 936-944
+  doi: 10.1016/j.jpain.2012.07.005
+  source: crossref
+- id: yarnitsky2008
+  type: article
+  authors:
+    - Yarnitsky, D.
+    - Crispel, Y.
+    - Eisenberg, E.
+    - Granovsky, Y.
+    - Ben-Nun, A.
+    - Sprecher, E.
+    - Best, L. A.
+    - Granot, M.
+  year: 2008
+  title: "Prediction of chronic post-operative pain: Pre-operative DNIC testing identifies patients at risk"
+  container: Pain
+  volume: "138"
+  issue: "1"
+  pages: 22-28
+  doi: 10.1016/j.pain.2007.10.033
+  source: crossref
+- id: yarnitsky2010
+  type: article
+  authors:
+    - Yarnitsky, D.
+  year: 2010
+  title: "Conditioned pain modulation (the diffuse noxious inhibitory control-like effect): its relevance for acute and chronic pain states"
+  container: Current Opinion in Anaesthesiology
+  volume: "23"
+  issue: "5"
+  pages: 611-615
+  doi: 10.1097/aco.0b013e32833c348b
+  source: crossref
+- id: yarnitsky2012
+  type: article
+  authors:
+    - Yarnitsky, D.
+    - Granot, M.
+    - Nahman-Averbuch, H.
+    - Khamaisi, M.
+    - Granovsky, Y.
+  year: 2012
+  title: Conditioned pain modulation predicts duloxetine efficacy in painful diabetic neuropathy
+  container: Pain
+  volume: "153"
+  issue: "6"
+  pages: 1193-1198
+  doi: 10.1016/j.pain.2012.02.021
+  source: crossref
+- id: sangesland2017
+  type: article
+  authors:
+    - Sangesland, A.
+    - Støren, C.
+    - Vaegter, H. B.
+  year: 2017
+  title: Are preoperative experimental pain assessments correlated with clinical pain outcomes after surgery? A systematic review
+  container: Scandinavian Journal of Pain
+  volume: "15"
+  issue: "1"
+  pages: 44-52
+  doi: 10.1016/j.sjpain.2016.12.002
+  source: crossref
+- id: mcphee2019
+  type: article
+  authors:
+    - McPhee, M. E.
+    - Vaegter, H. B.
+    - Graven-Nielsen, T.
+  year: 2019
+  title: "Alterations in pronociceptive and antinociceptive mechanisms in patients with low back pain: a systematic review with meta-analysis"
+  container: Pain
+  volume: "161"
+  issue: "3"
+  pages: 464-475
+  doi: 10.1097/j.pain.0000000000001737
+  source: crossref
+- id: kennedy2016
+  type: article
+  authors:
+    - Kennedy, D. L.
+    - Kemp, H. I.
+    - Ridout, D.
+    - Yarnitsky, D.
+    - Rice, A. S. C.
+  year: 2016
+  title: "Reliability of conditioned pain modulation: a systematic review"
+  container: Pain
+  volume: "157"
+  issue: "11"
+  pages: 2410-2419
+  doi: 10.1097/j.pain.0000000000000689
+  source: crossref
+- id: fields2004
+  type: article
+  authors:
+    - Fields, H.
+  year: 2004
+  title: State-dependent opioid control of pain
+  container: Nature Reviews Neuroscience
+  volume: "5"
+  issue: "7"
+  pages: 565-575
+  doi: 10.1038/nrn1431
+  source: crossref
+- id: ossipov2010
+  type: article
+  authors:
+    - Ossipov, M. H.
+    - Dussor, G. O.
+    - Porreca, F.
+  year: 2010
+  title: Central modulation of pain
+  container: Journal of Clinical Investigation
+  volume: "120"
+  issue: "11"
+  pages: 3779-3787
+  doi: 10.1172/jci43766
+  source: crossref
+- id: ossipov2014
+  type: article
+  authors:
+    - Ossipov, M. H.
+    - Morimura, K.
+    - Porreca, F.
+  year: 2014
+  title: Descending pain modulation and chronification of pain
+  container: Current Opinion in Supportive &amp; Palliative Care
+  volume: "8"
+  issue: "2"
+  pages: 143-151
+  doi: 10.1097/spc.0000000000000055
+  source: crossref
+- id: porreca2002
+  type: article
+  authors:
+    - Porreca, F.
+  year: 2002
+  title: Chronic pain and medullary descending facilitation
+  container: Trends in Neurosciences
+  volume: "25"
+  issue: "6"
+  pages: 319-325
+  doi: 10.1016/s0166-2236(02)02157-4
+  source: crossref
+- id: noordenbos1959
+  type: book
+  authors:
+    - Noordenbos, W.
+  year: 1959
+  title: "Pain: problems pertaining to the transmission of nerve impulses which give rise to pain"
+  publisher: Elsevier
+  source: manual
+- id: livingston1943
+  type: book
+  authors:
+    - Livingston, W. K.
+  year: 1943
+  title: "Pain mechanisms: a physiologic interpretation of causalgia and its related states"
+  publisher: Macmillan
+  source: manual
+- id: harris1999
+  type: article
+  authors:
+    - Harris, A. J.
+  year: 1999
+  title: Cortical origin of pathological pain
+  container: The Lancet
+  volume: "354"
+  issue: "9188"
+  pages: 1464-1466
+  doi: 10.1016/s0140-6736(99)05003-5
+  source: crossref
+- id: mccabe2005
+  type: article
+  authors:
+    - McCabe, C. S.
+  year: 2005
+  title: "Simulating sensory-motor incongruence in healthy volunteers: implications for a cortical model of pain"
+  container: Rheumatology
+  volume: "44"
+  issue: "4"
+  pages: 509-516
+  doi: 10.1093/rheumatology/keh529
+  source: crossref
+- id: mccabe2007
+  type: article
+  authors:
+    - McCabe, C. S.
+    - Cohen, H.
+    - Blake, D. R.
+  year: 2007
+  title: "Somaesthetic disturbances in fibromyalgia are exaggerated by sensory motor conflict: implications for chronicity of the disease?"
+  container: Rheumatology
+  volume: "46"
+  issue: "10"
+  pages: 1587-1592
+  doi: 10.1093/rheumatology/kem204
+  source: crossref
+- id: mccabe2002
+  type: article
+  authors:
+    - McCabe, C. S.
+  year: 2002
+  title: A controlled pilot study of the utility of mirror visual feedback in the treatment of complex regional pain syndrome (type 1)
+  container: Rheumatology
+  volume: "42"
+  issue: "1"
+  pages: 97-101
+  doi: 10.1093/rheumatology/keg041
+  source: crossref
+- id: daenen2012
+  type: article
+  authors:
+    - Daenen, L.
+    - Nijs, J.
+    - Roussel, N.
+    - Wouters, K.
+    - Van Loo, M.
+    - Cras, P.
+  year: 2012
+  title: "Sensorimotor incongruence exacerbates symptoms in patients with chronic whiplash associated disorders: an experimental study"
+  container: Rheumatology
+  volume: "51"
+  issue: "8"
+  pages: 1492-1499
+  doi: 10.1093/rheumatology/kes050
+  source: crossref
+- id: moseley2005
+  type: article
+  authors:
+    - Moseley, G. L.
+    - McCormick, K.
+    - Hudson, M.
+    - Zalucki, N.
+  year: 2005
+  title: Disrupted cortical proprioceptive representation evokes symptoms of peculiarity, foreignness and swelling, but not pain
+  container: Rheumatology
+  volume: "45"
+  issue: "2"
+  pages: 196-200
+  doi: 10.1093/rheumatology/kei119
+  source: crossref
+- id: moseley2005b
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Gandevia, S. C.
+  year: 2005
+  title: Sensory–motor incongruence and reports of ‘pain’
+  container: Rheumatology
+  volume: "44"
+  issue: "9"
+  pages: 1083-1085
+  doi: 10.1093/rheumatology/keh631
+  source: crossref
+- id: foell2013
+  type: article
+  authors:
+    - Foell, J.
+    - Bekrater-Bodmann, R.
+    - McCabe, C. S.
+    - Flor, H.
+  year: 2013
+  title: "Sensorimotor Incongruence and Body Perception: An Experimental Investigation"
+  container: Frontiers in Human Neuroscience
+  volume: "7"
+  doi: 10.3389/fnhum.2013.00310
+  source: crossref
+- id: wand2014
+  type: article
+  authors:
+    - Wand, B. M.
+    - Szpak, L.
+    - George, P. J.
+    - Bulsara, M. K.
+    - O’Connell, N. E.
+    - Moseley, G. L.
+  year: 2014
+  title: "Moving in an Environment of Induced Sensorimotor Incongruence Does Not Influence Pain Sensitivity in Healthy Volunteers: A Randomised Within-Subject Experiment"
+  container: PLoS ONE
+  volume: "9"
+  issue: "4"
+  pages: e93701
+  doi: 10.1371/journal.pone.0093701
+  source: crossref
+- id: don2019
+  type: article
+  authors:
+    - Don, S.
+    - Venema, M.
+    - De Kooning, M.
+    - van Buchem, B.
+    - Nijs, J.
+    - Voogt, L.
+  year: 2019
+  title: Does Sensorimotor Incongruence Trigger Pain and Sensory Disturbances in People With Chronic Low Back Pain? A Randomized Cross-Over Experiment
+  container: The Journal of Pain
+  volume: "20"
+  issue: "3"
+  pages: 315-324
+  doi: 10.1016/j.jpain.2018.09.011
+  source: crossref
+- id: don2016
+  type: article
+  authors:
+    - Don, S.
+    - Voogt, L.
+    - Meeus, M.
+    - De Kooning, M.
+    - Nijs, J.
+  year: 2016
+  title: "Sensorimotor Incongruence in People with Musculoskeletal Pain: A Systematic Review"
+  container: Pain Practice
+  volume: "17"
+  issue: "1"
+  pages: 115-128
+  doi: 10.1111/papr.12456
+  source: crossref
+- id: moseley2012
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Gallace, A.
+    - Spence, C.
+  year: 2012
+  title: "Bodily illusions in health and disease: Physiological and clinical perspectives and the concept of a cortical ‘body matrix’"
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "36"
+  issue: "1"
+  pages: 34-46
+  doi: 10.1016/j.neubiorev.2011.03.013
+  source: crossref
+- id: moseley2012b
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Gallace, A.
+    - Iannetti, G. D.
+  year: 2012
+  title: Spatially defined modulation of skin temperature and hand ownership of both hands in patients with unilateral complex regional pain syndrome
+  container: Brain
+  volume: "135"
+  issue: "12"
+  pages: 3676-3686
+  doi: 10.1093/brain/aws297
+  source: crossref
+- id: moseley2008
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Olthof, N.
+    - Venema, A.
+    - Don, S.
+    - Wijers, M.
+    - Gallace, A.
+    - Spence, C.
+  year: 2008
+  title: Psychologically induced cooling of a specific body part caused by the illusory ownership of an artificial counterpart
+  container: Proceedings of the National Academy of Sciences
+  volume: "105"
+  issue: "35"
+  pages: 13169-13173
+  doi: 10.1073/pnas.0803768105
+  source: crossref
+- id: moseley2008b
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Parsons, T. J.
+    - Spence, C.
+  year: 2008
+  title: Visual distortion of a limb modulates the pain and swelling evoked by movement
+  container: Current Biology
+  volume: "18"
+  issue: "22"
+  pages: R1047-R1048
+  doi: 10.1016/j.cub.2008.09.031
+  source: crossref
+- id: moseley2008c
+  type: article
+  authors:
+    - Moseley, G. L.
+  year: 2008
+  title: I can’t find it! Distorted body image and tactile dysfunction in patients with chronic back pain
+  container: Pain
+  volume: "140"
+  issue: "1"
+  pages: 239-243
+  doi: 10.1016/j.pain.2008.08.001
+  source: crossref
+- id: moseley2009
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Gallace, A.
+    - Spence, C.
+  year: 2009
+  title: Space-based, but not arm-based, shift in tactile processing in complex regional pain syndrome and its relationship to cooling of the affected limb
+  container: Brain
+  volume: "132"
+  issue: "11"
+  pages: 3142-3151
+  doi: 10.1093/brain/awp224
+  source: crossref
+- id: moseley2013
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Gallace, A.
+    - Di Pietro, F.
+    - Spence, C.
+    - Iannetti, G. D.
+  year: 2013
+  title: Limb-specific autonomic dysfunction in complex regional pain syndrome modulated by wearing prism glasses
+  container: Pain
+  volume: "154"
+  issue: "11"
+  pages: 2463-2468
+  doi: 10.1016/j.pain.2013.07.026
+  source: crossref
+- id: rohde2013
+  type: article
+  authors:
+    - Rohde, M.
+    - Wold, A.
+    - Karnath, H. O.
+    - Ernst, M. O.
+  year: 2013
+  title: "The Human Touch: Skin Temperature during the Rubber Hand Illusion in Manual and Automated Stroking Procedures"
+  container: PLoS ONE
+  volume: "8"
+  issue: "11"
+  pages: e80688
+  doi: 10.1371/journal.pone.0080688
+  source: crossref
+- id: dehaan2017
+  type: article
+  authors:
+    - de Haan, A. M.
+    - Van Stralen, H. E.
+    - Smit, M.
+    - Keizer, A.
+    - Van der Stigchel, S.
+    - Dijkerman, H. C.
+  year: 2017
+  title: No consistent cooling of the real hand in the rubber hand illusion
+  container: Acta Psychologica
+  volume: "179"
+  pages: 68-77
+  doi: 10.1016/j.actpsy.2017.07.003
+  source: crossref
+- id: lewis2007
+  type: article
+  authors:
+    - Lewis, J. S.
+    - Kersten, P.
+    - McCabe, C. S.
+    - McPherson, K. M.
+    - Blake, D. R.
+  year: 2007
+  title: "Body perception disturbance: A contribution to pain in complex regional pain syndrome (CRPS)"
+  container: Pain
+  volume: "133"
+  issue: "1"
+  pages: 111-119
+  doi: 10.1016/j.pain.2007.03.013
+  source: crossref
+- id: flor1995
+  type: article
+  authors:
+    - Flor, H.
+    - Elbert, T.
+    - Knecht, S.
+    - Wienbruch, C.
+    - Pantev, C.
+    - Birbaumers, N.
+    - Larbig, W.
+    - Taub, E.
+  year: 1995
+  title: Phantom-limb pain as a perceptual correlate of cortical reorganization following arm amputation
+  container: Nature
+  volume: "375"
+  issue: "6531"
+  pages: 482-484
+  doi: 10.1038/375482a0
+  source: crossref
+- id: birbaumer1997
+  type: article
+  authors:
+    - Birbaumer, N.
+    - Lutzenberger, W.
+    - Montoya, P.
+    - Larbig, W.
+    - Unertl, K.
+    - Töpfner, S.
+    - Grodd, W.
+    - Taub, E.
+    - Flor, H.
+  year: 1997
+  title: Effects of Regional Anesthesia on Phantom Limb Pain Are Mirrored in Changes in Cortical Reorganization
+  container: The Journal of Neuroscience
+  volume: "17"
+  issue: "14"
+  pages: 5503-5508
+  doi: 10.1523/jneurosci.17-14-05503.1997
+  source: crossref
+- id: lotze1999
+  type: article
+  authors:
+    - Lotze, M.
+    - Grodd, W.
+    - Birbaumer, N.
+    - Erb, M.
+    - Huse, E.
+    - Flor, H.
+  year: 1999
+  title: Does use of a myoelectric prosthesis prevent cortical reorganization and phantom limb pain?
+  container: Nature Neuroscience
+  volume: "2"
+  issue: "6"
+  pages: 501-502
+  doi: 10.1038/9145
+  source: crossref
+- id: lotze2001
+  type: article
+  authors:
+    - Lotze, M.
+  year: 2001
+  title: Phantom movements and pain An fMRI study in upper limb amputees
+  container: Brain
+  volume: "124"
+  issue: "11"
+  pages: 2268-2277
+  doi: 10.1093/brain/124.11.2268
+  source: crossref
+- id: maihofner2003
+  type: article
+  authors:
+    - Maihöfner, C.
+    - Handwerker, H. O.
+    - Neundörfer, B.
+    - Birklein, F.
+  year: 2003
+  title: Patterns of cortical reorganization in complex regional pain syndrome
+  container: Neurology
+  volume: "61"
+  issue: "12"
+  pages: 1707-1715
+  doi: 10.1212/01.wnl.0000098939.02752.8e
+  source: crossref
+- id: maihofner2004
+  type: article
+  authors:
+    - Maihöfner, C.
+    - Handwerker, H. O.
+    - Neundörfer, B.
+    - Birklein, F.
+  year: 2004
+  title: Cortical reorganization during recovery from complex regional pain syndrome
+  container: Neurology
+  volume: "63"
+  issue: "4"
+  pages: 693-701
+  doi: 10.1212/01.wnl.0000134661.46658.b0
+  source: crossref
+- id: dipietro2013
+  type: article
+  authors:
+    - Di Pietro, F.
+    - McAuley, J. H.
+    - Parkitny, L.
+    - Lotze, M.
+    - Wand, B. M.
+    - Moseley, G. L.
+    - Stanton, T. R.
+  year: 2013
+  title: "Primary Somatosensory Cortex Function in Complex Regional Pain Syndrome: A Systematic Review and Meta-Analysis"
+  container: The Journal of Pain
+  volume: "14"
+  issue: "10"
+  pages: 1001-1018
+  doi: 10.1016/j.jpain.2013.04.001
+  source: crossref
+- id: makin2013
+  type: article
+  authors:
+    - Makin, T. R.
+    - Scholz, J.
+    - Filippini, N.
+    - Henderson Slater, D.
+    - Tracey, I.
+    - Johansen-Berg, H.
+  year: 2013
+  title: Phantom pain is associated with preserved structure and function in the former hand area
+  container: Nature Communications
+  volume: "4"
+  issue: "1"
+  pages: "1570"
+  doi: 10.1038/ncomms2571
+  source: crossref
+- id: makin2015
+  type: article
+  authors:
+    - Makin, T. R.
+    - Scholz, J.
+    - Henderson Slater, D.
+    - Johansen-Berg, H.
+    - Tracey, I.
+  year: 2015
+  title: Reassessing cortical reorganization in the primary sensorimotor cortex following arm amputation
+  container: Brain
+  volume: "138"
+  issue: "8"
+  pages: 2140-2146
+  doi: 10.1093/brain/awv161
+  source: crossref
+- id: schone2025
+  type: article
+  authors:
+    - Schone, H. R.
+    - Maimon-Mor, R. O.
+    - Kollamkulam, M.
+    - Szymanska, M. A.
+    - Gerrand, C.
+    - Woollard, A.
+    - Kang, N. V.
+    - Baker, C. I.
+    - Makin, T. R.
+  year: 2025
+  title: Stable cortical body maps before and after arm amputation
+  container: Nature Neuroscience
+  volume: "28"
+  issue: "10"
+  pages: 2015-2021
+  doi: 10.1038/s41593-025-02037-7
+  source: crossref
+- id: flor2006
+  type: article
+  authors:
+    - Flor, H.
+    - Nikolajsen, L.
+    - Staehelin Jensen, T.
+  year: 2006
+  title: "Phantom limb pain: a case of maladaptive CNS plasticity?"
+  container: Nature Reviews Neuroscience
+  volume: "7"
+  issue: "11"
+  pages: 873-881
+  doi: 10.1038/nrn1991
+  source: crossref
+- id: makin2020
+  type: article
+  authors:
+    - Makin, T. R.
+    - Flor, H.
+  year: 2020
+  title: "Brain (re)organisation following amputation: Implications for phantom limb pain"
+  container: NeuroImage
+  volume: "218"
+  pages: "116943"
+  doi: 10.1016/j.neuroimage.2020.116943
+  source: crossref
+- id: kikkert2016
+  type: article
+  authors:
+    - Kikkert, S.
+    - Kolasinski, J.
+    - Jbabdi, S.
+    - Tracey, I.
+    - Beckmann, C. F.
+    - Johansen-Berg, H.
+    - Makin, T. R.
+  year: 2016
+  title: Revealing the neural fingerprints of a missing hand
+  container: eLife
+  volume: "5"
+  pages: e15292
+  doi: 10.7554/elife.15292
+  source: crossref
+- id: flor2001
+  type: article
+  authors:
+    - Flor, H.
+    - Denke, C.
+    - Schaefer, M.
+    - Grüsser, S.
+  year: 2001
+  title: Effect of sensory discrimination training on cortical reorganisation and phantom limb pain
+  container: The Lancet
+  volume: "357"
+  issue: "9270"
+  pages: 1763-1764
+  doi: 10.1016/s0140-6736(00)04890-x
+  source: crossref
+- id: flor1997
+  type: article
+  authors:
+    - Flor, H.
+    - Braun, C.
+    - Elbert, T.
+    - Birbaumer, N.
+  year: 1997
+  title: Extensive reorganization of primary somatosensory cortex in chronic back pain patients
+  container: Neuroscience Letters
+  volume: "224"
+  issue: "1"
+  pages: 5-8
+  doi: 10.1016/s0304-3940(97)13441-3
+  source: crossref
+- id: moseley2012c
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Flor, H.
+  year: 2012
+  title: Targeting Cortical Representations in the Treatment of Chronic Pain
+  container: Neurorehabilitation and Neural Repair
+  volume: "26"
+  issue: "6"
+  pages: 646-652
+  doi: 10.1177/1545968311433209
+  source: crossref
+- id: nathan1974
+  type: article
+  authors:
+    - Nathan, P. W.
+    - Wall, P. D.
+  year: 1974
+  title: Treatment of Post-Herpetic Neuralgia by Prolonged Electric Stimulation
+  container: BMJ
+  volume: "3"
+  issue: "5932"
+  pages: 645-647
+  doi: 10.1136/bmj.3.5932.645
+  source: crossref
+- id: dyck1976
+  type: article
+  authors:
+    - Dyck, P. J.
+    - Lambert, E. H.
+    - O'brien, P. C.
+  year: 1976
+  title: Pain in peripheral neuropathy related to rate and kind of fiber degeneration
+  container: Neurology
+  volume: "26"
+  issue: "5"
+  pages: 466-466
+  doi: 10.1212/wnl.26.5.466
+  source: crossref
+- id: mendell1966
+  type: article
+  authors:
+    - Mendell, L. M.
+  year: 1966
+  title: Physiological properties of unmyelinated fiber projection to the spinal cord
+  container: Experimental Neurology
+  volume: "16"
+  issue: "3"
+  pages: 316-332
+  doi: 10.1016/0014-4886(66)90068-9
+  source: crossref
+- id: gracely1992
+  type: article
+  authors:
+    - Gracely, R. H.
+    - Lynch, S. A.
+    - Bennett, G. J.
+  year: 1992
+  title: "Painful neuropathy: altered central processing maintained dynamically by peripheral input"
+  container: Pain
+  volume: "51"
+  issue: "2"
+  pages: 175-194
+  doi: 10.1016/0304-3959(92)90259-e
+  source: crossref
+- id: oconnell2016
+  type: article
+  authors:
+    - O'Connell, N. E.
+    - Wand, B. M.
+    - Gibson, W.
+    - Carr, D. B.
+    - Birklein, F.
+    - Stanton, T. R.
+  year: 2016
+  title: Local anaesthetic sympathetic blockade for complex regional pain syndrome
+  container: Cochrane Database of Systematic Reviews
+  volume: "2021"
+  issue: "4"
+  doi: 10.1002/14651858.cd004598.pub4
+  source: crossref
+- id: beecher1946
+  type: article
+  authors:
+    - Beecher, H. K.
+  year: 1946
+  title: Pain in men wounded in battle
+  container: Annals of Surgery
+  volume: "123"
+  issue: "1"
+  pages: 96-105
+  doi: 10.1097/00000658-194601000-00008
+  source: crossref
+- id: beecher1956
+  type: article
+  authors:
+    - Beecher, H. K.
+  year: 1956
+  title: Relationship of significance of wound to pain experienced
+  container: Journal of the American Medical Association
+  volume: "161"
+  issue: "17"
+  pages: "1609"
+  doi: 10.1001/jama.1956.02970170005002
+  source: crossref
+- id: melzack1982
+  type: article
+  authors:
+    - Melzack, R.
+    - Wall, P. D.
+    - Ty, T. C.
+  year: 1982
+  title: "Acute pain in an emergency clinic: Latency of onset and descriptor patterns related to different injuries"
+  container: Pain
+  volume: "14"
+  issue: "1"
+  pages: 33-43
+  doi: 10.1016/0304-3959(82)90078-1
+  source: crossref
+- id: arntz2004
+  type: article
+  authors:
+    - Arntz, A.
+    - Claassens, L.
+  year: 2004
+  title: The meaning of pain influences its experienced intensity
+  container: Pain
+  volume: "109"
+  issue: "1"
+  pages: 20-25
+  doi: 10.1016/j.pain.2003.12.030
+  source: crossref
+- id: moseley2007b
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Arntz, A.
+  year: 2007
+  title: The context of a noxious stimulus affects the pain it evokes
+  container: Pain
+  volume: "133"
+  issue: "1"
+  pages: 64-71
+  doi: 10.1016/j.pain.2007.03.002
+  source: crossref
+- id: benedetti2013
+  type: article
+  authors:
+    - Benedetti, F.
+    - Thoen, W.
+    - Blanchard, C.
+    - Vighetti, S.
+    - Arduino, C.
+  year: 2013
+  title: "Pain as a reward: Changing the meaning of pain from negative to positive co-activates opioid and cannabinoid systems"
+  container: Pain
+  volume: "154"
+  issue: "3"
+  pages: 361-367
+  doi: 10.1016/j.pain.2012.11.007
+  source: crossref
+- id: leknes2013
+  type: article
+  authors:
+    - Leknes, S.
+    - Berna, C.
+    - Lee, M. C.
+    - Snyder, G. D.
+    - Biele, G.
+    - Tracey, I.
+  year: 2013
+  title: "The importance of context: When relative relief renders pain pleasant"
+  container: Pain
+  volume: "154"
+  issue: "3"
+  pages: 402-410
+  doi: 10.1016/j.pain.2012.11.018
+  source: crossref
+- id: wiech2008
+  type: article
+  authors:
+    - Wiech, K.
+    - Farias, M.
+    - Kahane, G.
+    - Shackel, N.
+    - Tiede, W.
+    - Tracey, I.
+  year: 2008
+  title: An fMRI study measuring analgesia enhanced by religion as a belief system
+  container: Pain
+  volume: "139"
+  issue: "2"
+  pages: 467-476
+  doi: 10.1016/j.pain.2008.07.030
+  source: crossref
+- id: wall1979
+  type: article
+  authors:
+    - Wall, P. D.
+  year: 1979
+  title: On the relation of injury to pain the John J. Bonica Lecture
+  container: Pain
+  volume: "6"
+  issue: "3"
+  pages: 253-264
+  doi: 10.1016/0304-3959(79)90047-2
+  source: crossref
+- id: harvie2015
+  type: article
+  authors:
+    - Harvie, D. S.
+    - Broecker, M.
+    - Smith, R. T.
+    - Meulders, A.
+    - Madden, V. J.
+    - Moseley, G. L.
+  year: 2015
+  title: Bogus Visual Feedback Alters Onset of Movement-Evoked Pain in People With Neck Pain
+  container: Psychological Science
+  volume: "26"
+  issue: "4"
+  pages: 385-392
+  doi: 10.1177/0956797614563339
+  source: crossref
+- id: fields2000
+  type: chapter
+  authors:
+    - Fields, H. L.
+  year: 2000
+  title: "Pain modulation: expectation, opioid analgesia and virtual pain"
+  container: Progress in Brain Research
+  pages: 245-253
+  publisher: Elsevier
+  doi: 10.1016/s0079-6123(08)62143-3
+  source: crossref
+- id: fields2006
+  type: chapter
+  authors:
+    - Fields, H. L.
+  year: 2006
+  title: "A motivation-decision model of pain: the role of opioids"
+  publisher: IASP Press (Proceedings of the 11th World Congress on Pain, eds. H. Flor, E. Kalso, J. O. Dostrovsky)
+  pages: 449–459
+  source: manual
+- id: fields2007
+  type: article
+  authors:
+    - Fields, H.
+  year: 2007
+  title: Understanding How Opioids Contribute to Reward and Analgesia
+  container: Regional Anesthesia and Pain Medicine
+  volume: "32"
+  issue: "3"
+  pages: 242-246
+  doi: 10.1016/j.rapm.2007.01.001
+  source: crossref
+- id: fields2018
+  type: article
+  authors:
+    - Fields, H. L.
+  year: 2018
+  title: How expectations influence pain
+  container: Pain
+  volume: "159"
+  issue: "1"
+  pages: S3-S10
+  doi: 10.1097/j.pain.0000000000001272
+  source: crossref
+- id: leknes2008
+  type: article
+  authors:
+    - Leknes, S.
+    - Tracey, I.
+  year: 2008
+  title: A common neurobiology for pain and pleasure
+  container: Nature Reviews Neuroscience
+  volume: "9"
+  issue: "4"
+  pages: 314-320
+  doi: 10.1038/nrn2333
+  source: crossref
+- id: becker2013
+  type: article
+  authors:
+    - Becker, S.
+    - Gandhi, W.
+    - Elfassy, N. M.
+    - Schweinhardt, P.
+  year: 2013
+  title: The role of dopamine in the perceptual modulation of nociceptive stimuli by monetary wins or losses
+  container: European Journal of Neuroscience
+  volume: "38"
+  issue: "7"
+  pages: 3080-3088
+  doi: 10.1111/ejn.12303
+  source: crossref
+- id: becker2015
+  type: article
+  authors:
+    - Becker, S.
+    - Gandhi, W.
+    - Kwan, S.
+    - Ahmed, A. K.
+    - Schweinhardt, P.
+  year: 2015
+  title: "Doubling Your Payoff: Winning Pain Relief Engages Endogenous Pain Inhibition"
+  container: eneuro
+  volume: "2"
+  issue: "4"
+  pages: ENEURO.0029-15.2015
+  doi: 10.1523/eneuro.0029-15.2015
+  source: crossref
+- id: becker2017
+  type: article
+  authors:
+    - Becker, S.
+    - Gandhi, W.
+    - Pomares, F.
+    - Wager, T. D.
+    - Schweinhardt, P.
+  year: 2017
+  title: Orbitofrontal cortex mediates pain inhibition by monetary reward
+  container: Social Cognitive and Affective Neuroscience
+  volume: "12"
+  issue: "4"
+  pages: 651-661
+  doi: 10.1093/scan/nsw173
+  source: crossref
+- id: alhadeff2018
+  type: article
+  authors:
+    - Alhadeff, A. L.
+    - Su, Z.
+    - Hernandez, E.
+    - Klima, M. L.
+    - Phillips, S. Z.
+    - Holland, R. A.
+    - Guo, C.
+    - Hantman, A. W.
+    - De Jonghe, B. C.
+    - Betley, J. N.
+  year: 2018
+  title: A Neural Circuit for the Suppression of Pain by a Competing Need State
+  container: Cell
+  volume: "173"
+  issue: "1"
+  pages: 140-152.e15
+  doi: 10.1016/j.cell.2018.02.057
+  source: crossref
+- id: foo2009
+  type: article
+  authors:
+    - Foo, H.
+    - Mason, P.
+  year: 2009
+  title: Analgesia Accompanying Food Consumption Requires Ingestion of Hedonic Foods
+  container: The Journal of Neuroscience
+  volume: "29"
+  issue: "41"
+  pages: 13053-13062
+  doi: 10.1523/jneurosci.3514-09.2009
+  source: crossref
+- id: wiech2013
+  type: article
+  authors:
+    - Wiech, K.
+    - Tracey, I.
+  year: 2013
+  title: "Pain, decisions, and actions: a motivational perspective"
+  container: Frontiers in Neuroscience
+  volume: "7"
+  doi: 10.3389/fnins.2013.00046
+  source: crossref
+- id: navratilova2014
+  type: article
+  authors:
+    - Navratilova, E.
+    - Porreca, F.
+  year: 2014
+  title: Reward and motivation in pain and pain relief
+  container: Nature Neuroscience
+  volume: "17"
+  issue: "10"
+  pages: 1304-1312
+  doi: 10.1038/nn.3811
+  source: crossref
+- id: claes2014
+  type: article
+  authors:
+    - Claes, N.
+    - Karos, K.
+    - Meulders, A.
+    - Crombez, G.
+    - Vlaeyen, J. W. S.
+  year: 2014
+  title: Competing Goals Attenuate Avoidance Behavior in the Context of Pain
+  container: The Journal of Pain
+  volume: "15"
+  issue: "11"
+  pages: 1120-1129
+  doi: 10.1016/j.jpain.2014.08.003
+  source: crossref
+- id: eccleston1999
+  type: article
+  authors:
+    - Eccleston, C.
+    - Crombez, G.
+  year: 1999
+  title: "Pain demands attention: A cognitive–affective model of the interruptive function of pain."
+  container: Psychological Bulletin
+  volume: "125"
+  issue: "3"
+  pages: 356-366
+  doi: 10.1037/0033-2909.125.3.356
+  source: crossref
+- id: eccleston1994
+  type: article
+  authors:
+    - Eccleston, C.
+  year: 1994
+  title: "Chronic pain and attention: A cognitive approach"
+  container: British Journal of Clinical Psychology
+  volume: "33"
+  issue: "4"
+  pages: 535-547
+  doi: 10.1111/j.2044-8260.1994.tb01150.x
+  source: crossref
+- id: crombez1996
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - Baeyens, F.
+    - Eelen, P.
+  year: 1996
+  title: "The disruptive nature of pain: An experimental investigation"
+  container: Behaviour Research and Therapy
+  volume: "34"
+  issue: 11-12
+  pages: 911-918
+  doi: 10.1016/s0005-7967(96)00058-7
+  source: crossref
+- id: crombez1998
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - Baeyens, F.
+    - Eelen, P.
+  year: 1998
+  title: When somatic information threatens, catastrophic thinking enhances attentional interference
+  container: Pain
+  volume: "75"
+  issue: "2"
+  pages: 187-198
+  doi: 10.1016/s0304-3959(97)00219-4
+  source: crossref
+- id: crombez1998b
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - Baeyens, F.
+    - Eelen, P.
+  year: 1998
+  title: Attentional disruption is enhanced by the threat of pain
+  container: Behaviour Research and Therapy
+  volume: "36"
+  issue: "2"
+  pages: 195-204
+  doi: 10.1016/s0005-7967(97)10008-0
+  source: crossref
+- id: eccleston1997
+  type: article
+  authors:
+    - Eccleston, C.
+    - Crombez, G.
+    - Aldrich, S.
+    - Stannard, C.
+  year: 1997
+  title: Attention and somatic awareness in chronic pain
+  container: Pain
+  volume: "72"
+  issue: "1"
+  pages: 209-215
+  doi: 10.1016/s0304-3959(97)00030-4
+  source: crossref
+- id: vandamme2004
+  type: article
+  authors:
+    - Van Damme, S.
+    - Crombez, G.
+    - Eccleston, C.
+  year: 2004
+  title: "Disengagement from pain: the role of catastrophic thinking about pain"
+  container: Pain
+  volume: "107"
+  issue: "1"
+  pages: 70-76
+  doi: 10.1016/j.pain.2003.09.023
+  source: crossref
+- id: crombez2005
+  type: article
+  authors:
+    - Crombez, G.
+    - Van Damme, S.
+    - Eccleston, C.
+  year: 2005
+  title: "Hypervigilance to pain: An experimental and clinical analysis"
+  container: Pain
+  volume: "116"
+  issue: "1"
+  pages: 4-7
+  doi: 10.1016/j.pain.2005.03.035
+  source: crossref
+- id: crombez2013
+  type: article
+  authors:
+    - Crombez, G.
+    - Van Ryckeghem, D. M. L.
+    - Eccleston, C.
+    - Van Damme, S.
+  year: 2013
+  title: "Attentional bias to pain-related information: A meta-analysis"
+  container: Pain
+  volume: "154"
+  issue: "4"
+  pages: 497-510
+  doi: 10.1016/j.pain.2012.11.013
+  source: crossref
+- id: moore2012
+  type: article
+  authors:
+    - Moore, D. J.
+    - Keogh, E.
+    - Eccleston, C.
+  year: 2012
+  title: The Interruptive Effect of Pain on Attention
+  container: Quarterly Journal of Experimental Psychology
+  volume: "65"
+  issue: "3"
+  pages: 565-586
+  doi: 10.1080/17470218.2011.626865
+  source: crossref
+- id: moore2017
+  type: article
+  authors:
+    - Moore, D. J.
+    - Eccleston, C.
+    - Keogh, E.
+  year: 2017
+  title: Cognitive load selectively influences the interruptive effect of pain on attention
+  container: Pain
+  volume: "158"
+  issue: "10"
+  pages: 2035-2041
+  doi: 10.1097/j.pain.0000000000001011
+  source: crossref
+- id: attridge2015
+  type: article
+  authors:
+    - Attridge, N.
+    - Noonan, D.
+    - Eccleston, C.
+    - Keogh, E.
+  year: 2015
+  title: The disruptive effects of pain on n-back task performance in a large general population sample
+  container: Pain
+  volume: "156"
+  issue: "10"
+  pages: 1885-1891
+  doi: 10.1097/j.pain.0000000000000245
+  source: crossref
+- id: moriarty2011
+  type: article
+  authors:
+    - Moriarty, O.
+    - McGuire, B. E.
+    - Finn, D. P.
+  year: 2011
+  title: "The effect of pain on cognitive function: A review of clinical and preclinical research"
+  container: Progress in Neurobiology
+  volume: "93"
+  issue: "3"
+  pages: 385-404
+  doi: 10.1016/j.pneurobio.2011.01.002
+  source: crossref
+- id: legrain2009
+  type: article
+  authors:
+    - Legrain, V.
+    - Damme, S. V.
+    - Eccleston, C.
+    - Davis, K. D.
+    - Seminowicz, D. A.
+    - Crombez, G.
+  year: 2009
+  title: "A neurocognitive model of attention to pain: Behavioral and neuroimaging evidence"
+  container: Pain
+  volume: "144"
+  issue: "3"
+  pages: 230-232
+  doi: 10.1016/j.pain.2009.03.020
+  source: crossref
+- id: legrain2002
+  type: article
+  authors:
+    - Legrain, V.
+    - Guérit, J. M.
+    - Bruyer, R.
+    - Plaghki, L.
+  year: 2002
+  title: "Attentional modulation of the nociceptive processing into the human brain: selective spatial attention, probability of stimulus occurrence, and target detection effects on laser evoked potentials"
+  container: Pain
+  volume: "99"
+  issue: "1"
+  pages: 21-39
+  doi: 10.1016/s0304-3959(02)00051-9
+  source: crossref
+- id: legrain2005
+  type: article
+  authors:
+    - Legrain, V.
+    - Bruyer, R.
+    - Guérit, J. M.
+    - Plaghki, L.
+  year: 2005
+  title: Involuntary orientation of attention to unattended deviant nociceptive stimuli is modulated by concomitant visual task difficulty. Evidence from laser evoked potentials
+  container: Clinical Neurophysiology
+  volume: "116"
+  issue: "9"
+  pages: 2165-2174
+  doi: 10.1016/j.clinph.2005.05.019
+  source: crossref
+- id: legrain2011b
+  type: article
+  authors:
+    - Legrain, V.
+    - Crombez, G.
+    - Mouraux, A.
+  year: 2011
+  title: Controlling Attention to Nociceptive Stimuli with Working Memory
+  container: PLoS ONE
+  volume: "6"
+  issue: "6"
+  pages: e20926
+  doi: 10.1371/journal.pone.0020926
+  source: crossref
+- id: vandamme2010
+  type: article
+  authors:
+    - Van Damme, S.
+    - Legrain, V.
+    - Vogt, J.
+    - Crombez, G.
+  year: 2010
+  title: "Keeping pain in mind: A motivational account of attention to pain"
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "34"
+  issue: "2"
+  pages: 204-213
+  doi: 10.1016/j.neubiorev.2009.01.005
+  source: crossref
+- id: bantick2002
+  type: article
+  authors:
+    - Bantick, S. J.
+    - Wise, R. G.
+    - Ploghaus, A.
+    - Clare, S.
+    - Smith, S. M.
+    - Tracey, I.
+  year: 2002
+  title: Imaging how attention modulates pain in humans using functional MRI
+  container: Brain
+  volume: "125"
+  issue: "2"
+  pages: 310-319
+  doi: 10.1093/brain/awf022
+  source: crossref
+- id: sprenger2012
+  type: article
+  authors:
+    - Sprenger, C.
+    - Eippert, F.
+    - Finsterbusch, J.
+    - Bingel, U.
+    - Rose, M.
+    - Büchel, C.
+  year: 2012
+  title: Attention Modulates Spinal Cord Responses to Pain
+  container: Current Biology
+  volume: "22"
+  issue: "11"
+  pages: 1019-1022
+  doi: 10.1016/j.cub.2012.04.006
+  source: crossref
+- id: buhle2010
+  type: article
+  authors:
+    - Buhle, J.
+    - Wager, T. D.
+  year: 2010
+  title: Performance-dependent inhibition of pain by an executive working memory task
+  container: Pain
+  volume: "149"
+  issue: "1"
+  pages: 19-26
+  doi: 10.1016/j.pain.2009.10.027
+  source: crossref
+- id: buhle2012
+  type: article
+  authors:
+    - Buhle, J. T.
+    - Stevens, B. L.
+    - Friedman, J. J.
+    - Wager, T. D.
+  year: 2012
+  title: Distraction and Placebo
+  container: Psychological Science
+  volume: "23"
+  issue: "3"
+  pages: 246-253
+  doi: 10.1177/0956797611427919
+  source: crossref
+- id: verhoeven2011
+  type: article
+  authors:
+    - Verhoeven, K.
+    - Van Damme, S.
+    - Eccleston, C.
+    - Van Ryckeghem, D. M. L.
+    - Legrain, V.
+    - Crombez, G.
+  year: 2011
+  title: "Distraction from pain and executive functioning: An experimental investigation of the role of inhibition, task switching and working memory"
+  container: European Journal of Pain
+  volume: "15"
+  issue: "8"
+  pages: 866-873
+  doi: 10.1016/j.ejpain.2011.01.009
+  source: crossref
+- id: vanryckeghem2012
+  type: article
+  authors:
+    - Van Ryckeghem, D. M. L.
+    - Crombez, G.
+    - Eccleston, C.
+    - Legrain, V.
+    - Van Damme, S.
+  year: 2012
+  title: "Keeping pain out of your mind: The role of attentional set in pain"
+  container: European Journal of Pain
+  volume: "17"
+  issue: "3"
+  pages: 402-411
+  doi: 10.1002/j.1532-2149.2012.00195.x
+  source: crossref
+- id: schrooten2012
+  type: article
+  authors:
+    - Schrooten, M. G. S.
+    - Van Damme, S.
+    - Crombez, G.
+    - Peters, M. L.
+    - Vogt, J.
+    - Vlaeyen, J. W. S.
+  year: 2012
+  title: Nonpain goal pursuit inhibits attentional bias to pain
+  container: Pain
+  volume: "153"
+  issue: "6"
+  pages: 1180-1186
+  doi: 10.1016/j.pain.2012.01.025
+  source: crossref
+- id: torta2017
+  type: article
+  authors:
+    - Torta, D. M.
+    - Legrain, V.
+    - Mouraux, A.
+    - Valentini, E.
+  year: 2017
+  title: Attention to pain! A neurocognitive perspective on attentional modulation of pain in neuroimaging studies
+  container: Cortex
+  volume: "89"
+  pages: 120-134
+  doi: 10.1016/j.cortex.2017.01.010
+  source: crossref
+- id: vanryckeghem2018
+  type: article
+  authors:
+    - Van Ryckeghem, D. M.
+    - Van Damme, S.
+    - Eccleston, C.
+    - Crombez, G.
+  year: 2018
+  title: "The efficacy of attentional distraction and sensory monitoring in chronic pain patients: A meta-analysis"
+  container: Clinical Psychology Review
+  volume: "59"
+  pages: 16-29
+  doi: 10.1016/j.cpr.2017.10.008
+  source: crossref
+- id: todd2018
+  type: article
+  authors:
+    - Todd, J.
+    - van Ryckeghem, D. M. L.
+    - Sharpe, L.
+    - Crombez, G.
+  year: 2018
+  title: "Attentional bias to pain-related information: a meta-analysis of dot-probe studies"
+  container: Health Psychology Review
+  volume: "12"
+  issue: "4"
+  pages: 419-436
+  doi: 10.1080/17437199.2018.1521729
+  source: crossref
+- id: todd2015
+  type: article
+  authors:
+    - Todd, J.
+    - Sharpe, L.
+    - Johnson, A.
+    - Nicholson Perry, K.
+    - Colagiuri, B.
+    - Dear, B. F.
+  year: 2015
+  title: Towards a new model of attentional biases in the development, maintenance, and management of pain
+  container: Pain
+  volume: "156"
+  issue: "9"
+  pages: 1589-1600
+  doi: 10.1097/j.pain.0000000000000214
+  source: crossref
+- id: eccleston2007
+  type: article
+  authors:
+    - Eccleston, C.
+    - Crombez, G.
+  year: 2007
+  title: "Worry and chronic pain: A misdirected problem solving model"
+  container: Pain
+  volume: "132"
+  issue: "3"
+  pages: 233-236
+  doi: 10.1016/j.pain.2007.09.014
+  source: crossref
+- id: aldrich2000
+  type: article
+  authors:
+    - Aldrich, S.
+    - Eccleston, C.
+    - Crombez, G.
+  year: 2000
+  title: "Worrying about chronic pain: vigilance to threat and misdirected problem solving"
+  container: Behaviour Research and Therapy
+  volume: "38"
+  issue: "5"
+  pages: 457-470
+  doi: 10.1016/s0005-7967(99)00062-5
+  source: crossref
+- id: eccleston2001
+  type: article
+  authors:
+    - Eccleston, C.
+    - Crombez, G.
+    - Aldrich, S.
+    - Stannard, C.
+  year: 2001
+  title: "Worry and chronic pain patients: A description and analysis of individual differences"
+  container: European Journal of Pain
+  volume: "5"
+  issue: "3"
+  pages: 309-318
+  doi: 10.1053/eujp.2001.0252
+  source: crossref
+- id: devlieger2006
+  type: article
+  authors:
+    - De Vlieger, P.
+    - Van den Bussche, E.
+    - Eccleston, C.
+    - Crombez, G.
+  year: 2006
+  title: "Finding a solution to the problem of pain: Conceptual formulation and the development of the Pain Solutions Questionnaire (PaSol)"
+  container: Pain
+  volume: "123"
+  issue: "3"
+  pages: 285-293
+  doi: 10.1016/j.pain.2006.03.005
+  source: crossref
+- id: crombez2008
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - Van Hamme, G.
+    - De Vlieger, P.
+  year: 2008
+  title: "Attempting to solve the problem of pain: A questionnaire study in acute and chronic pain patients"
+  container: Pain
+  volume: "137"
+  issue: "3"
+  pages: 556-563
+  doi: 10.1016/j.pain.2007.10.020
+  source: crossref
+- id: crombez2008b
+  type: article
+  authors:
+    - Crombez, G.
+    - Eccleston, C.
+    - De Vlieger, P.
+    - Van Damme, S.
+    - De Clercq, A.
+  year: 2008
+  title: Is it better to have controlled and lost than never to have controlled at all? An experimental investigation of control over pain
+  container: Pain
+  volume: "137"
+  issue: "3"
+  pages: 631-639
+  doi: 10.1016/j.pain.2007.10.028
+  source: crossref
+- id: notebaert2011
+  type: article
+  authors:
+    - Notebaert, L.
+    - Crombez, G.
+    - Vogt, J.
+    - De Houwer, J.
+    - Van Damme, S.
+    - Theeuwes, J.
+  year: 2011
+  title: "Attempts to control pain prioritize attention towards signals of pain: An experimental study"
+  container: Pain
+  volume: "152"
+  issue: "5"
+  pages: 1068-1073
+  doi: 10.1016/j.pain.2011.01.020
+  source: crossref
+- id: mccracken2003
+  type: article
+  authors:
+    - McCracken, L. M.
+    - Eccleston, C.
+  year: 2003
+  title: "Coping or acceptance: what to do about chronic pain?"
+  container: Pain
+  volume: "105"
+  issue: "1"
+  pages: 197-204
+  doi: 10.1016/s0304-3959(03)00202-1
+  source: crossref
+- id: flink2013
+  type: article
+  authors:
+    - Flink, I. L.
+    - Boersma, K.
+    - Linton, S. J.
+  year: 2013
+  title: "Pain Catastrophizing as Repetitive Negative Thinking: A Development of the Conceptualization"
+  container: Cognitive Behaviour Therapy
+  volume: "42"
+  issue: "3"
+  pages: 215-223
+  doi: 10.1080/16506073.2013.769621
+  source: crossref
+- id: vandamme2008
+  type: article
+  authors:
+    - Van Damme, S.
+    - Crombez, G.
+    - Eccleston, C.
+  year: 2008
+  title: "Coping with pain: A motivational perspective"
+  container: Pain
+  volume: "139"
+  issue: "1"
+  pages: 1-4
+  doi: 10.1016/j.pain.2008.07.022
+  source: crossref
+- id: legrain2011
+  type: article
+  authors:
+    - Legrain, V.
+    - Iannetti, G. D.
+    - Plaghki, L.
+    - Mouraux, A.
+  year: 2011
+  title: The pain matrix reloaded
+  container: Progress in Neurobiology
+  volume: "93"
+  issue: "1"
+  pages: 111-124
+  doi: 10.1016/j.pneurobio.2010.10.005
+  source: crossref
+- id: mouraux2011
+  type: article
+  authors:
+    - Mouraux, A.
+    - Diukova, A.
+    - Lee, M. C.
+    - Wise, R. G.
+    - Iannetti, G. D.
+  year: 2011
+  title: A multisensory investigation of the functional significance of the “pain matrix”
+  container: NeuroImage
+  volume: "54"
+  issue: "3"
+  pages: 2237-2249
+  doi: 10.1016/j.neuroimage.2010.09.084
+  source: crossref
+- id: iannetti2008
+  type: article
+  authors:
+    - Iannetti, G. D.
+    - Hughes, N. P.
+    - Lee, M. C.
+    - Mouraux, A.
+  year: 2008
+  title: "Determinants of Laser-Evoked EEG Responses: Pain Perception or Stimulus Saliency?"
+  container: Journal of Neurophysiology
+  volume: "100"
+  issue: "2"
+  pages: 815-828
+  doi: 10.1152/jn.00097.2008
+  source: crossref
+- id: liberati2016
+  type: article
+  authors:
+    - Liberati, G.
+    - Klöcker, A.
+    - Safronova, M. M.
+    - Ferrão Santos, S.
+    - Ribeiro Vaz, J. G.
+    - Raftopoulos, C.
+    - Mouraux, A.
+  year: 2016
+  title: Nociceptive Local Field Potentials Recorded from the Human Insula Are Not Specific for Nociception
+  container: PLOS Biology
+  volume: "14"
+  issue: "1"
+  pages: e1002345
+  doi: 10.1371/journal.pbio.1002345
+  source: crossref
+- id: salomons2016
+  type: article
+  authors:
+    - Salomons, T. V.
+    - Iannetti, G. D.
+    - Liang, M.
+    - Wood, J. N.
+  year: 2016
+  title: The “Pain Matrix” in Pain-Free Individuals
+  container: JAMA Neurology
+  volume: "73"
+  issue: "6"
+  pages: "755"
+  doi: 10.1001/jamaneurol.2016.0653
+  source: crossref
+- id: wager2013
+  type: article
+  authors:
+    - Wager, T. D.
+    - Atlas, L. Y.
+    - Lindquist, M. A.
+    - Roy, M.
+    - Woo, C. W.
+    - Kross, E.
+  year: 2013
+  title: An fMRI-Based Neurologic Signature of Physical Pain
+  container: New England Journal of Medicine
+  volume: "368"
+  issue: "15"
+  pages: 1388-1397
+  doi: 10.1056/nejmoa1204471
+  source: crossref
+- id: zhang2012
+  type: article
+  authors:
+    - Zhang, Z. G.
+    - Hu, L.
+    - Hung, Y. S.
+    - Mouraux, A.
+    - Iannetti, G. D.
+  year: 2012
+  title: Gamma-Band Oscillations in the Primary Somatosensory Cortex—A Direct and Obligatory Correlate of Subjective Pain Intensity
+  container: The Journal of Neuroscience
+  volume: "32"
+  issue: "22"
+  pages: 7429-7438
+  doi: 10.1523/jneurosci.5877-11.2012
+  source: crossref
+- id: hu2019
+  type: article
+  authors:
+    - Hu, L.
+    - Iannetti, G. D.
+  year: 2019
+  title: Neural indicators of perceptual variability of pain across species
+  container: Proceedings of the National Academy of Sciences
+  volume: "116"
+  issue: "5"
+  pages: 1782-1791
+  doi: 10.1073/pnas.1812499116
+  source: crossref
+- id: horing2019
+  type: article
+  authors:
+    - Horing, B.
+    - Sprenger, C.
+    - Büchel, C.
+  year: 2019
+  title: The parietal operculum preferentially encodes heat pain and not salience
+  container: PLOS Biology
+  volume: "17"
+  issue: "8"
+  pages: e3000205
+  doi: 10.1371/journal.pbio.3000205
+  source: crossref
+- id: liang2019
+  type: article
+  authors:
+    - Liang, M.
+    - Su, Q.
+    - Mouraux, A.
+    - Iannetti, G. D.
+  year: 2019
+  title: Spatial Patterns of Brain Activity Preferentially Reflecting Transient Pain and Stimulus Intensity
+  container: Cerebral Cortex
+  volume: "29"
+  issue: "5"
+  pages: 2211-2227
+  doi: 10.1093/cercor/bhz026
+  source: crossref
+- id: segerdahl2015
+  type: article
+  authors:
+    - Segerdahl, A. R.
+    - Mezue, M.
+    - Okell, T. W.
+    - Farrar, J. T.
+    - Tracey, I.
+  year: 2015
+  title: The dorsal posterior insula subserves a fundamental role in human pain
+  container: Nature Neuroscience
+  volume: "18"
+  issue: "4"
+  pages: 499-500
+  doi: 10.1038/nn.3969
+  source: crossref
+- id: lee2020
+  type: article
+  authors:
+    - Lee, I. S.
+    - Necka, E. A.
+    - Atlas, L. Y.
+  year: 2020
+  title: "Distinguishing pain from nociception, salience, and arousal: How autonomic nervous system activity can improve neuroimaging tests of specificity"
+  container: NeuroImage
+  volume: "204"
+  pages: "116254"
+  doi: 10.1016/j.neuroimage.2019.116254
+  source: crossref
+- id: kirsch1985
+  type: article
+  authors:
+    - Kirsch, I.
+  year: 1985
+  title: Response expectancy as a determinant of experience and behavior.
+  container: American Psychologist
+  volume: "40"
+  issue: "11"
+  pages: 1189-1202
+  doi: 10.1037/0003-066x.40.11.1189
+  source: crossref
+- id: gracely1983
+  type: article
+  authors:
+    - Gracely, R. H.
+    - Dubner, R.
+    - Wolskee, P. J.
+    - Deeter, W. R.
+  year: 1983
+  title: Placebo and naloxone can alter post-surgical pain by separate mechanisms
+  container: Nature
+  volume: "306"
+  issue: "5940"
+  pages: 264-265
+  doi: 10.1038/306264a0
+  source: crossref
+- id: voudouris1990
+  type: article
+  authors:
+    - Voudouris, N. J.
+    - Peck, C. L.
+    - Coleman, G.
+  year: 1990
+  title: The role of conditioning and verbal expectancy in the placebo response
+  container: Pain
+  volume: "43"
+  issue: "1"
+  pages: 121-128
+  doi: 10.1016/0304-3959(90)90057-k
+  source: crossref
+- id: montgomery1997
+  type: article
+  authors:
+    - Montgomery, G. H.
+    - Kirsch, I.
+  year: 1997
+  title: Classical conditioning and the placebo effect
+  container: Pain
+  volume: "72"
+  issue: "1"
+  pages: 107-113
+  doi: 10.1016/s0304-3959(97)00016-x
+  source: crossref
+- id: price1999
+  type: article
+  authors:
+    - Price, D. D.
+    - Milling, L. S.
+    - Kirsch, I.
+    - Duff, A.
+    - Montgomery, G. H.
+    - Nicholls, S. S.
+  year: 1999
+  title: An analysis of factors that contribute to the magnitude of placebo analgesia in an experimental paradigm
+  container: Pain
+  volume: "83"
+  issue: "2"
+  pages: 147-156
+  doi: 10.1016/s0304-3959(99)00081-0
+  source: crossref
+- id: amanzio1999
+  type: article
+  authors:
+    - Amanzio, M.
+    - Benedetti, F.
+  year: 1999
+  title: "Neuropharmacological Dissection of Placebo Analgesia: Expectation-Activated Opioid Systems versus Conditioning-Activated Specific Subsystems"
+  container: The Journal of Neuroscience
+  volume: "19"
+  issue: "1"
+  pages: 484-494
+  doi: 10.1523/jneurosci.19-01-00484.1999
+  source: crossref
+- id: hrobjartsson2001
+  type: article
+  authors:
+    - Hróbjartsson, A.
+    - Gøtzsche, P. C.
+  year: 2001
+  title: Is the Placebo Powerless?
+  container: New England Journal of Medicine
+  volume: "344"
+  issue: "21"
+  pages: 1594-1602
+  doi: 10.1056/nejm200105243442106
+  source: crossref
+- id: vase2002
+  type: article
+  authors:
+    - Vase, L.
+    - Riley, J. L.
+    - Price, D. D.
+  year: 2002
+  title: A comparison of placebo effects in clinical analgesic trials versus studies of placebo analgesia
+  container: Pain
+  volume: "99"
+  issue: "3"
+  pages: 443-452
+  doi: 10.1016/s0304-3959(02)00205-1
+  source: crossref
+- id: benedetti2003
+  type: article
+  authors:
+    - Benedetti, F.
+    - Pollo, A.
+    - Lopiano, L.
+    - Lanotte, M.
+    - Vighetti, S.
+    - Rainero, I.
+  year: 2003
+  title: Conscious Expectation and Unconscious Conditioning in Analgesic, Motor, and Hormonal Placebo/Nocebo Responses
+  container: The Journal of Neuroscience
+  volume: "23"
+  issue: "10"
+  pages: 4315-4323
+  doi: 10.1523/jneurosci.23-10-04315.2003
+  source: crossref
+- id: wager2004
+  type: article
+  authors:
+    - Wager, T. D.
+    - Rilling, J. K.
+    - Smith, E. E.
+    - Sokolik, A.
+    - Casey, K. L.
+    - Davidson, R. J.
+    - Kosslyn, S. M.
+    - Rose, R. M.
+    - Cohen, J. D.
+  year: 2004
+  title: Placebo-Induced Changes in fMRI in the Anticipation and Experience of Pain
+  container: Science
+  volume: "303"
+  issue: "5661"
+  pages: 1162-1167
+  doi: 10.1126/science.1093065
+  source: crossref
+- id: stewartwilliams2004
+  type: article
+  authors:
+    - Stewart-Williams, S.
+    - Podd, J.
+  year: 2004
+  title: "The Placebo Effect: Dissolving the Expectancy Versus Conditioning Debate."
+  container: Psychological Bulletin
+  volume: "130"
+  issue: "2"
+  pages: 324-340
+  doi: 10.1037/0033-2909.130.2.324
+  source: crossref
+- id: eippert2009b
+  type: article
+  authors:
+    - Eippert, F.
+    - Finsterbusch, J.
+    - Bingel, U.
+    - Büchel, C.
+  year: 2009
+  title: Direct Evidence for Spinal Cord Involvement in Placebo Analgesia
+  container: Science
+  volume: "326"
+  issue: "5951"
+  pages: 404-404
+  doi: 10.1126/science.1180142
+  source: crossref
+- id: bingel2011
+  type: article
+  authors:
+    - Bingel, U.
+    - Wanigasekera, V.
+    - Wiech, K.
+    - Ni Mhuircheartaigh, R.
+    - Lee, M. C.
+    - Ploner, M.
+    - Tracey, I.
+  year: 2011
+  title: "The Effect of Treatment Expectation on Drug Efficacy: Imaging the Analgesic Benefit of the Opioid Remifentanil"
+  container: Science Translational Medicine
+  volume: "3"
+  issue: "70"
+  doi: 10.1126/scitranslmed.3001244
+  source: crossref
+- id: atlas2012
+  type: article
+  authors:
+    - Atlas, L. Y.
+    - Wager, T. D.
+  year: 2012
+  title: How expectations shape pain
+  container: Neuroscience Letters
+  volume: "520"
+  issue: "2"
+  pages: 140-148
+  doi: 10.1016/j.neulet.2012.03.039
+  source: crossref
+- id: carvalho2016
+  type: article
+  authors:
+    - Carvalho, C.
+    - Caetano, J. M.
+    - Cunha, L.
+    - Rebouta, P.
+    - Kaptchuk, T. J.
+    - Kirsch, I.
+  year: 2016
+  title: "Open-label placebo treatment in chronic low back pain: a randomized controlled trial"
+  container: Pain
+  volume: "157"
+  issue: "12"
+  pages: 2766-2772
+  doi: 10.1097/j.pain.0000000000000700
+  source: crossref
+- id: forsberg2017
+  type: article
+  authors:
+    - Forsberg, J. T.
+    - Martinussen, M.
+    - Flaten, M. A.
+  year: 2017
+  title: "The Placebo Analgesic Effect in Healthy Individuals and Patients: A Meta-Analysis"
+  container: Psychosomatic Medicine
+  volume: "79"
+  issue: "4"
+  pages: 388-394
+  doi: 10.1097/psy.0000000000000432
+  source: crossref
+- id: zunhammer2018
+  type: article
+  authors:
+    - Zunhammer, M.
+    - Bingel, U.
+    - Wager, T. D.
+  year: 2018
+  title: Placebo Effects on the Neurologic Pain Signature
+  container: JAMA Neurology
+  volume: "75"
+  issue: "11"
+  pages: "1321"
+  doi: 10.1001/jamaneurol.2018.2017
+  source: crossref
+- id: meulders2011
+  type: article
+  authors:
+    - Meulders, A.
+    - Vansteenwegen, D.
+    - Vlaeyen, J. W. S.
+  year: 2011
+  title: "The acquisition of fear of movement-related pain and associative learning: A novel pain-relevant human fear conditioning paradigm"
+  container: Pain
+  volume: "152"
+  issue: "11"
+  pages: 2460-2469
+  doi: 10.1016/j.pain.2011.05.015
+  source: crossref
+- id: meulders2013
+  type: article
+  authors:
+    - Meulders, A.
+    - Vlaeyen, J. W. S.
+  year: 2013
+  title: "The acquisition and generalization of cued and contextual pain-related fear: An experimental study using a voluntary movement paradigm"
+  container: Pain
+  volume: "154"
+  issue: "2"
+  pages: 272-282
+  doi: 10.1016/j.pain.2012.10.025
+  source: crossref
+- id: meulders2014
+  type: article
+  authors:
+    - Meulders, A.
+    - Harvie, D. S.
+    - Bowering, J. K.
+    - Caragianis, S.
+    - Vlaeyen, J. W. S.
+    - Moseley, G. L.
+  year: 2014
+  title: Contingency Learning Deficits and Generalization in Chronic Unilateral Hand Pain Patients
+  container: The Journal of Pain
+  volume: "15"
+  issue: "10"
+  pages: 1046-1056
+  doi: 10.1016/j.jpain.2014.07.005
+  source: crossref
+- id: meulders2015
+  type: article
+  authors:
+    - Meulders, A.
+    - Jans, A.
+    - Vlaeyen, J. W. S.
+  year: 2015
+  title: Differences in pain-related fear acquisition and generalization
+  container: Pain
+  volume: "156"
+  issue: "1"
+  pages: 108-122
+  doi: 10.1016/j.pain.0000000000000016
+  source: crossref
+- id: meulders2017
+  type: article
+  authors:
+    - Meulders, A.
+    - Meulders, M.
+    - Stouten, I.
+    - De Bie, J.
+    - Vlaeyen, J. W. S.
+  year: 2017
+  title: "Extinction of Fear Generalization: A Comparison Between Fibromyalgia Patients and Healthy Control Participants"
+  container: The Journal of Pain
+  volume: "18"
+  issue: "1"
+  pages: 79-95
+  doi: 10.1016/j.jpain.2016.10.004
+  source: crossref
+- id: harvie2016
+  type: article
+  authors:
+    - Harvie, D. S.
+    - Meulders, A.
+    - Madden, V. J.
+    - Hillier, S. L.
+    - Peto, D. K.
+    - Brinkworth, R.
+    - Moseley, G. L.
+  year: 2016
+  title: "When touch predicts pain: predictive tactile cues modulate perceived intensity of painful stimulation independent of expectancy"
+  container: Scandinavian Journal of Pain
+  volume: "11"
+  issue: "1"
+  pages: 11-18
+  doi: 10.1016/j.sjpain.2015.09.007
+  source: crossref
+- id: harvie2017
+  type: article
+  authors:
+    - Harvie, D. S.
+    - Moseley, G. L.
+    - Hillier, S. L.
+    - Meulders, A.
+  year: 2017
+  title: "Classical Conditioning Differences Associated With Chronic Pain: A Systematic Review"
+  container: The Journal of Pain
+  volume: "18"
+  issue: "8"
+  pages: 889-898
+  doi: 10.1016/j.jpain.2017.02.430
+  source: crossref
+- id: harvie2020
+  type: article
+  authors:
+    - Harvie, D. S.
+    - Weermeijer, J. D.
+    - Olthof, N. A.
+    - Meulders, A.
+  year: 2020
+  title: "Learning to predict pain: differences in people with persistent neck pain and pain-free controls"
+  container: PeerJ
+  volume: "8"
+  pages: e9345
+  doi: 10.7717/peerj.9345
+  source: crossref
+- id: madden2015
+  type: article
+  authors:
+    - Madden, V. J.
+    - Harvie, D. S.
+    - Parker, R.
+    - Jensen, K. B.
+    - Vlaeyen, J. W. S.
+    - Moseley, G. L.
+    - Stanton, T. R.
+  year: 2015
+  title: Can Pain or Hyperalgesia Be a Classically Conditioned Response in Humans? A Systematic Review and Meta-Analysis
+  container: Pain Medicine
+  volume: "17"
+  issue: "6"
+  pages: 1094-1111
+  doi: 10.1093/pm/pnv044
+  source: crossref
+- id: madden2016b
+  type: article
+  authors:
+    - Madden, V. J.
+    - Bellan, V.
+    - Russek, L. N.
+    - Camfferman, D.
+    - Vlaeyen, J. W. S.
+    - Moseley, G. L.
+  year: 2016
+  title: Pain by Association? Experimental Modulation of Human Pain Thresholds Using Classical Conditioning
+  container: The Journal of Pain
+  volume: "17"
+  issue: "10"
+  pages: 1105-1115
+  doi: 10.1016/j.jpain.2016.06.012
+  source: crossref
+- id: zaman2015
+  type: article
+  authors:
+    - Zaman, J.
+    - Vlaeyen, J. W. S.
+    - Van Oudenhove, L.
+    - Wiech, K.
+    - Van Diest, I.
+  year: 2015
+  title: "Associative fear learning and perceptual discrimination: A perceptual pathway in the development of chronic pain"
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "51"
+  pages: 118-125
+  doi: 10.1016/j.neubiorev.2015.01.009
+  source: crossref
+- id: fordyce1973
+  type: article
+  authors:
+    - Fordyce, W. E.
+    - Fowler, R. S.
+    - Lehmann, J. F.
+    - DeLateur, B. J.
+    - Sand, P. L.
+    - Trieschmann, R. B.
+  year: 1973
+  title: Operant conditioning in the treatment of chronic pain
+  container: Archives of Physical Medicine and Rehabilitation
+  volume: "54"
+  pages: 399-408
+  source: manual
+- id: fordyce1976
+  type: book
+  authors:
+    - Fordyce, W. E.
+  year: 1976
+  title: Behavioral methods for chronic pain and illness
+  publisher: C. V. Mosby
+  source: manual
+- id: turk1983
+  type: book
+  authors:
+    - Turk, D. C.
+    - Meichenbaum, D.
+    - Genest, M.
+  year: 1983
+  title: "Pain and behavioral medicine: a cognitive-behavioral perspective"
+  publisher: Guilford Press
+  source: manual
+- id: hasenbring2000
+  type: article
+  authors:
+    - Hasenbring, M.
+  year: 2000
+  title: Attentional control of pain and the process of chronification
+  container: Progress in Brain Research
+  volume: "129"
+  pages: 525-534
+  source: manual
+- id: flor1987
+  type: article
+  authors:
+    - Flor, H.
+    - Kerns, R. D.
+    - Turk, D. C.
+  year: 1987
+  title: The role of spouse reinforcement, perceived pain, and activity levels of chronic pain patients
+  container: Journal of Psychosomatic Research
+  volume: "31"
+  issue: "2"
+  pages: 251-259
+  doi: 10.1016/0022-3999(87)90082-1
+  source: crossref
+- id: romano1992
+  type: article
+  authors:
+    - Romano, J. M.
+    - Turner, J. A.
+    - Friedman, L. S.
+    - Bulcroft, R. A.
+    - Jensen, M. P.
+    - Hops, H.
+    - Wright, S. F.
+  year: 1992
+  title: Sequential analysis of chronic pain behaviors and spouse responses.
+  container: Journal of Consulting and Clinical Psychology
+  volume: "60"
+  issue: "5"
+  pages: 777-782
+  doi: 10.1037/0022-006x.60.5.777
+  source: crossref
+- id: block1980
+  type: article
+  authors:
+    - Block, A. R.
+    - Kremer, E. F.
+    - Gaylor, M.
+  year: 1980
+  title: "Behavioral treatment of chronic pain: The spouse as a discriminative cue for pain behavior"
+  container: Pain
+  volume: "9"
+  issue: "2"
+  pages: 243-252
+  doi: 10.1016/0304-3959(80)90011-1
+  source: crossref
+- id: jolliffe2004
+  type: article
+  authors:
+    - Jolliffe, C. D.
+    - Nicholas, M. K.
+  year: 2004
+  title: "Verbally reinforcing pain reports: an experimental test of the operant model of chronic pain"
+  container: Pain
+  volume: "107"
+  issue: "1"
+  pages: 167-175
+  doi: 10.1016/j.pain.2003.10.015
+  source: crossref
+- id: flor2002
+  type: article
+  authors:
+    - Flor, H.
+    - Knost, B.
+    - Birbaumer, N.
+  year: 2002
+  title: "The role of operant conditioning in chronic pain: an experimental investigation"
+  container: Pain
+  volume: "95"
+  issue: "1"
+  pages: 111-118
+  doi: 10.1016/s0304-3959(01)00385-2
+  source: crossref
+- id: thieme2006
+  type: article
+  authors:
+    - Thieme, K.
+    - Flor, H.
+    - Turk, D. C.
+  year: 2006
+  title: "Psychological pain treatment in fibromyalgia syndrome: efficacy of operant behavioural and cognitive behavioural treatments"
+  container: Arthritis Research &amp; Therapy
+  volume: "8"
+  issue: "4"
+  pages: R121
+  doi: 10.1186/ar2010
+  source: crossref
+- id: henschke2010
+  type: article
+  authors:
+    - Henschke, N.
+    - Ostelo, R. W.
+    - van Tulder, M. W.
+    - Vlaeyen, J. W.
+    - Morley, S.
+    - Assendelft, W. J.
+    - Main, C. J.
+  year: 2010
+  title: Behavioural treatment for chronic low-back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2011"
+  issue: "2"
+  doi: 10.1002/14651858.cd002014.pub3
+  source: crossref
+- id: newtonjohn2006
+  type: article
+  authors:
+    - Newton-John, T. R.
+    - de C Williams, A. C.
+  year: 2006
+  title: "Chronic pain couples: Perceived marital interactions and pain behaviours"
+  container: Pain
+  volume: "123"
+  issue: "1"
+  pages: 53-63
+  doi: 10.1016/j.pain.2006.02.009
+  source: crossref
+- id: fordyce1986
+  type: article
+  authors:
+    - Fordyce, W. E.
+    - Brockway, J. A.
+    - Bergman, J. A.
+    - Spengler, D.
+  year: 1986
+  title: "Acute back pain: A control-group comparison of behavioral vs traditional management methods"
+  container: Journal of Behavioral Medicine
+  volume: "9"
+  issue: "2"
+  pages: 127-140
+  doi: 10.1007/bf00848473
+  source: crossref
+- id: turk1987
+  type: article
+  authors:
+    - Turk, D. C.
+    - Flor, H.
+  year: 1987
+  title: "Pain &gt; pain behaviors: The utility and limitations of the pain behavior construct"
+  container: Pain
+  volume: "31"
+  issue: "3"
+  pages: 277-295
+  doi: 10.1016/0304-3959(87)90158-8
+  source: crossref
+- id: gatzounis2012
+  type: article
+  authors:
+    - Gatzounis, R.
+    - Schrooten, M. G. S.
+    - Crombez, G.
+    - Vlaeyen, J. W. S.
+  year: 2012
+  title: Operant Learning Theory in Pain and Chronic Pain Rehabilitation
+  container: Current Pain and Headache Reports
+  volume: "16"
+  issue: "2"
+  pages: 117-126
+  doi: 10.1007/s11916-012-0247-1
+  source: crossref
+- id: holzl2005
+  type: article
+  authors:
+    - Hölzl, R.
+    - Kleinböhl, D.
+    - Huse, E.
+  year: 2005
+  title: Implicit operant learning of pain sensitization
+  container: Pain
+  volume: "115"
+  issue: "1"
+  pages: 12-20
+  doi: 10.1016/j.pain.2005.01.026
+  source: crossref
+- id: leonard2006
+  type: article
+  authors:
+    - Leonard, M. T.
+    - Cano, A.
+    - Johansen, A. B.
+  year: 2006
+  title: "Chronic Pain in a Couples Context: A Review and Integration of Theoretical Models and Empirical Evidence"
+  container: The Journal of Pain
+  volume: "7"
+  issue: "6"
+  pages: 377-390
+  doi: 10.1016/j.jpain.2006.01.442
+  source: crossref
+- id: linton1984
+  type: chapter
+  authors:
+    - Linton, S. J.
+    - Melin, L.
+    - Götestam, K. G.
+  year: 1984
+  title: Behavioral Analysis of Chronic Pain and Its Management
+  container: Progress in Behavior Modification
+  pages: 1-42
+  publisher: Elsevier
+  doi: 10.1016/b978-0-12-535618-3.50005-7
+  source: crossref
+- id: vlaeyen2015
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+  year: 2015
+  title: Learning to predict and control harmful events
+  container: Pain
+  volume: "156"
+  issue: Supplement 1
+  pages: S86-S93
+  doi: 10.1097/j.pain.0000000000000107
+  source: crossref
+- id: vlaeyen2020
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - Crombez, G.
+  year: 2020
+  title: Behavioral Conceptualization and Treatment of Chronic Pain
+  container: Annual Review of Clinical Psychology
+  volume: "16"
+  issue: "1"
+  pages: 187-212
+  doi: 10.1146/annurev-clinpsy-050718-095744
+  source: crossref
+- id: meulders2019
+  type: article
+  authors:
+    - Meulders, A.
+  year: 2019
+  title: "From fear of movement-related pain and avoidance to chronic pain disability: a state-of-the-art review"
+  container: Current Opinion in Behavioral Sciences
+  volume: "26"
+  pages: 130-136
+  doi: 10.1016/j.cobeha.2018.12.007
+  source: crossref
+- id: meulders2020
+  type: article
+  authors:
+    - Meulders, A.
+  year: 2020
+  title: "Fear in the context of pain: Lessons learned from 100 years of fear conditioning research"
+  container: Behaviour Research and Therapy
+  volume: "131"
+  pages: "103635"
+  doi: 10.1016/j.brat.2020.103635
+  source: crossref
+- id: madden2016
+  type: article
+  authors:
+    - Madden, V. J.
+    - Russek, L. N.
+    - Harvie, D. S.
+    - Vlaeyen, J. W. S.
+    - Moseley, G. L.
+  year: 2016
+  title: Classical Conditioning Fails to Elicit Allodynia in an Experimental Study with Healthy Humans
+  container: Pain Medicine
+  volume: "18"
+  issue: "7"
+  pages: 1314-1325
+  doi: 10.1093/pm/pnw221
+  source: crossref
+- id: traxler2019
+  type: article
+  authors:
+    - Traxler, J.
+    - Madden, V. J.
+    - Moseley, G. L.
+    - Vlaeyen, J. W. S.
+  year: 2019
+  title: Modulating pain thresholds through classical conditioning
+  container: PeerJ
+  volume: "7"
+  pages: e6486
+  doi: 10.7717/peerj.6486
+  source: crossref
+- id: schneider2004
+  type: article
+  authors:
+    - Schneider, C.
+    - Palomba, D.
+    - Flor, H.
+  year: 2004
+  title: "Pavlovian conditioning of muscular responses in chronic pain patients: central and peripheral correlates"
+  container: Pain
+  volume: "112"
+  issue: "3"
+  pages: 239-247
+  doi: 10.1016/j.pain.2004.08.025
+  source: crossref
+- id: klinger2010
+  type: article
+  authors:
+    - Klinger, R.
+    - Matter, N.
+    - Kothe, R.
+    - Dahme, B.
+    - Hofmann, U. G.
+    - Krug, F.
+  year: 2010
+  title: Unconditioned and conditioned muscular responses in patients with chronic back pain and chronic tension-type headaches and in healthy controls
+  container: Pain
+  volume: "150"
+  issue: "1"
+  pages: 66-74
+  doi: 10.1016/j.pain.2010.03.036
+  source: crossref
+- id: jenewein2013
+  type: article
+  authors:
+    - Jenewein, J.
+    - Moergeli, H.
+    - Sprott, H.
+    - Honegger, D.
+    - Brunner, L.
+    - Ettlin, D.
+    - Grillon, C.
+    - Bloch, K.
+    - Brügger, M.
+    - Schwegler, K.
+    - Schumacher, S.
+    - Hasler, G.
+  year: 2013
+  title: Fear‐learning deficits in subjects with fibromyalgia syndrome?
+  container: European Journal of Pain
+  volume: "17"
+  issue: "9"
+  pages: 1374-1384
+  doi: 10.1002/j.1532-2149.2013.00300.x
+  source: crossref
+- id: denhollander2016
+  type: article
+  authors:
+    - den Hollander, M.
+    - Goossens, M.
+    - de Jong, J.
+    - Ruijgrok, J.
+    - Oosterhof, J.
+    - Onghena, P.
+    - Smeets, R.
+    - Vlaeyen, J. W. S.
+  year: 2016
+  title: Expose or protect? A randomized controlled trial of exposure in vivo vs pain-contingent treatment as usual in patients with complex regional pain syndrome type 1
+  container: Pain
+  volume: "157"
+  issue: "10"
+  pages: 2318-2329
+  doi: 10.1097/j.pain.0000000000000651
+  source: crossref
+- id: hasenbring2010
+  type: article
+  authors:
+    - Hasenbring, M. I.
+    - Verbunt, J. A.
+  year: 2010
+  title: "Fear-avoidance and Endurance-related Responses to Pain: New Models of Behavior and Their Consequences for Clinical Practice"
+  container: The Clinical Journal of Pain
+  volume: "26"
+  issue: "9"
+  pages: 747-753
+  doi: 10.1097/ajp.0b013e3181e104f2
+  source: crossref
+- id: hasenbring1994
+  type: article
+  authors:
+    - Hasenbring, M.
+    - Marienfeld, G.
+    - Kuhlendahl, D.
+    - Soyka, D.
+  year: 1994
+  title: Risk Factors of Chronicity in Lumbar Disc Patients
+  container: SPINE
+  volume: "19"
+  issue: "24"
+  pages: 2759-2765
+  doi: 10.1097/00007632-199412150-00004
+  source: crossref
+- id: hasenbring2009
+  type: article
+  authors:
+    - Hasenbring, M. I.
+    - Hallner, D.
+    - Rusu, A. C.
+  year: 2009
+  title: "Fear‐avoidance‐ and endurance‐related responses to pain: Development and validation of the Avoidance‐Endurance Questionnaire (AEQ)"
+  container: European Journal of Pain
+  volume: "13"
+  issue: "6"
+  pages: 620-628
+  doi: 10.1016/j.ejpain.2008.11.001
+  source: crossref
+- id: hasenbring2012
+  type: article
+  authors:
+    - Hasenbring, M. I.
+    - Hallner, D.
+    - Klasen, B.
+    - Streitlein-Böhme, I.
+    - Willburger, R.
+    - Rusche, H.
+  year: 2012
+  title: "Pain-related avoidance versus endurance in primary care patients with subacute back pain: Psychological characteristics and outcome at a 6-month follow-up"
+  container: Pain
+  volume: "153"
+  issue: "1"
+  pages: 211-217
+  doi: 10.1016/j.pain.2011.10.019
+  source: crossref
+- id: hasenbring2006
+  type: article
+  authors:
+    - Hasenbring, M. I.
+    - Plaas, H.
+    - Fischbein, B.
+    - Willburger, R.
+  year: 2006
+  title: "The relationship between activity and pain in patients 6 months after lumbar disc surgery: Do pain‐related coping modes act as moderator variables?"
+  container: European Journal of Pain
+  volume: "10"
+  issue: "8"
+  pages: 701-701
+  doi: 10.1016/j.ejpain.2005.11.004
+  source: crossref
+- id: plaas2013
+  type: article
+  authors:
+    - Plaas, H.
+    - Sudhaus, S.
+    - Willburger, R.
+    - Hasenbring, M. I.
+  year: 2013
+  title: "Physical activity and low back pain: the role of subgroups based on the avoidance-endurance model"
+  container: Disability and Rehabilitation
+  volume: "36"
+  issue: "9"
+  pages: 749-755
+  doi: 10.3109/09638288.2013.814723
+  source: crossref
+- id: andrews2012
+  type: article
+  authors:
+    - Andrews, N. E.
+    - Strong, J.
+    - Meredith, P. J.
+  year: 2012
+  title: "Activity Pacing, Avoidance, Endurance, and Associations With Patient Functioning in Chronic Pain: A Systematic Review and Meta-Analysis"
+  container: Archives of Physical Medicine and Rehabilitation
+  volume: "93"
+  issue: "11"
+  pages: 2109-2121.e7
+  doi: 10.1016/j.apmr.2012.05.029
+  source: crossref
+- id: fehrmann2017
+  type: article
+  authors:
+    - Fehrmann, E.
+    - Tuechler, K.
+    - Kienbacher, T.
+    - Mair, P.
+    - Spreitzer, J.
+    - Fischer, L.
+    - Kollmitzer, J.
+    - Ebenbichler, G.
+  year: 2017
+  title: Comparisons in Muscle Function and Training Rehabilitation Outcomes Between Avoidance-Endurance Model Subgroups
+  container: The Clinical Journal of Pain
+  volume: "33"
+  issue: "10"
+  pages: 912-920
+  doi: 10.1097/ajp.0000000000000479
+  source: crossref
+- id: kindermans2011
+  type: article
+  authors:
+    - Kindermans, H. P. J.
+    - Roelofs, J.
+    - Goossens, M. E. J. B.
+    - Huijnen, I. P. J.
+    - Verbunt, J. A.
+    - Vlaeyen, J. W. S.
+  year: 2011
+  title: "Activity Patterns in Chronic Pain: Underlying Dimensions and Associations With Disability and Depressed Mood"
+  container: The Journal of Pain
+  volume: "12"
+  issue: "10"
+  pages: 1049-1058
+  doi: 10.1016/j.jpain.2011.04.009
+  source: crossref
+- id: morf2026
+  type: article
+  authors:
+    - Morf, R.
+    - Reicherzer, L.
+    - Degenfellner, J.
+    - Hotz‐Boendermaker, S.
+  year: 2026
+  title: "Activity Patterns and Stress—Prognostic Factors for Pain Persistence and Disability in Acute Neck Pain: A 1‐Year Prospective Cohort Study"
+  container: European Journal of Pain
+  volume: "30"
+  issue: "6"
+  pages: e70303
+  doi: 10.1002/ejp.70303
+  source: crossref
+- id: hasenbring2019
+  type: article
+  authors:
+    - Hasenbring, M. I.
+    - Andrews, N. E.
+    - Ebenbichler, G.
+  year: 2019
+  title: Overactivity in Chronic Pain, the Role of Pain-related Endurance and Neuromuscular Activity
+  container: The Clinical Journal of Pain
+  volume: "36"
+  issue: "3"
+  pages: 162-171
+  doi: 10.1097/ajp.0000000000000785
+  source: crossref
+- id: turk1988
+  type: article
+  authors:
+    - Turk, D. C.
+    - Rudy, T. E.
+  year: 1988
+  title: "Toward an empirically derived taxonomy of chronic pain patients: Integration of psychological assessment data."
+  container: Journal of Consulting and Clinical Psychology
+  volume: "56"
+  issue: "2"
+  pages: 233-238
+  doi: 10.1037/0022-006x.56.2.233
+  source: crossref
+- id: turk1992
+  type: article
+  authors:
+    - Turk, D. C.
+    - Rudy, T. E.
+  year: 1992
+  title: "Cognitive factors and persistent pain: A glimpse into pandora's box"
+  container: Cognitive Therapy and Research
+  volume: "16"
+  issue: "2"
+  pages: 99-122
+  doi: 10.1007/bf01173484
+  source: crossref
+- id: williams2020
+  type: article
+  authors:
+    - Williams, A. C. D. C.
+    - Fisher, E.
+    - Hearn, L.
+    - Eccleston, C.
+  year: 2020
+  title: Psychological therapies for the management of chronic pain (excluding headache) in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2021"
+  issue: "11"
+  doi: 10.1002/14651858.cd007407.pub4
+  source: crossref
+- id: morley1999
+  type: article
+  authors:
+    - Morley, S.
+    - Eccleston, C.
+    - Williams, A.
+  year: 1999
+  title: Systematic review and meta-analysis of randomized controlled trials of cognitive behaviour therapy and behaviour therapy for chronic pain in adults, excluding headache
+  container: Pain
+  volume: "80"
+  issue: "1"
+  pages: 1-13
+  doi: 10.1016/s0304-3959(98)00255-3
+  source: crossref
+- id: morley2013
+  type: article
+  authors:
+    - Morley, S.
+    - Williams, A.
+    - Eccleston, C.
+  year: 2013
+  title: "Examining the evidence about psychological treatments for chronic pain: Time for a paradigm shift?"
+  container: Pain
+  volume: "154"
+  issue: "10"
+  pages: 1929-1931
+  doi: 10.1016/j.pain.2013.05.049
+  source: crossref
+- id: lamb2010
+  type: article
+  authors:
+    - Lamb, S. E.
+    - Hansen, Z.
+    - Lall, R.
+    - Castelnuovo, E.
+    - Withers, E. J.
+    - Nichols, V.
+    - Potter, R.
+    - Underwood, M. R.
+  year: 2010
+  title: "Group cognitive behavioural treatment for low-back pain in primary care: a randomised controlled trial and cost-effectiveness analysis"
+  container: The Lancet
+  volume: "375"
+  issue: "9718"
+  pages: 916-923
+  doi: 10.1016/s0140-6736(09)62164-4
+  source: crossref
+- id: turner2007
+  type: article
+  authors:
+    - Turner, J. A.
+    - Holtzman, S.
+    - Mancl, L.
+  year: 2007
+  title: Mediators, moderators, and predictors of therapeutic change in cognitive–behavioral therapy for chronic pain
+  container: Pain
+  volume: "127"
+  issue: "3"
+  pages: 276-286
+  doi: 10.1016/j.pain.2006.09.005
+  source: crossref
+- id: burns2003
+  type: article
+  authors:
+    - Burns, J. W.
+    - Kubilus, A.
+    - Bruehl, S.
+    - Harden, R. N.
+    - Lofland, K.
+  year: 2003
+  title: Do changes in cognitive factors influence outcome following multidisciplinary treatment for chronic pain? A cross-lagged panel analysis.
+  container: Journal of Consulting and Clinical Psychology
+  volume: "71"
+  issue: "1"
+  pages: 81-91
+  doi: 10.1037/0022-006x.71.1.81
+  source: crossref
+- id: smeets2006
+  type: article
+  authors:
+    - Smeets, R. J. E. M.
+    - Vlaeyen, J. W. S.
+    - Kester, A. D. M.
+    - Knottnerus, J. A.
+  year: 2006
+  title: Reduction of Pain Catastrophizing Mediates the Outcome of Both Physical and Cognitive-Behavioral Treatment in Chronic Low Back Pain
+  container: The Journal of Pain
+  volume: "7"
+  issue: "4"
+  pages: 261-271
+  doi: 10.1016/j.jpain.2005.10.011
+  source: crossref
+- id: cherkin2016
+  type: article
+  authors:
+    - Cherkin, D. C.
+    - Sherman, K. J.
+    - Balderson, B. H.
+    - Cook, A. J.
+    - Anderson, M. L.
+    - Hawkes, R. J.
+    - Hansen, K. E.
+    - Turner, J. A.
+  year: 2016
+  title: Effect of Mindfulness-Based Stress Reduction vs Cognitive Behavioral Therapy or Usual Care on Back Pain and Functional Limitations in Adults With Chronic Low Back Pain
+  container: JAMA
+  volume: "315"
+  issue: "12"
+  pages: "1240"
+  doi: 10.1001/jama.2016.2323
+  source: crossref
+- id: turner2016
+  type: article
+  authors:
+    - Turner, J. A.
+    - Anderson, M. L.
+    - Balderson, B. H.
+    - Cook, A. J.
+    - Sherman, K. J.
+    - Cherkin, D. C.
+  year: 2016
+  title: "Mindfulness-based stress reduction and cognitive behavioral therapy for chronic low back pain: similar effects on mindfulness, catastrophizing, self-efficacy, and acceptance in a randomized controlled trial"
+  container: Pain
+  volume: "157"
+  issue: "11"
+  pages: 2434-2444
+  doi: 10.1097/j.pain.0000000000000635
+  source: crossref
+- id: ehde2014
+  type: article
+  authors:
+    - Ehde, D. M.
+    - Dillworth, T. M.
+    - Turner, J. A.
+  year: 2014
+  title: "Cognitive-behavioral therapy for individuals with chronic pain: Efficacy, innovations, and directions for research."
+  container: American Psychologist
+  volume: "69"
+  issue: "2"
+  pages: 153-166
+  doi: 10.1037/a0035747
+  source: crossref
+- id: mccracken2014
+  type: article
+  authors:
+    - McCracken, L. M.
+    - Morley, S.
+  year: 2014
+  title: "The Psychological Flexibility Model: A Basis for Integration and Progress in Psychological Approaches to Chronic Pain Management"
+  container: The Journal of Pain
+  volume: "15"
+  issue: "3"
+  pages: 221-234
+  doi: 10.1016/j.jpain.2013.10.014
+  source: crossref
+- id: mccracken2014b
+  type: article
+  authors:
+    - McCracken, L. M.
+    - Vowles, K. E.
+  year: 2014
+  title: "Acceptance and commitment therapy and mindfulness for chronic pain: Model, process, and progress."
+  container: American Psychologist
+  volume: "69"
+  issue: "2"
+  pages: 178-187
+  doi: 10.1037/a0035623
+  source: crossref
+- id: hayes2006
+  type: article
+  authors:
+    - Hayes, S. C.
+    - Luoma, J. B.
+    - Bond, F. W.
+    - Masuda, A.
+    - Lillis, J.
+  year: 2006
+  title: "Acceptance and Commitment Therapy: Model, processes and outcomes"
+  container: Behaviour Research and Therapy
+  volume: "44"
+  issue: "1"
+  pages: 1-25
+  doi: 10.1016/j.brat.2005.06.006
+  source: crossref
+- id: mccracken1998
+  type: article
+  authors:
+    - McCracken, L. M.
+  year: 1998
+  title: "Learning to live with the pain: acceptance of pain predicts adjustment in persons with chronic pain"
+  container: Pain
+  volume: "74"
+  issue: "1"
+  pages: 21-27
+  doi: 10.1016/s0304-3959(97)00146-2
+  source: crossref
+- id: mccracken2004
+  type: article
+  authors:
+    - McCracken, L. M.
+    - Vowles, K. E.
+    - Eccleston, C.
+  year: 2004
+  title: "Acceptance of chronic pain: component analysis and a revised assessment method"
+  container: Pain
+  volume: "107"
+  issue: "1"
+  pages: 159-166
+  doi: 10.1016/j.pain.2003.10.012
+  source: crossref
+- id: vowles2008
+  type: article
+  authors:
+    - Vowles, K. E.
+    - McCracken, L. M.
+  year: 2008
+  title: "Acceptance and values-based action in chronic pain: A study of treatment effectiveness and process."
+  container: Journal of Consulting and Clinical Psychology
+  volume: "76"
+  issue: "3"
+  pages: 397-407
+  doi: 10.1037/0022-006x.76.3.397
+  source: crossref
+- id: vowles2014
+  type: article
+  authors:
+    - Vowles, K. E.
+    - Sowden, G.
+    - Ashworth, J.
+  year: 2014
+  title: A Comprehensive Examination of the Model Underlying Acceptance and Commitment Therapy for Chronic Pain
+  container: Behavior Therapy
+  volume: "45"
+  issue: "3"
+  pages: 390-401
+  doi: 10.1016/j.beth.2013.12.009
+  source: crossref
+- id: wicksell2012
+  type: article
+  authors:
+    - Wicksell, R. K.
+    - Kemani, M.
+    - Jensen, K.
+    - Kosek, E.
+    - Kadetoff, D.
+    - Sorjonen, K.
+    - Ingvar, M.
+    - Olsson, G. L.
+  year: 2012
+  title: "Acceptance and commitment therapy for fibromyalgia: A randomized controlled trial"
+  container: European Journal of Pain
+  volume: "17"
+  issue: "4"
+  pages: 599-611
+  doi: 10.1002/j.1532-2149.2012.00224.x
+  source: crossref
+- id: trompetter2015
+  type: article
+  authors:
+    - Trompetter, H. R.
+    - Bohlmeijer, E. T.
+    - Fox, J. P.
+    - Schreurs, K. M. G.
+  year: 2015
+  title: Psychological flexibility and catastrophizing as associated change mechanisms during online Acceptance &amp; Commitment Therapy for chronic pain
+  container: Behaviour Research and Therapy
+  volume: "74"
+  pages: 50-59
+  doi: 10.1016/j.brat.2015.09.001
+  source: crossref
+- id: akerblom2015
+  type: article
+  authors:
+    - Åkerblom, S.
+    - Perrin, S.
+    - Rivano Fischer, M.
+    - McCracken, L. M.
+  year: 2015
+  title: The Mediating Role of Acceptance in Multidisciplinary Cognitive-Behavioral Therapy for Chronic Pain
+  container: The Journal of Pain
+  volume: "16"
+  issue: "7"
+  pages: 606-615
+  doi: 10.1016/j.jpain.2015.03.007
+  source: crossref
+- id: hughes2017
+  type: article
+  authors:
+    - Hughes, L. S.
+    - Clark, J.
+    - Colclough, J. A.
+    - Dale, E.
+    - McMillan, D.
+  year: 2017
+  title: Acceptance and Commitment Therapy (ACT) for Chronic Pain
+  container: The Clinical Journal of Pain
+  volume: "33"
+  issue: "6"
+  pages: 552-568
+  doi: 10.1097/ajp.0000000000000425
+  source: crossref
+- id: wetherell2011
+  type: article
+  authors:
+    - Wetherell, J. L.
+    - Afari, N.
+    - Rutledge, T.
+    - Sorrell, J. T.
+    - Stoddard, J. A.
+    - Petkus, A. J.
+    - Solomon, B. C.
+    - Lehman, D. H.
+    - Liu, L.
+    - Lang, A. J.
+    - Atkinson, H. J.
+  year: 2011
+  title: A randomized, controlled trial of acceptance and commitment therapy and cognitive-behavioral therapy for chronic pain
+  container: Pain
+  volume: "152"
+  issue: "9"
+  pages: 2098-2107
+  doi: 10.1016/j.pain.2011.05.016
+  source: crossref
+- id: ost2014
+  type: article
+  authors:
+    - Öst, L. G.
+  year: 2014
+  title: "The efficacy of Acceptance and Commitment Therapy: An updated systematic review and meta-analysis"
+  container: Behaviour Research and Therapy
+  volume: "61"
+  pages: 105-121
+  doi: 10.1016/j.brat.2014.07.018
+  source: crossref
+- id: veehof2016
+  type: article
+  authors:
+    - Veehof, M. M.
+    - Trompetter, H. R.
+    - Bohlmeijer, E. T.
+    - Schreurs, K. M. G.
+  year: 2016
+  title: "Acceptance- and mindfulness-based interventions for the treatment of chronic pain: a meta-analytic review"
+  container: Cognitive Behaviour Therapy
+  volume: "45"
+  issue: "1"
+  pages: 5-31
+  doi: 10.1080/16506073.2015.1098724
+  source: crossref
+- id: asmundson2002
+  type: article
+  authors:
+    - Asmundson, G. J.
+    - Coons, M. J.
+    - Taylor, S.
+    - Katz, J.
+  year: 2002
+  title: "PTSD and the Experience of Pain: Research and Clinical Implications of Shared Vulnerability and Mutual Maintenance Models"
+  container: The Canadian Journal of Psychiatry
+  volume: "47"
+  issue: "10"
+  pages: 930-937
+  doi: 10.1177/070674370204701004
+  source: crossref
+- id: asmundson2009
+  type: article
+  authors:
+    - Asmundson, G. J. G.
+    - Katz, J.
+  year: 2009
+  title: "Understanding the co‐occurrence of anxiety disorders and chronic pain: state‐of‐the‐art"
+  container: Depression and Anxiety
+  volume: "26"
+  issue: "10"
+  pages: 888-901
+  doi: 10.1002/da.20600
+  source: crossref
+- id: gasperi2020
+  type: article
+  authors:
+    - Gasperi, M.
+    - Panizzon, M.
+    - Goldberg, J.
+    - Buchwald, D.
+    - Afari, N.
+  year: 2020
+  title: "Posttraumatic Stress Disorder and Chronic Pain Conditions in Men: A Twin Study"
+  container: Psychosomatic Medicine
+  volume: "83"
+  issue: "2"
+  pages: 109-117
+  doi: 10.1097/psy.0000000000000899
+  source: crossref
+- id: ocanez2010
+  type: article
+  authors:
+    - Ocañez, K. L. S.
+    - Kathryn McHugh, R.
+    - Otto, M. W.
+  year: 2010
+  title: A meta-analytic review of the association between anxiety sensitivity and pain
+  container: Depression and Anxiety
+  volume: "27"
+  issue: "8"
+  pages: 760-767
+  doi: 10.1002/da.20681
+  source: crossref
+- id: marshall2010
+  type: article
+  authors:
+    - Marshall, G. N.
+    - Miles, J. N. V.
+    - Stewart, S. H.
+  year: 2010
+  title: "Anxiety sensitivity and PTSD symptom severity are reciprocally related: Evidence from a longitudinal study of physical trauma survivors."
+  container: Journal of Abnormal Psychology
+  volume: "119"
+  issue: "1"
+  pages: 143-150
+  doi: 10.1037/a0018009
+  source: crossref
+- id: lopezmartinez2014
+  type: article
+  authors:
+    - López‐Martínez, A. E.
+    - Ramírez‐Maestre, C.
+    - Esteve, R.
+  year: 2014
+  title: An examination of the structural link between post‐traumatic stress symptoms and chronic pain in the framework of fear‐avoidance models
+  container: European Journal of Pain
+  volume: "18"
+  issue: "8"
+  pages: 1129-1138
+  doi: 10.1002/j.1532-2149.2014.00459.x
+  source: crossref
+- id: siqveland2017
+  type: article
+  authors:
+    - Siqveland, J.
+    - Hussain, A.
+    - Lindstrøm, J. C.
+    - Ruud, T.
+    - Hauff, E.
+  year: 2017
+  title: "Prevalence of Posttraumatic Stress Disorder in Persons with Chronic Pain: A Meta-analysis"
+  container: Frontiers in Psychiatry
+  volume: "8"
+  pages: "164"
+  doi: 10.3389/fpsyt.2017.00164
+  source: crossref
+- id: ruizparraga2014
+  type: article
+  authors:
+    - Ruiz-Párraga, G. T.
+    - López-Martínez, A. E.
+  year: 2014
+  title: The contribution of posttraumatic stress symptoms to chronic pain adjustment.
+  container: Health Psychology
+  volume: "33"
+  issue: "9"
+  pages: 958-967
+  doi: 10.1037/hea0000040
+  source: crossref
+- id: sharp2001
+  type: article
+  authors:
+    - Sharp, T. J.
+    - Harvey, A. G.
+  year: 2001
+  title: "Chronic pain and posttraumatic stress disorder: mutual maintenance?"
+  container: Clinical Psychology Review
+  volume: "21"
+  issue: "6"
+  pages: 857-877
+  doi: 10.1016/s0272-7358(00)00071-4
+  source: crossref
+- id: liedl2009
+  type: article
+  authors:
+    - Liedl, A.
+    - O'Donnell, M.
+    - Creamer, M.
+    - Silove, D.
+    - McFarlane, A.
+    - Knaevelsrud, C.
+    - Bryant, R. A.
+  year: 2009
+  title: Support for the mutual maintenance of pain and post-traumatic stress disorder symptoms
+  container: Psychological Medicine
+  volume: "40"
+  issue: "7"
+  pages: 1215-1223
+  doi: 10.1017/s0033291709991310
+  source: crossref
+- id: jenewein2009
+  type: article
+  authors:
+    - Jenewein, J.
+    - Wittmann, L.
+    - Moergeli, H.
+    - Creutzig, J.
+    - Schnyder, U.
+  year: 2009
+  title: "Mutual influence of posttraumatic stress disorder symptoms and chronic pain among injured accident survivors: A longitudinal study"
+  container: Journal of Traumatic Stress
+  volume: "22"
+  issue: "6"
+  pages: 540-548
+  doi: 10.1002/jts.20453
+  source: crossref
+- id: stratton2014
+  type: article
+  authors:
+    - Stratton, K. J.
+    - Clark, S. L.
+    - Hawn, S. E.
+    - Amstadter, A. B.
+    - Cifu, D. X.
+    - Walker, W. C.
+  year: 2014
+  title: Longitudinal Interactions of Pain and Posttraumatic Stress Disorder Symptoms in U.S. Military Service Members Following Blast Exposure
+  container: The Journal of Pain
+  volume: "15"
+  issue: "10"
+  pages: 1023-1032
+  doi: 10.1016/j.jpain.2014.07.002
+  source: crossref
+- id: ravn2018
+  type: article
+  authors:
+    - Ravn, S. L.
+    - Hartvigsen, J.
+    - Hansen, M.
+    - Sterling, M.
+    - Andersen, T. E.
+  year: 2018
+  title: Do post-traumatic pain and post-traumatic stress symptomatology mutually maintain each other? A systematic review of cross-lagged studies
+  container: Pain
+  volume: "159"
+  issue: "11"
+  pages: 2159-2169
+  doi: 10.1097/j.pain.0000000000001331
+  source: crossref
+- id: andersen2016
+  type: article
+  authors:
+    - Andersen, T. E.
+    - Karstoft, K.
+    - Brink, O.
+    - Elklit, A.
+  year: 2016
+  title: Pain‐catastrophizing and fear‐avoidance beliefs as mediators between post‐traumatic stress symptoms and pain following whiplash injury – A prospective cohort study
+  container: European Journal of Pain
+  volume: "20"
+  issue: "8"
+  pages: 1241-1252
+  doi: 10.1002/ejp.848
+  source: crossref
+- id: devries2021
+  type: article
+  authors:
+    - de Vries, V.
+    - de Jong, A. E. E.
+    - Hofland, H. W. C.
+    - Van Loey, N. E.
+  year: 2021
+  title: "Pain and Posttraumatic Stress Symptom Clusters: A Cross-Lagged Study"
+  container: Frontiers in Psychology
+  volume: "12"
+  pages: "669231"
+  doi: 10.3389/fpsyg.2021.669231
+  source: crossref
+- id: mcandrew2019
+  type: article
+  authors:
+    - McAndrew, L. M.
+    - Lu, S. E.
+    - Phillips, L. A.
+    - Maestro, K.
+    - Quigley, K. S.
+  year: 2019
+  title: Mutual maintenance of PTSD and physical symptoms for Veterans returning from deployment
+  container: European Journal of Psychotraumatology
+  volume: "10"
+  issue: "1"
+  pages: "1608717"
+  doi: 10.1080/20008198.2019.1608717
+  source: crossref
+- id: held2026
+  type: article
+  authors:
+    - Held, P.
+    - Mundle, R. S.
+    - Pridgen, S.
+    - Smith, D. L.
+    - Coleman, J. A.
+    - Klassen, B. J.
+    - Burns, J. W.
+  year: 2026
+  title: Reductions in PTSD severity precede reductions in pain intensity among veterans receiving intensive treatment.
+  container: "Psychological Trauma: Theory, Research, Practice, and Policy"
+  volume: "18"
+  issue: "3"
+  pages: 650-658
+  doi: 10.1037/tra0001761
+  source: crossref
+- id: otis2009
+  type: article
+  authors:
+    - Otis, J. D.
+    - Keane, T. M.
+    - Kerns, R. D.
+    - Monson, C.
+    - Scioli, E.
+  year: 2009
+  title: The Development of an Integrated Treatment for Veterans with Comorbid Chronic Pain and Posttraumatic Stress Disorder
+  container: Pain Medicine
+  volume: "10"
+  issue: "7"
+  pages: 1300-1311
+  doi: 10.1111/j.1526-4637.2009.00715.x
+  source: crossref
+- id: banks1996
+  type: article
+  authors:
+    - Banks, S. M.
+    - Kerns, R. D.
+  year: 1996
+  title: "Explaining high rates of depression in chronic pain: A diathesis-stress framework."
+  container: Psychological Bulletin
+  volume: "119"
+  issue: "1"
+  pages: 95-110
+  doi: 10.1037/0033-2909.119.1.95
+  source: crossref
+- id: turk2002
+  type: article
+  authors:
+    - Turk, D. C.
+  year: 2002
+  title: A Diathesis‐Stress Model of Chronic Pain and Disability following Traumatic Injury
+  container: Pain Research and Management
+  volume: "7"
+  issue: "1"
+  pages: 9-19
+  doi: 10.1155/2002/252904
+  source: crossref
+- id: dworkin1992
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Hartstein, G.
+    - Rosner, H. L.
+    - Walther, R. R.
+    - Sweeney, E. W.
+    - Brand, L.
+  year: 1992
+  title: "A high-risk method for studying psychosocial antecedents of chronic pain: The prospective investigation of herpes zoster."
+  container: Journal of Abnormal Psychology
+  volume: "101"
+  issue: "1"
+  pages: 200-205
+  doi: 10.1037/0021-843x.101.1.200
+  source: crossref
+- id: polatin1993
+  type: article
+  authors:
+    - Polatin, P. B.
+    - Kinnedy, R. K.
+    - Gatchel, R. J.
+    - Lillo, E.
+    - Mayer, T. G.
+  year: 1993
+  title: Psychiatric Illness and Chronic Low-Back Pain
+  container: Spine
+  volume: "18"
+  issue: "1"
+  pages: 66-71
+  doi: 10.1097/00007632-199301000-00011
+  source: crossref
+- id: fishbain1997
+  type: article
+  authors:
+    - Fishbain, D. A.
+    - Cutler, R.
+    - Rosomoff, H. L.
+    - Rosomoff, R. S.
+  year: 1997
+  title: "Chronic Pain-Associated Depression: Antecedent or Consequence of Chronic Pain? A Review"
+  container: The Clinical Journal of Pain
+  volume: "13"
+  issue: "2"
+  pages: 116-137
+  doi: 10.1097/00002508-199706000-00006
+  source: crossref
+- id: gureje2001
+  type: article
+  authors:
+    - Gureje, O.
+    - Simon, G. E.
+    - Von Korff, M.
+  year: 2001
+  title: A cross-national study of the course of persistent pain in primary care
+  container: Pain
+  volume: "92"
+  issue: "1"
+  pages: 195-200
+  doi: 10.1016/s0304-3959(00)00483-8
+  source: crossref
+- id: kroenke2011
+  type: article
+  authors:
+    - Kroenke, K.
+    - Wu, J.
+    - Bair, M. J.
+    - Krebs, E. E.
+    - Damush, T. M.
+    - Tu, W.
+  year: 2011
+  title: "Reciprocal Relationship Between Pain and Depression: A 12-Month Longitudinal Analysis in Primary Care"
+  container: The Journal of Pain
+  volume: "12"
+  issue: "9"
+  pages: 964-973
+  doi: 10.1016/j.jpain.2011.03.003
+  source: crossref
+- id: martin2010
+  type: article
+  authors:
+    - Martin, A. L.
+    - Halket, E.
+    - Asmundson, G. J. G.
+    - Flora, D. B.
+    - Katz, J.
+  year: 2010
+  title: Posttraumatic Stress Symptoms and the Diathesis-Stress Model of Chronic Pain and Disability in Patients Undergoing Major Surgery
+  container: The Clinical Journal of Pain
+  volume: "26"
+  issue: "6"
+  pages: 518-527
+  doi: 10.1097/ajp.0b013e3181e15b98
+  source: crossref
+- id: picavet2002
+  type: article
+  authors:
+    - Picavet, H. S. J.
+  year: 2002
+  title: "Pain Catastrophizing and Kinesiophobia: Predictors of Chronic Low Back Pain"
+  container: American Journal of Epidemiology
+  volume: "156"
+  issue: "11"
+  pages: 1028-1034
+  doi: 10.1093/aje/kwf136
+  source: crossref
+- id: pincus2002
+  type: article
+  authors:
+    - Pincus, T.
+    - Burton, A. K.
+    - Vogel, S.
+    - Field, A. P.
+  year: 2002
+  title: A Systematic Review of Psychological Factors as Predictors of Chronicity/Disability in Prospective Cohorts of Low Back Pain
+  container: Spine
+  volume: "27"
+  issue: "5"
+  pages: E109-E120
+  doi: 10.1097/00007632-200203010-00017
+  source: crossref
+- id: carroll2004
+  type: article
+  authors:
+    - Carroll, L. J.
+    - Cassidy, D. J.
+    - Côté, P.
+  year: 2004
+  title: Depression as a risk factor for onset of an episode of troublesome neck and low back pain
+  container: Pain
+  volume: "107"
+  issue: "1"
+  pages: 134-139
+  doi: 10.1016/j.pain.2003.10.009
+  source: crossref
+- id: sullivan2001
+  type: article
+  authors:
+    - Sullivan, M. J. L.
+    - Thorn, B.
+    - Haythornthwaite, J. A.
+    - Keefe, F.
+    - Martin, M.
+    - Bradley, L. A.
+    - Lefebvre, J. C.
+  year: 2001
+  title: Theoretical Perspectives on the Relation Between Catastrophizing and Pain
+  container: The Clinical Journal of Pain
+  volume: "17"
+  issue: "1"
+  pages: 52-64
+  doi: 10.1097/00002508-200103000-00008
+  source: crossref
+- id: thorn2003
+  type: article
+  authors:
+    - Thorn, B. E.
+    - Ward, L. C.
+    - Sullivan, M. J. L.
+    - Boothby, J. L.
+  year: 2003
+  title: "Communal coping model of catastrophizing: conceptual model building"
+  container: Pain
+  volume: "106"
+  issue: "1"
+  pages: 1-2
+  doi: 10.1016/s0304-3959(03)00228-8
+  source: crossref
+- id: sullivan2004
+  type: article
+  authors:
+    - Sullivan, M. J. L.
+    - Adams, H.
+    - Sullivan, M. E.
+  year: 2004
+  title: "Communicative dimensions of pain catastrophizing: social cueing effects on pain behaviour and coping"
+  container: Pain
+  volume: "107"
+  issue: "3"
+  pages: 220-226
+  doi: 10.1016/j.pain.2003.11.003
+  source: crossref
+- id: giardino2003
+  type: article
+  authors:
+    - Giardino, N. D.
+    - Jensen, M. P.
+    - Turner, J. A.
+    - Ehde, D. M.
+    - Cardenas, D. D.
+  year: 2003
+  title: Social environment moderates the association between catastrophizing and pain among persons with a spinal cord injury
+  container: Pain
+  volume: "106"
+  issue: "1"
+  pages: 19-25
+  doi: 10.1016/s0304-3959(03)00226-4
+  source: crossref
+- id: boothby2004
+  type: article
+  authors:
+    - Boothby, J. L.
+    - Thorn, B. E.
+    - Overduin, L. Y.
+    - Charles Ward, L.
+  year: 2004
+  title: Catastrophizing and perceived partner responses to pain
+  container: Pain
+  volume: "109"
+  issue: "3"
+  pages: 500-506
+  doi: 10.1016/j.pain.2004.02.030
+  source: crossref
+- id: lackner2004
+  type: article
+  authors:
+    - Lackner, J. M.
+    - Gurtman, M. B.
+  year: 2004
+  title: "Pain catastrophizing and interpersonal problems: a circumplex analysis of the communal coping model"
+  container: Pain
+  volume: "110"
+  issue: "3"
+  pages: 597-604
+  doi: 10.1016/j.pain.2004.04.011
+  source: crossref
+- id: buenaver2007
+  type: article
+  authors:
+    - Buenaver, L. F.
+    - Edwards, R. R.
+    - Haythornthwaite, J. A.
+  year: 2007
+  title: "Pain-related catastrophizing and perceived social responses: Inter-relationships in the context of chronic pain"
+  container: Pain
+  volume: "127"
+  issue: "3"
+  pages: 234-242
+  doi: 10.1016/j.pain.2006.08.018
+  source: crossref
+- id: burns2015
+  type: article
+  authors:
+    - Burns, J. W.
+    - Gerhart, J. I.
+    - Post, K. M.
+    - Smith, D. A.
+    - Porter, L. S.
+    - Schuster, E.
+    - Buvanendran, A.
+    - Fras, A. M.
+    - Keefe, F. J.
+  year: 2015
+  title: "The Communal Coping Model of Pain Catastrophizing in Daily Life: A Within-Couples Daily Diary Study"
+  container: The Journal of Pain
+  volume: "16"
+  issue: "11"
+  pages: 1163-1175
+  doi: 10.1016/j.jpain.2015.08.005
+  source: crossref
+- id: vervoort2008
+  type: article
+  authors:
+    - Vervoort, T.
+    - Goubert, L.
+    - Eccleston, C.
+    - Verhoeven, K.
+    - De Clercq, A.
+    - Buysse, A.
+    - Crombez, G.
+  year: 2008
+  title: "The effects of parental presence upon the facial expression of pain: The moderating role of child pain catastrophizing ☆"
+  container: Pain
+  volume: "138"
+  issue: "2"
+  pages: 277-285
+  doi: 10.1016/j.pain.2007.12.013
+  source: crossref
+- id: vlaeyen2009
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - Hanssen, M.
+    - Goubert, L.
+    - Vervoort, T.
+    - Peters, M.
+    - van Breukelen, G.
+    - Sullivan, M. J. L.
+    - Morley, S.
+  year: 2009
+  title: Threat of pain influences social context effects on verbal pain report and facial expression
+  container: Behaviour Research and Therapy
+  volume: "47"
+  issue: "9"
+  pages: 774-782
+  doi: 10.1016/j.brat.2009.05.008
+  source: crossref
+- id: cano2004
+  type: article
+  authors:
+    - Cano, A.
+  year: 2004
+  title: "Pain catastrophizing and social support in married individuals with chronic pain: the moderating role of pain duration"
+  container: Pain
+  volume: "110"
+  issue: "3"
+  pages: 656-664
+  doi: 10.1016/j.pain.2004.05.004
+  source: crossref
+- id: craig2009
+  type: article
+  authors:
+    - Craig, K. D.
+  year: 2009
+  title: The social communication model of pain.
+  container: Canadian Psychology / Psychologie canadienne
+  volume: "50"
+  issue: "1"
+  pages: 22-32
+  doi: 10.1037/a0014772
+  source: crossref
+- id: hadjistavropoulos2002
+  type: article
+  authors:
+    - Hadjistavropoulos, T.
+    - Craig, K. D.
+  year: 2002
+  title: "A theoretical framework for understanding self-report and observational measures of pain: a communications model"
+  container: Behaviour Research and Therapy
+  volume: "40"
+  issue: "5"
+  pages: 551-570
+  doi: 10.1016/s0005-7967(01)00072-9
+  source: crossref
+- id: hadjistavropoulos2011
+  type: article
+  authors:
+    - Hadjistavropoulos, T.
+    - Craig, K. D.
+    - Duck, S.
+    - Cano, A.
+    - Goubert, L.
+    - Jackson, P. L.
+    - Mogil, J. S.
+    - Rainville, P.
+    - Sullivan, M. J. L.
+    - Williams, A. C. D. C.
+    - Vervoort, T.
+    - Fitzgerald, T. D.
+  year: 2011
+  title: A biopsychosocial formulation of pain communication.
+  container: Psychological Bulletin
+  volume: "137"
+  issue: "6"
+  pages: 910-939
+  doi: 10.1037/a0023876
+  source: crossref
+- id: prkachin1992
+  type: article
+  authors:
+    - Prkachin, K. M.
+  year: 1992
+  title: "The consistency of facial expressions of pain: a comparison across modalities"
+  container: Pain
+  volume: "51"
+  issue: "3"
+  pages: 297-306
+  doi: 10.1016/0304-3959(92)90213-u
+  source: crossref
+- id: labus2003
+  type: article
+  authors:
+    - Labus, J. S.
+    - Keefe, F. J.
+    - Jensen, M. P.
+  year: 2003
+  title: "Self-reports of pain intensity and direct observations of pain behavior: when are they correlated?"
+  container: Pain
+  volume: "102"
+  issue: "1"
+  pages: 109-124
+  doi: 10.1016/s0304-3959(02)00354-8
+  source: crossref
+- id: kappesser2006
+  type: article
+  authors:
+    - Kappesser, J.
+    - Williams, A. C. D. C.
+    - Prkachin, K. M.
+  year: 2006
+  title: Testing two accounts of pain underestimation
+  container: Pain
+  volume: "124"
+  issue: "1"
+  pages: 109-116
+  doi: 10.1016/j.pain.2006.04.003
+  source: crossref
+- id: hoffman2016
+  type: article
+  authors:
+    - Hoffman, K. M.
+    - Trawalter, S.
+    - Axt, J. R.
+    - Oliver, M. N.
+  year: 2016
+  title: Racial bias in pain assessment and treatment recommendations, and false beliefs about biological differences between blacks and whites
+  container: Proceedings of the National Academy of Sciences
+  volume: "113"
+  issue: "16"
+  pages: 4296-4301
+  doi: 10.1073/pnas.1516047113
+  source: crossref
+- id: peeters2011
+  type: article
+  authors:
+    - Peeters, P. A. M.
+    - Vlaeyen, J. W. S.
+  year: 2011
+  title: "Feeling More Pain, Yet Showing Less: The Influence of Social Threat on Pain"
+  container: The Journal of Pain
+  volume: "12"
+  issue: "12"
+  pages: 1255-1261
+  doi: 10.1016/j.jpain.2011.07.007
+  source: crossref
+- id: krahe2013
+  type: article
+  authors:
+    - Krahé, C.
+    - Springer, A.
+    - Weinman, J. A.
+    - Fotopoulou, A.
+  year: 2013
+  title: "The Social Modulation of Pain: Others as Predictive Signals of Salience – a Systematic Review"
+  container: Frontiers in Human Neuroscience
+  volume: "7"
+  doi: 10.3389/fnhum.2013.00386
+  source: crossref
+- id: gregoire2016
+  type: article
+  authors:
+    - Grégoire, M.
+    - Coll, M.-P.
+    - Tremblay, M.-P. B.
+    - Prkachin, K. M.
+    - Jackson, P. L.
+  year: 2016
+  title: Repeated exposure to others’ pain reduces vicarious pain intensity estimation
+  container: European Journal of Pain
+  volume: "20"
+  issue: "10"
+  pages: 1644-1652
+  doi: 10.1002/ejp.888
+  source: crossref
+- id: williams2002
+  type: article
+  authors:
+    - Williams, A. C. D. C.
+  year: 2002
+  title: "Facial expression of pain: An evolutionary account"
+  container: Behavioral and Brain Sciences
+  volume: "25"
+  issue: "4"
+  pages: 439-455
+  doi: 10.1017/s0140525x02000080
+  source: crossref
+- id: goubert2013
+  type: chapter
+  authors:
+    - Goubert, L.
+    - Simons, L. E.
+  year: 2013
+  title: Cognitive styles and processes in paediatric pain
+  container: Oxford Textbook of Paediatric Pain
+  pages: 95-101
+  publisher: Oxford University PressOxford
+  doi: 10.1093/med/9780199642656.003.0010
+  source: crossref
+- id: simons2015
+  type: article
+  authors:
+    - Simons, L. E.
+    - Smith, A.
+    - Kaczynski, K.
+    - Basch, M.
+  year: 2015
+  title: Living in fear of your child's pain
+  container: Pain
+  volume: "156"
+  issue: "4"
+  pages: 694-702
+  doi: 10.1097/j.pain.0000000000000100
+  source: crossref
+- id: caes2011
+  type: article
+  authors:
+    - Caes, L.
+    - Vervoort, T.
+    - Eccleston, C.
+    - Vandenhende, M.
+    - Goubert, L.
+  year: 2011
+  title: "Parental catastrophizing about child's pain and its relationship with activity restriction: The mediating role of parental distress"
+  container: Pain
+  volume: "152"
+  issue: "1"
+  pages: 212-222
+  doi: 10.1016/j.pain.2010.10.037
+  source: crossref
+- id: chow2016
+  type: article
+  authors:
+    - Chow, E. T.
+    - Otis, J. D.
+    - Simons, L. E.
+  year: 2016
+  title: The Longitudinal Impact of Parent Distress and Behavior on Functional Outcomes Among Youth With Chronic Pain
+  container: The Journal of Pain
+  volume: "17"
+  issue: "6"
+  pages: 729-738
+  doi: 10.1016/j.jpain.2016.02.014
+  source: crossref
+- id: neville2020
+  type: article
+  authors:
+    - Neville, A.
+    - Kopala-Sibley, D. C.
+    - Soltani, S.
+    - Asmundson, G. J. G.
+    - Jordan, A.
+    - Carleton, R. N.
+    - Yeates, K. O.
+    - Schulte, F.
+    - Noel, M.
+  year: 2020
+  title: "A longitudinal examination of the interpersonal fear avoidance model of pain: the role of intolerance of uncertainty"
+  container: Pain
+  volume: "162"
+  issue: "1"
+  pages: 152-160
+  doi: 10.1097/j.pain.0000000000002009
+  source: crossref
+- id: birnie2020
+  type: article
+  authors:
+    - Birnie, K. A.
+    - Heathcote, L. C.
+    - Bhandari, R. P.
+    - Feinstein, A.
+    - Yoon, I. A.
+    - Simons, L. E.
+  year: 2020
+  title: Parent physical and mental health contributions to interpersonal fear avoidance processes in pediatric chronic pain
+  container: Pain
+  volume: "161"
+  issue: "6"
+  pages: 1202-1211
+  doi: 10.1097/j.pain.0000000000001820
+  source: crossref
+- id: donnelly2020
+  type: article
+  authors:
+    - Donnelly, T. J.
+    - Palermo, T. M.
+    - Newton-John, T. R. O.
+  year: 2020
+  title: "Parent cognitive, behavioural, and affective factors and their relation to child pain and functioning in pediatric chronic pain: a systematic review and meta-analysis"
+  container: Pain
+  volume: "161"
+  issue: "7"
+  pages: 1401-1419
+  doi: 10.1097/j.pain.0000000000001833
+  source: crossref
+- id: simons2012
+  type: article
+  authors:
+    - Simons, L. E.
+    - Kaczynski, K. J.
+  year: 2012
+  title: "The Fear Avoidance Model of Chronic Pain: Examination for Pediatric Application"
+  container: The Journal of Pain
+  volume: "13"
+  issue: "9"
+  pages: 827-835
+  doi: 10.1016/j.jpain.2012.05.002
+  source: crossref
+- id: asmundson2012
+  type: article
+  authors:
+    - Asmundson, G. J.
+    - Noel, M.
+    - Petter, M.
+    - Parkerson, H. A.
+  year: 2012
+  title: "Pediatric Fear‐Avoidance Model of Chronic Pain: Foundation, Application and Future Directions"
+  container: Pain Research and Management
+  volume: "17"
+  issue: "6"
+  pages: 397-405
+  doi: 10.1155/2012/908061
+  source: crossref
+- id: simons2016
+  type: article
+  authors:
+    - Simons, L. E.
+    - Goubert, L.
+    - Vervoort, T.
+    - Borsook, D.
+  year: 2016
+  title: "Circles of engagement: Childhood pain and parent brain"
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "68"
+  pages: 537-546
+  doi: 10.1016/j.neubiorev.2016.06.020
+  source: crossref
+- id: loeser1982
+  type: chapter
+  authors:
+    - Loeser, J. D.
+  year: 1982
+  title: Concepts of pain
+  publisher: Chronic Low-Back Pain (M. Stanton-Hicks & R. Boas, Eds.), Raven Press
+  pages: 145-148
+  source: manual
+- id: loeser1999
+  type: article
+  authors:
+    - Loeser, J. D.
+    - Melzack, R.
+  year: 1999
+  title: "Pain: an overview"
+  container: The Lancet
+  volume: "353"
+  issue: "9164"
+  pages: 1607-1609
+  doi: 10.1016/s0140-6736(99)01311-2
+  source: crossref
+- id: loeser2000
+  type: article
+  authors:
+    - Loeser, J. D.
+  year: 2000
+  title: Pain and Suffering
+  container: The Clinical Journal of Pain
+  volume: "16"
+  issue: Supplement
+  pages: S2-S6
+  doi: 10.1097/00002508-200006001-00002
+  source: crossref
+- id: cassel1982
+  type: article
+  authors:
+    - Cassel, E. J.
+  year: 1982
+  title: The Nature of Suffering and the Goals of Medicine
+  container: New England Journal of Medicine
+  volume: "306"
+  issue: "11"
+  pages: 639-645
+  doi: 10.1056/nejm198203183061104
+  source: crossref
+- id: derbyshire2004
+  type: article
+  authors:
+    - Derbyshire, S. W. G.
+    - Whalley, M. G.
+    - Stenger, V. A.
+    - Oakley, D. A.
+  year: 2004
+  title: Cerebral activation during hypnotically induced and imagined pain
+  container: NeuroImage
+  volume: "23"
+  issue: "1"
+  pages: 392-401
+  doi: 10.1016/j.neuroimage.2004.04.033
+  source: crossref
+- id: waddell1987
+  type: article
+  authors:
+    - Waddell, G.
+  year: 1987
+  title: "1987 Volvo Award in Clinical Sciences: A New Clinical Model for the Treatment of Low-Back Pain"
+  container: Spine
+  volume: "12"
+  issue: "7"
+  pages: 632-644
+  doi: 10.1097/00007632-198709000-00002
+  source: crossref
+- id: butler2003
+  type: book
+  authors:
+    - Butler, D. S.
+    - Moseley, G. L.
+  year: 2003
+  title: Explain Pain
+  publisher: Noigroup Publications
+  source: manual
+- id: moseley2007
+  type: article
+  authors:
+    - Moseley, G. L.
+  year: 2007
+  title: Reconceptualising pain according to modern pain science
+  container: Physical Therapy Reviews
+  volume: "12"
+  issue: "3"
+  pages: 169-178
+  doi: 10.1179/108331907x223010
+  source: crossref
+- id: moseley2015b
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Butler, D. S.
+  year: 2015
+  title: "Fifteen Years of Explaining Pain: The Past, Present, and Future"
+  container: The Journal of Pain
+  volume: "16"
+  issue: "9"
+  pages: 807-813
+  doi: 10.1016/j.jpain.2015.05.005
+  source: crossref
+- id: moseley2004
+  type: article
+  authors:
+    - Moseley, G. L.
+    - Nicholas, M. K.
+    - Hodges, P. W.
+  year: 2004
+  title: A Randomized Controlled Trial of Intensive Neurophysiology Education in Chronic Low Back Pain
+  container: The Clinical Journal of Pain
+  volume: "20"
+  issue: "5"
+  pages: 324-330
+  doi: 10.1097/00002508-200409000-00007
+  source: crossref
+- id: moseley2004b
+  type: article
+  authors:
+    - Moseley, G. L.
+  year: 2004
+  title: Evidence for a direct relationship between cognitive and physical change during an education intervention in people with chronic low back pain
+  container: European Journal of Pain
+  volume: "8"
+  issue: "1"
+  pages: 39-45
+  doi: 10.1016/s1090-3801(03)00063-6
+  source: crossref
+- id: louw2016
+  type: article
+  authors:
+    - Louw, A.
+    - Zimney, K.
+    - Puentedura, E. J.
+    - Diener, I.
+  year: 2016
+  title: "The efficacy of pain neuroscience education on musculoskeletal pain: A systematic review of the literature"
+  container: Physiotherapy Theory and Practice
+  volume: "32"
+  issue: "5"
+  pages: 332-355
+  doi: 10.1080/09593985.2016.1194646
+  source: crossref
+- id: watson2019
+  type: article
+  authors:
+    - Watson, J. A.
+    - Ryan, C. G.
+    - Cooper, L.
+    - Ellington, D.
+    - Whittle, R.
+    - Lavender, M.
+    - Dixon, J.
+    - Atkinson, G.
+    - Cooper, K.
+    - Martin, D. J.
+  year: 2019
+  title: "Pain Neuroscience Education for Adults With Chronic Musculoskeletal Pain: A Mixed-Methods Systematic Review and Meta-Analysis"
+  container: The Journal of Pain
+  volume: "20"
+  issue: "10"
+  pages: 1140.e1-1140.e22
+  doi: 10.1016/j.jpain.2019.02.011
+  source: crossref
+- id: wood2018
+  type: article
+  authors:
+    - Wood, L.
+    - Hendrick, P. A.
+  year: 2018
+  title: "A systematic review and meta‐analysis of pain neuroscience education for chronic low back pain: Short‐and long‐term outcomes of pain and disability"
+  container: European Journal of Pain
+  volume: "23"
+  issue: "2"
+  pages: 234-249
+  doi: 10.1002/ejp.1314
+  source: crossref
+- id: traeger2019
+  type: article
+  authors:
+    - Traeger, A. C.
+    - Lee, H.
+    - Hübscher, M.
+    - Skinner, I. W.
+    - Moseley, G. L.
+    - Nicholas, M. K.
+    - Henschke, N.
+    - Refshauge, K. M.
+    - Blyth, F. M.
+    - Main, C. J.
+    - Hush, J. M.
+    - Lo, S.
+    - McAuley, J. H.
+  year: 2019
+  title: Effect of Intensive Patient Education vs Placebo Patient Education on Outcomes in Patients With Acute Low Back Pain
+  container: JAMA Neurology
+  volume: "76"
+  issue: "2"
+  pages: "161"
+  doi: 10.1001/jamaneurol.2018.3376
+  source: crossref
+- id: gifford1998
+  type: article
+  authors:
+    - Gifford, L.
+  year: 1998
+  title: "Pain, the Tissues and the Nervous System: A conceptual model"
+  container: Physiotherapy
+  volume: "84"
+  issue: "1"
+  pages: 27-36
+  doi: 10.1016/s0031-9406(05)65900-7
+  source: crossref
+- id: hodges2003
+  type: article
+  authors:
+    - Hodges, P. W.
+    - Moseley, G. L.
+    - Gabrielsson, A.
+    - Gandevia, S. C.
+  year: 2003
+  title: Experimental muscle pain changes feedforward postural responses of the trunk muscles
+  container: Experimental Brain Research
+  volume: "151"
+  issue: "2"
+  pages: 262-271
+  doi: 10.1007/s00221-003-1457-x
+  source: crossref
+- id: coninx2021
+  type: article
+  authors:
+    - Coninx, S.
+    - Stilwell, P.
+  year: 2021
+  title: "Pain and the field of affordances: an enactive approach to acute and chronic pain"
+  container: Synthese
+  volume: "199"
+  issue: 3-4
+  pages: 7835-7863
+  doi: 10.1007/s11229-021-03142-3
+  source: crossref
+- id: goldstein2018
+  type: article
+  authors:
+    - Goldstein, P.
+    - Weissman-Fogel, I.
+    - Dumas, G.
+    - Shamay-Tsoory, S. G.
+  year: 2018
+  title: Brain-to-brain coupling during handholding is associated with pain reduction
+  container: Proceedings of the National Academy of Sciences
+  volume: "115"
+  issue: "11"
+  doi: 10.1073/pnas.1703643115
+  source: crossref
+- id: sherrington1906
+  type: book
+  authors:
+    - Sherrington, C. S.
+  year: 1906
+  title: The integrative action of the nervous system
+  publisher: Charles Scribner's Sons
+  source: manual
+- id: walters2019
+  type: article
+  authors:
+    - Walters, E. T.
+    - Williams, A. C. D. C.
+  year: 2019
+  title: Evolution of mechanisms and behaviour important for pain
+  container: "Philosophical Transactions of the Royal Society B: Biological Sciences"
+  volume: "374"
+  issue: "1785"
+  pages: "20190275"
+  doi: 10.1098/rstb.2019.0275
+  source: crossref
+- id: williams2016
+  type: article
+  authors:
+    - Williams, A. C. D. C.
+  year: 2016
+  title: What can evolutionary theory tell us about chronic pain?
+  container: Pain
+  volume: "157"
+  issue: "4"
+  pages: 788-790
+  doi: 10.1097/j.pain.0000000000000464
+  source: crossref
+- id: nesse2019
+  type: article
+  authors:
+    - Nesse, R. M.
+    - Schulkin, J.
+  year: 2019
+  title: An evolutionary medicine perspective on pain and its disorders
+  container: "Philosophical Transactions of the Royal Society B: Biological Sciences"
+  volume: "374"
+  issue: "1785"
+  pages: "20190288"
+  doi: 10.1098/rstb.2019.0288
+  source: crossref
+- id: cox2006
+  type: article
+  authors:
+    - Cox, J. J.
+    - Reimann, F.
+    - Nicholas, A. K.
+    - Thornton, G.
+    - Roberts, E.
+    - Springell, K.
+    - Karbani, G.
+    - Jafri, H.
+    - Mannan, J.
+    - Raashid, Y.
+    - Al-Gazali, L.
+    - Hamamy, H.
+    - Valente, E. M.
+    - Gorman, S.
+    - Williams, R.
+    - McHale, D. P.
+    - Wood, J. N.
+    - Gribble, F. M.
+    - Woods, C. G.
+  year: 2006
+  title: An SCN9A channelopathy causes congenital inability to experience pain
+  container: Nature
+  volume: "444"
+  issue: "7121"
+  pages: 894-898
+  doi: 10.1038/nature05413
+  source: crossref
+- id: crook2014
+  type: article
+  authors:
+    - Crook, R. J.
+    - Dickson, K.
+    - Hanlon, R. T.
+    - Walters, E. T.
+  year: 2014
+  title: Nociceptive Sensitization Reduces Predation Risk
+  container: Current Biology
+  volume: "24"
+  issue: "10"
+  pages: 1121-1125
+  doi: 10.1016/j.cub.2014.03.043
+  source: crossref
+- id: nagasako2003
+  type: article
+  authors:
+    - Nagasako, E. M.
+    - Oaklander, A. L.
+    - Dworkin, R. H.
+  year: 2003
+  title: "Congenital insensitivity to pain: an update"
+  container: Pain
+  volume: "101"
+  issue: "3"
+  pages: 213-219
+  doi: 10.1016/s0304-3959(02)00482-7
+  source: crossref
+- id: kehlet2006
+  type: article
+  authors:
+    - Kehlet, H.
+    - Jensen, T. S.
+    - Woolf, C. J.
+  year: 2006
+  title: "Persistent postsurgical pain: risk factors and prevention"
+  container: The Lancet
+  volume: "367"
+  issue: "9522"
+  pages: 1618-1625
+  doi: 10.1016/s0140-6736(06)68700-x
+  source: crossref
+- id: eisenberger2003
+  type: article
+  authors:
+    - Eisenberger, N. I.
+    - Lieberman, M. D.
+    - Williams, K. D.
+  year: 2003
+  title: Does Rejection Hurt? An fMRI Study of Social Exclusion
+  container: Science
+  volume: "302"
+  issue: "5643"
+  pages: 290-292
+  doi: 10.1126/science.1089134
+  source: crossref
+- id: eisenberger2006
+  type: article
+  authors:
+    - Eisenberger, N. I.
+    - Jarcho, J. M.
+    - Lieberman, M. D.
+    - Naliboff, B. D.
+  year: 2006
+  title: An experimental study of shared sensitivity to physical pain and social rejection
+  container: Pain
+  volume: "126"
+  issue: "1"
+  pages: 132-138
+  doi: 10.1016/j.pain.2006.06.024
+  source: crossref
+- id: eisenberger2012
+  type: article
+  authors:
+    - Eisenberger, N. I.
+  year: 2012
+  title: "The pain of social disconnection: examining the shared neural underpinnings of physical and social pain"
+  container: Nature Reviews Neuroscience
+  volume: "13"
+  issue: "6"
+  pages: 421-434
+  doi: 10.1038/nrn3231
+  source: crossref
+- id: macdonald2005
+  type: article
+  authors:
+    - MacDonald, G.
+    - Leary, M. R.
+  year: 2005
+  title: Why Does Social Exclusion Hurt? The Relationship Between Social and Physical Pain.
+  container: Psychological Bulletin
+  volume: "131"
+  issue: "2"
+  pages: 202-223
+  doi: 10.1037/0033-2909.131.2.202
+  source: crossref
+- id: kross2011
+  type: article
+  authors:
+    - Kross, E.
+    - Berman, M. G.
+    - Mischel, W.
+    - Smith, E. E.
+    - Wager, T. D.
+  year: 2011
+  title: Social rejection shares somatosensory representations with physical pain
+  container: Proceedings of the National Academy of Sciences
+  volume: "108"
+  issue: "15"
+  pages: 6270-6275
+  doi: 10.1073/pnas.1102693108
+  source: crossref
+- id: woo2014
+  type: article
+  authors:
+    - Woo, C. W.
+    - Koban, L.
+    - Kross, E.
+    - Lindquist, M. A.
+    - Banich, M. T.
+    - Ruzic, L.
+    - Andrews-Hanna, J. R.
+    - Wager, T. D.
+  year: 2014
+  title: Separate neural representations for physical pain and social rejection
+  container: Nature Communications
+  volume: "5"
+  issue: "1"
+  pages: "5380"
+  doi: 10.1038/ncomms6380
+  source: crossref
+- id: dewall2010
+  type: article
+  authors:
+    - DeWall, C. N.
+    - MacDonald, G.
+    - Webster, G. D.
+    - Masten, C. L.
+    - Baumeister, R. F.
+    - Powell, C.
+    - Combs, D.
+    - Schurtz, D. R.
+    - Stillman, T. F.
+    - Tice, D. M.
+    - Eisenberger, N. I.
+  year: 2010
+  title: Acetaminophen Reduces Social Pain
+  container: Psychological Science
+  volume: "21"
+  issue: "7"
+  pages: 931-937
+  doi: 10.1177/0956797610374741
+  source: crossref
+- id: rotge2014
+  type: article
+  authors:
+    - Rotge, J. Y.
+    - Lemogne, C.
+    - Hinfray, S.
+    - Huguet, P.
+    - Grynszpan, O.
+    - Tartour, E.
+    - George, N.
+    - Fossati, P.
+  year: 2014
+  title: A meta-analysis of the anterior cingulate contribution to social pain
+  container: Social Cognitive and Affective Neuroscience
+  volume: "10"
+  issue: "1"
+  pages: 19-27
+  doi: 10.1093/scan/nsu110
+  source: crossref
+- id: iannetti2013
+  type: article
+  authors:
+    - Iannetti, G. D.
+    - Salomons, T. V.
+    - Moayedi, M.
+    - Mouraux, A.
+    - Davis, K. D.
+  year: 2013
+  title: "Beyond metaphor: contrasting mechanisms of social and physical pain"
+  container: Trends in Cognitive Sciences
+  volume: "17"
+  issue: "8"
+  pages: 371-378
+  doi: 10.1016/j.tics.2013.06.002
+  source: crossref
+- id: lieberman2015
+  type: article
+  authors:
+    - Lieberman, M. D.
+    - Eisenberger, N. I.
+  year: 2015
+  title: "The dorsal anterior cingulate cortex is selective for pain: Results from large-scale reverse inference"
+  container: Proceedings of the National Academy of Sciences
+  volume: "112"
+  issue: "49"
+  pages: 15250-15255
+  doi: 10.1073/pnas.1515083112
+  source: crossref
+- id: wager2016
+  type: article
+  authors:
+    - Wager, T. D.
+    - Atlas, L. Y.
+    - Botvinick, M. M.
+    - Chang, L. J.
+    - Coghill, R. C.
+    - Davis, K. D.
+    - Iannetti, G. D.
+    - Poldrack, R. A.
+    - Shackman, A. J.
+    - Yarkoni, T.
+  year: 2016
+  title: Pain in the ACC?
+  container: Proceedings of the National Academy of Sciences
+  volume: "113"
+  issue: "18"
+  doi: 10.1073/pnas.1600282113
+  source: crossref
+- id: armstrong1962
+  type: book
+  authors:
+    - Armstrong, D. M.
+  year: 1962
+  title: Bodily sensations
+  publisher: Routledge & Kegan Paul
+  source: manual
+- id: pitcher1970
+  type: article
+  authors:
+    - Pitcher, G.
+  year: 1970
+  title: Pain Perception
+  container: The Philosophical Review
+  volume: "79"
+  issue: "3"
+  pages: "368"
+  doi: 10.2307/2183934
+  source: crossref
+- id: tye1995
+  type: book
+  authors:
+    - Tye, M.
+  year: 1995
+  title: Ten Problems of Consciousness
+  publisher: The MIT Press
+  doi: 10.7551/mitpress/6712.001.0001
+  source: crossref
+- id: cutter2011
+  type: article
+  authors:
+    - Cutter, B.
+    - Tye, M.
+  year: 2011
+  title: Tracking representationalism and the painfulness of pain
+  container: Philosophical Issues
+  volume: "21"
+  issue: "1"
+  pages: 90-109
+  doi: 10.1111/j.1533-6077.2011.00199.x
+  source: crossref
+- id: aydede2013
+  type: article
+  authors:
+    - Aydede, M.
+    - Fulkerson, M.
+  year: 2013
+  title: "Affect: representationalists’ headache"
+  container: Philosophical Studies
+  volume: "170"
+  issue: "2"
+  pages: 175-198
+  doi: 10.1007/s11098-013-0206-7
+  source: crossref
+- id: grahek2007
+  type: book
+  authors:
+    - Grahek, N.
+  year: 2007
+  title: Feeling Pain and Being in Pain
+  publisher: The MIT Press
+  doi: 10.7551/mitpress/2978.001.0001
+  source: crossref
+- id: berthier1988
+  type: article
+  authors:
+    - Berthier, M.
+    - Starkstein, S.
+    - Leiguarda, R.
+  year: 1988
+  title: "Asymbolia for pain: A sensory‐limbic disconnection syndrome"
+  container: Annals of Neurology
+  volume: "24"
+  issue: "1"
+  pages: 41-49
+  doi: 10.1002/ana.410240109
+  source: crossref
+- id: rainville1997
+  type: article
+  authors:
+    - Rainville, P.
+    - Duncan, G. H.
+    - Price, D. D.
+    - Carrier, B.
+    - Bushnell, M. C.
+  year: 1997
+  title: Pain Affect Encoded in Human Anterior Cingulate But Not Somatosensory Cortex
+  container: Science
+  volume: "277"
+  issue: "5328"
+  pages: 968-971
+  doi: 10.1126/science.277.5328.968
+  source: crossref
+- id: ploner1999
+  type: article
+  authors:
+    - Ploner, M.
+    - Freund, H. J.
+    - Schnitzler, A.
+  year: 1999
+  title: Pain affect without pain sensation in a patient with a postcentral lesion
+  container: Pain
+  volume: "81"
+  issue: "1"
+  pages: 211-214
+  doi: 10.1016/s0304-3959(99)00012-3
+  source: crossref
+- id: bain2012
+  type: article
+  authors:
+    - Bain, D.
+  year: 2012
+  title: What makes pains unpleasant?
+  container: Philosophical Studies
+  volume: "166"
+  issue: S1
+  pages: 69-89
+  doi: 10.1007/s11098-012-0049-7
+  source: crossref
+- id: bain2013
+  type: article
+  authors:
+    - Bain, D.
+  year: 2013
+  title: Pains that Don't Hurt
+  container: Australasian Journal of Philosophy
+  volume: "92"
+  issue: "2"
+  pages: 305-320
+  doi: 10.1080/00048402.2013.822399
+  source: crossref
+- id: bain2017
+  type: chapter
+  authors:
+    - Bain, D.
+  year: 2017
+  title: Evaluativist accounts of pain’s unpleasantness
+  container: The Routledge Handbook of Philosophy of Pain
+  pages: 40-50
+  publisher: Routledge
+  doi: 10.4324/9781315742205-4
+  source: crossref
+- id: corns2014
+  type: article
+  authors:
+    - Corns, J.
+  year: 2014
+  title: Unpleasantness, Motivational Oomph, and Painfulness
+  container: Mind &amp; Language
+  volume: "29"
+  issue: "2"
+  pages: 238-254
+  doi: 10.1111/mila.12048
+  source: crossref
+- id: klein2007
+  type: article
+  authors:
+    - Klein, C.
+  year: 2007
+  title: An Imperative Theory of Pain
+  container: Journal of Philosophy
+  volume: "104"
+  issue: "10"
+  pages: 517-532
+  doi: 10.5840/jphil2007104104
+  source: crossref
+- id: klein2015
+  type: book
+  authors:
+    - Klein, C.
+  year: 2015
+  title: What the Body Commands
+  publisher: The MIT Press
+  doi: 10.7551/mitpress/10480.001.0001
+  source: crossref
+- id: klein2015b
+  type: article
+  authors:
+    - Klein, C.
+  year: 2015
+  title: What Pain Asymbolia Really Shows
+  container: Mind
+  volume: "124"
+  issue: "494"
+  pages: 493-516
+  doi: 10.1093/mind/fzu185
+  source: crossref
+- id: hall2008
+  type: article
+  authors:
+    - Hall, R. J.
+  year: 2008
+  title: If it itches, scratch!
+  container: Australasian Journal of Philosophy
+  volume: "86"
+  issue: "4"
+  pages: 525-535
+  doi: 10.1080/00048400802346813
+  source: crossref
+- id: martinez2010
+  type: article
+  authors:
+    - Martínez, M.
+  year: 2010
+  title: Imperative content and the painfulness of pain
+  container: Phenomenology and the Cognitive Sciences
+  volume: "10"
+  issue: "1"
+  pages: 67-90
+  doi: 10.1007/s11097-010-9172-0
+  source: crossref
+- id: martinez2015
+  type: article
+  authors:
+    - Martínez, M.
+    - Klein, C.
+  year: 2015
+  title: Pain signals are predominantly imperative
+  container: Biology &amp; Philosophy
+  volume: "31"
+  issue: "2"
+  pages: 283-298
+  doi: 10.1007/s10539-015-9514-y
+  source: crossref
+- id: zborowski1952
+  type: article
+  authors:
+    - Zborowski, M.
+  year: 1952
+  title: Cultural Components in Responses to Pain1
+  container: Journal of Social Issues
+  volume: "8"
+  issue: "4"
+  pages: 16-30
+  doi: 10.1111/j.1540-4560.1952.tb01860.x
+  source: crossref
+- id: bates1987
+  type: article
+  authors:
+    - Bates, M. S.
+  year: 1987
+  title: "Ethnicity and pain: A biocultural model"
+  container: Social Science &amp; Medicine
+  volume: "24"
+  issue: "1"
+  pages: 47-50
+  doi: 10.1016/0277-9536(87)90138-9
+  source: crossref
+- id: bates1993
+  type: article
+  authors:
+    - Bates, M. S.
+    - Edwards, T. W.
+    - Anderson, K. O.
+  year: 1993
+  title: Ethnocultural influences on variation in chronic pain perception
+  container: Pain
+  volume: "52"
+  issue: "1"
+  pages: 101-112
+  doi: 10.1016/0304-3959(93)90120-e
+  source: crossref
+- id: morris1991
+  type: book
+  authors:
+    - Morris, D. B.
+  year: 1991
+  title: The Culture of Pain
+  publisher: University of California Press
+  doi: 10.1525/9780520913820
+  source: crossref
+- id: kleinman1988
+  type: book
+  authors:
+    - Kleinman, A.
+  year: 1988
+  title: "The illness narratives: suffering, healing, and the human condition"
+  publisher: Basic Books
+  source: manual
+- id: campbell2012
+  type: article
+  authors:
+    - Campbell, C. M.
+    - Edwards, R. R.
+  year: 2012
+  title: Ethnic Differences in Pain and Pain Management
+  container: Pain Management
+  volume: "2"
+  issue: "3"
+  pages: 219-230
+  doi: 10.2217/pmt.12.7
+  source: crossref
+- id: kim2016
+  type: article
+  authors:
+    - Kim, H. J.
+    - Yang, G. S.
+    - Greenspan, J. D.
+    - Downton, K. D.
+    - Griffith, K. A.
+    - Renn, C. L.
+    - Johantgen, M.
+    - Dorsey, S. G.
+  year: 2016
+  title: "Racial and ethnic differences in experimental pain sensitivity: systematic review and meta-analysis"
+  container: Pain
+  volume: "158"
+  issue: "2"
+  pages: 194-211
+  doi: 10.1097/j.pain.0000000000000731
+  source: crossref
+- id: rahimwilliams2012
+  type: article
+  authors:
+    - Rahim-Williams, B.
+    - Riley, J. L.
+    - Williams, A. K. K.
+    - Fillingim, R. B.
+  year: 2012
+  title: "A Quantitative Review of Ethnic Group Differences in Experimental Pain Response: Do Biology, Psychology, and Culture Matter?"
+  container: Pain Medicine
+  volume: "13"
+  issue: "4"
+  pages: 522-540
+  doi: 10.1111/j.1526-4637.2012.01336.x
+  source: crossref
+- id: anderson2009
+  type: article
+  authors:
+    - Anderson, K. O.
+    - Green, C. R.
+    - Payne, R.
+  year: 2009
+  title: "Racial and Ethnic Disparities in Pain: Causes and Consequences of Unequal Care"
+  container: The Journal of Pain
+  volume: "10"
+  issue: "12"
+  pages: 1187-1204
+  doi: 10.1016/j.jpain.2009.10.002
+  source: crossref
+- id: losin2020
+  type: article
+  authors:
+    - Losin, E. A. R.
+    - Woo, C. W.
+    - Medina, N. A.
+    - Andrews-Hanna, J. R.
+    - Eisenbarth, H.
+    - Wager, T. D.
+  year: 2020
+  title: Neural and sociocultural mediators of ethnic differences in pain
+  container: Nature Human Behaviour
+  volume: "4"
+  issue: "5"
+  pages: 517-530
+  doi: 10.1038/s41562-020-0819-8
+  source: crossref
+- id: nielsen2008
+  type: article
+  authors:
+    - Nielsen, C. S.
+    - Stubhaug, A.
+    - Price, D. D.
+    - Vassend, O.
+    - Czajkowski, N.
+    - Harris, J. R.
+  year: 2008
+  title: "Individual differences in pain sensitivity: Genetic and environmental contributions"
+  container: Pain
+  volume: "136"
+  issue: "1"
+  pages: 21-29
+  doi: 10.1016/j.pain.2007.06.008
+  source: crossref
+- id: jensen1994
+  type: article
+  authors:
+    - Jensen, M. C.
+    - Brant-Zawadzki, M. N.
+    - Obuchowski, N.
+    - Modic, M. T.
+    - Malkasian, D.
+    - Ross, J. S.
+  year: 1994
+  title: Magnetic Resonance Imaging of the Lumbar Spine in People without Back Pain
+  container: New England Journal of Medicine
+  volume: "331"
+  issue: "2"
+  pages: 69-73
+  doi: 10.1056/nejm199407143310201
+  source: crossref
+- id: brinjikji2014
+  type: article
+  authors:
+    - Brinjikji, W.
+    - Luetmer, P. H.
+    - Comstock, B.
+    - Bresnahan, B. W.
+    - Chen, L. E.
+    - Deyo, R. A.
+    - Halabi, S.
+    - Turner, J. A.
+    - Avins, A. L.
+    - James, K.
+    - Wald, J. T.
+    - Kallmes, D. F.
+    - Jarvik, J. G.
+  year: 2014
+  title: Systematic Literature Review of Imaging Features of Spinal Degeneration in Asymptomatic Populations
+  container: American Journal of Neuroradiology
+  volume: "36"
+  issue: "4"
+  pages: 811-816
+  doi: 10.3174/ajnr.a4173
+  source: crossref
+- id: ephraim2005
+  type: article
+  authors:
+    - Ephraim, P. L.
+    - Wegener, S. T.
+    - MacKenzie, E. J.
+    - Dillingham, T. R.
+    - Pezzin, L. E.
+  year: 2005
+  title: "Phantom Pain, Residual Limb Pain, and Back Pain in Amputees: Results of a National Survey"
+  container: Archives of Physical Medicine and Rehabilitation
+  volume: "86"
+  issue: "10"
+  pages: 1910-1919
+  doi: 10.1016/j.apmr.2005.03.031
+  source: crossref
+- id: sherrington1910
+  type: article
+  authors:
+    - Sherrington, C. S.
+  year: 1910
+  title: Flexion‐reflex of the limb, crossed extension‐reflex, and reflex stepping and standing
+  container: The Journal of Physiology
+  volume: "40"
+  issue: 1-2
+  pages: 28-121
+  doi: 10.1113/jphysiol.1910.sp001362
+  source: crossref
+- id: burgess1967
+  type: article
+  authors:
+    - Burgess, P. R.
+    - Perl, E. R.
+  year: 1967
+  title: Myelinated afferent fibres responding specifically to noxious stimulation of the skin
+  container: The Journal of Physiology
+  volume: "190"
+  issue: "3"
+  pages: 541-562
+  doi: 10.1113/jphysiol.1967.sp008227
+  source: crossref
+- id: bessou1969
+  type: article
+  authors:
+    - Bessou, P.
+    - Perl, E. R.
+  year: 1969
+  title: Response of cutaneous sensory units with unmyelinated fibers to noxious stimuli.
+  container: Journal of Neurophysiology
+  volume: "32"
+  issue: "6"
+  pages: 1025-1043
+  doi: 10.1152/jn.1969.32.6.1025
+  source: crossref
+- id: ochoa1983
+  type: article
+  authors:
+    - Ochoa, J.
+    - Torebjörk, E.
+  year: 1983
+  title: Sensations evoked by intraneural microstimulation of single mechanoreceptor units innervating the human hand.
+  container: The Journal of Physiology
+  volume: "342"
+  issue: "1"
+  pages: 633-654
+  doi: 10.1113/jphysiol.1983.sp014873
+  source: crossref
+- id: ochoa1989
+  type: article
+  authors:
+    - Ochoa, J.
+    - Torebjörk, E.
+  year: 1989
+  title: Sensations evoked by intraneural microstimulation of C nociceptor fibres in human skin nerves.
+  container: The Journal of Physiology
+  volume: "415"
+  issue: "1"
+  pages: 583-599
+  doi: 10.1113/jphysiol.1989.sp017737
+  source: crossref
+- id: torebjork1992
+  type: article
+  authors:
+    - Torebjörk, H. E.
+    - Lundberg, L. E.
+    - LaMotte, R. H.
+  year: 1992
+  title: Central changes in processing of mechanoreceptive input in capsaicin‐induced secondary hyperalgesia in humans.
+  container: The Journal of Physiology
+  volume: "448"
+  issue: "1"
+  pages: 765-780
+  doi: 10.1113/jphysiol.1992.sp019069
+  source: crossref
+- id: price1977
+  type: article
+  authors:
+    - Price, D. D.
+    - Hu, J. W.
+    - Dubner, R.
+    - Gracely, R. H.
+  year: 1977
+  title: Peripheral suppression of first pain and central summation of second pain evoked by noxious heat pulses
+  container: Pain
+  volume: "3"
+  issue: "1"
+  pages: 57-68
+  doi: 10.1016/0304-3959(77)90035-5
+  source: crossref
+- id: rainville1999
+  type: article
+  authors:
+    - Rainville, P.
+    - Carrier, B.
+    - Hofbauer, R. K.
+    - Bushnell, C. M.
+    - Duncan, G. H.
+  year: 1999
+  title: Dissociation of sensory and affective dimensions of pain using hypnotic modulation
+  container: Pain
+  volume: "82"
+  issue: "2"
+  pages: 159-171
+  doi: 10.1016/s0304-3959(99)00048-2
+  source: crossref
+- id: hofbauer2001
+  type: article
+  authors:
+    - Hofbauer, R. K.
+    - Rainville, P.
+    - Duncan, G. H.
+    - Bushnell, M. C.
+  year: 2001
+  title: Cortical Representation of the Sensory Dimension of Pain
+  container: Journal of Neurophysiology
+  volume: "86"
+  issue: "1"
+  pages: 402-411
+  doi: 10.1152/jn.2001.86.1.402
+  source: crossref
+- id: kulkarni2005
+  type: article
+  authors:
+    - Kulkarni, B.
+    - Bentley, D. E.
+    - Elliott, R.
+    - Youell, P.
+    - Watson, A.
+    - Derbyshire, S. W. G.
+    - Frackowiak, R. S. J.
+    - Friston, K. J.
+    - Jones, A. K. P.
+  year: 2005
+  title: Attention to pain localization and unpleasantness discriminates the functions of the medial and lateral pain systems
+  container: European Journal of Neuroscience
+  volume: "21"
+  issue: "11"
+  pages: 3133-3142
+  doi: 10.1111/j.1460-9568.2005.04098.x
+  source: crossref
+- id: melzack1990
+  type: article
+  authors:
+    - Melzack, R.
+  year: 1990
+  title: Phantom limbs and the concept of a neuromatrix
+  container: Trends in Neurosciences
+  volume: "13"
+  issue: "3"
+  pages: 88-92
+  doi: 10.1016/0166-2236(90)90179-e
+  source: crossref
+- id: melzack1997
+  type: article
+  authors:
+    - Melzack, R.
+  year: 1997
+  title: Phantom limbs in people with congenital limb deficiency or amputation in early childhood
+  container: Brain
+  volume: "120"
+  issue: "9"
+  pages: 1603-1620
+  doi: 10.1093/brain/120.9.1603
+  source: crossref
+- id: siddall2003
+  type: article
+  authors:
+    - Siddall, P. J.
+    - McClelland, J. M.
+    - Rutkowski, S. B.
+    - Cousins, M. J.
+  year: 2003
+  title: A longitudinal study of the prevalence and characteristics of pain in the first 5 years following spinal cord injury
+  container: Pain
+  volume: "103"
+  issue: "3"
+  pages: 249-257
+  doi: 10.1016/s0304-3959(02)00452-9
+  source: crossref
+- id: vaso2014
+  type: article
+  authors:
+    - Vaso, A.
+    - Adahan, H. M.
+    - Gjika, A.
+    - Zahaj, S.
+    - Zhurda, T.
+    - Vyshka, G.
+    - Devor, M.
+  year: 2014
+  title: Peripheral nervous system origin of phantom limb pain
+  container: Pain
+  volume: "155"
+  issue: "7"
+  pages: 1384-1391
+  doi: 10.1016/j.pain.2014.04.018
+  source: crossref
+- id: price1994
+  type: article
+  authors:
+    - Price, D. D.
+    - Mao, J.
+    - Frenk, H.
+    - Mayer, D. J.
+  year: 1994
+  title: The Symbol receptor antagonist dextromethorphan selectively reduces temporal summation of second pain in man
+  container: Pain
+  volume: "59"
+  issue: "2"
+  pages: 165-174
+  doi: 10.1016/0304-3959(94)90069-8
+  source: crossref
+- id: staud2001
+  type: article
+  authors:
+    - Staud, R.
+    - Vierck, C. J.
+    - Cannon, R. L.
+    - Mauderli, A. P.
+    - Price, D. D.
+  year: 2001
+  title: Abnormal sensitization and temporal summation of second pain (wind-up) in patients with fibromyalgia syndrome
+  container: Pain
+  volume: "91"
+  issue: "1"
+  pages: 165-175
+  doi: 10.1016/s0304-3959(00)00432-2
+  source: crossref
+- id: staud2009
+  type: article
+  authors:
+    - Staud, R.
+    - Nagel, S.
+    - Robinson, M. E.
+    - Price, D. D.
+  year: 2009
+  title: "Enhanced central pain processing of fibromyalgia patients is maintained by muscle afferent input: A randomized, double-blind, placebo-controlled study"
+  container: Pain
+  volume: "145"
+  issue: "1"
+  pages: 96-104
+  doi: 10.1016/j.pain.2009.05.020
+  source: crossref
+- id: crombez1999
+  type: article
+  authors:
+    - Crombez, G.
+    - Vlaeyen, J. W. S.
+    - Heuts, P. H. T. G.
+    - Lysens, R.
+  year: 1999
+  title: "Pain-related fear is more disabling than pain itself: evidence on the role of pain-related fear in chronic back pain disability"
+  container: Pain
+  volume: "80"
+  issue: "1"
+  pages: 329-339
+  doi: 10.1016/s0304-3959(98)00229-2
+  source: crossref
+- id: pincus2006
+  type: article
+  authors:
+    - Pincus, T.
+    - Vogel, S.
+    - Burton, A. K.
+    - Santos, R.
+    - Field, A. P.
+  year: 2006
+  title: "Fear avoidance and prognosis in back pain: A systematic review and synthesis of current evidence"
+  container: Arthritis &amp; Rheumatism
+  volume: "54"
+  issue: "12"
+  pages: 3999-4010
+  doi: 10.1002/art.22273
+  source: crossref
+- id: wertli2014
+  type: article
+  authors:
+    - Wertli, M. M.
+    - Rasmussen-Barr, E.
+    - Weiser, S.
+    - Bachmann, L. M.
+    - Brunner, F.
+  year: 2014
+  title: "The role of fear avoidance beliefs as a prognostic factor for outcome in patients with nonspecific low back pain: a systematic review"
+  container: The Spine Journal
+  volume: "14"
+  issue: "5"
+  pages: 816-836.e4
+  doi: 10.1016/j.spinee.2013.09.036
+  source: crossref
+- id: vlaeyen2001
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - de Jong, J.
+    - Geilen, M.
+    - Heuts, P. H. T. G.
+    - van Breukelen, G.
+  year: 2001
+  title: "Graded exposure in vivo in the treatment of pain-related fear: a replicated single-case experimental design in four patients with chronic low back pain"
+  container: Behaviour Research and Therapy
+  volume: "39"
+  issue: "2"
+  pages: 151-166
+  doi: 10.1016/s0005-7967(99)00174-6
+  source: crossref
+- id: leeuw2008
+  type: article
+  authors:
+    - Leeuw, M.
+    - Goossens, M. E. J. B.
+    - van Breukelen, G. J. P.
+    - de Jong, J. R.
+    - Heuts, P. H. T. G.
+    - Smeets, R. J. E. M.
+    - Köke, A. J. A.
+    - Vlaeyen, J. W. S.
+  year: 2008
+  title: "Exposure in vivo versus operant graded activity in chronic low back pain patients: Results of a randomized controlled trial"
+  container: Pain
+  volume: "138"
+  issue: "1"
+  pages: 192-207
+  doi: 10.1016/j.pain.2007.12.009
+  source: crossref
+- id: woods2008
+  type: article
+  authors:
+    - Woods, M. P.
+    - Asmundson, G. J. G.
+  year: 2008
+  title: "Evaluating the efficacy of graded in vivo exposure for the treatment of fear in patients with chronic back pain: A randomized controlled clinical trial"
+  container: Pain
+  volume: "136"
+  issue: "3"
+  pages: 271-280
+  doi: 10.1016/j.pain.2007.06.037
+  source: crossref
+- id: macedo2010
+  type: article
+  authors:
+    - Macedo, L. G.
+    - Smeets, R. J. E. M.
+    - Maher, C. G.
+    - Latimer, J.
+    - McAuley, J. H.
+  year: 2010
+  title: "Graded Activity and Graded Exposure for Persistent Nonspecific Low Back Pain: A Systematic Review"
+  container: Physical Therapy
+  volume: "90"
+  issue: "6"
+  pages: 860-879
+  doi: 10.2522/ptj.20090303
+  source: crossref
+- id: grahl2018
+  type: article
+  authors:
+    - Grahl, A.
+    - Onat, S.
+    - Büchel, C.
+  year: 2018
+  title: The periaqueductal gray and Bayesian integration in placebo analgesia
+  container: eLife
+  volume: "7"
+  pages: e32930
+  doi: 10.7554/elife.32930
+  source: crossref
+- id: hoskin2019
+  type: article
+  authors:
+    - Hoskin, R.
+    - Berzuini, C.
+    - Acosta-Kane, D.
+    - El-Deredy, W.
+    - Guo, H.
+    - Talmi, D.
+  year: 2019
+  title: "Sensitivity to pain expectations: A Bayesian model of individual differences"
+  container: Cognition
+  volume: "182"
+  pages: 127-139
+  doi: 10.1016/j.cognition.2018.08.022
+  source: crossref
+- id: fazeli2018
+  type: article
+  authors:
+    - Fazeli, S.
+    - Büchel, C.
+  year: 2018
+  title: Pain-Related Expectation and Prediction Error Signals in the Anterior Insula Are Not Related to Aversiveness
+  container: The Journal of Neuroscience
+  volume: "38"
+  issue: "29"
+  pages: 6461-6474
+  doi: 10.1523/jneurosci.0671-18.2018
+  source: crossref
+- id: atlas2010
+  type: article
+  authors:
+    - Atlas, L. Y.
+    - Bolger, N.
+    - Lindquist, M. A.
+    - Wager, T. D.
+  year: 2010
+  title: Brain Mediators of Predictive Cue Effects on Perceived Pain
+  container: The Journal of Neuroscience
+  volume: "30"
+  issue: "39"
+  pages: 12964-12977
+  doi: 10.1523/jneurosci.0057-10.2010
+  source: crossref
+- id: wiech2014
+  type: article
+  authors:
+    - Wiech, K.
+    - Vandekerckhove, J.
+    - Zaman, J.
+    - Tuerlinckx, F.
+    - Vlaeyen, J. W. S.
+    - Tracey, I.
+  year: 2014
+  title: Influence of prior information on pain involves biased perceptual decision-making
+  container: Current Biology
+  volume: "24"
+  issue: "15"
+  pages: R679-R681
+  doi: 10.1016/j.cub.2014.06.022
+  source: crossref
+- id: yoshida2013
+  type: article
+  authors:
+    - Yoshida, W.
+    - Seymour, B.
+    - Koltzenburg, M.
+    - Dolan, R. J.
+  year: 2013
+  title: "Uncertainty Increases Pain: Evidence for a Novel Mechanism of Pain Modulation Involving the Periaqueductal Gray"
+  container: The Journal of Neuroscience
+  volume: "33"
+  issue: "13"
+  pages: 5638-5646
+  doi: 10.1523/jneurosci.4984-12.2013
+  source: crossref
+- id: jepma2018
+  type: article
+  authors:
+    - Jepma, M.
+    - Koban, L.
+    - van Doorn, J.
+    - Jones, M.
+    - Wager, T. D.
+  year: 2018
+  title: Behavioural and neural evidence for self-reinforcing expectancy effects on pain
+  container: Nature Human Behaviour
+  volume: "2"
+  issue: "11"
+  pages: 838-855
+  doi: 10.1038/s41562-018-0455-8
+  source: crossref
+- id: flor1992
+  type: article
+  authors:
+    - Flor, H.
+    - Fydrich, T.
+    - Turk, D. C.
+  year: 1992
+  title: "Efficacy of multidisciplinary pain treatment centers: a meta-analytic review"
+  container: Pain
+  volume: "49"
+  issue: "2"
+  pages: 221-230
+  doi: 10.1016/0304-3959(92)90145-2
+  source: crossref
+- id: kamper2015
+  type: article
+  authors:
+    - Kamper, S. J.
+    - Apeldoorn, A. T.
+    - Chiarotto, A.
+    - Smeets, R. J. E. M.
+    - Ostelo, R. W. J. G.
+    - Guzman, J.
+    - van Tulder, M. W.
+  year: 2015
+  title: "Multidisciplinary biopsychosocial rehabilitation for chronic low back pain: Cochrane systematic review and meta-analysis"
+  container: BMJ
+  volume: "350"
+  issue: feb18 5
+  pages: h444-h444
+  doi: 10.1136/bmj.h444
+  source: crossref
+- id: hill2011
+  type: article
+  authors:
+    - Hill, J. C.
+    - Whitehurst, D. G.
+    - Lewis, M.
+    - Bryan, S.
+    - Dunn, K. M.
+    - Foster, N. E.
+    - Konstantinou, K.
+    - Main, C. J.
+    - Mason, E.
+    - Somerville, S.
+    - Sowden, G.
+    - Vohora, K.
+    - Hay, E. M.
+  year: 2011
+  title: "Comparison of stratified primary care management for low back pain with current best practice (STarT Back): a randomised controlled trial"
+  container: The Lancet
+  volume: "378"
+  issue: "9802"
+  pages: 1560-1571
+  doi: 10.1016/s0140-6736(11)60937-9
+  source: crossref
+- id: cherkin2018
+  type: article
+  authors:
+    - Cherkin, D.
+    - Balderson, B.
+    - Wellman, R.
+    - Hsu, C.
+    - Sherman, K. J.
+    - Evers, S. C.
+    - Hawkes, R.
+    - Cook, A.
+    - Levine, M. D.
+    - Piekara, D.
+    - Rock, P.
+    - Estlin, K. T.
+    - Brewer, G.
+    - Jensen, M.
+    - LaPorte, A. M.
+    - Yeoman, J.
+    - Sowden, G.
+    - Hill, J. C.
+    - Foster, N. E.
+  year: 2018
+  title: "Effect of Low Back Pain Risk-Stratification Strategy on Patient Outcomes and Care Processes: the MATCH Randomized Trial in Primary Care"
+  container: Journal of General Internal Medicine
+  volume: "33"
+  issue: "8"
+  pages: 1324-1336
+  doi: 10.1007/s11606-018-4468-9
+  source: crossref
