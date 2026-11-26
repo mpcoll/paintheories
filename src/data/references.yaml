@@ -933,7 +933,7 @@
 - id: craig2009b
   type: article
   authors:
-    - (Bud) Craig, A. D.
+    - Craig, A. D.
   year: 2009
   title: How do you feel — now? The anterior insula and human awareness
   container: Nature Reviews Neuroscience
@@ -8499,4 +8499,298 @@
   issue: "1"
   pages: 5-19
   doi: 10.1016/j.it.2016.10.001
+  source: crossref
+- id: dum2009
+  type: article
+  authors:
+    - Dum, R. P.
+    - Levinthal, D. J.
+    - Strick, P. L.
+  year: 2009
+  title: The Spinothalamic System Targets Motor and Sensory Areas in the Cerebral Cortex of Monkeys
+  container: The Journal of Neuroscience
+  volume: "29"
+  issue: "45"
+  pages: 14223-14235
+  doi: 10.1523/jneurosci.3398-09.2009
+  source: crossref
+- id: apkarian1989
+  type: article
+  authors:
+    - Apkarian, A. V.
+    - Hodge, C. J.
+  year: 1989
+  title: "Primate spinothalamic pathways: III. Thalamic terminations of the dorsolateral and ventral spinothalamic pathways"
+  container: Journal of Comparative Neurology
+  volume: "288"
+  issue: "3"
+  pages: 493-511
+  doi: 10.1002/cne.902880309
+  source: crossref
+- id: gingold1991
+  type: article
+  authors:
+    - Gingold, S. I.
+    - Greenspan, J. D.
+    - Apkarian, A. V.
+  year: 1991
+  title: "Anatomic evidence of nociceptive inputs to primary somatosensory cortex: Relationship between spinothalamic terminals and thalamocortical cells in squirrel monkeys"
+  container: Journal of Comparative Neurology
+  volume: "308"
+  issue: "3"
+  pages: 467-490
+  doi: 10.1002/cne.903080312
+  source: crossref
+- id: spike2003
+  type: article
+  authors:
+    - Spike, R. C.
+    - Puskár, Z.
+    - Andrew, D.
+    - Todd, A. J.
+  year: 2003
+  title: A quantitative and morphological study of projection neurons in lamina I of the rat lumbar spinal cord
+  container: European Journal of Neuroscience
+  volume: "18"
+  issue: "9"
+  pages: 2433-2448
+  doi: 10.1046/j.1460-9568.2003.02981.x
+  source: crossref
+- id: bernard1990
+  type: article
+  authors:
+    - Bernard, J. F.
+    - Besson, J. M.
+  year: 1990
+  title: "The spino(trigemino)pontoamygdaloid pathway: electrophysiological evidence for an involvement in pain processes"
+  container: Journal of Neurophysiology
+  volume: "63"
+  issue: "3"
+  pages: 473-490
+  doi: 10.1152/jn.1990.63.3.473
+  source: crossref
+- id: han2015
+  type: article
+  authors:
+    - Han, S.
+    - Soleiman, M. T.
+    - Soden, M. E.
+    - Zweifel, L. S.
+    - Palmiter, R. D.
+  year: 2015
+  title: Elucidating an Affective Pain Circuit that Creates a Threat Memory
+  container: Cell
+  volume: "162"
+  issue: "2"
+  pages: 363-374
+  doi: 10.1016/j.cell.2015.05.057
+  source: crossref
+- id: bester1997
+  type: article
+  authors:
+    - Bester, H.
+    - Besson, J. M.
+    - Bernard, J. F.
+  year: 1997
+  title: "Organization of efferent projections from the parabrachial area to the hypothalamus: a Phaseolus vulgaris-leucoagglutinin study in the rat"
+  container: The Journal of Comparative Neurology
+  volume: "383"
+  issue: "3"
+  pages: 245-281
+  doi: 10.1002/(sici)1096-9861(19970707)383:3<245::aid-cne1>3.0.co;2-3
+  source: crossref
+- id: an1998
+  type: article
+  authors:
+    - An, X.
+    - Bandler, R.
+    - �ng�r, D.
+    - Price, J. L.
+  year: 1998
+  title: Prefrontal cortical projections to longitudinal columns in the midbrain periaqueductal gray in Macaque monkeys
+  container: The Journal of Comparative Neurology
+  volume: "401"
+  issue: "4"
+  pages: 455-479
+  doi: 10.1002/(sici)1096-9861(19981130)401:4<455::aid-cne3>3.0.co;2-6
+  source: crossref
+- id: beitz1982
+  type: article
+  authors:
+    - Beitz, A. J.
+  year: 1982
+  title: The organization of afferent projections to the midbrain periaqueductal gray of the rat
+  container: Neuroscience
+  volume: "7"
+  issue: "1"
+  pages: 133-159
+  doi: 10.1016/0306-4522(82)90157-9
+  source: crossref
+- id: hopkins1978
+  type: article
+  authors:
+    - Hopkins, D. A.
+    - Holstege, G.
+  year: 1978
+  title: Amygdaloid projections to the mesencephalon, pons and medulla oblongata in the cat
+  container: Experimental Brain Research
+  volume: "32"
+  issue: "4"
+  doi: 10.1007/bf00239551
+  source: crossref
+- id: basbaum1984
+  type: article
+  authors:
+    - Basbaum, A. I.
+    - Fields, H. L.
+  year: 1984
+  title: "Endogenous Pain Control Systems: Brainstem Spinal Pathways and Endorphin Circuitry"
+  container: Annual Review of Neuroscience
+  volume: "7"
+  issue: "1"
+  pages: 309-338
+  doi: 10.1146/annurev.ne.07.030184.001521
+  source: crossref
+- id: pertovaara2006
+  type: article
+  authors:
+    - Pertovaara, A.
+  year: 2006
+  title: Noradrenergic pain modulation
+  container: Progress in Neurobiology
+  volume: "80"
+  issue: "2"
+  pages: 53-83
+  doi: 10.1016/j.pneurobio.2006.08.001
+  source: crossref
+- id: hickey2014
+  type: article
+  authors:
+    - Hickey, L.
+    - Li, Y.
+    - Fyson, S. J.
+    - Watson, T. C.
+    - Perrins, R.
+    - Hewinson, J.
+    - Teschemacher, A. G.
+    - Furue, H.
+    - Lumb, B. M.
+    - Pickering, A. E.
+  year: 2014
+  title: Optoactivation of Locus Ceruleus Neurons Evokes Bidirectional Changes in Thermal Nociception in Rats
+  container: The Journal of Neuroscience
+  volume: "34"
+  issue: "12"
+  pages: 4148-4160
+  doi: 10.1523/jneurosci.4835-13.2014
+  source: crossref
+- id: vogt1979
+  type: article
+  authors:
+    - Vogt, B. A.
+    - Rosene, D. L.
+    - Pandya, D. N.
+  year: 1979
+  title: Thalamic and Cortical Afferents Differentiate Anterior from Posterior Cingulate Cortex in the Monkey
+  container: Science
+  volume: "204"
+  issue: "4389"
+  pages: 205-207
+  doi: 10.1126/science.107587
+  source: crossref
+- id: vogt1987a
+  type: article
+  authors:
+    - Vogt, B. A.
+    - Pandya, D. N.
+    - Rosene, D. L.
+  year: 1987
+  title: "Cingulate cortex of the rhesus monkey: I. Cytoarchitecture and thalamic afferents"
+  container: Journal of Comparative Neurology
+  volume: "262"
+  issue: "2"
+  pages: 256-270
+  doi: 10.1002/cne.902620207
+  source: crossref
+- id: vogt1987b
+  type: article
+  authors:
+    - Vogt, B. A.
+    - Pandya, D. N.
+  year: 1987
+  title: "Cingulate cortex of the rhesus monkey: II. Cortical afferents"
+  container: Journal of Comparative Neurology
+  volume: "262"
+  issue: "2"
+  pages: 271-289
+  doi: 10.1002/cne.902620208
+  source: crossref
+- id: mesulam1982
+  type: article
+  authors:
+    - Mesulam, M.-M.
+    - Mufson, E. J.
+  year: 1982
+  title: "Insula of the old world monkey. III: Efferent cortical output and comments on function"
+  container: Journal of Comparative Neurology
+  volume: "212"
+  issue: "1"
+  pages: 38-52
+  doi: 10.1002/cne.902120104
+  source: crossref
+- id: almashaikhi2013
+  type: article
+  authors:
+    - Almashaikhi, T.
+    - Rheims, S.
+    - Ostrowsky-Coste, K.
+    - Montavont, A.
+    - Jung, J.
+    - De Bellescize, J.
+    - Arzimanoglou, A.
+    - Keo Kosal, P.
+    - Guénot, M.
+    - Bertrand, O.
+    - Ryvlin, P.
+  year: 2013
+  title: Intrainsular functional connectivity in human
+  container: Human Brain Mapping
+  volume: "35"
+  issue: "6"
+  pages: 2779-2788
+  doi: 10.1002/hbm.22366
+  source: crossref
+- id: medford2010
+  type: article
+  authors:
+    - Medford, N.
+    - Critchley, H. D.
+  year: 2010
+  title: "Conjoint activity of anterior insular and anterior cingulate cortex: awareness and response"
+  container: Brain Structure and Function
+  volume: "214"
+  issue: 5-6
+  pages: 535-549
+  doi: 10.1007/s00429-010-0265-x
+  source: crossref
+- id: lee2015
+  type: article
+  authors:
+    - Lee, M.
+    - Manders, T. R.
+    - Eberle, S. E.
+    - Su, C.
+    - D'amour, J.
+    - Yang, R.
+    - Lin, H. Y.
+    - Deisseroth, K.
+    - Froemke, R. C.
+    - Wang, J.
+  year: 2015
+  title: Activation of Corticostriatal Circuitry Relieves Chronic Neuropathic Pain
+  container: The Journal of Neuroscience
+  volume: "35"
+  issue: "13"
+  pages: 5247-5259
+  doi: 10.1523/jneurosci.3494-14.2015
   source: crossref

@@ -13,7 +13,7 @@ const stations = await getCollection('circuitStations');
 const pathways = await getCollection('circuitPathways');
 const theories = new Map((await getCollection('theories')).map((t) => [t.id, t.data.shortTitle ?? t.data.title]));
 const mechanisms = new Map((await getCollection('mechanisms')).map((m) => [m.id, m.data.title]));
-const allRefIds = [...new Set([...stations.flatMap((s) => s.data.refs), ...pathways.flatMap((p) => p.data.refs)].map((r) => r.id))];
+const allRefIds = [...new Set([...stations.flatMap((s) => s.data.refs), ...pathways.flatMap((p) => [...p.data.refs, ...p.data.edges.flatMap((e) => e.refs)])].map((r) => r.id))];
 const refs = new Map(((await getEntries(allRefIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
 const refLink = (id: string) => {
   const r = refs.get(id)!;
@@ -87,6 +87,31 @@ function edgePath(a: string, b: string, offset: number) {
   return `M${f(sx + nx)},${f(sy + ny)} L${f(ex + nx)},${f(ey + ny)}`;
 }
 
+const stationName = (id: string) => stations.find((s) => s.id === id)!.data.short;
+
+// Connections (edges) with their own sources; key is unique per pathway.
+const edges = pathways.flatMap((p) =>
+  p.data.edges.map((e) => ({
+    key: `${p.id}:${e.from.id}>${e.to.id}`,
+    pathway: p.id,
+    pathwayName: p.data.name,
+    from: e.from.id,
+    to: e.to.id,
+    reciprocal: e.reciprocal,
+    label: `${stationName(e.from.id)} ${e.reciprocal ? '↔' : '→'} ${stationName(e.to.id)}`,
+    note: e.note,
+    refs: e.refs.map((r) => refLink(r.id)),
+  })),
+);
+const edgeMap = Object.fromEntries(edges.map((e) => [e.key, e]));
+// Per station, its connections (a link shared by two pathways is listed once).
+const connections = (id: string) => {
+  const seen = new Set<string>();
+  return edges
+    .filter((e) => (e.from === id || e.to === id) && !seen.has(`${e.from}>${e.to}`) && seen.add(`${e.from}>${e.to}`))
+    .map((e) => ({ key: e.key, dir: e.reciprocal ? '↔' : e.from === id ? '→' : '←', other: stationName(e.from === id ? e.to : e.from) }));
+};
+
 const membership = new Map<string, string[]>();
 for (const p of pathways) for (const s of p.data.stations) membership.set(s.id, [...(membership.get(s.id) ?? []), p.id]);
 
@@ -103,6 +128,7 @@ const payload = Object.fromEntries(
       mechanisms: s.data.mechanisms.map((m) => ({ name: mechanisms.get(m.id)!, href: url(`mechanisms/${m.id}/`) })),
       planum: planumLink(s.data.planum),
       embed: planumLink(s.data.planum, { embed: true }),
+      connections: connections(s.id),
     },
   ]),
 );
@@ -139,9 +165,18 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
         ))}
         <g class="edges">
           {sortedPathways.flatMap((p) =>
-            p.data.edges.map(([a, b]) => (
-              <path class={`edge ${STYLE[p.id].cls}`} data-pw={p.id} d={edgePath(a.id, b.id, STYLE[p.id].offset)} marker-end={`url(#m-${STYLE[p.id].cls})`} />
-            )),
+            p.data.edges.map((e) => {
+              const key = `${p.id}:${e.from.id}>${e.to.id}`;
+              const d = edgePath(e.from.id, e.to.id, STYLE[p.id].offset);
+              const m = `url(#m-${STYLE[p.id].cls})`;
+              return (
+                <g class="eg" data-edge={key} data-pw={p.id} tabindex="0" role="button" aria-label={`${edgeMap[key].label}: show sources`}>
+                  <title>{edgeMap[key].label}: select for sources</title>
+                  <path class={`edge ${STYLE[p.id].cls}`} data-pw={p.id} d={d} marker-end={m} marker-start={e.reciprocal ? m : undefined} />
+                  <path class="hit" d={d} />
+                </g>
+              );
+            }),
           )}
         </g>
         {stations.map((s) => {
@@ -163,7 +198,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-cortical" /></svg>Cortical integration</li>
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-descending" /></svg>Descending</li>
         </ul>
-        Schematic: positions show levels, not exact anatomy. Signals from the left side of the body cross to the right side of the brain. Select a station to see it in 3D.
+        Schematic: positions show levels, not exact anatomy. Signals from the left side of the body cross to the right side of the brain. Select a station to see it in 3D, or an arrow for the evidence behind that connection.
       </figcaption>
     </figure>
 
@@ -173,6 +208,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
       <p class="pc-role"></p>
       <p class="pc-note muted"></p>
       <p class="pc-refs"></p>
+      <div class="pc-conn"></div>
       <div class="pc-3d">
         <iframe title="Selected station in Planum's 3D brain atlas" loading="lazy" allow="fullscreen" src="about:blank"></iframe>
       </div>
@@ -195,12 +231,27 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
           {p.data.refs.map((r, i) => { const l = refLink(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}
           {p.data.planumTour && <> · <a href={planumTourLink(p.data.planumTour)} target="_blank" rel="noopener">Guided tour in Planum ↗</a></>}
         </p>
+        <details class="pc-edges">
+          <summary>Connections and sources ({p.data.edges.length})</summary>
+          <ul>
+            {p.data.edges.map((e) => {
+              const E = edgeMap[`${p.id}:${e.from.id}>${e.to.id}`];
+              return (
+                <li>
+                  <button type="button" class="linklike" data-edge-select={E.key}>{E.label}</button>
+                  <span class="pc-enote">{E.note}</span>
+                  <span class="pc-small">{E.refs.map((l, i) => <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </details>
       </article>
     ))}
   </section>
 </div>
 
-<script type="application/json" id="pc-data" set:html={JSON.stringify(payload)} />
+<script type="application/json" id="pc-data" set:html={JSON.stringify({ stations: payload, edges: edgeMap })} />
 
 <style>
   .pc-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
@@ -226,6 +277,12 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pc-svg .edge.pw-descending { stroke-dasharray: 7 5; stroke-width: 2.2; }
   .pc-svg .edge.pw-cortical { stroke-dasharray: 1.5 5; stroke-width: 3.2; }
   .pc-svg .mk { fill: var(--c); }
+  .pc-svg .eg { cursor: pointer; }
+  .pc-svg .eg:focus { outline: none; }
+  .pc-svg .hit { fill: none; stroke: transparent; stroke-width: 14; pointer-events: stroke; }
+  .pc-svg .eg:hover .edge, .pc-svg .eg:focus-visible .edge { stroke-width: 4.2; }
+  .pc-svg .eg.sel .edge { stroke-width: 5; }
+  .pc:not([data-active='all']) .eg.off { pointer-events: none; }
   .pc-svg .st { cursor: pointer; transition: opacity .2s; }
   .pc-svg .st rect { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.5; transition: stroke .15s, fill .15s; }
   .pc-svg .st text { fill: var(--ink); font: 500 14.5px var(--font); pointer-events: none; }
@@ -250,28 +307,36 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pc-note { font-size: .86rem; margin: 0 0 .5rem; }
   .pc-note:empty { display: none; }
   .pc-refs { font-size: .84rem; margin: 0 0 .8rem; }
-  .pc-refs a, .pc-links a { text-decoration: none; }
+  .pc-refs :global(a), .pc-links :global(a) { text-decoration: none; }
+  .pc-conn :global(h3) { font: 600 .72rem var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 .3rem; }
+  .pc-conn :global(ul) { margin: 0 0 .8rem; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .88rem; }
+  .pc-conn:empty { display: none; }
+  .pc-panel.edge-mode :is(.pc-3d, .pc-open, .pc-links) { display: none; }
   .pc-3d { aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--line); }
   .pc-3d iframe { width: 100%; height: 100%; border: 0; display: block; }
   .pc-open { margin: .6rem 0; }
   .pc-links { display: grid; gap: .5rem; font-size: .88rem; }
-  .pc-links h3 { font: 600 .72rem var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: .3rem 0 .15rem; }
-  .pc-links ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
+  .pc-links :global(h3) { font: 600 .72rem var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: .3rem 0 .15rem; }
+  .pc-links :global(ul) { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
 
   .pc-pathways { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
   .pc-pathway h3 { margin: 0 0 .4rem; font-size: 1.1rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .pc-pathway .kind { font: 500 .75rem var(--font); text-transform: uppercase; letter-spacing: .06em; }
   .pc-pathway p { font-size: .92rem; margin: 0 0 .5rem; color: var(--ink-2); }
   .pc-pathway .route { color: var(--ink); }
-  .linklike { all: unset; cursor: pointer; color: var(--accent); border-bottom: 1px dotted currentColor; }
-  .linklike:focus-visible { outline: 2px solid var(--accent); }
+  .pc :global(.linklike) { all: unset; cursor: pointer; color: var(--accent); border-bottom: 1px dotted currentColor; }
+  .pc :global(.linklike:focus-visible) { outline: 2px solid var(--accent); }
   .pc-small { font-size: .82rem !important; }
   .pc-small a { text-decoration: none; }
+  .pc-edges summary { cursor: pointer; font-size: .86rem; color: var(--ink-2); font-weight: 500; }
+  .pc-edges ul { margin: .5rem 0 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+  .pc-edges li { font-size: .86rem; display: grid; gap: .15rem; }
+  .pc-enote { color: var(--ink-2); }
 </style>
 
 <script>
   const root = document.getElementById('pain-circuits')!;
-  const data = JSON.parse(document.getElementById('pc-data')!.textContent!);
+  const { stations: data, edges } = JSON.parse(document.getElementById('pc-data')!.textContent!);
   const panel = root.querySelector('.pc-panel')!;
   const frame = panel.querySelector('iframe')!;
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
@@ -281,12 +346,17 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   function select(id: string, push = true) {
     const s = data[id];
     if (!s) return;
+    panel.classList.remove('edge-mode');
+    root.querySelectorAll('.eg').forEach((n) => n.classList.remove('sel'));
     root.querySelectorAll('.st').forEach((n) => n.classList.toggle('sel', (n as HTMLElement).dataset.id === id));
     panel.querySelector('.pc-pw')!.textContent = s.pathways.map((p: any) => p.name).join(' · ');
     panel.querySelector('.pc-name')!.textContent = s.name;
     panel.querySelector('.pc-role')!.textContent = s.role;
     panel.querySelector('.pc-note')!.textContent = s.note ?? '';
     panel.querySelector('.pc-refs')!.innerHTML = 'Sources: ' + s.refs.map((r: any) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+    panel.querySelector('.pc-conn')!.innerHTML = s.connections.length
+      ? `<h3>Connections</h3><ul>${s.connections.map((c: any) => `<li><button type="button" class="linklike" data-edge-select="${c.key}">${c.dir} ${esc(c.other)}</button></li>`).join('')}</ul>`
+      : '';
     if (frame.dataset.src !== s.embed) { frame.src = s.embed; frame.dataset.src = s.embed; }
     (panel.querySelector('.pc-open a') as HTMLAnchorElement).href = s.planum;
     panel.querySelector('.pc-links')!.innerHTML =
@@ -294,15 +364,50 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
       (s.mechanisms.length ? `<div><h3>Mechanisms</h3><ul>${links(s.mechanisms).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '');
     if (push) {
       const p = new URLSearchParams(location.search);
+      p.delete('edge');
       p.set('station', id);
       history.replaceState(null, '', `?${p}${location.hash}`);
     }
   }
 
+  function selectEdge(key: string, push = true) {
+    const e = edges[key];
+    if (!e) return;
+    panel.classList.add('edge-mode');
+    root.querySelectorAll('.st').forEach((n) => n.classList.toggle('sel', [e.from, e.to].includes((n as HTMLElement).dataset.id)));
+    root.querySelectorAll<SVGGElement>('.eg').forEach((n) => n.classList.toggle('sel', n.dataset.edge === key));
+    panel.querySelector('.pc-pw')!.textContent = `Connection · ${e.pathwayName}`;
+    panel.querySelector('.pc-name')!.textContent = e.label;
+    panel.querySelector('.pc-role')!.textContent = e.note;
+    panel.querySelector('.pc-note')!.textContent = '';
+    panel.querySelector('.pc-refs')!.innerHTML = 'Sources: ' + e.refs.map((r: any) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+    panel.querySelector('.pc-conn')!.innerHTML = `<h3>Stations</h3><ul>${[e.from, e.to].map((id) => `<li><button type="button" class="linklike" data-station-select="${id}">${esc(data[id].name)}</button></li>`).join('')}</ul>`;
+    if (push) {
+      const p = new URLSearchParams(location.search);
+      p.delete('station');
+      p.set('edge', key);
+      history.replaceState(null, '', `?${p}${location.hash}`);
+    }
+  }
+
+  // Delegated clicks for buttons rendered into the panel and pathway cards.
+  root.addEventListener('click', (ev) => {
+    const t = (ev.target as HTMLElement).closest<HTMLElement>('[data-edge-select], [data-station-select]');
+    if (!t) return;
+    if (t.dataset.edgeSelect) {
+      selectEdge(t.dataset.edgeSelect);
+      if (!panel.contains(t)) root.querySelector('.pc-grid')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else select(t.dataset.stationSelect!);
+  });
+
   function showPathway(pw: string) {
     root.dataset.active = pw;
-    root.querySelectorAll<HTMLButtonElement>('.pc-chips .chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pw === pw)));
-    root.querySelectorAll<SVGElement>('.edge').forEach((e) => e.classList.toggle('off', pw !== 'all' && e.dataset.pw !== pw));
+    root.querySelectorAll<SVGGElement>('.eg').forEach((n) => {
+    n.addEventListener('click', () => selectEdge(n.dataset.edge!));
+    n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectEdge(n.dataset.edge!); } });
+  });
+  root.querySelectorAll<HTMLButtonElement>('.pc-chips .chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pw === pw)));
+    root.querySelectorAll<SVGElement>('.edge, .eg').forEach((e) => e.classList.toggle('off', pw !== 'all' && e.dataset.pw !== pw));
     root.querySelectorAll<SVGElement>('.st').forEach((n) => n.classList.toggle('off', pw !== 'all' && !(n.dataset.pw ?? '').split(' ').includes(pw)));
     const p = new URLSearchParams(location.search);
     if (pw === 'all') p.delete('pathway'); else p.set('pathway', pw);
@@ -313,6 +418,10 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
     n.addEventListener('click', () => select(n.dataset.id!));
     n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(n.dataset.id!); } });
   });
+  root.querySelectorAll<SVGGElement>('.eg').forEach((n) => {
+    n.addEventListener('click', () => selectEdge(n.dataset.edge!));
+    n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectEdge(n.dataset.edge!); } });
+  });
   root.querySelectorAll<HTMLButtonElement>('.pc-chips .chip').forEach((b) => b.addEventListener('click', () => showPathway(b.dataset.pw!)));
   root.querySelectorAll<HTMLButtonElement>('[data-select]').forEach((b) =>
     b.addEventListener('click', () => { select(b.dataset.select!); root.querySelector('.pc-grid')!.scrollIntoView({ behavior: 'smooth', block: 'start' }); }),
@@ -321,5 +430,6 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   const init = new URLSearchParams(location.search);
   const pw = init.get('pathway');
   if (pw && root.querySelector(`.chip[data-pw="${pw}"]`)) showPathway(pw);
-  select(init.get('station') && data[init.get('station')!] ? init.get('station')! : 'dorsal-horn', false);
+  if (init.get('edge') && edges[init.get('edge')!]) selectEdge(init.get('edge')!, false);
+  else select(init.get('station') && data[init.get('station')!] ? init.get('station')! : 'dorsal-horn', false);
 </script>

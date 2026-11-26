@@ -143,7 +143,17 @@ const circuitPathways = defineCollection({
     kind: z.enum(['ascending', 'descending', 'cortical']),
     summary: z.string(),
     stations: z.array(reference('circuitStations')).min(2),
-    edges: z.array(z.tuple([reference('circuitStations'), reference('circuitStations')])).min(1),
+    edges: z
+      .array(
+        z.object({
+          from: reference('circuitStations'),
+          to: reference('circuitStations'),
+          reciprocal: z.boolean().default(false), // drawn with arrowheads at both ends
+          note: z.string(), // what the connection is and what kind of evidence shows it
+          refs: z.array(reference('references')).min(1),
+        }),
+      )
+      .min(1),
     refs: z.array(reference('references')).min(1),
     planumTour: z.string().optional(),
   }),
