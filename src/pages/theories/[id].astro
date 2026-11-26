@@ -37,6 +37,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
 
 <Base title={d.title} description={d.summary}>
   <p class="crumbs"><a href={url('theories/')}>Pain Theories</a> / <a href={url('theories/all/')}>All theories</a> / {KINDS[d.kind].label}</p>
+  <div class="theory-hero">
   <header class={`theory-head d-${d.domain}`}>
     <p class="eyebrow">{d.year} · {d.proponents.slice(0, 3).join(', ')}{d.proponents.length > 3 ? ' et al.' : ''}</p>
     <h1>{d.title}</h1>
@@ -48,11 +49,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
       <span class="tag" title={STATUSES[d.status].description}>Status: {STATUSES[d.status].label}</span>
     </div>
   </header>
+  <TheoryDiagram theory={theory} />
+  </div>
   {reviewLabel && <div data-pagefind-ignore><Notice>{reviewLabel} Spotted an error? <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>Report it on GitHub</a>.</Notice></div>}
 
   <div class="theory-layout">
     <article class={`prose article d-${d.domain}`}>
-      <TheoryDiagram theory={theory} />
       <h2>Core claims</h2>
       <ol class="claims">{d.coreClaims.map((c) => <li>{c}</li>)}</ol>
       {

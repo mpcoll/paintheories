@@ -615,9 +615,21 @@ input[type='search'] {
 }
 
 /* Theory page */
+.theory-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 2rem 2.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+@media (max-width: 960px) {
+  .theory-hero {
+    grid-template-columns: 1fr;
+  }
+}
 .theory-head {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   padding: 1.75rem 0 1.75rem 1.5rem;
   border-left: 4px solid var(--dc, var(--line-strong));
 }
