@@ -1,30 +1,50 @@
-# Molecular transducers and channels of nociceptors shown on /biology/periphery/.
+# Molecular transducers and channels of nociceptors shown on /biology/periphery/,
+# grouped by the kind of stimulus they transduce (modality).
+- id: piezo2
+  name: Piezo2
+  modality: mechanical
+  kind: Mechanically activated ion channel
+  detects: Gentle touch, vibration, stretch
+  role: The main transducer of touch in low-threshold mechanoreceptors. It is also required for touch-evoked pain after injury or inflammation (tactile allodynia), but not for the response to noxious pinch. The transducer of noxious mechanical force is still unknown.
+  refs: [ranade2014, szczot2018]
 - id: trpv1
   name: TRPV1
+  modality: thermal
   kind: Ion channel (TRP family)
-  detects: Noxious heat (about 43 °C and above), capsaicin, acid
+  detects: Noxious heat (about 43 °C and above); also capsaicin and acid
   role: Cloned as the capsaicin receptor and activated by noxious heat. It is expressed mainly in peptidergic C nociceptors and is sensitised by inflammatory mediators, contributing to heat hyperalgesia.
   refs: [caterina1997, julius2013]
-- id: trpa1
-  name: TRPA1
+- id: trpm3
+  name: TRPM3
+  modality: thermal
   kind: Ion channel (TRP family)
-  detects: Reactive chemical irritants (e.g. mustard oil) and inflammatory agents
-  role: A sensor of environmental irritants and of endogenous products of tissue injury and inflammation, often co-expressed with TRPV1.
-  refs: [julius2013, basbaum2009]
+  detects: Noxious heat
+  role: One of three TRP channels (with TRPV1 and TRPA1) that together underlie acute noxious heat sensing. Removing all three largely abolishes heat responses in mouse C and Aδ fibres, whereas any one of them is enough to preserve them.
+  refs: [vandewauw2018]
 - id: trpm8
   name: TRPM8
+  modality: thermal
   kind: Ion channel (TRP family)
   detects: Cooling and menthol
   role: The main detector of cool temperatures in a subset of sensory neurons; involved in cold sensation and some forms of cold pain.
   refs: [julius2013]
+- id: trpa1
+  name: TRPA1
+  modality: chemical
+  kind: Ion channel (TRP family)
+  detects: Reactive chemical irritants (e.g. mustard oil) and inflammatory agents
+  role: A sensor of environmental irritants and of endogenous products of tissue injury and inflammation, often co-expressed with TRPV1. It also contributes to noxious heat sensing.
+  refs: [julius2013, vandewauw2018]
 - id: nav17
   name: Nav1.7
+  modality: encoding
   kind: Voltage-gated sodium channel (SCN9A)
   detects: Sets the threshold for firing
   role: Amplifies small depolarisations so that nociceptors reach firing threshold. Loss-of-function mutations in SCN9A cause a congenital inability to experience pain.
   refs: [cox2006, dubin2010]
 - id: nav18
   name: Nav1.8
+  modality: encoding
   kind: Voltage-gated sodium channel (SCN10A)
   detects: Carries the action potential
   role: A tetrodotoxin-resistant sodium channel expressed in nociceptors that carries much of the current of their action potentials.

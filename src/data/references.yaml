@@ -8295,3 +8295,123 @@
   pages: 333-341
   doi: 10.1523/jneurosci.15-01-00333.1995
   source: crossref
+- id: lamotte1978
+  type: article
+  authors:
+    - LaMotte, R. H.
+    - Campbell, J. N.
+  year: 1978
+  title: Comparison of responses of warm and nociceptive C-fiber afferents in monkey with human judgments of thermal pain
+  container: Journal of Neurophysiology
+  volume: "41"
+  issue: "2"
+  pages: 509-528
+  doi: 10.1152/jn.1978.41.2.509
+  source: crossref
+- id: treede1995
+  type: article
+  authors:
+    - Treede, R. D.
+    - Meyer, R. A.
+    - Raja, S. N.
+    - Campbell, J. N.
+  year: 1995
+  title: Evidence for two different heat transduction mechanisms in nociceptive primary afferents innervating monkey skin.
+  container: The Journal of Physiology
+  volume: "483"
+  issue: "3"
+  pages: 747-758
+  doi: 10.1113/jphysiol.1995.sp020619
+  source: crossref
+- id: slugg2000
+  type: article
+  authors:
+    - Slugg, R. M.
+    - Meyer, R. A.
+    - Campbell, J. N.
+  year: 2000
+  title: Response of Cutaneous A- and C-Fiber Nociceptors in the Monkey to Controlled-Force Stimuli
+  container: Journal of Neurophysiology
+  volume: "83"
+  issue: "4"
+  pages: 2179-2191
+  doi: 10.1152/jn.2000.83.4.2179
+  source: crossref
+- id: ranade2014
+  type: article
+  authors:
+    - Ranade, S. S.
+    - Woo, S. H.
+    - Dubin, A. E.
+    - Moshourab, R. A.
+    - Wetzel, C.
+    - Petrus, M.
+    - Mathur, J.
+    - Bégay, V.
+    - Coste, B.
+    - Mainquist, J.
+    - Wilson, A. J.
+    - Francisco, A. G.
+    - Reddy, K.
+    - Qiu, Z.
+    - Wood, J. N.
+    - Lewin, G. R.
+    - Patapoutian, A.
+  year: 2014
+  title: Piezo2 is the major transducer of mechanical forces for touch sensation in mice
+  container: Nature
+  volume: "516"
+  issue: "7529"
+  pages: 121-125
+  doi: 10.1038/nature13980
+  source: crossref
+- id: szczot2018
+  type: article
+  authors:
+    - Szczot, M.
+    - Liljencrantz, J.
+    - Ghitani, N.
+    - Barik, A.
+    - Lam, R.
+    - Thompson, J. H.
+    - Bharucha-Goebel, D.
+    - Saade, D.
+    - Necaise, A.
+    - Donkervoort, S.
+    - Foley, A. R.
+    - Gordon, T.
+    - Case, L.
+    - Bushnell, M. C.
+    - Bönnemann, C. G.
+    - Chesler, A. T.
+  year: 2018
+  title: PIEZO2 mediates injury-induced tactile pain in mice and humans
+  container: Science Translational Medicine
+  volume: "10"
+  issue: "462"
+  pages: eaat9892
+  doi: 10.1126/scitranslmed.aat9892
+  source: crossref
+- id: vandewauw2018
+  type: article
+  authors:
+    - Vandewauw, I.
+    - De Clercq, K.
+    - Mulier, M.
+    - Held, K.
+    - Pinto, S.
+    - Van Ranst, N.
+    - Segal, A.
+    - Voet, T.
+    - Vennekens, R.
+    - Zimmermann, K.
+    - Vriens, J.
+    - Voets, T.
+  year: 2018
+  title: A TRP channel trio mediates acute noxious heat sensing
+  container: Nature
+  volume: "555"
+  issue: "7698"
+  pages: 662-666
+  doi: 10.1038/nature26137
+  source: crossref

@@ -1,0 +1,139 @@
+---
+/**
+ * Schematic stimulus–response functions of cutaneous afferents.
+ * Thresholds and response patterns follow the cited recordings in monkey skin
+ * (LaMotte & Campbell 1978; Treede et al. 1995; Slugg et al. 2000); curve shapes
+ * are illustrative and normalised to each fibre type's maximum.
+ */
+import { getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+type Curve = { id: string; label: string; slot: number | 'muted'; dash?: string; pts: [number, number][]; lx: number; ly: number; anchor?: 'start' | 'end'; lead?: [number, number] };
+
+// ---------- Heat panel: x = skin temperature (°C), y = normalised response ----------
+const HX0 = 32, HX1 = 56;
+const heat: Curve[] = [
+  { id: 'warm', label: 'Warm fibres (C)', slot: 'muted', dash: '6 5',
+    pts: [[32, .12], [35, .2], [39, .45], [43, .62], [44, .55], [45, .32], [47, .14], [50, .06], [56, .04]], lx: 32.6, ly: .86 },
+  { id: 'cmh', label: 'C nociceptors (CMH)', slot: 3,
+    pts: [[32, 0], [41, 0], [43, .08], [45, .26], [47, .46], [49, .64], [51, .8], [53, .9], [56, .97]], lx: 44.6, ly: .73, anchor: 'end', lead: [47.4, .5] },
+  { id: 'amh2', label: 'Aδ type II (AMH II)', slot: 2,
+    pts: [[32, 0], [45.5, 0], [46.5, .12], [48, .42], [50, .72], [52, .88], [56, .96]], lx: 48.4, ly: .93, anchor: 'end', lead: [50.4, .76] },
+  { id: 'amh1', label: 'Aδ type I (AMH I)', slot: 2, dash: '2 5',
+    pts: [[32, 0], [52.6, 0], [53.5, .1], [55, .3], [56, .42]], lx: 55.9, ly: .6, anchor: 'end', lead: [55.5, .4] },
+];
+// ---------- Force panel: x = stimulus force (qualitative, log-like), y = normalised response ----------
+const mech: Curve[] = [
+  { id: 'ltmr', label: 'Aβ touch receptors', slot: 1,
+    pts: [[0, 0], [.04, .1], [.1, .55], [.18, .82], [.3, .93], [1, .97]], lx: .2, ly: .66 },
+  { id: 'am', label: 'Aδ nociceptors', slot: 2,
+    pts: [[0, 0], [.35, 0], [.45, .12], [.6, .38], [.75, .62], [.9, .84], [1, .95]], lx: .97, ly: .8, anchor: 'end' },
+  { id: 'cm', label: 'C nociceptors', slot: 3,
+    pts: [[0, 0], [.38, 0], [.48, .18], [.58, .3], [.7, .36], [.85, .38], [1, .39]], lx: .97, ly: .3, anchor: 'end' },
+];
+
+// SVG plot geometry
+const PW = 380, PH = 262, L = 44, T = 30, R = 12, B = 40;
+const iw = PW - L - R, ih = PH - T - B;
+const sx = (x: number, x0: number, x1: number) => L + ((x - x0) / (x1 - x0)) * iw;
+const sy = (y: number) => T + ih - y * ih;
+const pathOf = (pts: [number, number][], x0: number, x1: number) =>
+  pts.map(([x, y], i) => `${i ? 'L' : 'M'}${sx(x, x0, x1).toFixed(1)},${sy(y).toFixed(1)}`).join(' ');
+const colour = (c: Curve) => (c.slot === 'muted' ? 'var(--ink-3)' : `var(--d${c.slot})`);
+
+const refIds = ['lamotte1978', 'treede1995', 'slugg2000', 'ranade2014'];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const R_ = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+const table = [
+  { fibre: 'Warm fibres (C)', stim: 'Heat', thr: 'Less than 1 °C above skin temperature', pattern: 'Increases up to about 43 °C; at 45 °C and above a short burst, then silence. Signals warmth, not pain.', ref: 'lamotte1978' },
+  { fibre: 'C nociceptors (CMH)', stim: 'Heat', thr: 'About 41–44 °C', pattern: 'Increases monotonically across 45–50 °C, the range that humans rate as increasingly painful.', ref: 'lamotte1978' },
+  { fibre: 'Aδ type II (AMH II)', stim: 'Heat', thr: 'Median 46 °C', pattern: 'Short latency, early peak; explains first pain to heat. Found in hairy skin.', ref: 'treede1995' },
+  { fibre: 'Aδ type I (AMH I)', stim: 'Heat', thr: 'Median above 53 °C', pattern: 'Long latency, slow build-up; sensitised after a burn.', ref: 'treede1995' },
+  { fibre: 'Aδ nociceptors', stim: 'Force', thr: 'High (noxious)', pattern: 'Response increases steadily with force; good intensity coding.', ref: 'slugg2000' },
+  { fibre: 'C nociceptors', stim: 'Force', thr: 'High (noxious)', pattern: 'Response plateaus at low force levels and fatigues with repeated stimuli.', ref: 'slugg2000' },
+  { fibre: 'Aβ touch receptors', stim: 'Force', thr: 'Very low', pattern: 'Respond to gentle touch and saturate well below noxious forces.', ref: 'ranade2014' },
+];
+---
+
+<div class="sr">
+  <div class="sr-grid">
+    <figure class="card sr-fig">
+      <figcaption class="sr-title">Heat</figcaption>
+      <svg viewBox={`0 0 ${PW} ${PH}`} role="img" aria-label="Schematic heat stimulus–response curves: warm fibres respond from skin temperature and stop above about 45 °C; C nociceptors respond from about 41–44 °C and increase through the painful range; Aδ type II nociceptors from about 46 °C; Aδ type I nociceptors only above about 53 °C.">
+        <rect class="pain-band" x={sx(45, HX0, HX1)} y={T} width={sx(HX1, HX0, HX1) - sx(45, HX0, HX1)} height={ih} />
+        <text class="band-label" x={sx(45, HX0, HX1)} y={T - 5}>painful in humans (≥ 45 °C)</text>
+        <line class="axis" x1={L} y1={T + ih} x2={L + iw} y2={T + ih} />
+        <line class="axis" x1={L} y1={T} x2={L} y2={T + ih} />
+        {[35, 40, 45, 50, 55].map((t) => (
+          <g>
+            <line class="tick" x1={sx(t, HX0, HX1)} x2={sx(t, HX0, HX1)} y1={T + ih} y2={T + ih + 5} />
+            <text class="tick-label" x={sx(t, HX0, HX1)} y={T + ih + 18} text-anchor="middle">{t}</text>
+          </g>
+        ))}
+        <text class="ax-label" x={L + iw / 2} y={PH - 4} text-anchor="middle">skin temperature (°C)</text>
+        <text class="ax-label" x="12" y={T + ih / 2} text-anchor="middle" transform={`rotate(-90 12 ${T + ih / 2})`}>response</text>
+        {heat.map((c) => (
+          <g>
+            <path class="curve" d={pathOf(c.pts, HX0, HX1)} style={`stroke:${colour(c)}${c.dash ? `;stroke-dasharray:${c.dash}` : ''}`} />
+            {c.lead && <line class="leader" x1={sx(c.lx, HX0, HX1) - (c.anchor === 'end' && c.lead[0] > c.lx - 1 ? 8 : -3)} y1={sy(c.ly) + 4} x2={sx(c.lead[0], HX0, HX1)} y2={sy(c.lead[1])} />}
+            <text class="curve-label" x={sx(c.lx, HX0, HX1)} y={sy(c.ly)} text-anchor={c.anchor ?? 'start'}>{c.label}</text>
+          </g>
+        ))}
+      </svg>
+    </figure>
+
+    <figure class="card sr-fig">
+      <figcaption class="sr-title">Mechanical force</figcaption>
+      <svg viewBox={`0 0 ${PW} ${PH}`} role="img" aria-label="Schematic force stimulus–response curves: Aβ touch receptors respond to gentle touch and saturate early; Aδ nociceptors respond to noxious force and increase steadily; C nociceptors respond to noxious force but plateau at a low level.">
+        <rect class="pain-band" x={sx(.4, 0, 1)} y={T} width={sx(1, 0, 1) - sx(.4, 0, 1)} height={ih} />
+        <text class="band-label" x={sx(.4, 0, 1)} y={T - 5}>noxious range</text>
+        <line class="axis" x1={L} y1={T + ih} x2={L + iw} y2={T + ih} />
+        <line class="axis" x1={L} y1={T} x2={L} y2={T + ih} />
+        <text class="tick-label" x={sx(.08, 0, 1)} y={T + ih + 18} text-anchor="middle">gentle touch</text>
+        <text class="tick-label" x={sx(.95, 0, 1)} y={T + ih + 18} text-anchor="middle">pinch</text>
+        <text class="ax-label" x={L + iw / 2} y={PH - 4} text-anchor="middle">force (log scale, schematic)</text>
+        <text class="ax-label" x="12" y={T + ih / 2} text-anchor="middle" transform={`rotate(-90 12 ${T + ih / 2})`}>response</text>
+        {mech.map((c) => (
+          <g>
+            <path class="curve" d={pathOf(c.pts, 0, 1)} style={`stroke:${colour(c)}`} />
+            <text class="curve-label" x={sx(c.lx, 0, 1)} y={sy(c.ly)} text-anchor={c.anchor ?? 'start'}>{c.label}</text>
+          </g>
+        ))}
+      </svg>
+    </figure>
+  </div>
+  <p class="sr-note">Schematic stimulus–response functions; each curve is normalised to that fibre type's maximum, so heights are not comparable between fibre types. Thresholds and response patterns follow recordings in monkey skin:{' '}
+    {['lamotte1978', 'treede1995', 'slugg2000'].map((id, i) => { const r = R_(id); return <>{i > 0 && '; '}<a href={r.href} title={r.title}>{r.label}</a></>; })}.
+  </p>
+  <details class="sr-table">
+    <summary>Show as a table</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fibre</th><th>Stimulus</th><th>Threshold</th><th>Response</th><th>Source</th></tr></thead>
+        <tbody>
+          {table.map((t) => { const r = R_(t.ref); return <tr><td>{t.fibre}</td><td>{t.stim}</td><td>{t.thr}</td><td>{t.pattern}</td><td><a href={r.href}>{r.label}</a></td></tr>; })}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
+<style>
+  .sr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+  .sr-fig { margin: 0; padding: .9rem 1rem .6rem; }
+  .sr-title { font: 600 .78rem var(--font); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); margin-bottom: .3rem; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .pain-band { fill: color-mix(in srgb, var(--d2) 8%, transparent); }
+  .band-label { fill: var(--ink-3); font: 11px var(--font); }
+  .axis { stroke: var(--line-strong); stroke-width: 1.2; }
+  .tick { stroke: var(--line-strong); }
+  .tick-label { fill: var(--ink-3); font: 11px var(--font); }
+  .ax-label { fill: var(--ink-2); font: 12px var(--font); }
+  .curve { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .leader { stroke: var(--ink-3); stroke-width: 1; }
+  .curve-label { fill: var(--ink); font: 600 12px var(--font); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+  .sr-note { font-size: .82rem; color: var(--ink-3); margin: .6rem 0 .3rem; max-width: var(--measure); }
+  .sr-note a { text-decoration: none; }
+  .sr-table summary { cursor: pointer; font-size: .86rem; color: var(--accent); }
+  .sr-table table { font-size: .84rem; }
+</style>

@@ -172,6 +172,7 @@ const transducers = defineCollection({
   loader: file('src/data/transducers.yaml'),
   schema: z.object({
     name: z.string(),
+    modality: z.enum(['mechanical', 'thermal', 'chemical', 'encoding']),
     kind: z.string(),
     detects: z.string(),
     role: z.string(),

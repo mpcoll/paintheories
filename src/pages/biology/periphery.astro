@@ -3,74 +3,104 @@ import { getCollection, getEntries } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import NociceptorFigure from '../../components/NociceptorFigure.astro';
 import GateSimulator from '../../components/GateSimulator.astro';
+import StimulusResponse from '../../components/StimulusResponse.astro';
 import { cite, url, type Reference } from '../../lib/data';
 import { planumLink } from '../../lib/planum';
 
 const transducers = await getCollection('transducers');
-const order = ['trpv1', 'trpa1', 'trpm8', 'nav17', 'nav18'];
-transducers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+const MODALITIES = [
+  { id: 'mechanical', label: 'Mechanical', intro: 'Pressure, stretch and touch.' },
+  { id: 'thermal', label: 'Thermal', intro: 'Heat and cold.' },
+  { id: 'chemical', label: 'Chemical', intro: 'Irritants and the chemical signals of injury and inflammation.' },
+  { id: 'encoding', label: 'Encoding and conduction', intro: 'Voltage-gated sodium channels turn the transducer current into action potentials and carry them to the spinal cord.' },
+] as const;
 const ids = [...new Set([...transducers.flatMap((t) => t.data.refs.map((r) => r.id)), 'woolf2007', 'basbaum2009'])];
 const refs = new Map(((await getEntries(ids.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
 const link = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
 const dorsalHorn3d = planumLink({ region: 'pam50:left:dorsal-horn', view: 'posterior', cortex: false });
 ---
-<Base title="Nociceptors and the spinal gate" description="Interactive overview of nociceptor classes, their transducers and dorsal horn terminations, and a gate-control simulator.">
+<Base title="Nociceptors and the spinal gate" description="Interactive overview of nociceptor classes and their dorsal horn terminations, a gate-control simulator, stimulus–response functions and transduction by modality.">
   <header class="page-head">
     <p class="eyebrow">Pain Biology · periphery and spinal cord</p>
     <h1>Nociceptors and the spinal gate</h1>
-    <p class="lede">Where pain signals begin: the sensory fibres that detect noxious stimuli, the molecules that transduce them, and the dorsal horn circuit that decides what reaches the brain.</p>
+    <p class="lede">Where pain signals begin: the sensory fibres that detect noxious stimuli, the dorsal horn circuit that decides what reaches the brain, and the molecules that turn stimuli into signals.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#fibres">Fibres</a><a href="#gate">Spinal gate</a><a href="#coding">Intensity coding</a><a href="#transduction">Transduction</a>
+    </nav>
   </header>
 
-  <section>
+  <section id="fibres">
     <h2>From skin to spinal cord</h2>
     <p class="muted intro">Primary afferents differ in diameter, myelination and speed, and each class ends in its own layers (laminae) of the dorsal horn. Select a fibre.</p>
     <NociceptorFigure />
   </section>
 
-  <section>
-    <h2>Transduction</h2>
-    <p class="muted intro">Nociceptors turn heat, cold, mechanical force and chemicals into electrical signals through specialised channels, and voltage-gated sodium channels carry the signal to the spinal cord.</p>
-    <div class="tx-grid">
-      {transducers.map((t) => (
-        <article class="card tx">
-          <p class="eyebrow">{t.data.kind}</p>
-          <h3>{t.data.name}</h3>
-          <p class="tx-detects">{t.data.detects}</p>
-          <p>{t.data.role}</p>
-          <p class="tx-refs">{t.data.refs.map((r, i) => { const l = link(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
-        </article>
-      ))}
-      <article class="card tx tx-sens">
-        <p class="eyebrow">At the site of injury</p>
-        <h3>Peripheral sensitization</h3>
-        <p class="tx-detects">Lower thresholds, stronger responses</p>
-        <p>Inflammatory mediators released after tissue damage act on nociceptor terminals and sensitise transducers such as TRPV1. Thresholds fall and responses grow, producing hyperalgesia at the injured site. Changes in the spinal cord (<a href={url('theories/central-sensitization/')}>central sensitization</a>) can then spread hypersensitivity beyond it.</p>
-        <p class="tx-refs">{['woolf2007', 'basbaum2009'].map((id, i) => { const l = link(id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
-      </article>
-    </div>
-  </section>
-
-  <section>
+  <section id="gate">
     <h2>The spinal gate</h2>
     <p class="muted intro">The dorsal horn does not simply relay nociceptive input: local inhibitory circuits and descending control decide how much reaches the brain. Choose a scenario to see how the circuit responds. <a href={dorsalHorn3d} target="_blank" rel="noopener">See the dorsal horn in 3D in Planum ↗</a></p>
     <GateSimulator />
   </section>
 
+  <section id="coding">
+    <h2>How nociceptors encode intensity</h2>
+    <p class="muted intro">Different fibre types start responding at different intensities and grow differently with stronger stimuli. Warm fibres stop signalling where heat becomes painful, just as C nociceptors start, and Aδ and C nociceptors code force differently.</p>
+    <StimulusResponse />
+  </section>
+
+  <section id="transduction">
+    <h2>Transduction</h2>
+    <p class="muted intro">Specialised ion channels in nociceptor endings turn mechanical, thermal and chemical stimuli into electrical signals; voltage-gated sodium channels then encode and conduct them.</p>
+    {MODALITIES.map((m) => (
+      <div class="modality">
+        <h3 class="mod-title">{m.label} <span class="muted">{m.intro}</span></h3>
+        <div class="tx-grid">
+          {transducers.filter((t) => t.data.modality === m.id).map((t) => (
+            <article class={`card tx tx-${m.id}`}>
+              <p class="eyebrow">{t.data.kind}</p>
+              <h4>{t.data.name}</h4>
+              <p class="tx-detects">{t.data.detects}</p>
+              <p>{t.data.role}</p>
+              <p class="tx-refs">{t.data.refs.map((r, i) => { const l = link(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
+            </article>
+          ))}
+          {m.id === 'chemical' && (
+            <article class="card tx tx-sens">
+              <p class="eyebrow">At the site of injury</p>
+              <h4>Peripheral sensitization</h4>
+              <p class="tx-detects">Lower thresholds, stronger responses</p>
+              <p>Inflammatory mediators released after tissue damage act on nociceptor terminals and sensitise transducers such as TRPV1. Thresholds fall and responses grow, producing hyperalgesia at the injured site. Changes in the spinal cord (<a href={url('theories/central-sensitization/')}>central sensitization</a>) can then spread hypersensitivity beyond it.</p>
+              <p class="tx-refs">{['woolf2007', 'basbaum2009'].map((id, i) => { const l = link(id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
+            </article>
+          )}
+        </div>
+      </div>
+    ))}
+  </section>
+
   <p class="muted credit">Schematics drawn for this site; simplified and not to scale. Continue upstream in <a href={url('biology/')}>Pain circuits</a>.</p>
 
   <style>
-    section { margin-bottom: 2.5rem; }
+    section { margin-bottom: 2.75rem; scroll-margin-top: 130px; }
     section h2 { margin-top: 0; }
     .intro { max-width: var(--measure); margin-top: -.2rem; }
     .intro a { white-space: nowrap; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a { text-decoration: none; }
+    .modality { margin-top: 1.5rem; }
+    .mod-title { font-size: 1.1rem; margin: 0 0 .6rem; }
+    .mod-title .muted { font: 400 .88rem var(--font); margin-left: .4rem; }
     .tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
-    .tx h3 { margin: .1rem 0 .2rem; font-size: 1.2rem; }
+    .tx h4 { margin: .1rem 0 .2rem; font: 600 1.2rem var(--serif); }
     .tx .eyebrow { margin: 0; }
     .tx p { font-size: .9rem; margin: 0 0 .5rem; color: var(--ink-2); }
     .tx .tx-detects { color: var(--ink); font-weight: 500; }
     .tx-refs { font-size: .8rem !important; }
     .tx-refs a, .tx a { text-decoration: none; }
     .tx-sens { border-style: dashed; }
+    .tx-mechanical { border-top: 3px solid var(--d1); }
+    .tx-thermal { border-top: 3px solid var(--d2); }
+    .tx-chemical { border-top: 3px solid var(--d3); }
+    .tx-encoding { border-top: 3px solid var(--ink-3); }
     .credit { font-size: .82rem; }
   </style>
 </Base>
