@@ -1,7 +1,7 @@
 import { defineCollection, reference } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, keys } from './data/taxonomy';
+import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, EVIDENCE_DIRECTIONS, EVIDENCE_METHODS, keys } from './data/taxonomy';
 
 /**
  * Bibliography. One shared list so that a paper cited by several theories is
@@ -64,6 +64,17 @@ const theories = defineCollection({
           type: z.enum(keys(RELATIONS)),
           target: reference('theories'),
           note: z.string().optional(),
+        }),
+      )
+      .default([]),
+    // Key empirical findings bearing on the theory; each must cite at least one paper.
+    evidence: z
+      .array(
+        z.object({
+          finding: z.string(),
+          direction: z.enum(keys(EVIDENCE_DIRECTIONS)),
+          method: z.enum(keys(EVIDENCE_METHODS)).optional(),
+          refs: z.array(reference('references')).min(1),
         }),
       )
       .default([]),

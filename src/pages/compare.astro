@@ -81,6 +81,10 @@ const payload = {
         ['Pain types', (t) => vocabList('painTypes', t.painTypes, shared('painTypes'))],
         ['Core claims', (t) => list(t.coreClaims.map(esc))],
         ['Predictions', (t) => list(t.predictions.map(esc))],
+        ['Key findings', (t) => {
+          const n = (d: string) => t.evidence.filter((e: any) => e.direction === d).length;
+          return t.evidence.length ? `✓ ${n('supports')} supporting<br>✕ ${n('contradicts')} contradicting<br>± ${n('mixed')} mixed<br><a href="${t.url}#key-findings">See findings →</a>` : '<span class="muted">—</span>';
+        }],
         ['Mechanisms', (t) => list(t.mechanisms.map((m: string) => `<a href="${D.mechanisms[m].url}">${esc(D.mechanisms[m].title)}</a>`))],
         ['Relations', (t) => list(t.relations.map((r: any) => `${esc(D.vocab.relations[r.type].label)} <a href="${byId.get(r.target).url}">${esc(byId.get(r.target).shortTitle)}</a>`))],
         ['Foundational', (t) => list(t.foundational.map((r: string) => `<a href="${D.refUrl}#${r}">${esc(D.refs[r])}</a>`))],

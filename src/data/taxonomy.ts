@@ -108,6 +108,27 @@ export const RELATIONS = {
   'related-to': { label: 'related to', inverse: 'related to', description: 'Shares mechanisms or constructs without a direct lineage.' },
 } as const satisfies Vocab;
 
+/** How strongly a finding bears on the theory. */
+export const EVIDENCE_DIRECTIONS = {
+  supports: { label: 'Supports', description: 'The finding is consistent with, or was predicted by, the theory.' },
+  contradicts: { label: 'Contradicts', description: 'The finding is inconsistent with a core claim or prediction of the theory.' },
+  mixed: { label: 'Mixed', description: 'Results are inconsistent across studies, or the finding supports one claim and challenges another.' },
+} as const satisfies Vocab;
+
+/** Type of study a finding comes from. */
+export const EVIDENCE_METHODS = {
+  animal: { label: 'Animal study', description: 'Experimental work in non-human animals.' },
+  'human-experimental': { label: 'Human experimental', description: 'Laboratory studies in humans (psychophysics, QST, experimental pain).' },
+  neuroimaging: { label: 'Neuroimaging', description: 'fMRI, PET, EEG/MEG or structural imaging.' },
+  clinical: { label: 'Clinical observation', description: 'Patient series, case reports and cross-sectional clinical studies.' },
+  longitudinal: { label: 'Prospective cohort', description: 'Longitudinal studies following people over time.' },
+  intervention: { label: 'Intervention trial', description: 'Randomised or controlled trials of treatments.' },
+  'meta-analysis': { label: 'Meta-analysis', description: 'Quantitative synthesis of multiple studies.' },
+  review: { label: 'Review', description: 'Narrative or systematic review.' },
+  computational: { label: 'Computational modelling', description: 'Formal models fitted to or simulating data.' },
+  genetic: { label: 'Genetic / molecular', description: 'Genetic, molecular or cellular studies.' },
+} as const satisfies Vocab;
+
 export type Key<V> = Extract<keyof V, string>;
 export const keys = <V extends object>(v: V) => Object.keys(v) as [Key<V>, ...Key<V>[]];
 

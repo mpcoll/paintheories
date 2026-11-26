@@ -1,0 +1,75 @@
+---
+/**
+ * "Key findings" section: empirical results grouped by whether they support,
+ * contradict, or give mixed evidence for the theory. Every finding links to its papers.
+ */
+import { getEntries } from 'astro:content';
+import type { Theory, Reference } from '../lib/data';
+import { cite, url } from '../lib/data';
+import { EVIDENCE_METHODS } from '../data/taxonomy';
+
+interface Props { evidence: Theory['data']['evidence'] }
+const { evidence } = Astro.props;
+
+const allRefIds = [...new Set(evidence.flatMap((e) => e.refs.map((r) => r.id)))];
+const refs = allRefIds.length
+  ? ((await getEntries(allRefIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[])
+  : [];
+const refById = new Map(refs.map((r) => [r.id, r]));
+
+const order = ['supports', 'contradicts', 'mixed'] as const;
+const icon = { supports: '✓', contradicts: '✕', mixed: '±' };
+const groups = order
+  .map((dir) => ({ dir, items: evidence.filter((e) => e.direction === dir) }))
+  .filter((g) => g.items.length > 0);
+---
+
+{evidence.length > 0 && (
+  <section class="evidence" aria-labelledby="key-findings">
+    <h2 id="key-findings">Key findings</h2>
+    <p class="ev-summary">
+      {groups.map((g) => (
+        <span class={`ev-count ev-${g.dir}`}><span aria-hidden="true">{icon[g.dir]}</span> {g.items.length} {({ supports: 'supporting', contradicts: 'contradicting', mixed: 'mixed' } as const)[g.dir]}</span>
+      ))}
+    </p>
+    {groups.map((g) => (
+      <>
+        <h3 class={`ev-head ev-${g.dir}`}><span class="ev-icon" aria-hidden="true">{icon[g.dir]}</span>{g.dir === 'supports' ? 'Supporting evidence' : g.dir === 'contradicts' ? 'Contradicting evidence' : 'Mixed or debated evidence'}</h3>
+        <ul class="ev-list">
+          {g.items.map((e) => (
+            <li class={`ev-item ev-${g.dir}`}>
+              <p class="ev-finding">{e.finding}</p>
+              <p class="ev-meta">
+                {e.method && <span class="tag">{EVIDENCE_METHODS[e.method].label}</span>}
+                {e.refs.map((r) => {
+                  const ref = refById.get(r.id)!;
+                  const href = ref.data.doi ? `https://doi.org/${ref.data.doi}` : url(`references/#${r.id}`);
+                  return <a class="ev-ref" href={href} title={ref.data.title}>{cite(ref)}{ref.data.doi && <span aria-hidden="true"> ↗</span>}</a>;
+                })}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))}
+    <p class="muted ev-note">Findings are summarised from the cited papers; follow the links for methods, samples and effect sizes.</p>
+  </section>
+)}
+
+<style>
+  .ev-summary { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.5rem; }
+  .ev-count { font-size: 0.85rem; font-weight: 500; padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+  .ev-head { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+  .ev-icon { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; font: 700 0.85rem var(--font); color: var(--surface); background: var(--ev); }
+  .ev-supports { --ev: var(--ev-support); }
+  .ev-contradicts { --ev: var(--ev-contra); }
+  .ev-mixed { --ev: var(--ev-mixed); }
+  .ev-count .ev-icon, .ev-count > span { color: var(--ev); font-weight: 700; }
+  .ev-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+  .ev-item { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ev); border-radius: 10px; padding: 0.75rem 1rem; }
+  .ev-finding { margin: 0 0 0.45rem; font-size: 0.98rem; line-height: 1.6; }
+  .ev-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.75rem; margin: 0; font-size: 0.84rem; }
+  .ev-ref { font-weight: 500; text-decoration: none; white-space: nowrap; }
+  .ev-ref:hover { text-decoration: underline; }
+  .ev-note { font-size: 0.82rem; margin-top: 0.9rem; }
+</style>

@@ -74,6 +74,7 @@ export function theoryRecord(t: Theory) {
     predictions: d.predictions,
     mechanisms: d.mechanisms.map((m) => m.id),
     relations: d.relations.map((r) => ({ type: r.type, target: r.target.id, note: r.note ?? null })),
+    evidence: d.evidence.map((e) => ({ finding: e.finding, direction: e.direction, method: e.method ?? null, refs: e.refs.map((r) => r.id) })),
     foundational: d.foundational.map((r) => r.id),
     keyReferences: d.keyReferences.map((r) => r.id),
     review: d.review,

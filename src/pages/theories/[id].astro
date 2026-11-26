@@ -3,6 +3,7 @@ import { getEntries, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import DomainBadge from '../../components/DomainBadge.astro';
 import Notice from '../../components/Notice.astro';
+import EvidenceTable from '../../components/EvidenceTable.astro';
 import { getTheories, url, formatReference, resolveRefs, type Theory, type Mechanism } from '../../lib/data';
 import { KINDS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../../data/taxonomy';
 
@@ -22,7 +23,11 @@ const incoming = all.flatMap((t) =>
 );
 const mechanisms = d.mechanisms.length ? ((await getEntries(d.mechanisms)) as Mechanism[]) : [];
 const foundational = await resolveRefs(d.foundational);
-const keyRefs = await resolveRefs(d.keyReferences);
+const foundIds = new Set(d.foundational.map((r) => r.id));
+const otherIds = [...new Set([...d.keyReferences, ...d.evidence.flatMap((e) => e.refs)].map((r) => r.id))].filter((id) => !foundIds.has(id));
+const keyRefs = (await resolveRefs(otherIds.map((id) => ({ id, collection: 'references' })))).sort(
+  (a, b) => a.data.authors[0].localeCompare(b.data.authors[0]) || a.data.year - b.data.year,
+);
 const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draft: 'Draft — not yet reviewed by a domain expert.', reviewed: '' }[d.review];
 ---
 
@@ -53,6 +58,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
           </>
         )
       }
+      <EvidenceTable evidence={d.evidence} />
       <Content />
 
       <h2 id="references">References</h2>
@@ -61,7 +67,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         {foundational.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a class="doi" href={f.doiUrl}>DOI ↗</a>}</li>; })}
       </ul>
       {keyRefs.length > 0 && <>
-        <h3>Key reviews, tests and critiques</h3>
+        <h3>Reviews, tests and critiques</h3>
         <ul class="refs">
           {keyRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a class="doi" href={f.doiUrl}>DOI ↗</a>}</li>; })}
         </ul>

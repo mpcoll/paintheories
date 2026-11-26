@@ -623,3 +623,116 @@
   pages: 423–443
   publisher: Charles C Thomas
   source: manual
+- id: wall1967
+  type: article
+  authors:
+    - Wall, P. D.
+    - Sweet, W. H.
+  year: 1967
+  title: Temporary Abolition of Pain in Man
+  container: Science
+  volume: "155"
+  issue: "3758"
+  pages: 108-109
+  doi: 10.1126/science.155.3758.108
+  source: crossref
+- id: reynolds1969
+  type: article
+  authors:
+    - Reynolds, D. V.
+  year: 1969
+  title: Surgery in the Rat during Electrical Analgesia Induced by Focal Brain Stimulation
+  container: Science
+  volume: "164"
+  issue: "3878"
+  pages: 444-445
+  doi: 10.1126/science.164.3878.444
+  source: crossref
+- id: basbaum1978
+  type: article
+  authors:
+    - Basbaum, A. I.
+    - Fields, H. L.
+  year: 1978
+  title: "Endogenous pain control mechanisms: Review and hypothesis"
+  container: Annals of Neurology
+  volume: "4"
+  issue: "5"
+  pages: 451-462
+  doi: 10.1002/ana.410040511
+  source: crossref
+- id: kumar2007
+  type: article
+  authors:
+    - Kumar, K.
+    - Taylor, R. S.
+    - Jacques, L.
+    - Eldabe, S.
+    - Meglio, M.
+    - Molet, J.
+    - Thomson, S.
+    - O’Callaghan, J.
+    - Eisenberg, E.
+    - Milbouw, G.
+    - Buchser, E.
+    - Fortini, G.
+    - Richardson, J.
+    - North, R. B.
+  year: 2007
+  title: "Spinal cord stimulation versus conventional medical management for neuropathic pain: A multicentre randomised controlled trial in patients with failed back surgery syndrome"
+  container: Pain
+  volume: "132"
+  issue: "1"
+  pages: 179-188
+  doi: 10.1016/j.pain.2007.07.028
+  source: crossref
+- id: duan2014
+  type: article
+  authors:
+    - Duan, B.
+    - Cheng, L.
+    - Bourane, S.
+    - Britz, O.
+    - Padilla, C.
+    - Garcia-Campmany, L.
+    - Krashes, M.
+    - Knowlton, W.
+    - Velasquez, T.
+    - Ren, X.
+    - Ross, S. E.
+    - Lowell, B. B.
+    - Wang, Y.
+    - Goulding, M.
+    - Ma, Q.
+  year: 2014
+  title: Identification of Spinal Circuits Transmitting and Gating Mechanical Pain
+  container: Cell
+  volume: "159"
+  issue: "6"
+  pages: 1417-1432
+  doi: 10.1016/j.cell.2014.11.003
+  source: crossref
+- id: foster2015
+  type: article
+  authors:
+    - Foster, E.
+    - Wildner, H.
+    - Tudeau, L.
+    - Haueter, S.
+    - Ralvenius, W. T.
+    - Jegen, M.
+    - Johannssen, H.
+    - Hösli, L.
+    - Haenraets, K.
+    - Ghanem, A.
+    - Conzelmann, K. K.
+    - Bösl, M.
+    - Zeilhofer, H. U.
+  year: 2015
+  title: Targeted Ablation, Silencing, and Activation Establish Glycinergic Dorsal Horn Neurons as Key Components of a Spinal Gate for Pain and Itch
+  container: Neuron
+  volume: "85"
+  issue: "6"
+  pages: 1289-1304
+  doi: 10.1016/j.neuron.2015.02.028
+  source: crossref

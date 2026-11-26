@@ -3,6 +3,8 @@
  * Bibliography helper backed by Crossref.
  *
  *   npm run ref:add -- <doi> [<doi> ...]   fetch metadata and append to src/data/references.yaml
+ *   npm run ref:add -- key=<doi>            same, but use the given citation key
+ *   npm run ref:lookup -- <doi> [...]       print Crossref metadata only (no file changes)
  *   npm run ref:verify                      re-check every DOI entry against Crossref
  *
  * Keys are generated as <firstauthor><year>[a-z], e.g. melzack1965.
@@ -26,38 +28,7 @@ async function crossref(doi) {
   throw new Error(`Crossref rate-limited for ${doi}`);
 }
 
-const clean = (s) => s?.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const titleCase = (s) =>
-  s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s(-])(\p{L})/gu, (m, p, c) => p + c.toUpperCase()) : s;
-const sentenceTitle = (s) => (s === s.toUpperCase() ? s.charAt(0) + s.slice(1).toLowerCase() : s);
-
-function toEntry(m) {
-  const authors = (m.author ?? []).map((a) => {
-    const family = titleCase(a.family ?? a.name ?? '');
-    const initials = (a.given ?? '')
-      .split(/[\s.-]+/)
-      .filter(Boolean)
-      .map((g) => g[0].toUpperCase() + '.')
-      .join(' ');
-    return initials ? `${family}, ${initials}` : family;
-  });
-  const typeMap = { 'journal-article': 'article', book: 'book', 'book-chapter': 'chapter' };
-  const e = {
-    type: typeMap[m.type] ?? 'other',
-    authors,
-    year: m.issued?.['date-parts']?.[0]?.[0] ?? m.published?.['date-parts']?.[0]?.[0],
-    title: sentenceTitle(clean(m.title?.[0] ?? '')),
-    container: clean(m['container-title']?.[0]),
-    volume: m.volume,
-    issue: m.issue,
-    pages: m.page ?? m['article-number'],
-    publisher: m.type === 'journal-article' ? undefined : m.publisher,
-    doi: m.DOI.toLowerCase(),
-    source: 'crossref',
-  };
-  for (const k of Object.keys(e)) if (e[k] === undefined || e[k] === '') delete e[k];
-  return e;
-}
+import { toEntryFromCrossref as toEntry } from './refs-lib.mjs';
 
 function makeKey(entry, existing) {
   const family = (entry.authors[0] ?? 'anon').split(',')[0];
@@ -83,18 +54,31 @@ const list = await load();
 
 if (cmd === 'add') {
   const keys = new Set(list.map((e) => e.id));
-  for (const raw of args) {
+  for (const arg of args) {
+    const [forcedKey, raw] = arg.includes('=') && !arg.startsWith('10.') ? arg.split(/=(.*)/s) : [null, arg];
     const doi = raw.replace(/^https?:\/\/(dx\.)?doi\.org\//, '').toLowerCase();
     const dup = list.find((e) => e.doi?.toLowerCase() === doi);
     if (dup) { console.log(`= ${dup.id} already present (${doi})`); continue; }
     const entry = toEntry(await crossref(doi));
-    const id = makeKey(entry, keys);
+    if (forcedKey && keys.has(forcedKey)) throw new Error(`key ${forcedKey} already used for a different DOI`);
+    const id = forcedKey ?? makeKey(entry, keys);
     keys.add(id);
     list.push({ id, ...entry });
     console.log(`+ ${id}: ${entry.authors[0]} (${entry.year}) ${entry.title}`);
     await sleep(1000);
   }
   await save(list);
+} else if (cmd === 'lookup') {
+  for (const raw of args) {
+    const doi = raw.replace(/^https?:\/\/(dx\.)?doi\.org\//, '').toLowerCase();
+    try {
+      const e = toEntry(await crossref(doi));
+      console.log(`OK ${doi} | ${e.year} | ${e.authors.slice(0, 4).join('; ')}${e.authors.length > 4 ? ' et al.' : ''} | ${e.title} | ${e.container ?? e.publisher ?? ''} ${e.volume ?? ''}:${e.pages ?? ''}`);
+    } catch (err) {
+      console.log(`FAIL ${doi} | ${err.message}`);
+    }
+    await sleep(700);
+  }
 } else if (cmd === 'verify') {
   let problems = 0;
   for (const e of list) {
@@ -117,6 +101,6 @@ if (cmd === 'add') {
   }
   process.exitCode = problems ? 1 : 0;
 } else {
-  console.log('usage: refs.mjs add <doi...> | verify');
+  console.log('usage: refs.mjs add [key=]<doi...> | lookup <doi...> | verify');
   process.exitCode = 1;
 }

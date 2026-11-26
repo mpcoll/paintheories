@@ -22,6 +22,11 @@ relations:
   - type: builds-on     # builds-on | extends | challenges | integrates | related-to
     target: gate-control-theory
     note: Optional one-line explanation.
+evidence:               # key empirical findings; every finding cites >= 1 paper
+  - finding: One-sentence statement of what was found (and in whom).
+    direction: supports # supports | contradicts | mixed
+    method: human-experimental # animal | human-experimental | neuroimaging | clinical | longitudinal | intervention | meta-analysis | review | computational | genetic
+    refs: [key2005]
 foundational: [key2000] # citation keys from src/data/references.yaml (npm run ref:add -- <doi>)
 keyReferences: []
 review: draft           # stub | draft | reviewed
@@ -34,9 +39,9 @@ What the theory says, in a few paragraphs. Cite with [@key] or [@key1; @key2].
 
 ## Historical context
 
-## Evidence for
+## Critiques
 
-## Evidence against and critiques
+Conceptual and methodological criticisms (empirical findings go in `evidence` above).
 
 ## Legacy
 

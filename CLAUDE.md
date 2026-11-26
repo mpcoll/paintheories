@@ -7,6 +7,7 @@ Astro 7 static site deployed to GitHub Pages at base `/paintheories/` (see PLAN.
 - Never invent references. Add DOIs with `npm run ref:add -- <doi>` (Crossref) and check
   that the returned title/authors match the intended paper. Works without DOIs get
   `source: manual`. Only cite claims that the cited source supports.
+- Writing conventions and the evidence format: docs/CONTENT_GUIDE.md.
 - New or substantially changed entries get `review: draft`; only the owner sets `reviewed`.
 - Cite in body text with `[@key]` (remark plugin `src/scripts/remark-citations.mjs`; unknown keys fail the build).
 - Internal links must go through `url()` from `src/lib/data.ts` (base path).

@@ -30,10 +30,35 @@ relations:
     note: Keeps patterning and central summation.
   - type: challenges
     target: specificity-theory
+evidence:
+  - finding: Electrical stimulation of large-diameter afferents in peripheral nerves temporarily abolished chronic neuropathic pain in patients, as the theory predicted.
+    direction: supports
+    method: clinical
+    refs: [wall1967]
+  - finding: Electrical stimulation of the periaqueductal grey produced analgesia deep enough to allow surgery in awake rats, demonstrating powerful descending control of nociception.
+    direction: supports
+    method: animal
+    refs: [reynolds1969, basbaum1978]
+  - finding: Spinal cord stimulation added to medical management reduced neuropathic leg pain more than medical management alone in a multicentre randomised trial.
+    direction: supports
+    method: intervention
+    refs: [kumar2007]
+  - finding: Genetically defined dorsal horn circuits were identified in mice in which inhibitory interneurons prevent low-threshold mechanoreceptive input from activating pain-transmitting neurons; removing them makes light touch painful.
+    direction: supports
+    method: genetic
+    refs: [duan2014, foster2015]
+  - finding: The proposed presynaptic mechanism (large fibres hyperpolarising and small fibres depolarising primary afferent terminals) was not confirmed; small-fibre input also produces primary afferent depolarisation.
+    direction: contradicts
+    method: animal
+    refs: [nathan1976, wall1978]
+  - finding: Neuropathies with selective loss of large fibres are not consistently painful, and some painful neuropathies spare large fibres, contrary to a simple reading of the large/small-fibre balance.
+    direction: contradicts
+    method: clinical
+    refs: [nathan1976]
 foundational: [melzack1965]
 keyReferences: [wall1978, nathan1976, mendell2014, moayedi2013]
 review: draft
-updated: 2026-11-25
+updated: 2026-11-26
 ---
 
 ## Overview
@@ -44,17 +69,11 @@ Melzack and Wall proposed that the spinal cord does not simply relay nociceptive
 
 The theory resolved the specificity–pattern debate by keeping specialised fibres and patterned input but placing a modulating mechanism between them and perception. It made psychological factors physiologically respectable and is widely credited with launching modern pain science and multidisciplinary pain management [@moayedi2013; @mendell2014].
 
-## Evidence for
+## Critiques
 
-- Large-fibre stimulation reduces pain, and the theory directly inspired transcutaneous electrical nerve stimulation (TENS) and spinal cord stimulation.
-- Descending modulation from brainstem circuits was later demonstrated and is central to current models.
-- Segmental inhibition of dorsal horn neurons by non-nociceptive input is well established [@mendell2014].
-
-## Evidence against and critiques
-
-- The specific circuit, including presynaptic inhibition of large fibres versus presynaptic facilitation by small fibres, was not confirmed [@nathan1976].
-- Some conditions with selective loss of large fibres are not reliably painful, contrary to a simple reading of the theory [@nathan1976].
-- Wall later restated the theory, keeping its general principles while acknowledging that the original diagram was wrong in detail [@wall1978].
+- The original circuit diagram was too specific to survive: Wall himself restated the theory, keeping its principles while conceding that the details were wrong [@wall1978].
+- Critics argued that the theory became difficult to falsify once its circuit was loosened into general principles of "modulation" [@nathan1976].
+- The specific circuit is now largely of historical interest, but modern genetic work has identified real dorsal horn gating circuits that differ in detail from the 1965 proposal [@mendell2014].
 
 ## Legacy
 
