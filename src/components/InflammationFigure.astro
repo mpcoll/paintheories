@@ -1,0 +1,158 @@
+---
+/**
+ * The "inflammatory soup": mediators released at an injury act on receptors of the
+ * nociceptor terminal and sensitise it; the nociceptor in turn releases neuropeptides
+ * (neurogenic inflammation). Data: src/data/inflammatory-mediators.yaml.
+ */
+import { getCollection, getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+const order = ['bradykinin', 'pge2', 'ngf', 'protons', 'atp', 'cytokines', 'histamine-serotonin'];
+const mediators = (await getCollection('inflammatoryMediators')).sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+const refIds = [...new Set([...mediators.flatMap((m) => m.data.refs.map((r) => r.id)), 'chiu2012', 'pinhoribeiro2017'])];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const link = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+
+// Geometry (viewBox 760 × 420)
+const SOURCES: Record<string, { x: number; y: number; label: string }> = {
+  tissue: { x: 110, y: 66, label: 'Damaged cells' },
+  mast: { x: 110, y: 150, label: 'Mast cells, platelets' },
+  immune: { x: 110, y: 234, label: 'Macrophages' },
+  plasma: { x: 110, y: 362, label: 'Plasma' },
+};
+const RX = 430; // receptor column on the terminal membrane
+const ry = (i: number) => 56 + i * 42;
+const RECEPTOR_LABEL: Record<string, string> = {
+  bradykinin: 'B2', pge2: 'EP', ngf: 'TrkA', protons: 'TRPV1 / ASIC', atp: 'P2X3', cytokines: 'Cytokine R', 'histamine-serotonin': 'H1 / 5-HT',
+};
+const payload = mediators.map((m, i) => ({
+  id: m.id, name: m.data.name, source: m.data.source, receptor: m.data.receptor, effect: m.data.effect,
+  refs: m.data.refs.map((r) => link(r.id)),
+  path: (() => { const s = SOURCES[m.data.sourceCell]; const y = ry(i); const x0 = s.x + 20; return `M${x0},${s.y} C${(x0 + RX) / 2},${s.y} ${(x0 + RX) / 2},${y} ${RX - 16},${y}`; })(),
+  receptorIndex: i, sourceCell: m.data.sourceCell,
+}));
+const neuro = { refs: ['chiu2012', 'pinhoribeiro2017'].map(link) };
+---
+<div class="inf card" id="inflammation">
+  <div class="inf-buttons" role="group" aria-label="Mediator">
+    {mediators.map((m, i) => <button type="button" class="chip" data-m={m.id} aria-pressed={i === 0 ? 'true' : 'false'}>{m.data.short}</button>)}
+    <button type="button" class="chip neuro-chip" data-m="neurogenic" aria-pressed="false">Neurogenic inflammation</button>
+  </div>
+  <div class="inf-grid">
+    <svg viewBox="0 0 760 420" role="img" aria-labelledby="inf-title">
+      <title id="inf-title">Cells at an injury release mediators that bind receptors on the nociceptor terminal and sensitise it; the nociceptor sends more signals to the spinal cord and releases substance P and CGRP, which dilate blood vessels and make them leak.</title>
+      <defs>
+        <marker id="inf-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk" /></marker>
+      </defs>
+      <rect class="tissue" x="8" y="20" width="330" height="320" rx="18" />
+      <text class="t-xs" x="20" y="40">Injured tissue</text>
+      <rect class="vessel" x="8" y="346" width="744" height="34" rx="17" />
+      <text class="t-xs" x="740" y="368" text-anchor="end">blood vessel</text>
+      {Object.entries(SOURCES).map(([k, s]) => (
+        <g class="src" data-src={k}>
+          <circle cx={s.x} cy={s.y} r={k === 'plasma' ? 9 : 16} />
+          <text x={s.x} y={s.y + (k === 'plasma' ? 48 : 36)} class="src-l" text-anchor="middle">{s.label}</text>
+        </g>
+      ))}
+      <path class="axon" d={`M${RX + 4},40 L${RX + 4},330 M${RX + 4},185 C${RX + 120},185 ${RX + 160},185 700,185`} />
+      <rect class="terminal" x={RX - 8} y="36" width="24" height="296" rx="12" />
+      <text class="t-xs" x={RX + 4} y="28" text-anchor="middle">nociceptor terminal</text>
+      {mediators.map((m, i) => (
+        <g class="rec" data-r={i}>
+          <circle cx={RX - 8} cy={ry(i)} r="7" />
+          <text x={RX + 26} y={ry(i) + 4} class="rec-l">{RECEPTOR_LABEL[m.id]}</text>
+        </g>
+      ))}
+      <path class="flow" d={payload[0].path} marker-end="url(#inf-arr)" />
+      <g class="out">
+        <path d="M600,185 L716,185" class="out-line" marker-end="url(#inf-arr)" />
+        <text x="640" y="166" class="out-t" text-anchor="middle">to spinal cord</text>
+        <text x="640" y="208" class="t-xs" text-anchor="middle">lower threshold,</text>
+        <text x="640" y="226" class="t-xs" text-anchor="middle">more firing</text>
+      </g>
+      <g class="neuro">
+        <path d={`M${RX + 4},330 C${RX + 4},346 ${RX + 70},340 ${RX + 90},356`} class="neuro-line" marker-end="url(#inf-arr)" />
+        <text x={RX + 100} y="306" class="neuro-t">substance P, CGRP</text>
+        <text x={RX + 100} y="324" class="t-xs">vasodilation, plasma leakage</text>
+      </g>
+    </svg>
+    <div class="inf-side" aria-live="polite">
+      <p class="eyebrow inf-eyebrow"></p>
+      <h3 class="inf-name"></h3>
+      <dl class="facts inf-facts"></dl>
+      <p class="inf-effect"></p>
+      <p class="inf-refs"></p>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="inf-data" set:html={JSON.stringify({ mediators: payload, neuro })} />
+
+<style>
+  .inf { padding: 1rem 1.1rem .8rem; }
+  .inf-buttons { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .6rem; }
+  .chip { font: 500 .86rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .32rem .8rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .neuro-chip { border-style: dashed; }
+  .inf-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+  @media (max-width: 900px) { .inf-grid { grid-template-columns: 1fr; } }
+  svg { width: 100%; height: auto; display: block; }
+  .tissue { fill: color-mix(in srgb, var(--d5) 8%, var(--surface)); stroke: var(--line); }
+  .vessel { fill: color-mix(in srgb, var(--d5) 20%, var(--surface)); stroke: color-mix(in srgb, var(--d5) 40%, transparent); }
+  .t-xs { fill: var(--ink-3); font: 14px var(--font); }
+  .src circle { fill: var(--surface-2); stroke: var(--line-strong); stroke-width: 1.5; transition: fill .25s, stroke .25s; }
+  .src.on circle { fill: color-mix(in srgb, var(--d3) 30%, var(--surface)); stroke: var(--d3); }
+  .src-l { fill: var(--ink); font: 500 15px var(--font); }
+  .axon { fill: none; stroke: var(--line-strong); stroke-width: 3; }
+  .terminal { fill: var(--surface-2); stroke: var(--line-strong); }
+  .rec circle { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1.5; transition: fill .25s; }
+  .rec.on circle { fill: var(--d3); stroke: var(--d3); }
+  .rec-l { fill: var(--ink-2); font: 14px var(--font); }
+  .rec.on .rec-l { fill: var(--ink); font-weight: 650; }
+  .flow { fill: none; stroke: var(--d3); stroke-width: 2.6; stroke-dasharray: 6 5; transition: opacity .25s; }
+  .mk { fill: var(--ink-2); }
+  .out-line { stroke: var(--ink-2); stroke-width: 2.6; }
+  .out-t { fill: var(--ink); font: 600 15px var(--font); }
+  .neuro { opacity: .25; transition: opacity .25s; }
+  .neuro-line { fill: none; stroke: var(--d5); stroke-width: 2.6; }
+  .neuro-t { fill: var(--ink); font: 600 15px var(--font); }
+  #inflammation.neuro-on .neuro { opacity: 1; }
+  #inflammation.neuro-on .flow { opacity: 0; }
+  .inf-side h3 { margin: .1rem 0 .5rem; font-size: 1.3rem; }
+  .inf-side .eyebrow { margin: 0; }
+  .inf-effect { margin: .6rem 0; }
+  .inf-refs { font-size: .84rem; margin: 0; }
+  .inf-refs a { text-decoration: none; }
+</style>
+
+<script>
+  const root = document.getElementById('inflammation')!;
+  const D = JSON.parse(document.getElementById('inf-data')!.textContent!);
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  const side = root.querySelector('.inf-side')!;
+  const refsHtml = (refs: any[]) => 'Sources: ' + refs.map((r) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+  function show(id: string) {
+    root.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String((c as HTMLElement).dataset.m === id)));
+    root.classList.toggle('neuro-on', id === 'neurogenic');
+    if (id === 'neurogenic') {
+      root.querySelectorAll('.src, .rec').forEach((e) => e.classList.remove('on'));
+      side.querySelector('.inf-eyebrow')!.textContent = 'Nociceptor → tissue';
+      side.querySelector('.inf-name')!.textContent = 'Neurogenic inflammation';
+      side.querySelector('.inf-facts')!.innerHTML = '<dt>Released</dt><dd>Substance P, CGRP (from peripheral terminals)</dd><dt>Effects</dt><dd>Vasodilation (redness, warmth), plasma leakage (swelling), recruitment and activation of immune cells</dd>';
+      side.querySelector('.inf-effect')!.textContent = 'Activated nociceptors do not only signal to the spinal cord: they also release neuropeptides from their peripheral endings. This drives the flare around an injury and interacts with immune cells, which can amplify or, in some settings, restrain inflammation.';
+      side.querySelector('.inf-refs')!.innerHTML = refsHtml(D.neuro.refs);
+      return;
+    }
+    const m = D.mediators.find((x: any) => x.id === id);
+    root.querySelector('.flow')!.setAttribute('d', m.path);
+    root.querySelectorAll<SVGGElement>('.src').forEach((g) => g.classList.toggle('on', g.dataset.src === m.sourceCell));
+    root.querySelectorAll<SVGGElement>('.rec').forEach((g) => g.classList.toggle('on', Number(g.dataset.r) === m.receptorIndex));
+    side.querySelector('.inf-eyebrow')!.textContent = 'Inflammatory mediator';
+    side.querySelector('.inf-name')!.textContent = m.name;
+    side.querySelector('.inf-facts')!.innerHTML = `<dt>Source</dt><dd>${esc(m.source)}</dd><dt>Receptor</dt><dd>${esc(m.receptor)}</dd>`;
+    side.querySelector('.inf-effect')!.textContent = m.effect;
+    side.querySelector('.inf-refs')!.innerHTML = refsHtml(m.refs);
+  }
+  root.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => b.addEventListener('click', () => show(b.dataset.m!)));
+  show('bradykinin');
+</script>

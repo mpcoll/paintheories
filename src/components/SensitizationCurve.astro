@@ -1,0 +1,94 @@
+---
+/**
+ * Schematic psychophysical stimulus–response function before and after sensitization:
+ * a leftward shift (allodynia: pain from previously non-painful stimuli) and an
+ * upward shift (hyperalgesia: more pain from painful stimuli). Illustrative values.
+ */
+const W = 620, H = 330, L = 56, T = 24, R = 20, B = 50;
+const iw = W - L - R, ih = H - T - B;
+const sx = (x: number) => L + x * iw;
+const sy = (y: number) => T + ih - (y / 10) * ih;
+const curve = (thr: number, gain: number) => {
+  const pts: string[] = [];
+  for (let i = 0; i <= 100; i++) {
+    const x = i / 100;
+    const y = x <= thr ? 0 : Math.min(10, gain * Math.pow(x - thr, 0.85) * 10);
+    pts.push(`${i ? 'L' : 'M'}${sx(x).toFixed(1)},${sy(y).toFixed(1)}`);
+  }
+  return pts.join(' ');
+};
+const N_THR = 0.5, S_THR = 0.24;
+const normal = curve(N_THR, 1.25);
+const sens = curve(S_THR, 1.32);
+// Shaded regions between curves
+const region = (x0: number, x1: number) => {
+  const top: string[] = [], bot: string[] = [];
+  for (let i = 0; i <= 40; i++) {
+    const x = x0 + ((x1 - x0) * i) / 40;
+    const yn = x <= N_THR ? 0 : Math.min(10, 1.25 * Math.pow(x - N_THR, 0.85) * 10);
+    const ys = x <= S_THR ? 0 : Math.min(10, 1.32 * Math.pow(x - S_THR, 0.85) * 10);
+    top.push(`${sx(x).toFixed(1)},${sy(ys).toFixed(1)}`); bot.unshift(`${sx(x).toFixed(1)},${sy(yn).toFixed(1)}`);
+  }
+  return `M${top.join(' L')} L${bot.join(' L')} Z`;
+};
+---
+<div class="sc card" id="sens-curve" data-view="both">
+  <div class="sc-buttons" role="group" aria-label="Show">
+    <button type="button" class="chip" data-v="normal" aria-pressed="false">Normal skin</button>
+    <button type="button" class="chip" data-v="sens" aria-pressed="false">After injury</button>
+    <button type="button" class="chip" data-v="both" aria-pressed="true">Compare</button>
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="sc-title">
+    <title id="sc-title">Pain rating against stimulus intensity. In normal skin pain starts at the pain threshold. After injury the curve shifts left, so stimuli below the normal threshold become painful (allodynia), and up, so painful stimuli hurt more (hyperalgesia).</title>
+    <path class="reg allo" d={region(S_THR, N_THR)} />
+    <path class="reg hyper" d={region(N_THR, 0.93)} />
+    <line class="axis" x1={L} y1={T + ih} x2={L + iw} y2={T + ih} />
+    <line class="axis" x1={L} y1={T} x2={L} y2={T + ih} />
+    <line class="thr" x1={sx(N_THR)} x2={sx(N_THR)} y1={T} y2={T + ih} />
+    <text class="t-xs" x={sx(N_THR) + 5} y={T + 12}>normal pain threshold</text>
+    <text class="t-xs" x={sx(0.25)} y={T + ih + 18} text-anchor="middle">innocuous (touch, warmth)</text>
+    <text class="t-xs" x={sx(0.75)} y={T + ih + 18} text-anchor="middle">noxious (pinprick, heat)</text>
+    <text class="ax" x={L + iw / 2} y={H - 6} text-anchor="middle">stimulus intensity</text>
+    <text class="ax" x="16" y={T + ih / 2} text-anchor="middle" transform={`rotate(-90 16 ${T + ih / 2})`}>pain rating</text>
+    <path class="cv normal" d={normal} />
+    <path class="cv sens" d={sens} />
+    <text class="lbl normal-l" x={sx(0.86)} y={sy(3.7)}>normal</text>
+    <text class="lbl sens-l" x={sx(0.5)} y={sy(5.6)} text-anchor="end">after injury</text>
+    <text class="ann ann-t" x={sx(0.42)} y={sy(0.55)} text-anchor="middle">Allodynia</text>
+    <text class="ann ann-t" x={sx(0.74)} y={sy(5.25)} text-anchor="middle">Hyperalgesia</text>
+  </svg>
+</div>
+
+<style>
+  .sc { padding: 1rem 1.1rem .6rem; }
+  .sc-buttons { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+  .chip { font: 500 .86rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .32rem .8rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  svg { width: 100%; max-width: 760px; height: auto; display: block; margin: 0 auto; }
+  .axis { stroke: var(--line-strong); stroke-width: 1.2; }
+  .thr { stroke: var(--ink-3); stroke-dasharray: 4 4; }
+  .t-xs { fill: var(--ink-3); font: 12px var(--font); }
+  .ax { fill: var(--ink-2); font: 13px var(--font); }
+  .cv { fill: none; stroke-width: 3; stroke-linecap: round; transition: opacity .3s; }
+  .cv.normal { stroke: var(--ink-2); }
+  .cv.sens { stroke: var(--d2); }
+  .lbl { font: 600 13px var(--font); transition: opacity .3s; }
+  .normal-l { fill: var(--ink-2); }
+  .sens-l { fill: color-mix(in srgb, var(--d2) 72%, var(--ink)); }
+  .reg { transition: opacity .3s; }
+  .reg.allo { fill: color-mix(in srgb, var(--d1) 22%, transparent); }
+  .reg.hyper { fill: color-mix(in srgb, var(--d2) 18%, transparent); }
+  .ann-t { fill: var(--ink); font: 650 15px var(--font); }
+  .ann { transition: opacity .3s; }
+  .sc[data-view='normal'] :is(.cv.sens, .sens-l, .reg, .ann) { opacity: 0; }
+  .sc[data-view='sens'] :is(.cv.normal, .normal-l, .reg, .ann) { opacity: 0; }
+</style>
+
+<script>
+  const root = document.getElementById('sens-curve')!;
+  root.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => b.addEventListener('click', () => {
+    root.dataset.view = b.dataset.v!;
+    root.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === b)));
+  }));
+</script>

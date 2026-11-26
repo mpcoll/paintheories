@@ -1,0 +1,57 @@
+# Mediators of the "inflammatory soup" shown on /biology/sensitization/.
+- id: bradykinin
+  name: Bradykinin
+  short: Bradykinin
+  source: Plasma (cleaved from kininogen at the injured site)
+  sourceCell: plasma
+  receptor: B2 receptor (B1 is induced during inflammation)
+  effect: Activates nociceptors and sensitises TRPV1 to heat.
+  refs: [basbaum2009, julius2013]
+- id: pge2
+  name: Prostaglandin E2
+  short: PGE2
+  source: Many cells, made by cyclo-oxygenase (COX) enzymes
+  sourceCell: immune
+  receptor: EP receptors
+  effect: Sensitises nociceptors by lowering their threshold, acting on channels such as TRPV1 and Nav1.8. NSAIDs relieve inflammatory pain by blocking its synthesis.
+  refs: [basbaum2009]
+- id: ngf
+  name: Nerve growth factor
+  short: NGF
+  source: Mast cells and other cells of the inflamed tissue
+  sourceCell: mast
+  receptor: TrkA
+  effect: Rapidly sensitises TRPV1 and, over longer periods, increases the expression of transducers and pain-related peptides in nociceptors.
+  refs: [basbaum2009, julius2013]
+- id: protons
+  name: Protons (low pH)
+  short: H⁺
+  source: Tissue acidosis in inflamed or ischaemic tissue
+  sourceCell: tissue
+  receptor: TRPV1 and acid-sensing ion channels (ASICs)
+  effect: Directly activate nociceptors and potentiate heat responses.
+  refs: [basbaum2009]
+- id: atp
+  name: ATP
+  short: ATP
+  source: Damaged cells
+  sourceCell: tissue
+  receptor: P2X3 and other purinergic receptors
+  effect: Activates nociceptors when released from injured cells.
+  refs: [basbaum2009]
+- id: cytokines
+  name: Cytokines (TNF, IL-1β, IL-6)
+  short: Cytokines
+  source: Macrophages and other immune cells
+  sourceCell: immune
+  receptor: Cytokine receptors on nociceptors
+  effect: Sensitise nociceptors and drive further inflammation; a key part of neuro-immune interactions in pain.
+  refs: [ji2016, pinhoribeiro2017]
+- id: histamine-serotonin
+  name: Histamine and serotonin
+  short: Histamine, 5-HT
+  source: Mast cells and platelets
+  sourceCell: mast
+  receptor: Histamine and serotonin receptors
+  effect: Activate or sensitise nociceptors; histamine also evokes itch.
+  refs: [basbaum2009]

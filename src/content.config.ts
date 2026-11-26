@@ -180,4 +180,18 @@ const transducers = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers };
+/** Pain Biology: sensitization page (/biology/sensitization/). */
+const inflammatoryMediators = defineCollection({
+  loader: file('src/data/inflammatory-mediators.yaml'),
+  schema: z.object({
+    name: z.string(),
+    short: z.string(),
+    source: z.string(),
+    sourceCell: z.enum(['plasma', 'immune', 'mast', 'tissue']),
+    receptor: z.string(),
+    effect: z.string(),
+    refs: z.array(reference('references')).min(1),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators };

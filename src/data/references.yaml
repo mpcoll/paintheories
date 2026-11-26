@@ -8415,3 +8415,88 @@
   pages: 662-666
   doi: 10.1038/nature26137
   source: crossref
+- id: loeser2008
+  type: article
+  authors:
+    - Loeser, J. D.
+    - Treede, R. D.
+  year: 2008
+  title: The Kyoto protocol of IASP Basic Pain Terminology ☆
+  container: Pain
+  volume: "137"
+  issue: "3"
+  pages: 473-477
+  doi: 10.1016/j.pain.2008.04.025
+  source: crossref
+- id: treede1992
+  type: article
+  authors:
+    - Treede, R. D.
+    - Meyer, R. A.
+    - Raja, S. N.
+    - Campbell, J. N.
+  year: 1992
+  title: Peripheral and central mechanisms of cutaneous hyperalgesia
+  container: Progress in Neurobiology
+  volume: "38"
+  issue: "4"
+  pages: 397-421
+  doi: 10.1016/0301-0082(92)90027-c
+  source: crossref
+- id: lamotte1991
+  type: article
+  authors:
+    - LaMotte, R. H.
+    - Shain, C. N.
+    - Simone, D. A.
+    - Tsai, E. F.
+  year: 1991
+  title: "Neurogenic hyperalgesia: psychophysical studies of underlying mechanisms"
+  container: Journal of Neurophysiology
+  volume: "66"
+  issue: "1"
+  pages: 190-211
+  doi: 10.1152/jn.1991.66.1.190
+  source: crossref
+- id: ji2016
+  type: article
+  authors:
+    - Ji, R. R.
+    - Chamessian, A.
+    - Zhang, Y. Q.
+  year: 2016
+  title: Pain regulation by non-neuronal cells and inflammation
+  container: Science
+  volume: "354"
+  issue: "6312"
+  pages: 572-577
+  doi: 10.1126/science.aaf8924
+  source: crossref
+- id: chiu2012
+  type: article
+  authors:
+    - Chiu, I. M.
+    - von Hehn, C. A.
+    - Woolf, C. J.
+  year: 2012
+  title: Neurogenic inflammation and the peripheral nervous system in host defense and immunopathology
+  container: Nature Neuroscience
+  volume: "15"
+  issue: "8"
+  pages: 1063-1067
+  doi: 10.1038/nn.3144
+  source: crossref
+- id: pinhoribeiro2017
+  type: article
+  authors:
+    - Pinho-Ribeiro, F. A.
+    - Verri, W. A.
+    - Chiu, I. M.
+  year: 2017
+  title: Nociceptor Sensory Neuron–Immune Interactions in Pain and Inflammation
+  container: Trends in Immunology
+  volume: "38"
+  issue: "1"
+  pages: 5-19
+  doi: 10.1016/j.it.2016.10.001
+  source: crossref

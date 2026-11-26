@@ -1,0 +1,68 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SensitizationCurve from '../../components/SensitizationCurve.astro';
+import HyperalgesiaZones from '../../components/HyperalgesiaZones.astro';
+import InflammationFigure from '../../components/InflammationFigure.astro';
+import { cite, url, type Reference } from '../../lib/data';
+
+const ids = ['loeser2008', 'treede1992', 'woolf2000', 'woolf2011', 'latremoliere2009', 'basbaum2009', 'ji2016'];
+const refs = new Map(((await getEntries(ids.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+const cites = (keys: string[]) => keys.map(L);
+---
+<Base title="Sensitization: allodynia, hyperalgesia and inflammation" description="Interactive illustrations of allodynia and hyperalgesia, primary and secondary hyperalgesia, and the inflammatory mediators that sensitise nociceptors.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Biology · sensitization</p>
+    <h1>Allodynia, hyperalgesia and inflammation</h1>
+    <p class="lede">After an injury the pain system becomes more sensitive. Stimuli that did not hurt start to hurt, and painful stimuli hurt more. This protects the injured area while it heals; when it persists, it contributes to chronic pain.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#definitions">Allodynia and hyperalgesia</a><a href="#zones">Primary and secondary</a><a href="#inflammation-section">Inflammation</a>
+    </nav>
+  </header>
+
+  <section id="definitions">
+    <h2>Allodynia and hyperalgesia</h2>
+    <div class="defs">
+      <article class="card def allo">
+        <h3>Allodynia</h3>
+        <p>Pain from a stimulus that does not normally provoke pain, such as light touch or clothing on sunburnt skin.</p>
+      </article>
+      <article class="card def hyper">
+        <h3>Hyperalgesia</h3>
+        <p>Increased pain from a stimulus that is normally painful, such as a pinprick near a cut.</p>
+      </article>
+    </div>
+    <p class="muted src">Definitions follow IASP terminology ({cites(['loeser2008']).map((l) => <a href={l.href} title={l.title}>{l.label}</a>)}). Both are signs of sensitization of the pain pathways, peripheral, central, or both ({cites(['woolf2000', 'treede1992']).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}).</p>
+    <SensitizationCurve />
+    <p class="muted src">Schematic stimulus–response function: sensitization shifts the curve to the left (lower threshold) and up (stronger responses).</p>
+  </section>
+
+  <section id="zones">
+    <h2>Primary and secondary hyperalgesia</h2>
+    <p class="muted intro">Testing the skin around an injury with different stimuli reveals nested zones. Their pattern shows where the sensitization happens: in the nociceptors at the injured site (primary hyperalgesia) or in the central nervous system (secondary hyperalgesia). See <a href={url('theories/central-sensitization/')}>central sensitization</a> and the <a href={url('biology/periphery/#gate')}>gate simulator</a>'s "inhibition lost" scenarios.</p>
+    <HyperalgesiaZones />
+  </section>
+
+  <section id="inflammation-section">
+    <h2>Inflammation</h2>
+    <p class="muted intro">Damaged tissue and immune cells release a mix of mediators, the "inflammatory soup", that activate and sensitise nociceptor endings. Nociceptors in turn release neuropeptides that amplify inflammation. Select a mediator to follow it from its source to its receptor ({cites(['basbaum2009', 'ji2016']).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}).</p>
+    <InflammationFigure />
+    <p class="muted src">Related theories: <a href={url('theories/neuroimmune-theory/')}>neuroimmune theory</a>, <a href={url('theories/central-sensitization/')}>central sensitization</a>, <a href={url('theories/nociplastic-pain/')}>nociplastic pain</a>.</p>
+  </section>
+
+  <style>
+    section { margin-bottom: 2.75rem; scroll-margin-top: 130px; }
+    section h2 { margin-top: 0; }
+    .intro { max-width: var(--measure); margin-top: -.2rem; }
+    .intro a, .src a { text-decoration: none; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a { text-decoration: none; }
+    .defs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: .6rem; }
+    .def h3 { margin: 0 0 .3rem; font-size: 1.25rem; }
+    .def p { margin: 0; color: var(--ink-2); }
+    .def.allo { border-left: 4px solid var(--d1); }
+    .def.hyper { border-left: 4px solid var(--d2); }
+    .src { font-size: .84rem; max-width: var(--measure); margin: .4rem 0 1rem; }
+  </style>
+</Base>
