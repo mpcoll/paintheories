@@ -65,6 +65,9 @@ evidence:
     direction: supports
     method: clinical
     refs: [lewis2007]
+diagram:
+  caption: "Touch, proprioception and vision are integrated in a body-centred map of the body and the space around it, coupled to ownership and to physiological regulation. In CRPS the matrix is disrupted along body-centred space, contributing to pain, altered body perception and autonomic signs."
+  after: [moseley2012]
 foundational: [moseley2012]
 keyReferences: [moseley2008c]
 review: draft

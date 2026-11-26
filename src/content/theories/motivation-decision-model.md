@@ -70,6 +70,9 @@ evidence:
     direction: supports
     method: human-experimental
     refs: [claes2014]
+diagram:
+  caption: "An unconscious decision weighs pain against competing goals. When a competing goal matters more, the descending circuit (amygdala, PAG, RVM) inhibits the dorsal horn via OFF cells (antinociception); when pain matters more, ON cells facilitate it (pronociception)."
+  after: [fields2006]
 foundational: [fields2006, fields2007]
 keyReferences: [fields2000, fields2004, fields2018, leknes2008, wiech2013, navratilova2014]
 review: draft

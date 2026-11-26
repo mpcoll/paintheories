@@ -1,0 +1,32 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Sensorimotor incongruence: a cortical monitor compares motor intention with proprioceptive and visual feedback; when they match, movement is normal, but persistent mismatch is signalled as pain and abnormal sensations, by analogy with motion sickness; mirror visual feedback restores congruence.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="24" y="40" width="160" height="48" rx="10"/>
+<text class="t mid" x="104" y="69">Motor intention</text>
+<rect class="box" x="24" y="136" width="160" height="48" rx="10"/>
+<text class="t mid" x="104" y="165">Proprioception</text>
+<rect class="box" x="24" y="232" width="160" height="48" rx="10"/>
+<text class="t mid" x="104" y="261">Vision</text>
+<path class="ln" d="M184,64 L220,132" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M184,160 H220" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M184,256 L220,188" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="224" y="120" width="148" height="80" rx="12"/>
+<text class="t-b mid" x="298" y="149">Congruence</text>
+<text class="t-b mid" x="298" y="168">monitor</text>
+<text class="t-xs mid" x="298" y="187">cortex</text>
+<path class="ln" d="M330,120 L452,72" marker-end="url(#dg-arr)"/>
+<text class="t-xs end" x="408" y="76">match</text>
+<rect class="box" x="456" y="40" width="160" height="56" rx="10"/>
+<text class="t mid" x="536" y="73">Normal movement</text>
+<path class="ln-accent" d="M372,160 H452" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="412" y="134">persistent</text>
+<text class="t-xs mid" x="412" y="150">mismatch</text>
+<rect class="box-strong" x="456" y="128" width="160" height="64" rx="10"/>
+<text class="t-on mid" x="536" y="156">Pain, abnormal</text>
+<text class="t-on mid" x="536" y="176">sensations</text>
+<text class="t-xs mid" x="536" y="214">cf. motion sickness</text>
+<path class="ln ln-dash" d="M298,284 V204" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="308" y="250">restores congruence</text>
+<rect class="box" x="224" y="288" width="148" height="48" rx="10"/>
+<text class="t mid" x="298" y="317">Mirror feedback</text>
+</svg>

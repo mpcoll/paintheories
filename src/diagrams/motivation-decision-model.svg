@@ -1,0 +1,29 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Motivation-decision model: an unconscious decision weighs pain against competing goals such as food, safety or reward; the outcome is implemented by the descending circuit from amygdala to periaqueductal grey (PAG) and rostral ventromedial medulla (RVM), whose OFF cells inhibit and ON cells facilitate the dorsal horn. When a competing goal matters more, the result is antinociception; when pain matters more, pronociception.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-sm mid" x="177" y="34">Unconscious decision</text>
+<text class="t-xs mid" x="177" y="52">what matters more now?</text>
+<path class="ln" d="M74,72 L280,96"/>
+<path class="ln-thin" d="M74,72 V108"/>
+<path class="ln-thin" d="M280,96 V132"/>
+<path class="ln" d="M177,84 V236"/>
+<path class="ln" d="M141,236 H213"/>
+<circle class="dot" cx="177" cy="84" r="5"/>
+<rect class="box" x="24" y="108" width="100" height="44" rx="10"/>
+<text class="t mid" x="74" y="135">Pain</text>
+<rect class="box-accent" x="200" y="132" width="160" height="60" rx="10"/>
+<text class="t mid" x="280" y="157">Competing goal</text>
+<text class="t-xs mid" x="280" y="177">food, safety, reward</text>
+<path class="ln-accent" d="M360,162 H416" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="420" y="132" width="196" height="60" rx="10"/>
+<text class="t mid" x="518" y="157">Descending circuit</text>
+<text class="t-xs mid" x="518" y="177">amygdala → PAG → RVM</text>
+<path class="ln-accent" d="M474,192 V282" marker-end="url(#dg-bar)"/>
+<text class="t-sm end" x="464" y="242">OFF cells</text>
+<path class="ln ln-dash" d="M562,192 V280" marker-end="url(#dg-arr)"/>
+<text class="t-sm end" x="552" y="242">ON cells</text>
+<rect class="box-strong" x="420" y="286" width="196" height="50" rx="10"/>
+<text class="t-on mid" x="518" y="316">Dorsal horn</text>
+<text class="t-sm" x="24" y="292">Goal wins: antinociception</text>
+<text class="t-sm" x="24" y="316">Pain wins: pronociception</text>
+</svg>

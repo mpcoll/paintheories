@@ -1,0 +1,43 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Cortical body matrix: touch, proprioception and vision are integrated in a multisensory, body-centred representation of the body and peripersonal space, which is coupled both to ownership and perceived location of a body part and to its physiological regulation such as limb temperature; disruption of the matrix in CRPS, defined by body-centred space rather than the limb, contributes to pain, altered body perception and autonomic signs.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="24" y="48" width="140" height="44" rx="10"/>
+<text class="t mid" x="94" y="75">Touch</text>
+<rect class="box" x="24" y="108" width="140" height="44" rx="10"/>
+<text class="t mid" x="94" y="135">Proprioception</text>
+<rect class="box" x="24" y="168" width="140" height="44" rx="10"/>
+<text class="t mid" x="94" y="195">Vision</text>
+<path class="ln" d="M164,70 H200" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M164,130 H200" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M164,190 H200" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="204" y="24" width="206" height="212" rx="12"/>
+<text class="t-b mid" x="307" y="50">Body matrix</text>
+<text class="t-xs mid" x="307" y="68">multisensory, body-centred</text>
+<rect class="area" x="226" y="82" width="162" height="138" rx="40"/>
+<path class="area-line" d="M307,92 V184"/>
+<text class="t-xs" x="314" y="108">midline</text>
+<text class="t-sm mid" x="264" y="150">left</text>
+<text class="t-sm mid" x="350" y="150">right</text>
+<text class="t-xs mid" x="307" y="206">peripersonal space</text>
+<path class="ln" d="M410,55 H440" marker-end="url(#dg-arr)"/>
+<rect class="box" x="444" y="24" width="176" height="62" rx="10"/>
+<text class="t mid" x="532" y="50">Ownership,</text>
+<text class="t mid" x="532" y="70">perceived location</text>
+<path class="ln" d="M532,90 V156" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="542" y="127">coupled</text>
+<path class="ln" d="M410,197 H440" marker-end="url(#dg-arr)"/>
+<rect class="box" x="444" y="160" width="176" height="76" rx="10"/>
+<text class="t mid" x="532" y="184">Physiological</text>
+<text class="t mid" x="532" y="203">regulation</text>
+<text class="t-xs mid" x="532" y="222">e.g. limb temperature</text>
+<path class="ln-accent" d="M307,236 V270" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="204" y="274" width="206" height="56" rx="10"/>
+<text class="t-on mid" x="307" y="307">Disrupted in CRPS</text>
+<text class="t-xs" x="24" y="290">defined by body-centred</text>
+<text class="t-xs" x="24" y="308">space, not by the limb</text>
+<path class="ln-accent" d="M410,302 H440" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="444" y="266" width="176" height="72" rx="10"/>
+<text class="t mid" x="532" y="289">Pain</text>
+<text class="t-xs mid" x="532" y="308">altered body perception</text>
+<text class="t-xs mid" x="532" y="325">autonomic signs</text>
+</svg>

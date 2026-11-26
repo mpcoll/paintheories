@@ -1,0 +1,26 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Neurocognitive model of attention to pain: salient nociceptive input captures attention bottom-up, while current goals held in working memory exert top-down control through the attentional set; when capture wins the result is hypervigilance, when control wins distraction succeeds and descending modulation reduces nociceptive processing as early as the spinal cord.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="200" y="24" width="240" height="60" rx="10"/>
+<text class="t mid" x="320" y="49">Current goals</text>
+<text class="t-xs mid" x="320" y="68">working memory, attentional set</text>
+<path class="ln" d="M320,84 V140" marker-end="url(#dg-arr)"/>
+<text class="t-sm" x="330" y="117">top-down control</text>
+<rect class="box-strong" x="250" y="144" width="140" height="52" rx="10"/>
+<text class="t-on mid" x="320" y="175">Attention</text>
+<path class="ln-accent" d="M320,280 V200" marker-end="url(#dg-arr-accent)"/>
+<text class="t-sm" x="330" y="245">bottom-up capture</text>
+<rect class="box-accent" x="200" y="284" width="240" height="56" rx="10"/>
+<text class="t mid" x="320" y="308">Nociceptive input</text>
+<text class="t-xs mid" x="320" y="326">salient, novel, threatening</text>
+<path class="ln" d="M250,170 H194" marker-end="url(#dg-arr)"/>
+<rect class="box" x="24" y="140" width="166" height="60" rx="10"/>
+<text class="t mid" x="107" y="166">Hypervigilance</text>
+<text class="t-xs mid" x="107" y="185">capture wins</text>
+<path class="ln" d="M390,170 H446" marker-end="url(#dg-arr)"/>
+<rect class="box" x="450" y="140" width="166" height="60" rx="10"/>
+<text class="t mid" x="533" y="166">Distraction</text>
+<text class="t-xs mid" x="533" y="185">control wins</text>
+<path class="ln ln-dash" d="M533,200 V312 H446" marker-end="url(#dg-bar)"/>
+<text class="t-xs mid" x="530" y="334">descending, to spinal cord</text>
+</svg>

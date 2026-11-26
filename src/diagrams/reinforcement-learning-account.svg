@@ -1,0 +1,36 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Reinforcement learning account: pain acts as a control signal for three parallel controllers (innate Pavlovian, model-free habitual and model-based goal-directed) that drive action to avoid harm and seek relief; aversive and relief prediction errors from outcomes update the controllers, and uncertainty (associability) sets learning rates and modulates pain itself.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="24" y="24" width="150" height="56" rx="10"/>
+<text class="t mid" x="99" y="48">Uncertainty</text>
+<text class="t-xs mid" x="99" y="67">associability</text>
+<path class="ln" d="M89,80 V146" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="98" y="118">modulates</text>
+<rect class="area" x="226" y="70" width="208" height="216" rx="14"/>
+<path class="ln" d="M174,52 H330 V66" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="252" y="44">learning rate</text>
+<rect class="box-strong" x="24" y="150" width="130" height="56" rx="10"/>
+<text class="t-on mid" x="89" y="183">Pain</text>
+<text class="t-xs mid" x="89" y="226">control signal</text>
+<path class="ln-accent" d="M154,178 L236,109" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M154,178 H236" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M154,178 L236,247" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="240" y="82" width="180" height="50" rx="10"/>
+<text class="t mid" x="330" y="103">Pavlovian</text>
+<text class="t-xs mid" x="330" y="122">innate</text>
+<rect class="box-accent" x="240" y="152" width="180" height="50" rx="10"/>
+<text class="t mid" x="330" y="173">Habitual</text>
+<text class="t-xs mid" x="330" y="192">model-free</text>
+<rect class="box-accent" x="240" y="222" width="180" height="50" rx="10"/>
+<text class="t mid" x="330" y="243">Goal-directed</text>
+<text class="t-xs mid" x="330" y="262">model-based</text>
+<path class="ln" d="M420,107 L452,166" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M420,177 H452" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M420,247 L452,190" marker-end="url(#dg-arr)"/>
+<rect class="box" x="456" y="142" width="160" height="72" rx="10"/>
+<text class="t mid" x="536" y="168">Action</text>
+<text class="t-xs mid" x="536" y="188">avoid harm,</text>
+<text class="t-xs mid" x="536" y="204">seek relief</text>
+<path class="ln ln-dash" d="M536,214 V316 H330 V290" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="433" y="336">aversive and relief prediction errors</text>
+</svg>

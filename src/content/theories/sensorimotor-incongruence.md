@@ -66,6 +66,9 @@ evidence:
     direction: contradicts
     method: human-experimental
     refs: [don2019]
+diagram:
+  caption: "A cortical monitor compares motor intention with proprioceptive and visual feedback. Persistent mismatch is signalled as pain or abnormal sensations, as visual-vestibular conflict causes motion sickness; mirror feedback restores congruence."
+  after: [harris1999]
 foundational: [harris1999]
 keyReferences: [don2016, moseley2005b]
 review: draft

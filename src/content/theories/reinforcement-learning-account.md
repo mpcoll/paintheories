@@ -61,6 +61,9 @@ evidence:
     direction: supports
     method: human-experimental
     refs: [desch2023]
+diagram:
+  caption: "Pain acts as a control signal for parallel Pavlovian, habitual (model-free) and goal-directed (model-based) controllers that drive action. Aversive and relief prediction errors update them, and uncertainty (associability) sets learning rates and modulates pain itself."
+  after: [seymour2019]
 foundational: [seymour2019]
 keyReferences: [seymour2020]
 review: draft

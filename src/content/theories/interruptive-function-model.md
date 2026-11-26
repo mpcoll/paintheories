@@ -65,6 +65,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [crombez2013]
+diagram:
+  caption: "Pain interrupts the ongoing task and captures attention, urging escape and repair, more so when it is intense, novel, unpredictable or threatening. Catastrophizing and fear, competing demands and emotional arousal moderate whether pain or the task wins."
+  after: [eccleston1999]
 foundational: [eccleston1999]
 keyReferences: [eccleston1994, vandamme2004, crombez2005, moriarty2011, legrain2009, vandamme2010]
 review: draft

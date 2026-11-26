@@ -68,6 +68,9 @@ evidence:
     direction: contradicts
     method: meta-analysis
     refs: [vanryckeghem2018]
+diagram:
+  caption: "Salient nociceptive input captures attention bottom-up, while goals held in working memory exert top-down control. When capture wins the result is hypervigilance; when control wins distraction succeeds, with descending modulation reaching as far as the spinal cord."
+  after: [legrain2009]
 foundational: [legrain2009]
 keyReferences: [eccleston1999, vandamme2010, legrain2002, bantick2002, buhle2010, buhle2012, torta2017, todd2015]
 review: draft

@@ -71,6 +71,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [hrobjartsson2001]
+diagram:
+  caption: "Verbal suggestion, conditioning and observation create an expectation of relief, which engages the opioidergic descending system and inhibits nociceptive processing in brain and spinal cord. The inset sketches the claim that analgesia grows with the expected relief."
+  after: [kirsch1985]
 foundational: [kirsch1985]
 keyReferences: [price1999, amanzio1999, vase2002, stewartwilliams2004, eippert2009, bingel2011, atlas2012, forsberg2017, gracely1983, buchel2014]
 review: draft

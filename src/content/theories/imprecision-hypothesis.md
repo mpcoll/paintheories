@@ -71,6 +71,9 @@ evidence:
     direction: mixed
     method: review
     refs: [harvie2017]
+diagram:
+  caption: "Schematic gradients of pain across cues, from the cue originally paired with pain to less similar ones. With precise encoding only the original cue evokes pain; with imprecise encoding pain generalises to safe cues. Exposure that teaches discrimination restores precision."
+  after: [moseley2015]
 foundational: [moseley2015]
 keyReferences: [meulders2011, meulders2013, harvie2016, zaman2015, tabor2017]
 review: draft

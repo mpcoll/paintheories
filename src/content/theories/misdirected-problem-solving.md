@@ -61,6 +61,9 @@ evidence:
     direction: supports
     method: clinical
     refs: [mccracken2003]
+diagram:
+  caption: "Framed as a problem whose only solution is relief, pain drives worry; failed attempts at relief renew vigilance and worry in a loop that raises distress and disability. Treatment reframes the problem towards living with pain and pursuing valued goals."
+  after: [eccleston2007]
 foundational: [eccleston2007, aldrich2000]
 keyReferences: [eccleston1999, flink2013, vandamme2008, crombez2005]
 review: draft

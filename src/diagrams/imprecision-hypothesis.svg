@@ -1,0 +1,27 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Imprecision hypothesis: two schematic generalisation gradients of pain across cues ordered from the cue originally paired with pain to less similar cues. With precise encoding pain is evoked only by the original cue; with imprecise encoding pain generalises to many similar, safe cues. Exposure that teaches discrimination restores precision.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<path class="ln-thin" d="M40,290 H290"/>
+<rect class="box" x="56" y="140" width="30" height="150" rx="3"/>
+<rect class="box" x="102" y="256" width="30" height="34" rx="3"/>
+<rect class="box" x="148" y="278" width="30" height="12" rx="3"/>
+<rect class="box" x="194" y="284" width="30" height="6" rx="3"/>
+<rect class="box" x="240" y="286" width="30" height="4" rx="3"/>
+<text class="t-xs" x="56" y="310">original cue</text>
+<text class="t-xs end" x="290" y="310">less similar →</text>
+<path class="ln-thin" d="M350,290 H600"/>
+<rect class="box-strong" x="366" y="140" width="30" height="150" rx="3"/>
+<rect class="box-strong" x="412" y="150" width="30" height="140" rx="3"/>
+<rect class="box-strong" x="458" y="164" width="30" height="126" rx="3"/>
+<rect class="box-strong" x="504" y="180" width="30" height="110" rx="3"/>
+<rect class="box-strong" x="550" y="196" width="30" height="94" rx="3"/>
+<text class="t-xs" x="366" y="310">original cue</text>
+<text class="t-xs end" x="600" y="310">less similar →</text>
+<text class="t-b mid" x="165" y="108">Precise</text>
+<text class="t-xs mid" x="165" y="126">pain only to the original cue</text>
+<text class="t-accent mid" x="475" y="108">Imprecise</text>
+<text class="t-xs mid" x="475" y="126">pain generalises to safe cues</text>
+<path class="ln ln-dash" d="M475,88 V58 H165 V84" marker-end="url(#dg-arr)"/>
+<text class="t-sm mid" x="320" y="48">exposure restores precision</text>
+<text class="t-xs mid" x="320" y="342">bar height: pain evoked by each cue</text>
+</svg>
