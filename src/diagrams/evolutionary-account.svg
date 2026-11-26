@@ -1,0 +1,40 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Evolutionary account: tissue damage leads to pain, which injury sensitizes, and pain drives protective responses (escape, avoidance, rest and guarding, recruiting help) that promote survival and recovery. Under the smoke-detector principle, missed damage costs more than a false alarm, so the system is tuned towards false alarms; chronic pain may be a cost of this tuning or a mismatch.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="24" y="87" width="132" height="48" rx="10"/>
+<text class="t mid" x="90" y="116">Tissue damage</text>
+<path class="ln" d="M156,111 H196" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="200" y="87" width="96" height="48" rx="10"/>
+<text class="t-on mid" x="248" y="116">Pain</text>
+<path class="ln-accent" d="M272,87 C272,46 224,46 224,82" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="248" y="38">sensitization</text>
+<rect class="area" x="330" y="18" width="182" height="206" rx="14"/>
+<path class="ln" d="M296,111 H314 M314,48 V174"/>
+<path class="ln" d="M314,48 H342" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M314,90 H342" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M314,132 H342" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M314,174 H342" marker-end="url(#dg-arr)"/>
+<rect class="box" x="346" y="31" width="150" height="34" rx="8"/>
+<text class="t mid" x="421" y="53">Escape</text>
+<rect class="box" x="346" y="73" width="150" height="34" rx="8"/>
+<text class="t mid" x="421" y="95">Avoidance</text>
+<rect class="box" x="346" y="115" width="150" height="34" rx="8"/>
+<text class="t mid" x="421" y="137">Rest, guarding</text>
+<rect class="box" x="346" y="157" width="150" height="34" rx="8"/>
+<text class="t mid" x="421" y="179">Recruiting help</text>
+<text class="t-xs mid" x="421" y="213">protective responses</text>
+<path class="ln" d="M512,111 H528" marker-end="url(#dg-arr)"/>
+<rect class="box" x="532" y="83" width="88" height="56" rx="10"/>
+<text class="t mid" x="576" y="107">Survival,</text>
+<text class="t mid" x="576" y="126">recovery</text>
+<text class="t-sm" x="24" y="258">Smoke-detector principle</text>
+<text class="t-sm" x="24" y="287">missed damage</text>
+<rect class="box-strong" x="140" y="274" width="170" height="17" rx="3"/>
+<text class="t-sm" x="24" y="315">false alarm</text>
+<rect class="dot-muted" x="140" y="302" width="44" height="17" rx="3"/>
+<text class="t-xs" x="140" y="338">cost of each error</text>
+<path class="ln" d="M322,296 H356" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="360" y="268" width="260" height="56" rx="10"/>
+<text class="t mid" x="490" y="291">Tuned towards false alarms</text>
+<text class="t-xs mid" x="490" y="311">chronic pain: a cost, or a mismatch</text>
+</svg>

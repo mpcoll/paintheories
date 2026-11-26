@@ -69,6 +69,9 @@ evidence:
     direction: contradicts
     method: intervention
     refs: [traeger2019]
+diagram:
+  caption: "Evidence of danger, of which nociception is only one source, feeds the brain's implicit judgement of whether tissue is in danger, while safety cues lower it. Pain is the protective output of that judgement. Pain education, reframing pain as a need to protect, lowers its threat value."
+  after: [moseley2007]
 foundational: [butler2003, moseley2007]
 keyReferences: [moseley2003, moseley2015b]
 review: draft

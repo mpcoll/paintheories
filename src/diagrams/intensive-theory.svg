@@ -1,0 +1,20 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Intensive theory: pain arises when activity crosses a pain threshold, either because input to any sensory nerve becomes intense enough (left) or because repeated identical sub-threshold inputs summate in the dorsal horn until the threshold is crossed (right).</title>
+<text class="t-b mid" x="160" y="38">Excessive stimulation</text>
+<text class="t-xs mid" x="160" y="56">any sensory nerve</text>
+<text class="t-b mid" x="485" y="38">Summation</text>
+<text class="t-xs mid" x="485" y="56">in the dorsal horn</text>
+<path class="ln-thin ln-dash" d="M36,130 H604"/>
+<text class="t-xs mid" x="312" y="122">pain threshold</text>
+<rect class="box" x="70" y="250" width="30" height="46" rx="3"/>
+<rect class="box" x="120" y="210" width="30" height="86" rx="3"/>
+<rect class="box" x="170" y="166" width="30" height="130" rx="3"/>
+<rect class="box-strong" x="220" y="100" width="30" height="196" rx="3"/>
+<text class="t-accent mid" x="235" y="90">pain</text>
+<path class="ln-accent" d="M370,296 H390 V256 L435,264 V218 L480,226 V180 L525,188 V142 L570,150 V104 L604,112"/>
+<text class="t-accent mid" x="587" y="92">pain</text>
+<path class="ln-thin" d="M36,296 H604"/>
+<path class="ln" d="M390,308 V322 M435,308 V322 M480,308 V322 M525,308 V322 M570,308 V322"/>
+<text class="t-xs mid" x="160" y="318">increasing intensity</text>
+<text class="t-xs mid" x="480" y="344">identical sub-threshold inputs</text>
+</svg>

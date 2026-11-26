@@ -55,6 +55,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [rotge2014]
+diagram:
+  caption: "Physical and social pain overlap in a shared system for pain affect, chiefly the dorsal anterior cingulate cortex (dACC) and anterior insula. The physical pain system is held to have been co-opted during evolution to protect social bonds."
+  after: [eisenberger2003, macdonald2005]
 foundational: [eisenberger2003, macdonald2005]
 keyReferences: [eisenberger2012, iannetti2013, lieberman2015, wager2016]
 review: draft

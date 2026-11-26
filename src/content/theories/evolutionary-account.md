@@ -50,6 +50,9 @@ evidence:
     direction: mixed
     method: review
     refs: [kehlet2006]
+diagram:
+  caption: "Pain, amplified by injury-induced sensitization, drives protective responses that favour survival and recovery. Because missed damage costs more than a false alarm, the system is tuned towards false alarms; chronic pain may be a cost of this tuning or a mismatch."
+  after: [wall1979]
 foundational: [sherrington1906, wall1979]
 keyReferences: [walters2019, nesse2019, williams2016, williams2002]
 review: draft

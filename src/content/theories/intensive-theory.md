@@ -42,6 +42,9 @@ evidence:
     direction: mixed
     method: human-experimental
     refs: [torebjork1992]
+diagram:
+  caption: "Pain arises when central activity crosses a pain threshold: either input to any sensory nerve becomes intense enough (left), or repeated identical sub-threshold inputs summate in the dorsal horn until the threshold is reached (right)."
+  after: [goldscheider1894]
 foundational: [goldscheider1894]
 keyReferences: [moayedi2013, dallenbach1939]
 review: draft

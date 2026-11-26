@@ -70,6 +70,9 @@ evidence:
     direction: contradicts
     method: genetic
     refs: [emery2016]
+diagram:
+  caption: "Touch, pain and itch afferents act as modality-biased lines that interact in the dorsal horn: pain-related input inhibits itch, and an inhibitory gate keeps touch out of the pain pathway. If that gate is lost, touch evokes pain (allodynia)."
+  after: [ma2010, prescott2014]
 foundational: [ma2010, prescott2014]
 keyReferences: [craig2003b, perl2007, mendell2014]
 review: draft

@@ -41,6 +41,9 @@ evidence:
     direction: supports
     method: neuroimaging
     refs: [goldstein2018]
+diagram:
+  caption: "Pain is enacted as sense-making by an organism coupled with its physical, social and cultural world, not produced by the brain alone. In chronic pain, the field of affordances (the actions a person perceives as possible) is persistently restricted."
+  after: [stilwell2019]
 foundational: [stilwell2019]
 keyReferences: [coninx2021, kiverstein2022]
 review: draft

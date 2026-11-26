@@ -43,6 +43,9 @@ evidence:
     direction: mixed
     method: clinical
     refs: [ploner1999]
+diagram:
+  caption: "A pain represents a bodily disturbance (sensory content) and also represents it as bad for the subject (evaluative content), which makes it unpleasant. Without the evaluative content, as in pain asymbolia, pain does not hurt."
+  after: [bain2012]
 foundational: [cutter2011, bain2012]
 keyReferences: [bain2013, bain2017, aydede2013, corns2014, grahek2007]
 review: draft

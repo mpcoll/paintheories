@@ -44,6 +44,9 @@ evidence:
     direction: contradicts
     method: clinical
     refs: [ploner1999]
+diagram:
+  caption: "A pain experience represents a part of the body as damaged or disturbed, with location, intensity and quality attributed to that part. Like vision, it can misrepresent, as in phantom-limb and referred pain."
+  after: [pitcher1970]
 foundational: [armstrong1962, pitcher1970]
 keyReferences: [tye1995, cutter2011, aydede2013, grahek2007]
 review: draft

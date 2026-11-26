@@ -1,0 +1,31 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Central sensitization: intense or sustained nociceptor input triggers plasticity that amplifies the responses of central nociceptive neurons. The stimulus–response curve shifts left and up, so innocuous stimuli now cross the pain threshold (allodynia) and noxious stimuli evoke more pain (hyperalgesia); the change can persist with little peripheral drive.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="20" y="30" width="216" height="60" rx="10"/>
+<text class="t mid" x="128" y="56">Intense or sustained</text>
+<text class="t mid" x="128" y="75">nociceptor input</text>
+<path class="ln" d="M128,90 V124" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="20" y="128" width="216" height="50" rx="10"/>
+<text class="t-on mid" x="128" y="158">Central plasticity</text>
+<path class="ln-accent" d="M128,178 V212" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="20" y="216" width="216" height="60" rx="10"/>
+<text class="t mid" x="128" y="242">Amplified responses</text>
+<text class="t-xs mid" x="128" y="260">of central neurons</text>
+<text class="t-xs mid" x="128" y="300">can persist with little</text>
+<text class="t-xs mid" x="128" y="316">peripheral drive</text>
+<path class="ln-thin" d="M280,300 H620 M280,300 V44"/>
+<text class="t-xs" x="288" y="56">response</text>
+<path class="ln-thin ln-dash" d="M280,200 H620"/>
+<text class="t-xs" x="288" y="193">pain threshold</text>
+<path class="ln-thin" d="M450,300 V308"/>
+<text class="t-xs mid" x="365" y="320">innocuous</text>
+<text class="t-xs mid" x="535" y="320">noxious</text>
+<text class="t-xs end" x="620" y="344">stimulus intensity →</text>
+<path class="ln ln-dash" d="M280,300.0 L284,300.0 L288,299.9 L292,299.9 L296,299.9 L300,299.9 L304,299.9 L308,299.9 L312,299.9 L316,299.9 L320,299.8 L324,299.8 L328,299.8 L332,299.7 L336,299.7 L340,299.7 L344,299.6 L348,299.5 L352,299.5 L356,299.4 L360,299.3 L364,299.2 L368,299.1 L372,298.9 L376,298.8 L380,298.6 L384,298.4 L388,298.1 L392,297.8 L396,297.5 L400,297.1 L404,296.7 L408,296.2 L412,295.6 L416,295.0 L420,294.2 L424,293.4 L428,292.4 L432,291.3 L436,290.0 L440,288.6 L444,287.0 L448,285.2 L452,283.2 L456,281.0 L460,278.5 L464,275.7 L468,272.6 L472,269.3 L476,265.7 L480,261.7 L484,257.5 L488,253.0 L492,248.3 L496,243.4 L500,238.3 L504,233.0 L508,227.7 L512,222.3 L516,217.0 L520,211.7 L524,206.6 L528,201.7 L532,197.0 L536,192.5 L540,188.3 L544,184.3 L548,180.7 L552,177.4 L556,174.3 L560,171.5 L564,169.0 L568,166.8 L572,164.8 L576,163.0 L580,161.4 L584,160.0 L588,158.7 L592,157.6 L596,156.6 L600,155.8 L604,155.0 L608,154.4 L612,153.8 L616,153.3 L620,152.9"/>
+<path class="ln-accent" d="M280,296.7 L284,296.2 L288,295.7 L292,295.0 L296,294.3 L300,293.4 L304,292.5 L308,291.3 L312,290.1 L316,288.6 L320,287.0 L324,285.1 L328,283.0 L332,280.6 L336,277.8 L340,274.8 L344,271.4 L348,267.6 L352,263.4 L356,258.7 L360,253.6 L364,248.0 L368,242.0 L372,235.5 L376,228.5 L380,221.1 L384,213.4 L388,205.3 L392,197.0 L396,188.6 L400,180.0 L404,171.4 L408,163.0 L412,154.7 L416,146.6 L420,138.9 L424,131.5 L428,124.5 L432,118.0 L436,112.0 L440,106.4 L444,101.3 L448,96.6 L452,92.4 L456,88.6 L460,85.2 L464,82.2 L468,79.4 L472,77.0 L476,74.9 L480,73.0 L484,71.4 L488,69.9 L492,68.7 L496,67.5 L500,66.6 L504,65.7 L508,65.0 L512,64.3 L516,63.8 L520,63.3 L524,62.8 L528,62.5 L532,62.1 L536,61.9 L540,61.6 L544,61.4 L548,61.2 L552,61.0 L556,60.9 L560,60.8 L564,60.7 L568,60.6 L572,60.5 L576,60.4 L580,60.4 L584,60.3 L588,60.3 L592,60.3 L596,60.2 L600,60.2 L604,60.2 L608,60.1 L612,60.1 L616,60.1 L620,60.1"/>
+<text class="t-accent end" x="612" y="46">sensitized</text>
+<text class="t-xs end" x="612" y="176">normal</text>
+<text class="t-sm end" x="404" y="150">allodynia</text>
+<path class="ln" d="M604,68 V148" marker-start="url(#dg-arr)" marker-end="url(#dg-arr)"/>
+<text class="t-sm end" x="594" y="114">hyperalgesia</text>
+</svg>

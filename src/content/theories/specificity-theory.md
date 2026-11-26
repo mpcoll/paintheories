@@ -44,6 +44,9 @@ evidence:
     direction: mixed
     method: genetic
     refs: [lagerstrom2010, liu2010]
+diagram:
+  caption: "Each modality has its own receptor type and a dedicated pathway to its own brain centre. Pain is carried from free nerve endings along a labeled line to a pain-specific region."
+  after: [vonfrey1894]
 foundational: [vonfrey1894]
 keyReferences: [norrsell1999, moayedi2013, perl2007, ma2010, dallenbach1939]
 review: draft

@@ -54,6 +54,9 @@ evidence:
     direction: contradicts
     method: clinical
     refs: [nathan1976]
+diagram:
+  caption: "Normally, activity in fast, large myelinated fibres inhibits central transmission of slow, small-fibre input through a diffuse multisynaptic chain. When fast fibres are lost, slow input is disinhibited and summates, producing hyperpathia."
+  after: [noordenbos1959]
 foundational: [noordenbos1959]
 keyReferences: [melzack1965, moayedi2013, mendell2014]
 review: draft

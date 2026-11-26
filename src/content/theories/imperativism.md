@@ -41,6 +41,9 @@ evidence:
     direction: mixed
     method: neuroimaging
     refs: [rainville1997]
+diagram:
+  caption: "The content of pain is a command to protect a part of the body, such as to stop using or guard it, not a description of damage. Like itch, hunger and thirst, pain is a homeostatic sensation whose motivating force comes from its imperative content."
+  after: [klein2007]
 foundational: [klein2007, hall2008]
 keyReferences: [klein2015, klein2015b, martinez2010, martinez2015, bain2012, corns2014, grahek2007]
 review: draft

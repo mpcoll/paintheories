@@ -71,6 +71,9 @@ evidence:
     direction: mixed
     method: review
     refs: [sangesland2017]
+diagram:
+  caption: "Forebrain regions engage the PAG, which drives the RVM. RVM on cells facilitate and off cells inhibit nociceptive transmission in the dorsal horn; noxious input elsewhere on the body also inhibits it (DNIC, measured as CPM). In chronic pain, facilitation outweighs inhibition."
+  after: [basbaum1978, lebars1979]
 foundational: [basbaum1978, lebars1979]
 keyReferences: [fields2004, ossipov2010, ossipov2014, porreca2002, yarnitsky2010, mcphee2019, kennedy2016, reynolds1969]
 review: draft

@@ -1,0 +1,33 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Protective output account: evidence of danger (nociception, beliefs and experience, context and social cues) feeds the brain's implicit evaluation of whether body tissue is in danger, while safety cues lower it; pain is the protective output of this evaluation, not an input, and becomes sensitized in persistent pain. Pain education, reframing pain as a need to protect, lowers its threat value.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-xs" x="24" y="44">Evidence of danger</text>
+<rect class="box" x="24" y="56" width="184" height="40" rx="10"/>
+<text class="t mid" x="116" y="81">Nociception</text>
+<rect class="box" x="24" y="106" width="184" height="40" rx="10"/>
+<text class="t mid" x="116" y="131">Beliefs, experience</text>
+<rect class="box" x="24" y="156" width="184" height="40" rx="10"/>
+<text class="t mid" x="116" y="181">Context, social cues</text>
+<text class="t-xs" x="24" y="236">Evidence of safety</text>
+<rect class="box" x="24" y="246" width="184" height="40" rx="10"/>
+<text class="t mid" x="116" y="271">Safety cues</text>
+<path class="ln" d="M208,76 L257,126" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M208,126 L257,143" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M208,176 L257,162" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M208,266 L259,186" marker-end="url(#dg-bar)"/>
+<rect class="box-accent" x="262" y="108" width="196" height="88" rx="12"/>
+<text class="t-b mid" x="360" y="148">Tissue in danger?</text>
+<text class="t-xs mid" x="360" y="170">implicit brain evaluation</text>
+<path class="ln-accent" d="M458,152 H488" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="492" y="124" width="128" height="56" rx="12"/>
+<text class="t-on mid" x="556" y="157">Pain</text>
+<text class="t-sm mid" x="556" y="202">output, not input</text>
+<text class="t-xs mid" x="556" y="226">sensitized in</text>
+<text class="t-xs mid" x="556" y="242">persistent pain</text>
+<rect class="box" x="262" y="264" width="196" height="56" rx="12"/>
+<text class="t mid" x="360" y="288">Pain education</text>
+<text class="t-xs mid" x="360" y="307">pain = need to protect</text>
+<path class="ln ln-dash" d="M360,264 V200" marker-end="url(#dg-bar)"/>
+<text class="t-xs" x="370" y="228">lowers</text>
+<text class="t-xs" x="370" y="244">threat value</text>
+</svg>

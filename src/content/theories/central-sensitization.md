@@ -51,6 +51,9 @@ evidence:
     direction: mixed
     method: intervention
     refs: [staud2009]
+diagram:
+  caption: "Intense or sustained nociceptor input triggers plasticity that amplifies the responses of central nociceptive neurons. The stimulus-response curve shifts left and up: innocuous stimuli now cross the pain threshold (allodynia) and noxious stimuli evoke more pain (hyperalgesia)."
+  after: [woolf1983]
 foundational: [woolf1983]
 keyReferences: [woolf2000, latremoliere2009, woolf2011, ji2018, kosek2016]
 review: draft

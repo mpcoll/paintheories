@@ -1,0 +1,37 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Enactive approach: pain is enacted as sense-making by an organism (brain and body) dynamically coupled with its physical, social and cultural world, in one system rather than in the brain alone. In chronic pain the field of affordances, the possibilities for action a person perceives, is persistently restricted compared with an open field.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-sm mid" x="174" y="36">Brain–body–environment</text>
+<rect class="area-line" x="24" y="50" width="300" height="274" rx="16"/>
+<rect class="box" x="74" y="80" width="200" height="54" rx="10"/>
+<text class="t mid" x="174" y="103">Organism</text>
+<text class="t-xs mid" x="174" y="122">brain and body</text>
+<rect class="box" x="74" y="226" width="200" height="54" rx="10"/>
+<text class="t mid" x="174" y="249">World</text>
+<text class="t-xs mid" x="174" y="268">physical, social, cultural</text>
+<path class="ln-accent" d="M74,107 C28,107 28,253 70,253" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M274,253 C320,253 320,107 278,107" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs" x="50" y="185">acts</text>
+<text class="t-xs end" x="298" y="185">perceives</text>
+<text class="t-accent mid" x="174" y="176">Pain</text>
+<text class="t-xs mid" x="174" y="194">sense-making</text>
+<text class="t-xs mid" x="174" y="310">one system, not the brain alone</text>
+<path class="ln-thin" d="M350,50 V324"/>
+<text class="t-sm mid" x="490" y="36">Field of affordances</text>
+<circle class="dot-muted" cx="404" cy="120" r="6"/>
+<path class="ln" d="M404,120 L490.6,70" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M404,120 L500.6,94.1" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M404,120 L504,120" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M404,120 L500.6,145.9" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M404,120 L490.6,170" marker-end="url(#dg-arr)"/>
+<text class="t-sm" x="524" y="116">open field</text>
+<text class="t-xs" x="524" y="134">actions available</text>
+<circle class="dot" cx="404" cy="262" r="6"/>
+<path class="ln ln-dash" d="M404,262 L443.8,239" marker-end="url(#dg-bar)"/>
+<path class="ln" d="M404,262 L500.6,236.1" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M404,262 L504,262" marker-end="url(#dg-arr)"/>
+<path class="ln ln-dash" d="M404,262 L448.4,273.9" marker-end="url(#dg-bar)"/>
+<path class="ln ln-dash" d="M404,262 L443.8,285" marker-end="url(#dg-bar)"/>
+<text class="t-accent" x="524" y="258">restricted</text>
+<text class="t-xs" x="524" y="276">chronic pain</text>
+</svg>

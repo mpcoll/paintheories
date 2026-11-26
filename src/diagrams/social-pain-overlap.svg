@@ -1,0 +1,21 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Social pain overlap: physical pain and social pain (exclusion, rejection, loss) overlap in a shared affective system, chiefly the dorsal anterior cingulate cortex (dACC) and anterior insula; the physical pain system was co-opted during evolution to protect social bonds.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<circle class="area" cx="250" cy="165" r="115"/>
+<circle class="area" cx="390" cy="165" r="115"/>
+<path class="box-accent" d="M320,73.8 A115,115 0 0,1 320,256.2 A115,115 0 0,1 320,73.8 Z"/>
+<circle class="ln-thin" cx="250" cy="165" r="115"/>
+<circle class="ln-thin" cx="390" cy="165" r="115"/>
+<text class="t-b mid" x="203" y="160">Physical pain</text>
+<text class="t-xs mid" x="203" y="178">bodily harm</text>
+<text class="t-b mid" x="437" y="152">Social pain</text>
+<text class="t-xs mid" x="437" y="170">exclusion,</text>
+<text class="t-xs mid" x="437" y="186">rejection, loss</text>
+<text class="t-b mid" x="320" y="152">dACC</text>
+<text class="t-sm mid" x="320" y="174">anterior</text>
+<text class="t-sm mid" x="320" y="190">insula</text>
+<text class="t-accent mid" x="320" y="34">Shared: pain affect</text>
+<path class="ln-thin" d="M320,42 V73"/>
+<path class="ln" d="M241,281 Q320,330 397,283" marker-end="url(#dg-arr)"/>
+<text class="t-sm mid" x="320" y="338">co-opted to protect social bonds</text>
+</svg>

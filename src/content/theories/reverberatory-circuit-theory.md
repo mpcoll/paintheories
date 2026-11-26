@@ -54,6 +54,9 @@ evidence:
     direction: contradicts
     method: meta-analysis
     refs: [oconnell2016]
+diagram:
+  caption: "Abnormal input from a nerve injury sets up reverberating activity in the spinal internuncial pool, felt as pain. Spread to motor and sympathetic neurons causes peripheral changes that send more input back to the pool, closing a vicious circle."
+  after: [livingston1943]
 foundational: [livingston1943]
 keyReferences: [moayedi2013, melzack1965]
 review: draft

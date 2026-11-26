@@ -37,6 +37,9 @@ evidence:
     direction: mixed
     method: animal
     refs: [sherrington1910]
+diagram:
+  caption: "A harmful stimulus such as fire displaces the skin and pulls a thread in the nerve, opening a pore in the brain. Animal spirits released there produce the sensation and flow to the muscles for withdrawal; the inset shows pain as a fixed function of stimulus intensity."
+  after: [descartes1664]
 foundational: [descartes1664]
 keyReferences: [moayedi2013, perl2007]
 review: draft

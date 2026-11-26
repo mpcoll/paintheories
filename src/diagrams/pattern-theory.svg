@@ -1,0 +1,26 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Pattern theory: the same non-specific fibres carry different spatial and temporal patterns of impulses; the central nervous system reads the pattern, so one pattern is felt as touch and another as pain.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<text class="t-xs" x="28" y="44">Non-specific fibres</text>
+<path class="ln-thin" d="M36,72 H400 M36,102 H400 M36,132 H400"/>
+<circle class="dot-muted" cx="36" cy="72" r="5"/>
+<circle class="dot-muted" cx="36" cy="102" r="5"/>
+<circle class="dot-muted" cx="36" cy="132" r="5"/>
+<path class="ln" d="M110,62 V82 M250,62 V82 M350,62 V82 M180,92 V112 M310,92 V112 M140,122 V142 M280,122 V142"/>
+<text class="t-sm mid" x="218" y="187">same fibres, different pattern</text>
+<path class="ln-thin" d="M36,232 H400 M36,262 H400 M36,292 H400"/>
+<circle class="dot-muted" cx="36" cy="232" r="5"/>
+<circle class="dot-muted" cx="36" cy="262" r="5"/>
+<circle class="dot-muted" cx="36" cy="292" r="5"/>
+<path class="ln-accent" d="M120,222 V242 M132,222 V242 M144,222 V242 M156,222 V242 M270,222 V242 M282,222 V242 M294,222 V242 M140,252 V272 M152,252 V272 M164,252 V272 M176,252 V272 M290,252 V272 M302,252 V272 M314,252 V272 M326,252 V272 M110,282 V302 M122,282 V302 M134,282 V302 M260,282 V302 M272,282 V302 M284,282 V302"/>
+<rect class="box-accent" x="404" y="56" width="96" height="252" rx="10"/>
+<text class="t-b mid" x="452" y="178">CNS</text>
+<text class="t-xs mid" x="452" y="196">reads the</text>
+<text class="t-xs mid" x="452" y="211">pattern</text>
+<path class="ln" d="M500,102 H536" marker-end="url(#dg-arr)"/>
+<rect class="box" x="540" y="78" width="80" height="48" rx="10"/>
+<text class="t mid" x="580" y="107">Touch</text>
+<path class="ln-accent" d="M500,262 H536" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="540" y="238" width="80" height="48" rx="10"/>
+<text class="t-on mid" x="580" y="267">Pain</text>
+</svg>

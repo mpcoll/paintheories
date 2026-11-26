@@ -1,0 +1,32 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Population coding: touch, pain and itch afferent populations act as modality-biased lines that interact in the dorsal horn. Pain-related input inhibits itch through an interneuron (cross-inhibition), and an inhibitory gate keeps touch input out of the pain pathway; if that inhibition is lost, touch evokes pain (allodynia).</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-xs mid" x="80" y="32">Afferents</text>
+<text class="t-xs mid" x="560" y="32">Sensation</text>
+<rect class="area" x="152" y="40" width="336" height="300" rx="14"/>
+<text class="t-xs" x="164" y="330">Dorsal horn</text>
+<rect class="box" x="20" y="58" width="120" height="46" rx="10"/>
+<text class="t mid" x="80" y="86">Touch</text>
+<path class="ln" d="M140,81 H496" marker-end="url(#dg-arr)"/>
+<rect class="box" x="500" y="58" width="120" height="46" rx="10"/>
+<text class="t mid" x="560" y="86">Touch</text>
+<rect class="box" x="20" y="162" width="120" height="46" rx="10"/>
+<text class="t mid" x="80" y="190">Pain</text>
+<path class="ln" d="M140,185 H496" marker-end="url(#dg-arr)"/>
+<rect class="box" x="500" y="162" width="120" height="46" rx="10"/>
+<text class="t mid" x="560" y="190">Pain</text>
+<rect class="box" x="20" y="266" width="120" height="46" rx="10"/>
+<text class="t mid" x="80" y="294">Itch</text>
+<path class="ln" d="M140,289 H496" marker-end="url(#dg-arr)"/>
+<rect class="box" x="500" y="266" width="120" height="46" rx="10"/>
+<text class="t mid" x="560" y="294">Itch</text>
+<path class="ln ln-dash" d="M200,81 L292,181" marker-end="url(#dg-arr)"/>
+<path class="ln-accent" d="M324,124 L254,130" marker-end="url(#dg-bar)"/>
+<circle class="dot" cx="332" cy="123" r="8"/>
+<text class="t-sm" x="348" y="118">gate</text>
+<text class="t-xs" x="348" y="135">if lost: allodynia</text>
+<path class="ln-accent" d="M260,185 L294,231"/>
+<circle class="dot" cx="300" cy="238" r="8"/>
+<path class="ln-accent" d="M306,245 L340,285" marker-end="url(#dg-bar)"/>
+<text class="t-sm" x="316" y="242">cross-inhibition</text>
+</svg>

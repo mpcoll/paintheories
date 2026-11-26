@@ -1,0 +1,28 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Cartesian model: a harmful stimulus such as fire displaces the skin and pulls a thread inside the nerve; the pull opens a pore in the brain, releasing animal spirits that produce the sensation and flow to the muscles to produce withdrawal. Pain intensity rises in fixed proportion to stimulus intensity.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="20" y="36" width="124" height="60" rx="10"/>
+<text class="t mid" x="82" y="62">Stimulus</text>
+<text class="t-xs mid" x="82" y="80">e.g. fire</text>
+<path class="ln" d="M144,66 H182" marker-end="url(#dg-arr)"/>
+<rect class="box" x="186" y="36" width="110" height="60" rx="10"/>
+<text class="t mid" x="241" y="62">Skin</text>
+<text class="t-xs mid" x="241" y="80">displaced</text>
+<path class="ln-accent" d="M296,66 H442" marker-end="url(#dg-arr-accent)"/>
+<text class="t-accent mid" x="369" y="56">thread pulled</text>
+<text class="t-xs mid" x="369" y="86">inside the nerve</text>
+<rect class="box-strong" x="446" y="36" width="174" height="60" rx="10"/>
+<text class="t-on mid" x="533" y="61">Brain</text>
+<text class="t-on mid" x="533" y="81">pore opens</text>
+<path class="ln" d="M566,96 V154" marker-end="url(#dg-arr)"/>
+<rect class="box" x="500" y="158" width="120" height="50" rx="10"/>
+<text class="t mid" x="560" y="188">Sensation</text>
+<path class="ln" d="M478,96 V288 H234" marker-end="url(#dg-arr)"/>
+<text class="t-sm mid" x="356" y="278">animal spirits to muscles</text>
+<rect class="box" x="20" y="258" width="210" height="60" rx="10"/>
+<text class="t mid" x="125" y="293">Withdrawal response</text>
+<path class="ln-thin" d="M200,226 H362 M200,226 V128"/>
+<path class="ln-accent" d="M200,226 L354,140"/>
+<text class="t-xs" x="208" y="138">pain</text>
+<text class="t-xs end" x="362" y="244">stimulus intensity →</text>
+</svg>

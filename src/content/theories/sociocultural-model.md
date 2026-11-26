@@ -58,6 +58,9 @@ evidence:
     direction: mixed
     method: genetic
     refs: [nielsen2008]
+diagram:
+  caption: "Pain, its expression and help seeking sit within nested contexts: social position, culture with its learned meanings and norms, and a society whose meanings of pain change over time. Clinicians and institutions shape how pain is assessed and treated."
+  after: [zborowski1952, bates1987]
 foundational: [zborowski1952, bates1987, morris1991]
 keyReferences: [kleinman1988, campbell2012, anderson2009, rahimwilliams2012]
 review: draft

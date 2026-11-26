@@ -1,0 +1,29 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Specificity theory: each sensory modality (touch, warmth, cold, pain) has its own receptor type and a separate, dedicated pathway to its own centre in the brain; pain is carried from free nerve endings along a labeled line to a pain centre.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<text class="t-xs mid" x="100" y="34">Receptor types</text>
+<text class="t-xs mid" x="318" y="34">Dedicated pathways</text>
+<text class="t-xs mid" x="540" y="34">Brain centres</text>
+<rect class="box" x="20" y="50" width="160" height="46" rx="10"/>
+<text class="t mid" x="100" y="78">Touch</text>
+<path class="ln" d="M180,73 H456" marker-end="url(#dg-arr)"/>
+<rect class="box" x="460" y="50" width="160" height="46" rx="10"/>
+<text class="t mid" x="540" y="78">Touch centre</text>
+<rect class="box" x="20" y="120" width="160" height="46" rx="10"/>
+<text class="t mid" x="100" y="148">Warmth</text>
+<path class="ln" d="M180,143 H456" marker-end="url(#dg-arr)"/>
+<rect class="box" x="460" y="120" width="160" height="46" rx="10"/>
+<text class="t mid" x="540" y="148">Warmth centre</text>
+<rect class="box" x="20" y="190" width="160" height="46" rx="10"/>
+<text class="t mid" x="100" y="218">Cold</text>
+<path class="ln" d="M180,213 H456" marker-end="url(#dg-arr)"/>
+<rect class="box" x="460" y="190" width="160" height="46" rx="10"/>
+<text class="t mid" x="540" y="218">Cold centre</text>
+<rect class="box-accent" x="20" y="262" width="160" height="60" rx="10"/>
+<text class="t-b mid" x="100" y="287">Pain</text>
+<text class="t-xs mid" x="100" y="306">free nerve endings</text>
+<path class="ln-accent" d="M180,292 H456" marker-end="url(#dg-arr-accent)"/>
+<text class="t-accent mid" x="318" y="282">labeled line</text>
+<rect class="box-strong" x="460" y="266" width="160" height="52" rx="10"/>
+<text class="t-on mid" x="540" y="297">Pain centre</text>
+</svg>

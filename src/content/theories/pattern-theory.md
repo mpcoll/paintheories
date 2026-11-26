@@ -41,6 +41,9 @@ evidence:
     direction: mixed
     method: genetic
     refs: [lagerstrom2010, liu2010]
+diagram:
+  caption: "The same non-specific fibres can carry different spatial and temporal patterns of impulses. The central nervous system reads the pattern, so one pattern is felt as touch and another as pain."
+  after: [nafe1929, sinclair1955]
 foundational: [nafe1929, sinclair1955, weddell1955]
 keyReferences: [moayedi2013, ma2010]
 review: draft

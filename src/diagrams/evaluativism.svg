@@ -1,0 +1,25 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Evaluativism: a pain experience represents a part of one's own body as damaged or disturbed (sensory content) and also as bad for the subject (evaluative content), which makes it unpleasant. Without evaluative content, as in pain asymbolia, pain does not hurt.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box-strong" x="24" y="148" width="140" height="64" rx="12"/>
+<text class="t-on mid" x="94" y="175">Pain</text>
+<text class="t-on mid" x="94" y="195">experience</text>
+<path class="ln" d="M164,180 H234" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="200" y="170">represents</text>
+<rect class="area" x="240" y="40" width="380" height="276" rx="14"/>
+<text class="t-sm" x="262" y="66">Content: perception plus evaluation</text>
+<rect class="box" x="262" y="94" width="124" height="48" rx="10"/>
+<text class="t mid" x="324" y="123">This body part</text>
+<text class="t-xs" x="402" y="88">sensory content</text>
+<text class="t-xs" x="402" y="168">evaluative content</text>
+<rect class="box" x="402" y="94" width="198" height="48" rx="10"/>
+<text class="t mid" x="501" y="115">is damaged</text>
+<text class="t-xs mid" x="501" y="132">or disturbed</text>
+<rect class="box-accent" x="402" y="176" width="198" height="48" rx="10"/>
+<text class="t-b mid" x="501" y="197">bad for me</text>
+<text class="t-xs mid" x="501" y="214">unpleasantness</text>
+<text class="t-sm end" x="388" y="205">and it is</text>
+<path class="ln-thin" d="M262,248 H600"/>
+<text class="t-xs" x="262" y="274">without evaluative content (asymbolia):</text>
+<text class="t-sm" x="262" y="296">pain that does not hurt</text>
+</svg>

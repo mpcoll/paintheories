@@ -1,0 +1,24 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Sociocultural model: pain, including reported intensity, pain behaviour and help seeking, sits within nested contexts: social position (discrimination, trust, disadvantage), culture (learned meanings and norms of expression), and society and history, where the meanings of pain change over time. Clinicians and institutions, through their beliefs and practices, shape assessment and treatment.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="area" x="20" y="20" width="600" height="320" rx="16"/>
+<text class="t-b" x="36" y="44">Society and history</text>
+<text class="t-xs" x="206" y="44">meanings of pain change over time</text>
+<rect class="box-accent" x="40" y="58" width="372" height="266" rx="14"/>
+<text class="t-b" x="56" y="82">Culture</text>
+<text class="t-xs" x="124" y="82">learned meanings, norms of expression</text>
+<rect class="box" x="58" y="96" width="336" height="212" rx="12"/>
+<text class="t-b" x="74" y="120">Social position</text>
+<text class="t-xs" x="74" y="138">discrimination, trust, disadvantage</text>
+<rect class="box-strong" x="96" y="160" width="260" height="116" rx="10"/>
+<text class="t-on mid" x="226" y="200">Pain</text>
+<text class="t-on mid" x="226" y="228">intensity, behaviour,</text>
+<text class="t-on mid" x="226" y="250">help seeking</text>
+<rect class="box" x="440" y="136" width="164" height="88" rx="12"/>
+<text class="t mid" x="522" y="166">Clinicians,</text>
+<text class="t mid" x="522" y="186">institutions</text>
+<text class="t-xs mid" x="522" y="208">beliefs, practices</text>
+<path class="ln" d="M440,200 H360" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="522" y="248">shape assessment</text>
+<text class="t-xs mid" x="522" y="264">and treatment</text>
+</svg>
