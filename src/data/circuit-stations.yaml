@@ -1,0 +1,137 @@
+# Stations of the pain circuits shown on /biology/. Each maps to a region of the
+# Planum atlas (https://planumatlas.com), opened on its CDMD sub_013 anatomy.
+# planum.atlas / planum.detail select the parcellation and internal-anatomy level
+# the region belongs to; planum.view is the camera; cortex: false hides the cortex.
+- id: dorsal-horn
+  name: Dorsal horn
+  short: Dorsal horn
+  level: spinal
+  role: First central synapse of the pain pathways. Nociceptors terminate mainly in laminae I–II and V, where projection neurons send axons across the midline into the anterolateral tract. Local interneurons and descending inputs modulate transmission at this stage.
+  refs: [todd2010, basbaum2009]
+  theories: [gate-control-theory, central-sensitization, population-coding-theory]
+  mechanisms: [dorsal-horn-gating, synaptic-plasticity]
+  planum: { region: "pam50:left:dorsal-horn", view: posterior, cortex: false }
+  note: Left dorsal horn, which receives input from the left side of the body.
+- id: anterolateral-tract
+  name: Anterolateral (spinothalamic) tract
+  short: Spinothalamic tract
+  level: spinal
+  role: Axons of lamina I and V projection neurons cross the midline near their level of entry and ascend in the anterolateral spinal cord to the brainstem and thalamus.
+  refs: [basbaum2009, todd2010]
+  theories: [specificity-theory]
+  mechanisms: []
+  planum: { region: "pam50:right:spinal-lemniscus", view: anterior, cortex: false }
+  note: Right spinal lemniscus, carrying signals from the left side of the body after the spinal crossing.
+- id: lateral-thalamus
+  name: Lateral thalamus (VPL, VPI)
+  short: Lateral thalamus
+  level: thalamus
+  role: The ventral posterior lateral and inferior nuclei relay spinothalamic input to somatosensory cortex and the parietal operculum, supporting the localisation and intensity of pain (its sensory-discriminative dimension).
+  refs: [price2000, garcialarrea2013]
+  theories: [three-dimensional-model, specificity-theory]
+  mechanisms: []
+  planum: { region: "nextbrain:right:10424", detail: nextbrain, view: anterior, cortex: false }
+  note: Shown is the ventral posterior inferior nucleus (VPI), the thalamic station of Planum's spinothalamic tour.
+- id: medial-thalamus
+  name: Medial and intralaminar thalamus
+  short: Medial thalamus
+  level: thalamus
+  role: Medial and intralaminar thalamic nuclei receive ascending nociceptive input and project to cingulate and other forebrain areas, a route associated with the affective-motivational dimension of pain.
+  refs: [price2000, vogt2005]
+  theories: [three-dimensional-model]
+  mechanisms: []
+  planum: { region: "nextbrain:right:10425", detail: nextbrain, view: anterior, cortex: false }
+  note: Shown is the lateral division of the central lateral nucleus, one of the intralaminar nuclei.
+- id: s1
+  name: Primary somatosensory cortex (S1)
+  short: S1
+  level: cortex
+  role: Receives input from the ventral posterior thalamus and contributes to localising pain and coding its intensity.
+  refs: [price2000, bushnell2013]
+  theories: [three-dimensional-model, maladaptive-cortical-plasticity]
+  mechanisms: [cortical-reorganisation]
+  planum: { region: "destrieux:right:28", view: right, cortex: true }
+- id: operculum
+  name: Parietal operculum (S2, OP1)
+  short: Operculum (S2)
+  level: cortex
+  role: With the adjacent posterior insula, the operculo-insular cortex is considered a main cortical target of spinothalamic input and is central to the sensory processing of pain.
+  refs: [garcialarrea2013]
+  theories: [salience-detection-account]
+  mechanisms: [distributed-brain-network]
+  planum: { region: "hcp-mmp:right:101", atlas: hcp-mmp, view: right, cortex: true }
+- id: posterior-insula
+  name: Posterior insula
+  short: Posterior insula
+  level: cortex
+  role: Receives nociceptive and thermal input from the thalamus. It has been proposed as primary interoceptive cortex, representing the physiological condition of the body, with re-representation in anterior insula linked to subjective feeling.
+  refs: [craig2003, garcialarrea2013]
+  theories: [homeostatic-emotion, salience-detection-account]
+  mechanisms: [interoception]
+  planum: { region: "julich:right:40", atlas: julich, view: right, cortex: true }
+  note: Shown is Julich-Brain area Ig2, a granular area of the posterior insula.
+- id: cingulate
+  name: Anterior midcingulate cortex
+  short: Midcingulate cortex
+  level: cortex
+  role: Responds to noxious stimuli and is linked to the unpleasantness of pain and to selecting responses to it. It also projects to the periaqueductal grey, through which it can modulate pain.
+  refs: [vogt2005, price2000, bushnell2013]
+  theories: [three-dimensional-model, salience-detection-account, interruptive-function-model]
+  mechanisms: [attention-to-pain]
+  planum: { region: "destrieux:right:7", view: left, cortex: true, hemi: right }
+  note: Shown on the medial face of the right hemisphere.
+- id: parabrachial
+  name: Parabrachial nucleus
+  short: Parabrachial
+  level: pons
+  role: A major target of lamina I neurons. It relays nociceptive information to the amygdala and hypothalamus (the spinoparabrachial pathway), linking pain to emotional, autonomic and homeostatic responses.
+  refs: [gauriau2002, todd2010]
+  theories: [homeostatic-emotion]
+  mechanisms: [stress-response]
+  planum: { region: "aan:right:parabrachial-complex", view: left, cortex: false }
+- id: amygdala
+  name: Amygdala
+  short: Amygdala
+  level: limbic
+  role: Its central nucleus receives nociceptive information from the parabrachial nucleus. The amygdala contributes to the emotional-affective side of pain and to pain modulation, and shows plasticity in persistent pain.
+  refs: [neugebauer2004, kuner2021]
+  theories: [classical-conditioning-model, corticolimbic-learning-theory, fear-avoidance-model]
+  mechanisms: [fear-learning]
+  planum: { region: "learning:right:amygdala", view: right, cortex: false }
+- id: hypothalamus
+  name: Hypothalamus
+  short: Hypothalamus
+  level: limbic
+  role: Receives spinal and parabrachial nociceptive input and coordinates autonomic and neuroendocrine responses to pain. It also projects to the periaqueductal grey.
+  refs: [gauriau2002, kuner2021]
+  theories: [allostatic-load-model, homeostatic-emotion]
+  mechanisms: [stress-response]
+  planum: { region: "learning:right:hypothalamus", view: right, cortex: false }
+- id: pag
+  name: Periaqueductal grey (PAG)
+  short: PAG
+  level: midbrain
+  role: Integrates input from cortex, amygdala and hypothalamus and, through the rostral ventromedial medulla, inhibits or facilitates dorsal horn transmission. It is a key site of stimulation-produced and opioid analgesia.
+  refs: [basbaum1978, heinricher2009, ossipov2010]
+  theories: [endogenous-modulation-model, motivation-decision-model, expectancy-placebo-analgesia]
+  mechanisms: [descending-modulation]
+  planum: { region: "aan:midline:periaqueductal-grey", view: left, cortex: false }
+- id: rvm
+  name: Rostral ventromedial medulla (RVM)
+  short: RVM
+  level: medulla
+  role: The main output of the PAG to the spinal cord. RVM "ON" and "OFF" cells facilitate or inhibit dorsal horn transmission, and a shift towards facilitation is implicated in persistent pain.
+  refs: [heinricher2009, ossipov2010]
+  theories: [endogenous-modulation-model, motivation-decision-model, central-sensitization]
+  mechanisms: [descending-modulation]
+  planum: { region: "learning:right:medulla", view: left, cortex: false }
+  note: Planum does not delineate the RVM, so the view shows the medullary territory that contains it.
+- id: locus-coeruleus
+  name: Locus coeruleus
+  short: Locus coeruleus
+  level: pons
+  role: Noradrenergic neurons project to the dorsal horn, where noradrenaline inhibits nociceptive transmission. It is one of the monoaminergic routes of descending control.
+  refs: [ossipov2010, kuner2021]
+  theories: [endogenous-modulation-model]
+  mechanisms: [descending-modulation]
+  planum: { region: "aan:right:locus-coeruleus", view: left, cortex: false }

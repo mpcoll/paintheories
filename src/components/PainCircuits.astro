@@ -1,0 +1,304 @@
+---
+/**
+ * Interactive pain-circuit figure: a schematic of ascending and descending pathways
+ * (stations from src/data/circuit-stations.yaml, pathways from circuit-pathways.yaml)
+ * beside a panel that shows the selected station in Planum's 3D atlas.
+ */
+import { getCollection, getEntries } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+import { planumLink, planumTourLink } from '../lib/planum';
+
+const stations = await getCollection('circuitStations');
+const pathways = await getCollection('circuitPathways');
+const theories = new Map((await getCollection('theories')).map((t) => [t.id, t.data.shortTitle ?? t.data.title]));
+const mechanisms = new Map((await getCollection('mechanisms')).map((m) => [m.id, m.data.title]));
+const allRefIds = [...new Set([...stations.flatMap((s) => s.data.refs), ...pathways.flatMap((p) => p.data.refs)].map((r) => r.id))];
+const refs = new Map(((await getEntries(allRefIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const refLink = (id: string) => {
+  const r = refs.get(id)!;
+  return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title };
+};
+
+// ---- Layout of the schematic (presentation only) ----
+const W = 720, H = 640;
+const POS: Record<string, [number, number]> = {
+  s1: [104, 70], operculum: [248, 70], 'posterior-insula': [411, 70], cingulate: [602, 70],
+  'lateral-thalamus': [175, 185], 'medial-thalamus': [340, 185], amygdala: [488, 185], hypothalamus: [646, 185],
+  pag: [540, 282],
+  parabrachial: [370, 358], 'locus-coeruleus': [640, 358],
+  rvm: [540, 432],
+  'anterolateral-tract': [175, 522], 'dorsal-horn': [370, 590],
+};
+const BANDS = [
+  { label: 'Cortex', y0: 22, y1: 118 },
+  { label: 'Thalamus · limbic', y0: 138, y1: 232 },
+  { label: 'Midbrain', y0: 252, y1: 312 },
+  { label: 'Pons', y0: 326, y1: 390 },
+  { label: 'Medulla', y0: 404, y1: 462 },
+  { label: 'Spinal cord', y0: 482, y1: 624 },
+];
+const STYLE: Record<string, { cls: string; offset: number }> = {
+  lateral: { cls: 'pw-lateral', offset: -4 },
+  medial: { cls: 'pw-medial', offset: 4 },
+  spinoparabrachial: { cls: 'pw-spinoparabrachial', offset: 0 },
+  descending: { cls: 'pw-descending', offset: 0 },
+};
+const nodeW = (s: string) => Math.max(72, s.length * 8.3 + 26);
+const NODE_H = 38;
+
+// Some edges bend around other nodes (control point of a quadratic curve).
+const CURVES: Record<string, [number, number]> = { 'parabrachial>hypothalamus': [486, 228] };
+
+// Edge from the border of one node box to the border of the other, offset sideways.
+function edgePath(a: string, b: string, offset: number) {
+  const [x1, y1] = POS[a], [x2, y2] = POS[b];
+  const ctrl = CURVES[`${a}>${b}`];
+  const unit = (dx: number, dy: number) => { const l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
+  const clip = (x: number, y: number, w: number, tx: number, ty: number) => {
+    const hw = w / 2 + 3, hh = NODE_H / 2 + 3;
+    const t = Math.min(hw / Math.abs(tx || 1e-9), hh / Math.abs(ty || 1e-9));
+    return [x + tx * t, y + ty * t];
+  };
+  const wa = nodeW(stations.find((s) => s.id === a)!.data.short), wb = nodeW(stations.find((s) => s.id === b)!.data.short);
+  const [ux1, uy1] = unit((ctrl?.[0] ?? x2) - x1, (ctrl?.[1] ?? y2) - y1); // leaving a
+  const [ux2, uy2] = unit(x2 - (ctrl?.[0] ?? x1), y2 - (ctrl?.[1] ?? y1)); // arriving at b
+  const [sx, sy] = clip(x1, y1, wa, ux1, uy1);
+  const [ex, ey] = clip(x2, y2, wb, -ux2, -uy2);
+  const [nx, ny] = [-uy1 * offset, ux1 * offset];
+  const f = (n: number) => n.toFixed(1);
+  if (ctrl) return `M${f(sx)},${f(sy)} Q${f(ctrl[0])},${f(ctrl[1])} ${f(ex)},${f(ey)}`;
+  return `M${f(sx + nx)},${f(sy + ny)} L${f(ex + nx)},${f(ey + ny)}`;
+}
+
+const membership = new Map<string, string[]>();
+for (const p of pathways) for (const s of p.data.stations) membership.set(s.id, [...(membership.get(s.id) ?? []), p.id]);
+
+const payload = Object.fromEntries(
+  stations.map((s) => [
+    s.id,
+    {
+      name: s.data.name,
+      role: s.data.role,
+      note: s.data.note ?? null,
+      pathways: (membership.get(s.id) ?? []).map((pid) => ({ id: pid, name: pathways.find((p) => p.id === pid)!.data.name })),
+      refs: s.data.refs.map((r) => refLink(r.id)),
+      theories: s.data.theories.map((t) => ({ name: theories.get(t.id)!, href: url(`theories/${t.id}/`) })),
+      mechanisms: s.data.mechanisms.map((m) => ({ name: mechanisms.get(m.id)!, href: url(`mechanisms/${m.id}/`) })),
+      planum: planumLink(s.data.planum),
+      embed: planumLink(s.data.planum, { embed: true }),
+    },
+  ]),
+);
+const order = ['lateral', 'medial', 'spinoparabrachial', 'descending'];
+const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+---
+
+<div class="pc" id="pain-circuits" data-active="all">
+  <div class="pc-chips" role="group" aria-label="Show pathway" data-pagefind-ignore>
+    <button type="button" class="chip" data-pw="all" aria-pressed="true">All pathways</button>
+    {sortedPathways.map((p) => (
+      <button type="button" class="chip" data-pw={p.id} aria-pressed="false">
+        <span class={`sw ${STYLE[p.id].cls}`} aria-hidden="true"></span>{p.data.name}
+      </button>
+    ))}
+  </div>
+
+  <div class="pc-grid">
+    <figure class="card pc-figure">
+      <svg viewBox={`0 0 ${W} ${H}`} class="pc-svg" role="img" aria-labelledby="pc-title">
+        <title id="pc-title">Schematic of the pain circuits: ascending lateral, medial and spinoparabrachial pathways from the dorsal horn to the brain, and descending modulation from the brain to the dorsal horn. Select a station to see it in 3D.</title>
+        <defs>
+          {Object.values(STYLE).map((st) => (
+            <marker id={`m-${st.cls}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path class={`mk ${st.cls}`} d="M0,0 L10,5 L0,10 z" />
+            </marker>
+          ))}
+        </defs>
+        {BANDS.map((b, i) => (
+          <g>
+            <rect class={`band ${i % 2 ? 'odd' : ''}`} x="0" y={b.y0} width={W} height={b.y1 - b.y0} rx="10" />
+            <text class="band-label" x="12" y={b.y0 + 16}>{b.label}</text>
+          </g>
+        ))}
+        <g class="edges">
+          {sortedPathways.flatMap((p) =>
+            p.data.edges.map(([a, b]) => (
+              <path class={`edge ${STYLE[p.id].cls}`} data-pw={p.id} d={edgePath(a.id, b.id, STYLE[p.id].offset)} marker-end={`url(#m-${STYLE[p.id].cls})`} />
+            )),
+          )}
+        </g>
+        {stations.map((s) => {
+          const [x, y] = POS[s.id];
+          const w = nodeW(s.data.short);
+          return (
+            <g class="st" data-id={s.id} data-pw={(membership.get(s.id) ?? []).join(' ')} tabindex="0" role="button" aria-label={`${s.data.name}: show details and 3D view`}>
+              <rect x={x - w / 2} y={y - NODE_H / 2} width={w} height={NODE_H} rx="9" />
+              <text x={x} y={y + 5} text-anchor="middle">{s.data.short}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption>
+        <ul class="legend" aria-label="Pathways">
+          <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-lateral" /></svg>Lateral</li>
+          <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-medial" /></svg>Medial</li>
+          <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-spinoparabrachial" /></svg>Spinoparabrachial</li>
+          <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-descending" /></svg>Descending</li>
+        </ul>
+        Schematic: positions show levels, not exact anatomy. Signals from the left side of the body cross to the right side of the brain. Select a station to see it in 3D.
+      </figcaption>
+    </figure>
+
+    <aside class="card pc-panel" aria-live="polite">
+      <p class="eyebrow pc-pw"></p>
+      <h2 class="pc-name"></h2>
+      <p class="pc-role"></p>
+      <p class="pc-note muted"></p>
+      <p class="pc-refs"></p>
+      <div class="pc-3d">
+        <iframe title="Selected station in Planum's 3D brain atlas" loading="lazy" allow="fullscreen" src="about:blank"></iframe>
+      </div>
+      <p class="pc-open"><a class="btn" target="_blank" rel="noopener">Open in Planum ↗</a></p>
+      <div class="pc-links"></div>
+    </aside>
+  </div>
+
+  <section class="pc-pathways">
+    {sortedPathways.map((p) => (
+      <article class="card pc-pathway" id={`pathway-${p.id}`}>
+        <h3><span class={`sw ${STYLE[p.id].cls}`} aria-hidden="true"></span>{p.data.name} <span class="muted kind">{p.data.kind}</span></h3>
+        <p>{p.data.summary}</p>
+        <p class="route">
+          {p.data.stations.map((s, i) => (
+            <>{i > 0 && <span aria-hidden="true"> → </span>}<button type="button" class="linklike" data-select={s.id}>{stations.find((x) => x.id === s.id)!.data.short}</button></>
+          ))}
+        </p>
+        <p class="pc-small">
+          {p.data.refs.map((r, i) => { const l = refLink(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}
+          {p.data.planumTour && <> · <a href={planumTourLink(p.data.planumTour)} target="_blank" rel="noopener">Guided tour in Planum ↗</a></>}
+        </p>
+      </article>
+    ))}
+  </section>
+</div>
+
+<script type="application/json" id="pc-data" set:html={JSON.stringify(payload)} />
+
+<style>
+  .pc-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .chip { font: 500 .86rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .32rem .8rem; cursor: pointer; display: inline-flex; align-items: center; gap: .45rem; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .sw { display: inline-block; width: 16px; height: 3px; border-radius: 2px; background: var(--c); }
+  .pw-lateral { --c: var(--d1); }
+  .pw-medial { --c: var(--d2); }
+  .pw-spinoparabrachial { --c: var(--d3); }
+  .pw-descending { --c: var(--ink-2); }
+  .sw.pw-descending { background: repeating-linear-gradient(90deg, var(--ink-2) 0 4px, transparent 4px 7px); }
+
+  .pc-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+  @media (max-width: 980px) { .pc-grid { grid-template-columns: 1fr; } }
+  .pc-figure { margin: 0; padding: 1rem; }
+  .pc-svg { width: 100%; height: auto; display: block; }
+  .pc-svg .band { fill: var(--surface-2); opacity: .55; }
+  .pc-svg .band.odd { opacity: .25; }
+  .pc-svg .band-label { fill: var(--ink-3); font: 600 12px var(--font); letter-spacing: .06em; text-transform: uppercase; }
+  .pc-svg .edge { fill: none; stroke: var(--c); stroke-width: 2.6; stroke-linecap: round; transition: opacity .2s; }
+  .pc-svg .edge.pw-descending { stroke-dasharray: 7 5; stroke-width: 2.2; }
+  .pc-svg .mk { fill: var(--c); }
+  .pc-svg .st { cursor: pointer; transition: opacity .2s; }
+  .pc-svg .st rect { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.5; transition: stroke .15s, fill .15s; }
+  .pc-svg .st text { fill: var(--ink); font: 500 14.5px var(--font); pointer-events: none; }
+  .pc-svg .st:hover rect, .pc-svg .st:focus-visible rect { stroke: var(--accent); }
+  .pc-svg .st:focus { outline: none; }
+  .pc-svg .st.sel rect { fill: var(--ink); stroke: var(--ink); }
+  .pc-svg .st.sel text { fill: var(--bg); font-weight: 650; }
+  .pc:not([data-active='all']) .edge.off { opacity: .07; }
+  .pc:not([data-active='all']) .st.off { opacity: .3; }
+  .pc-figure figcaption { font-size: .8rem; color: var(--ink-3); margin-top: .5rem; }
+  .pc-figure .legend { margin: 0 0 .4rem; font-size: .8rem; }
+  .lg { stroke: var(--c); stroke-width: 3; }
+  .lg.pw-descending { stroke-dasharray: 5 4; stroke-width: 2.4; }
+
+  .pc-panel { position: sticky; top: 128px; }
+  @media (max-width: 980px) { .pc-panel { position: static; } }
+  .pc-panel h2 { margin: .1rem 0 .5rem; font-size: 1.45rem; }
+  .pc-panel .eyebrow { margin: 0; }
+  .pc-role { margin: 0 0 .5rem; }
+  .pc-note { font-size: .86rem; margin: 0 0 .5rem; }
+  .pc-note:empty { display: none; }
+  .pc-refs { font-size: .84rem; margin: 0 0 .8rem; }
+  .pc-refs a, .pc-links a { text-decoration: none; }
+  .pc-3d { aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .pc-3d iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .pc-open { margin: .6rem 0; }
+  .pc-links { display: grid; gap: .5rem; font-size: .88rem; }
+  .pc-links h3 { font: 600 .72rem var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: .3rem 0 .15rem; }
+  .pc-links ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
+
+  .pc-pathways { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .pc-pathway h3 { margin: 0 0 .4rem; font-size: 1.1rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .pc-pathway .kind { font: 500 .75rem var(--font); text-transform: uppercase; letter-spacing: .06em; }
+  .pc-pathway p { font-size: .92rem; margin: 0 0 .5rem; color: var(--ink-2); }
+  .pc-pathway .route { color: var(--ink); }
+  .linklike { all: unset; cursor: pointer; color: var(--accent); border-bottom: 1px dotted currentColor; }
+  .linklike:focus-visible { outline: 2px solid var(--accent); }
+  .pc-small { font-size: .82rem !important; }
+  .pc-small a { text-decoration: none; }
+</style>
+
+<script>
+  const root = document.getElementById('pain-circuits')!;
+  const data = JSON.parse(document.getElementById('pc-data')!.textContent!);
+  const panel = root.querySelector('.pc-panel')!;
+  const frame = panel.querySelector('iframe')!;
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  const links = (items: { name?: string; label?: string; href: string; title?: string }[]) =>
+    items.map((i) => `<a href="${i.href}"${i.title ? ` title="${esc(i.title)}"` : ''}>${esc(i.name ?? i.label!)}</a>`).join('');
+
+  function select(id: string, push = true) {
+    const s = data[id];
+    if (!s) return;
+    root.querySelectorAll('.st').forEach((n) => n.classList.toggle('sel', (n as HTMLElement).dataset.id === id));
+    panel.querySelector('.pc-pw')!.textContent = s.pathways.map((p: any) => p.name).join(' · ');
+    panel.querySelector('.pc-name')!.textContent = s.name;
+    panel.querySelector('.pc-role')!.textContent = s.role;
+    panel.querySelector('.pc-note')!.textContent = s.note ?? '';
+    panel.querySelector('.pc-refs')!.innerHTML = 'Sources: ' + s.refs.map((r: any) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+    if (frame.dataset.src !== s.embed) { frame.src = s.embed; frame.dataset.src = s.embed; }
+    (panel.querySelector('.pc-open a') as HTMLAnchorElement).href = s.planum;
+    panel.querySelector('.pc-links')!.innerHTML =
+      (s.theories.length ? `<div><h3>Theories</h3><ul>${links(s.theories).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '') +
+      (s.mechanisms.length ? `<div><h3>Mechanisms</h3><ul>${links(s.mechanisms).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '');
+    if (push) {
+      const p = new URLSearchParams(location.search);
+      p.set('station', id);
+      history.replaceState(null, '', `?${p}${location.hash}`);
+    }
+  }
+
+  function showPathway(pw: string) {
+    root.dataset.active = pw;
+    root.querySelectorAll<HTMLButtonElement>('.pc-chips .chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pw === pw)));
+    root.querySelectorAll<SVGElement>('.edge').forEach((e) => e.classList.toggle('off', pw !== 'all' && e.dataset.pw !== pw));
+    root.querySelectorAll<SVGElement>('.st').forEach((n) => n.classList.toggle('off', pw !== 'all' && !(n.dataset.pw ?? '').split(' ').includes(pw)));
+    const p = new URLSearchParams(location.search);
+    if (pw === 'all') p.delete('pathway'); else p.set('pathway', pw);
+    history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+  }
+
+  root.querySelectorAll<SVGGElement>('.st').forEach((n) => {
+    n.addEventListener('click', () => select(n.dataset.id!));
+    n.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(n.dataset.id!); } });
+  });
+  root.querySelectorAll<HTMLButtonElement>('.pc-chips .chip').forEach((b) => b.addEventListener('click', () => showPathway(b.dataset.pw!)));
+  root.querySelectorAll<HTMLButtonElement>('[data-select]').forEach((b) =>
+    b.addEventListener('click', () => { select(b.dataset.select!); root.querySelector('.pc-grid')!.scrollIntoView({ behavior: 'smooth', block: 'start' }); }),
+  );
+
+  const init = new URLSearchParams(location.search);
+  const pw = init.get('pathway');
+  if (pw && root.querySelector(`.chip[data-pw="${pw}"]`)) showPathway(pw);
+  select(init.get('station') && data[init.get('station')!] ? init.get('station')! : 'dorsal-horn', false);
+</script>

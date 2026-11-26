@@ -112,4 +112,40 @@ const gaps = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps };
+/** Pain Biology: stations and pathways of the pain-circuit figure (/biology/). */
+const LEVELS_ANAT = ['spinal', 'medulla', 'pons', 'midbrain', 'limbic', 'thalamus', 'cortex'] as const;
+const circuitStations = defineCollection({
+  loader: file('src/data/circuit-stations.yaml'),
+  schema: z.object({
+    name: z.string(),
+    short: z.string(),
+    level: z.enum(LEVELS_ANAT),
+    role: z.string(),
+    refs: z.array(reference('references')).min(1),
+    theories: z.array(reference('theories')).default([]),
+    mechanisms: z.array(reference('mechanisms')).default([]),
+    planum: z.object({
+      region: z.string(),
+      atlas: z.string().default('destrieux'),
+      detail: z.string().default('learning'),
+      view: z.enum(['oblique', 'left', 'right', 'anterior', 'posterior', 'superior', 'inferior']),
+      cortex: z.boolean(),
+      hemi: z.enum(['left', 'right']).optional(),
+    }),
+    note: z.string().optional(),
+  }),
+});
+const circuitPathways = defineCollection({
+  loader: file('src/data/circuit-pathways.yaml'),
+  schema: z.object({
+    name: z.string(),
+    kind: z.enum(['ascending', 'descending']),
+    summary: z.string(),
+    stations: z.array(reference('circuitStations')).min(2),
+    edges: z.array(z.tuple([reference('circuitStations'), reference('circuitStations')])).min(1),
+    refs: z.array(reference('references')).min(1),
+    planumTour: z.string().optional(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways };

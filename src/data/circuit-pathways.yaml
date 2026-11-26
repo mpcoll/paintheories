@@ -1,0 +1,31 @@
+# Pathways of the pain-circuit figure on /biology/. `stations` lists the stations in
+# order; `edges` lists the connections drawn for the pathway as [from, to].
+- id: lateral
+  name: Lateral spinothalamic system
+  kind: ascending
+  summary: From the dorsal horn through the lateral thalamus to somatosensory cortex, the parietal operculum and the posterior insula. Associated with the sensory-discriminative dimension of pain, that is, where it is, how intense it is and what it feels like.
+  stations: [dorsal-horn, anterolateral-tract, lateral-thalamus, s1, operculum, posterior-insula]
+  edges: [[dorsal-horn, anterolateral-tract], [anterolateral-tract, lateral-thalamus], [lateral-thalamus, s1], [lateral-thalamus, operculum], [lateral-thalamus, posterior-insula]]
+  refs: [price2000, garcialarrea2013, basbaum2009]
+  planumTour: spinothalamic
+- id: medial
+  name: Medial system
+  kind: ascending
+  summary: From the dorsal horn through the medial and intralaminar thalamus to the cingulate cortex. Associated with the affective-motivational dimension of pain, that is, its unpleasantness and the urge to act.
+  stations: [dorsal-horn, anterolateral-tract, medial-thalamus, cingulate]
+  edges: [[dorsal-horn, anterolateral-tract], [anterolateral-tract, medial-thalamus], [medial-thalamus, cingulate]]
+  refs: [price2000, vogt2005]
+- id: spinoparabrachial
+  name: Spinoparabrachial pathway
+  kind: ascending
+  summary: From lamina I to the parabrachial nucleus and on to the amygdala and hypothalamus. It links nociception to emotion, autonomic regulation and homeostasis.
+  stations: [dorsal-horn, parabrachial, amygdala, hypothalamus]
+  edges: [[dorsal-horn, parabrachial], [parabrachial, amygdala], [parabrachial, hypothalamus]]
+  refs: [gauriau2002, todd2010, neugebauer2004]
+- id: descending
+  name: Descending modulation
+  kind: descending
+  summary: Cortex, amygdala and hypothalamus act on the periaqueductal grey, which acts through the rostral ventromedial medulla on the dorsal horn. Noradrenergic input from the locus coeruleus adds a parallel route. These pathways can inhibit or facilitate pain.
+  stations: [cingulate, amygdala, hypothalamus, pag, rvm, locus-coeruleus, dorsal-horn]
+  edges: [[cingulate, pag], [amygdala, pag], [hypothalamus, pag], [pag, rvm], [rvm, dorsal-horn], [locus-coeruleus, dorsal-horn]]
+  refs: [heinricher2009, ossipov2010, bushnell2013]

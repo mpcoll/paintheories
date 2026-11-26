@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PainCircuits from '../../components/PainCircuits.astro';
+import { url } from '../../lib/data';
+---
+<Base title="Pain circuits" description="Interactive map of the ascending and descending pain pathways, with each station shown in 3D in the Planum brain atlas.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Biology · early version</p>
+    <h1>Pain circuits</h1>
+    <p class="lede">How nociceptive signals travel from the spinal cord to the brain, and how the brain modulates them on the way. Select a station to see it in 3D in <a href="https://planumatlas.com/" target="_blank" rel="noopener">Planum</a>, an open 3D atlas of the human brain.</p>
+  </header>
+
+  <PainCircuits />
+
+  <p class="muted credit">
+    3D views: <a href="https://planumatlas.com/" target="_blank" rel="noopener">Planum</a>, an open atlas built from one person's MRI (MGH CDMD sub_013), with internal anatomy from published atlases. Regions are atlas estimates, not exact boundaries in this person, and are not clinical anatomy. See Planum's <a href="https://planumatlas.com/docs/reference/references.html" target="_blank" rel="noopener">references and data terms</a>. The schematic simplifies: it omits the trigeminal pathways, the spinoreticular and spinomesencephalic routes, and many cortical targets. More on the cellular level in <a href={url('mechanisms/')}>Mechanisms</a>.
+  </p>
+
+  <style>
+    .credit { font-size: .82rem; max-width: var(--measure); margin-top: 2rem; }
+  </style>
+</Base>

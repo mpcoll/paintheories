@@ -20,7 +20,7 @@ const is = (path: string) => here.startsWith(url(path));
 // Portal-level navigation (modules + shared resources).
 const nav: [string, string][] = [
   ['theories/', 'Theories'],
-  ['mechanisms/', 'Mechanisms'],
+  ['biology/', 'Biology'],
   ['references/', 'References'],
   ['search/', 'Search'],
   ['about/', 'About'],
@@ -37,6 +37,11 @@ const theorySub: [string, string, boolean][] = [
   ['theories/gaps/', 'Gaps', is('theories/gaps/')],
 ];
 const inTheories = is('theories/');
+const inBiology = is('biology/') || is('mechanisms/');
+const biologySub: [string, string, boolean][] = [
+  ['biology/', 'Pain circuits', here === url('biology/')],
+  ['mechanisms/', 'Mechanisms', is('mechanisms/')],
+];
 ---
 
 <!doctype html>
@@ -64,7 +69,7 @@ const inTheories = is('theories/');
         <nav class="nav" aria-label="Main">
           {
             nav.map(([href, label]) => (
-              <a href={url(href)} aria-current={is(href) ? 'page' : undefined}>
+              <a href={url(href)} aria-current={is(href) || (href === 'biology/' && inBiology) ? 'page' : undefined}>
                 {label}
               </a>
             ))
@@ -72,6 +77,18 @@ const inTheories = is('theories/');
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle light/dark"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
       </div>
+      {inBiology && (
+        <div class="subnav">
+          <div class="wrap">
+            <a class="module-name" href={url('biology/')}>Pain Biology</a>
+            <nav aria-label="Pain Biology">
+              {biologySub.map(([href, label, active]) => (
+                <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
       {inTheories && (
         <div class="subnav">
           <div class="wrap">

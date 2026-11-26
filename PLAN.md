@@ -75,6 +75,14 @@ without a DOI are marked `source: manual`.
 5. **Teaching layer** — learning paths, case vignettes, glossary. ⬜
 6. **Research layer** — prediction matrix, Zenodo DOI per release, contributor guide. ⬜
 
+## Pain Biology module (started 2026-11-26)
+
+- `/biology/`: interactive pain-circuit figure (lateral, medial, spinoparabrachial,
+  descending) with 14 stations, each shown in 3D through embedded Planum views.
+- Next: station pages; cellular level (nociceptor types, dorsal horn laminae and
+  interneurons, receptors/channels); more circuits (trigeminal, spinoreticular);
+  propose pain tours to Planum (descending PAG–RVM, spinoparabrachial).
+
 ## 5. Candidate entries still to add
 
 - Müller's doctrine of specific nerve energies (separate from specificity theory?)

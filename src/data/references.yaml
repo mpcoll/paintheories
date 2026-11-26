@@ -8002,3 +8002,137 @@
   pages: 1318-1330
   doi: 10.1097/j.pain.0000000000003917
   source: crossref
+- id: basbaum2009
+  type: article
+  authors:
+    - Basbaum, A. I.
+    - Bautista, D. M.
+    - Scherrer, G.
+    - Julius, D.
+  year: 2009
+  title: Cellular and Molecular Mechanisms of Pain
+  container: Cell
+  volume: "139"
+  issue: "2"
+  pages: 267-284
+  doi: 10.1016/j.cell.2009.09.028
+  source: crossref
+- id: todd2010
+  type: article
+  authors:
+    - Todd, A. J.
+  year: 2010
+  title: Neuronal circuitry for pain processing in the dorsal horn
+  container: Nature Reviews Neuroscience
+  volume: "11"
+  issue: "12"
+  pages: 823-836
+  doi: 10.1038/nrn2947
+  source: crossref
+- id: heinricher2009
+  type: article
+  authors:
+    - Heinricher, M. M.
+    - Tavares, I.
+    - Leith, J. L.
+    - Lumb, B. M.
+  year: 2009
+  title: "Descending control of nociception: Specificity, recruitment and plasticity"
+  container: Brain Research Reviews
+  volume: "60"
+  issue: "1"
+  pages: 214-225
+  doi: 10.1016/j.brainresrev.2008.12.009
+  source: crossref
+- id: gauriau2002
+  type: article
+  authors:
+    - Gauriau, C.
+    - Bernard, J.
+  year: 2002
+  title: Pain Pathways and Parabrachial Circuits in the Rat
+  container: Experimental Physiology
+  volume: "87"
+  issue: "2"
+  pages: 251-258
+  doi: 10.1113/eph8702357
+  source: crossref
+- id: price2000
+  type: article
+  authors:
+    - Price, D. D.
+  year: 2000
+  title: Psychological and Neural Mechanisms of the Affective Dimension of Pain
+  container: Science
+  volume: "288"
+  issue: "5472"
+  pages: 1769-1772
+  doi: 10.1126/science.288.5472.1769
+  source: crossref
+- id: vogt2005
+  type: article
+  authors:
+    - Vogt, B. A.
+  year: 2005
+  title: Pain and emotion interactions in subregions of the cingulate gyrus
+  container: Nature Reviews Neuroscience
+  volume: "6"
+  issue: "7"
+  pages: 533-544
+  doi: 10.1038/nrn1704
+  source: crossref
+- id: garcialarrea2013
+  type: article
+  authors:
+    - Garcia-Larrea, L.
+    - Peyron, R.
+  year: 2013
+  title: "Pain matrices and neuropathic pain matrices: A review"
+  container: Pain
+  volume: "154"
+  issue: Supplement 1
+  pages: S29-S43
+  doi: 10.1016/j.pain.2013.09.001
+  source: crossref
+- id: neugebauer2004
+  type: article
+  authors:
+    - Neugebauer, V.
+    - Li, W.
+    - Bird, G. C.
+    - Han, J. S.
+  year: 2004
+  title: The Amygdala and Persistent Pain
+  container: The Neuroscientist
+  volume: "10"
+  issue: "3"
+  pages: 221-234
+  doi: 10.1177/1073858403261077
+  source: crossref
+- id: kuner2021
+  type: article
+  authors:
+    - Kuner, R.
+    - Kuner, T.
+  year: 2021
+  title: Cellular Circuits in the Brain and Their Modulation in Acute and Chronic Pain
+  container: Physiological Reviews
+  volume: "101"
+  issue: "1"
+  pages: 213-258
+  doi: 10.1152/physrev.00040.2019
+  source: crossref
+- id: bushnell2013
+  type: article
+  authors:
+    - Bushnell, M. C.
+    - Čeko, M.
+    - Low, L. A.
+  year: 2013
+  title: Cognitive and emotional control of pain and its disruption in chronic pain
+  container: Nature Reviews Neuroscience
+  volume: "14"
+  issue: "7"
+  pages: 502-511
+  doi: 10.1038/nrn3516
+  source: crossref
