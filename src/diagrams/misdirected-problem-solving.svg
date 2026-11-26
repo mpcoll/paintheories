@@ -1,0 +1,35 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Misdirected problem solving: pain framed as a problem whose only solution is relief or cure drives worry, a search for solutions; assimilative attempts at relief fail, renewing hypervigilance to pain and bodily threat and further worry in a loop that increases distress and disability. Treatment reframes the problem towards living with pain and pursuing other valued goals.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box-accent" x="115" y="24" width="220" height="58" rx="10"/>
+<text class="t mid" x="225" y="48">Pain as a problem</text>
+<text class="t-xs mid" x="225" y="68">only solution: relief or cure</text>
+<path class="ln-accent" d="M300,82 C300,116 370,112 370,146" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="295" y="150" width="150" height="58" rx="10"/>
+<text class="t mid" x="370" y="174">Worry</text>
+<text class="t-xs mid" x="370" y="194">search for solutions</text>
+<path class="ln-accent" d="M370,208 C370,244 300,240 300,276" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="125" y="280" width="200" height="56" rx="10"/>
+<text class="t mid" x="225" y="304">Attempts at relief</text>
+<text class="t-xs mid" x="225" y="323">assimilative, failing</text>
+<path class="ln-accent" d="M150,280 C150,246 99,246 99,212" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="24" y="150" width="150" height="58" rx="10"/>
+<text class="t mid" x="99" y="174">Hypervigilance</text>
+<text class="t-xs mid" x="99" y="194">to pain, body threat</text>
+<path class="ln-accent" d="M99,150 C99,116 150,120 150,86" marker-end="url(#dg-arr-accent)"/>
+<text class="t-accent mid" x="234" y="174">Misdirected</text>
+<text class="t-accent mid" x="234" y="193">loop</text>
+<path class="ln-accent" d="M325,308 H452" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-strong" x="456" y="280" width="160" height="56" rx="10"/>
+<text class="t-on mid" x="536" y="304">Distress,</text>
+<text class="t-on mid" x="536" y="324">disability</text>
+<path class="ln ln-dash" d="M335,52 H452" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="394" y="42">reframe</text>
+<rect class="box" x="456" y="24" width="160" height="58" rx="10"/>
+<text class="t mid" x="536" y="48">Living with pain</text>
+<text class="t-xs mid" x="536" y="68">new problem</text>
+<path class="ln" d="M536,82 V146" marker-end="url(#dg-arr)"/>
+<rect class="box" x="456" y="150" width="160" height="58" rx="10"/>
+<text class="t mid" x="536" y="174">Valued goals</text>
+<text class="t-xs mid" x="536" y="194">accommodation</text>
+</svg>
