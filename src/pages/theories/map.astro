@@ -4,6 +4,8 @@ import Base from '../../layouts/Base.astro';
 import { getTheories, theoryRecord, url } from '../../lib/data';
 import { DOMAINS, DOMAIN_STYLE, RELATIONS } from '../../data/taxonomy';
 import MapFilters from '../../components/MapFilters.astro';
+import SizeToggle from '../../components/SizeToggle.astro';
+import { computeMetrics, scales } from '../../lib/metrics';
 import { filterCounts } from '../../lib/filters';
 
 const theoryEntries = await getTheories();
@@ -14,7 +16,10 @@ const mechanisms = (await getCollection('mechanisms')).map((m) => ({
   summary: m.data.summary,
   url: url(`mechanisms/${m.id}/`),
 }));
-const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RELATIONS, domains: DOMAINS };
+const metrics = computeMetrics(theoryEntries);
+const { out: SC, maxC, maxI } = scales(metrics);
+const sizes = Object.fromEntries([...SC].map(([id, v]) => [id, { ...v, citationsN: metrics.get(id)!.citations, influenceN: metrics.get(id)!.influence }]));
+const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RELATIONS, domains: DOMAINS, sizes };
 ---
 
 <Base title="Network map" description="Interactive network of pain theories and how they relate." searchable={false}>
@@ -35,6 +40,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       <button class="btn" id="fit" type="button">Reset view</button>
     </div>
     <MapFilters counts={filterCounts(theoryEntries)} />
+    <SizeToggle maxCitations={maxC} maxInfluence={maxI} />
     <ul class="legend" aria-label="Legend">
       {Object.entries(DOMAINS).map(([k, v]) => (
         <li><span class={`sym dom-${k}`} aria-hidden="true">{DOMAIN_STYLE[k as keyof typeof DOMAIN_STYLE].symbol}</span>{v.label}</li>
@@ -195,6 +201,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         { selector: 'edge[rel="related-to"]', style: { 'target-arrow-shape': 'none' } },
         { selector: 'edge[rel="mechanism"]', style: { width: 1, 'line-style': 'dotted', 'target-arrow-shape': 'none', opacity: 0.6 } },
         { selector: '.faded', style: { opacity: 0.15 } },
+        { selector: 'node.nodata', style: { 'background-opacity': 0, 'border-color': css('--ink-3'), 'border-style': 'dashed', 'border-width': 1.5 } },
         { selector: '.off', style: { opacity: 0.07, events: 'no' } },
         { selector: 'edge.off', style: { display: 'none' } },
         { selector: 'node:selected', style: { 'border-color': css('--accent'), 'border-width': 3 } },
@@ -236,6 +243,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       });
       panel.innerHTML = `<p class="muted" style="margin:0 0 .25rem;font-size:.8rem">${rec.year} · ${esc(data.domains[rec.domain].label)}</p>
         <h3>${esc(rec.title)}</h3><p>${esc(rec.summary)}</p>
+        <p class="muted" style="font-size:.8rem;margin:.2rem 0 .6rem">Citations of founding work(s): ${(data as any).sizes[rec.id].citationsN === null ? 'unknown' : '≈ ' + (data as any).sizes[rec.id].citationsN.toLocaleString('en-US')} · Influence on this map: ${(data as any).sizes[rec.id].influenceN}</p>
         ${rels.length ? `<ul style="padding-left:1.1rem">${rels.join('')}</ul>` : ''}
         <a href="${rec.url}">Open page →</a>`;
     }
@@ -296,6 +304,22 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       window.dispatchEvent(new CustomEvent('mapfilter:count', { detail: { shown, total } }));
     }
     window.addEventListener('mapfilter', (e) => { currentFilter = (e as CustomEvent<MapFilter>).detail; applyFilter(); });
+
+    // Marker size by citations / influence (SizeToggle emits 'mapsize').
+    const SIZES = (data as any).sizes as Record<string, { citations: number | null; influence: number }>;
+    let sizeMode = 'equal';
+    function applySize() {
+      cy.batch(() => {
+        cy.nodes('[kind="theory"]').forEach((n) => {
+          const sc = SIZES[n.id()];
+          const v = sizeMode === 'citations' ? sc.citations : sizeMode === 'influence' ? sc.influence : 1;
+          const d = 30 * (v ?? 0.55);
+          n.style({ width: d, height: d });
+          n.toggleClass('nodata', sizeMode === 'citations' && v === null);
+        });
+      });
+    }
+    window.addEventListener('mapsize', (e) => { sizeMode = (e as CustomEvent<{ mode: string }>).detail.mode; applySize(); });
     // Re-apply after mechanisms are added/removed.
     mechBox.addEventListener('change', () => applyFilter());
 

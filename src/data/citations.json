@@ -1,0 +1,2731 @@
+{
+ "source": "OpenAlex (cited_by_count)",
+ "retrieved": "2026-11-26",
+ "works": {
+  "melzack1965": {
+   "count": 13961,
+   "openalex": "W2014779151",
+   "match": "doi"
+  },
+  "melzack1999": {
+   "count": 1570,
+   "openalex": "W2032480075",
+   "match": "doi"
+  },
+  "melzack2001": {
+   "count": 1167,
+   "openalex": "W1923402420",
+   "match": "doi"
+  },
+  "sinclair1955": {
+   "count": 198,
+   "openalex": "W2097610094",
+   "match": "doi"
+  },
+  "vlaeyen2000": {
+   "count": 6012,
+   "openalex": "W2099093791",
+   "match": "doi"
+  },
+  "lethem1983": {
+   "count": 1652,
+   "openalex": "W1987232870",
+   "match": "doi"
+  },
+  "vlaeyen2012": {
+   "count": 1582,
+   "openalex": "W2045093559",
+   "match": "doi"
+  },
+  "woolf1983": {
+   "count": 2450,
+   "openalex": "W2132829674",
+   "match": "doi"
+  },
+  "woolf2011": {
+   "count": 5828,
+   "openalex": "W2116230226",
+   "match": "doi"
+  },
+  "latremoliere2009": {
+   "count": 4691,
+   "openalex": "W2155524482",
+   "match": "doi"
+  },
+  "buchel2014": {
+   "count": 565,
+   "openalex": "W1987239968",
+   "match": "doi"
+  },
+  "ongaro2018": {
+   "count": 239,
+   "openalex": "W2887718708",
+   "match": "doi"
+  },
+  "wiech2016": {
+   "count": 568,
+   "openalex": "W2548633651",
+   "match": "doi"
+  },
+  "engel1977": {
+   "count": 18376,
+   "openalex": "W2151186028",
+   "match": "doi"
+  },
+  "gatchel2007": {
+   "count": 4425,
+   "openalex": "W2095921734",
+   "match": "doi"
+  },
+  "wall1978": {
+   "count": 535,
+   "openalex": "W2138180227",
+   "match": "doi"
+  },
+  "nathan1976": {
+   "count": 236,
+   "openalex": "W2043809914",
+   "match": "doi"
+  },
+  "moayedi2013": {
+   "count": 852,
+   "openalex": "W2153993224",
+   "match": "doi"
+  },
+  "perl2007": {
+   "count": 378,
+   "openalex": "W2080603742",
+   "match": "doi"
+  },
+  "mendell2014": {
+   "count": 553,
+   "openalex": "W2068692900",
+   "match": "doi"
+  },
+  "ma2010": {
+   "count": 190,
+   "openalex": "W2132367206",
+   "match": "doi"
+  },
+  "melzack2012": {
+   "count": 243,
+   "openalex": "W4237569541",
+   "match": "doi"
+  },
+  "iannetti2010": {
+   "count": 700,
+   "openalex": "W2115742360",
+   "match": "doi"
+  },
+  "crombez2012": {
+   "count": 1212,
+   "openalex": "W2091637698",
+   "match": "doi"
+  },
+  "tabor2017": {
+   "count": 131,
+   "openalex": "W2573967569",
+   "match": "doi"
+  },
+  "kosek2016": {
+   "count": 1256,
+   "openalex": "W2331694814",
+   "match": "doi"
+  },
+  "raja2020": {
+   "count": 7798,
+   "openalex": "W3043476716",
+   "match": "doi"
+  },
+  "craig2003": {
+   "count": 1209,
+   "openalex": "W2103251342",
+   "match": "doi"
+  },
+  "norrsell1999": {
+   "count": 116,
+   "openalex": "W2134859248",
+   "match": "doi"
+  },
+  "moseley2015": {
+   "count": 267,
+   "openalex": "W2140539875",
+   "match": "doi"
+  },
+  "moseley2003": {
+   "count": 456,
+   "openalex": "W2107337291",
+   "match": "doi"
+  },
+  "leeuw2006": {
+   "count": 2740,
+   "openalex": "W2127113745",
+   "match": "doi"
+  },
+  "ji2018": {
+   "count": 1926,
+   "openalex": "W2786697307",
+   "match": "doi"
+  },
+  "woolf2000": {
+   "count": 4736,
+   "openalex": "W2133316133",
+   "match": "doi"
+  },
+  "kuner2016": {
+   "count": 764,
+   "openalex": "W2566980509",
+   "match": "doi"
+  },
+  "stilwell2019": {
+   "count": 243,
+   "openalex": "W2942795580",
+   "match": "doi"
+  },
+  "ghaemi2009": {
+   "count": 557,
+   "openalex": "W2150188304",
+   "match": "doi"
+  },
+  "nafe1929": {
+   "count": 77,
+   "openalex": "W2104602738",
+   "match": "doi"
+  },
+  "weddell1955": {
+   "count": 114,
+   "openalex": "W2097281151",
+   "match": "doi"
+  },
+  "dallenbach1939": {
+   "count": 199,
+   "openalex": "W2323069122",
+   "match": "doi"
+  },
+  "anchisi2015": {
+   "count": 89,
+   "openalex": "W1976728550",
+   "match": "doi"
+  },
+  "geuter2017": {
+   "count": 198,
+   "openalex": "W2614737846",
+   "match": "doi"
+  },
+  "kiverstein2022": {
+   "count": 118,
+   "openalex": "W4220851827",
+   "match": "doi"
+  },
+  "wall1967": {
+   "count": 1019,
+   "openalex": "W2008927843",
+   "match": "doi"
+  },
+  "reynolds1969": {
+   "count": 1627,
+   "openalex": "W2092767025",
+   "match": "doi"
+  },
+  "basbaum1978": {
+   "count": 1363,
+   "openalex": "W2068237121",
+   "match": "doi"
+  },
+  "kumar2007": {
+   "count": 1268,
+   "openalex": "W2051479003",
+   "match": "doi"
+  },
+  "duan2014": {
+   "count": 636,
+   "openalex": "W1969751124",
+   "match": "doi"
+  },
+  "foster2015": {
+   "count": 388,
+   "openalex": "W2015386261",
+   "match": "doi"
+  },
+  "prescott2014": {
+   "count": 250,
+   "openalex": "W2028575493",
+   "match": "doi"
+  },
+  "liu2010": {
+   "count": 268,
+   "openalex": "W2078187429",
+   "match": "doi"
+  },
+  "lagerstrom2010": {
+   "count": 231,
+   "openalex": "W2028536961",
+   "match": "doi"
+  },
+  "ross2010": {
+   "count": 472,
+   "openalex": "W2096194006",
+   "match": "doi"
+  },
+  "han2012": {
+   "count": 666,
+   "openalex": "W1969655931",
+   "match": "doi"
+  },
+  "sun2009": {
+   "count": 643,
+   "openalex": "W2098799628",
+   "match": "doi"
+  },
+  "cavanaugh2009": {
+   "count": 777,
+   "openalex": "W2141005071",
+   "match": "doi"
+  },
+  "emery2016": {
+   "count": 134,
+   "openalex": "W2551599030",
+   "match": "doi"
+  },
+  "craig2003b": {
+   "count": 902,
+   "openalex": "W2129219475",
+   "match": "doi"
+  },
+  "craig2002": {
+   "count": 6929,
+   "openalex": "W2142823391",
+   "match": "doi"
+  },
+  "craig2009b": {
+   "count": 7724,
+   "openalex": "W2016521818",
+   "match": "doi"
+  },
+  "craig1994": {
+   "count": 684,
+   "openalex": "W2045812316",
+   "match": "doi"
+  },
+  "craig2000": {
+   "count": 1135,
+   "openalex": "W1990876814",
+   "match": "doi"
+  },
+  "craig1996": {
+   "count": 656,
+   "openalex": "W1980854480",
+   "match": "doi"
+  },
+  "andrew2001": {
+   "count": 595,
+   "openalex": "W1581789522",
+   "match": "doi"
+  },
+  "ostrowsky2002": {
+   "count": 650,
+   "openalex": "W2126758870",
+   "match": "doi"
+  },
+  "graziano2004": {
+   "count": 91,
+   "openalex": "W2119250252",
+   "match": "doi"
+  },
+  "willis2002": {
+   "count": 135,
+   "openalex": "W2119884239",
+   "match": "doi"
+  },
+  "starr2009": {
+   "count": 332,
+   "openalex": "W2135487512",
+   "match": "doi"
+  },
+  "feinstein2015": {
+   "count": 120,
+   "openalex": "W2070127106",
+   "match": "doi"
+  },
+  "kucyi2015": {
+   "count": 713,
+   "openalex": "W1997501248",
+   "match": "doi"
+  },
+  "kucyi2016": {
+   "count": 166,
+   "openalex": "W2521276659",
+   "match": "doi"
+  },
+  "kucyi2013": {
+   "count": 462,
+   "openalex": "W2107754415",
+   "match": "doi"
+  },
+  "kucyi2014": {
+   "count": 454,
+   "openalex": "W2066396738",
+   "match": "doi"
+  },
+  "hemington2015": {
+   "count": 249,
+   "openalex": "W2209739872",
+   "match": "doi"
+  },
+  "cheng2018": {
+   "count": 60,
+   "openalex": "W2801822511",
+   "match": "doi"
+  },
+  "baliki2008": {
+   "count": 988,
+   "openalex": "W2072579585",
+   "match": "doi"
+  },
+  "mano2018": {
+   "count": 87,
+   "openalex": "W2780203776",
+   "match": "doi"
+  },
+  "apkarian2009": {
+   "count": 1117,
+   "openalex": "W1995458911",
+   "match": "doi"
+  },
+  "baliki2012": {
+   "count": 1172,
+   "openalex": "W2149421654",
+   "match": "doi"
+  },
+  "hashmi2013": {
+   "count": 884,
+   "openalex": "W1975954553",
+   "match": "doi"
+  },
+  "vachonpresseau2016": {
+   "count": 445,
+   "openalex": "W2345555088",
+   "match": "doi"
+  },
+  "baliki2015": {
+   "count": 889,
+   "openalex": "W1664843084",
+   "match": "doi"
+  },
+  "vachonpresseau2018": {
+   "count": 130,
+   "openalex": "W2951261316",
+   "match": "doi"
+  },
+  "schwartz2014": {
+   "count": 310,
+   "openalex": "W2133656662",
+   "match": "doi"
+  },
+  "loffler2022": {
+   "count": 57,
+   "openalex": "W4283824822",
+   "match": "doi"
+  },
+  "fillingim2025": {
+   "count": 73,
+   "openalex": "W4410309278",
+   "match": "doi"
+  },
+  "watkins2001": {
+   "count": 1181,
+   "openalex": "W2126575561",
+   "match": "doi"
+  },
+  "watkins2003": {
+   "count": 730,
+   "openalex": "W1992206444",
+   "match": "doi"
+  },
+  "ji2013": {
+   "count": 1330,
+   "openalex": "W2134557769",
+   "match": "doi"
+  },
+  "grace2014": {
+   "count": 1064,
+   "openalex": "W2035605437",
+   "match": "doi"
+  },
+  "tsuda2003": {
+   "count": 1748,
+   "openalex": "W1984025105",
+   "match": "doi"
+  },
+  "coull2005": {
+   "count": 2252,
+   "openalex": "W2128994172",
+   "match": "doi"
+  },
+  "sorge2015": {
+   "count": 1574,
+   "openalex": "W2196308323",
+   "match": "doi"
+  },
+  "loggia2015": {
+   "count": 550,
+   "openalex": "W2135235221",
+   "match": "doi"
+  },
+  "albrecht2019": {
+   "count": 377,
+   "openalex": "W2891285073",
+   "match": "doi"
+  },
+  "landry2012": {
+   "count": 114,
+   "openalex": "W2098040089",
+   "match": "doi"
+  },
+  "johnson2015": {
+   "count": 28,
+   "openalex": "W2108066738",
+   "match": "doi"
+  },
+  "vanelderen2015": {
+   "count": 94,
+   "openalex": "W2049408354",
+   "match": "doi"
+  },
+  "owen2017": {
+   "count": 214,
+   "openalex": "W2619298813",
+   "match": "doi"
+  },
+  "fitzcharles2021": {
+   "count": 1653,
+   "openalex": "W3165802878",
+   "match": "doi"
+  },
+  "kosek2021": {
+   "count": 739,
+   "openalex": "W3161747450",
+   "match": "doi"
+  },
+  "kosek2024": {
+   "count": 141,
+   "openalex": "W4403384296",
+   "match": "doi"
+  },
+  "cohen2022": {
+   "count": 25,
+   "openalex": "W4220724137",
+   "match": "doi"
+  },
+  "clauw2014": {
+   "count": 2152,
+   "openalex": "W2160820922",
+   "match": "doi"
+  },
+  "gracely2002": {
+   "count": 1430,
+   "openalex": "W2033577846",
+   "match": "doi"
+  },
+  "brummett2013": {
+   "count": 226,
+   "openalex": "W2045756991",
+   "match": "doi"
+  },
+  "brummett2015": {
+   "count": 206,
+   "openalex": "W1547787343",
+   "match": "doi"
+  },
+  "vervullens2024": {
+   "count": 8,
+   "openalex": "W4400736036",
+   "match": "doi"
+  },
+  "schmidt2024": {
+   "count": 42,
+   "openalex": "W4401907992",
+   "match": "doi"
+  },
+  "uceyler2013": {
+   "count": 568,
+   "openalex": "W2135953149",
+   "match": "doi"
+  },
+  "oaklander2013": {
+   "count": 357,
+   "openalex": "W1976288643",
+   "match": "doi"
+  },
+  "grayston2019": {
+   "count": 251,
+   "openalex": "W2888150073",
+   "match": "doi"
+  },
+  "goebel2021": {
+   "count": 325,
+   "openalex": "W3174972846",
+   "match": "doi"
+  },
+  "borsook2012": {
+   "count": 415,
+   "openalex": "W2078919602",
+   "match": "doi"
+  },
+  "borsook2016": {
+   "count": 246,
+   "openalex": "W2394551266",
+   "match": "doi"
+  },
+  "borsook2025": {
+   "count": 5,
+   "openalex": "W4415161078",
+   "match": "doi"
+  },
+  "mcewen1993": {
+   "count": 5391,
+   "openalex": "W4245933202",
+   "match": "doi"
+  },
+  "mcewen1998": {
+   "count": 8078,
+   "openalex": "W2334787351",
+   "match": "doi"
+  },
+  "mcewen2010": {
+   "count": 257,
+   "openalex": "W2015702208",
+   "match": "doi"
+  },
+  "vachonpresseau2013": {
+   "count": 337,
+   "openalex": "W2119688525",
+   "match": "doi"
+  },
+  "mcbeth2007": {
+   "count": 273,
+   "openalex": "W2011140328",
+   "match": "doi"
+  },
+  "sibille2017": {
+   "count": 55,
+   "openalex": "W2563054381",
+   "match": "doi"
+  },
+  "slade2012": {
+   "count": 66,
+   "openalex": "W2025742732",
+   "match": "doi"
+  },
+  "tak2011": {
+   "count": 268,
+   "openalex": "W2131511365",
+   "match": "doi"
+  },
+  "generaal2016": {
+   "count": 83,
+   "openalex": "W2078560729",
+   "match": "doi"
+  },
+  "lebars1979": {
+   "count": 1557,
+   "openalex": "W2169923097",
+   "match": "doi"
+  },
+  "levine1978": {
+   "count": 1246,
+   "openalex": "W2067552820",
+   "match": "doi"
+  },
+  "eippert2009": {
+   "count": 937,
+   "openalex": "W1976846134",
+   "match": "doi"
+  },
+  "burgess2002": {
+   "count": 391,
+   "openalex": "W1932601697",
+   "match": "doi"
+  },
+  "lewis2012": {
+   "count": 675,
+   "openalex": "W2036395037",
+   "match": "doi"
+  },
+  "yarnitsky2008": {
+   "count": 856,
+   "openalex": "W2048203787",
+   "match": "doi"
+  },
+  "yarnitsky2010": {
+   "count": 883,
+   "openalex": "W2004607543",
+   "match": "doi"
+  },
+  "yarnitsky2012": {
+   "count": 628,
+   "openalex": "W2028204969",
+   "match": "doi"
+  },
+  "sangesland2017": {
+   "count": 110,
+   "openalex": "W2566478165",
+   "match": "doi"
+  },
+  "mcphee2019": {
+   "count": 116,
+   "openalex": "W2985522472",
+   "match": "doi"
+  },
+  "kennedy2016": {
+   "count": 526,
+   "openalex": "W2511763988",
+   "match": "doi"
+  },
+  "fields2004": {
+   "count": 1127,
+   "openalex": "W2030751218",
+   "match": "doi"
+  },
+  "ossipov2010": {
+   "count": 1465,
+   "openalex": "W1981291046",
+   "match": "doi"
+  },
+  "ossipov2014": {
+   "count": 1047,
+   "openalex": "W2399492758",
+   "match": "doi"
+  },
+  "porreca2002": {
+   "count": 1114,
+   "openalex": "W1965066118",
+   "match": "doi"
+  },
+  "harris1999": {
+   "count": 377,
+   "openalex": "W2103226410",
+   "match": "doi"
+  },
+  "mccabe2005": {
+   "count": 280,
+   "openalex": "W2163144893",
+   "match": "doi"
+  },
+  "mccabe2007": {
+   "count": 109,
+   "openalex": "W2123999898",
+   "match": "doi"
+  },
+  "mccabe2002": {
+   "count": 563,
+   "openalex": "W2167694923",
+   "match": "doi"
+  },
+  "daenen2012": {
+   "count": 55,
+   "openalex": "W2138389523",
+   "match": "doi"
+  },
+  "moseley2005": {
+   "count": 51,
+   "openalex": "W2107529049",
+   "match": "doi"
+  },
+  "moseley2005b": {
+   "count": 41,
+   "openalex": "W2161164208",
+   "match": "doi"
+  },
+  "foell2013": {
+   "count": 46,
+   "openalex": "W2013451180",
+   "match": "doi"
+  },
+  "wand2014": {
+   "count": 15,
+   "openalex": "W1986188891",
+   "match": "doi"
+  },
+  "don2019": {
+   "count": 7,
+   "openalex": "W2895684107",
+   "match": "doi"
+  },
+  "don2016": {
+   "count": 26,
+   "openalex": "W2395039811",
+   "match": "doi"
+  },
+  "moseley2012": {
+   "count": 504,
+   "openalex": "W2096562517",
+   "match": "doi"
+  },
+  "moseley2012b": {
+   "count": 132,
+   "openalex": "W1967041146",
+   "match": "doi"
+  },
+  "moseley2008": {
+   "count": 586,
+   "openalex": "W2163530817",
+   "match": "doi"
+  },
+  "moseley2008b": {
+   "count": 221,
+   "openalex": "W2013492696",
+   "match": "doi"
+  },
+  "moseley2008c": {
+   "count": 489,
+   "openalex": "W2116912819",
+   "match": "doi"
+  },
+  "moseley2009": {
+   "count": 203,
+   "openalex": "W2096324326",
+   "match": "doi"
+  },
+  "moseley2013": {
+   "count": 63,
+   "openalex": "W2123190424",
+   "match": "doi"
+  },
+  "rohde2013": {
+   "count": 99,
+   "openalex": "W2104956142",
+   "match": "doi"
+  },
+  "dehaan2017": {
+   "count": 91,
+   "openalex": "W2736525108",
+   "match": "doi"
+  },
+  "lewis2007": {
+   "count": 396,
+   "openalex": "W2143082117",
+   "match": "doi"
+  },
+  "flor1995": {
+   "count": 2049,
+   "openalex": "W2037667533",
+   "match": "doi"
+  },
+  "birbaumer1997": {
+   "count": 539,
+   "openalex": "W1821166321",
+   "match": "doi"
+  },
+  "lotze1999": {
+   "count": 442,
+   "openalex": "W1508638528",
+   "match": "doi"
+  },
+  "lotze2001": {
+   "count": 501,
+   "openalex": "W2150230308",
+   "match": "doi"
+  },
+  "maihofner2003": {
+   "count": 691,
+   "openalex": "W2045120834",
+   "match": "doi"
+  },
+  "maihofner2004": {
+   "count": 519,
+   "openalex": "W2090056166",
+   "match": "doi"
+  },
+  "dipietro2013": {
+   "count": 188,
+   "openalex": "W2100345752",
+   "match": "doi"
+  },
+  "makin2013": {
+   "count": 390,
+   "openalex": "W2074380295",
+   "match": "doi"
+  },
+  "makin2015": {
+   "count": 210,
+   "openalex": "W2169474975",
+   "match": "doi"
+  },
+  "schone2025": {
+   "count": 60,
+   "openalex": "W4413401752",
+   "match": "doi"
+  },
+  "flor2006": {
+   "count": 1052,
+   "openalex": "W1980679598",
+   "match": "doi"
+  },
+  "makin2020": {
+   "count": 245,
+   "openalex": "W3026021934",
+   "match": "doi"
+  },
+  "kikkert2016": {
+   "count": 152,
+   "openalex": "W2517723295",
+   "match": "doi"
+  },
+  "flor2001": {
+   "count": 632,
+   "openalex": "W2131479747",
+   "match": "doi"
+  },
+  "flor1997": {
+   "count": 845,
+   "openalex": "W2123569370",
+   "match": "doi"
+  },
+  "moseley2012c": {
+   "count": 587,
+   "openalex": "W2157093889",
+   "match": "doi"
+  },
+  "nathan1974": {
+   "count": 121,
+   "openalex": "W1998548943",
+   "match": "doi"
+  },
+  "dyck1976": {
+   "count": 143,
+   "openalex": "W2050145084",
+   "match": "doi"
+  },
+  "mendell1966": {
+   "count": 942,
+   "openalex": "W2167563378",
+   "match": "doi"
+  },
+  "gracely1992": {
+   "count": 854,
+   "openalex": "W1996108985",
+   "match": "doi"
+  },
+  "oconnell2016": {
+   "count": 143,
+   "openalex": "W1581639643",
+   "match": "doi"
+  },
+  "beecher1946": {
+   "count": 530,
+   "openalex": "W2083726286",
+   "match": "doi"
+  },
+  "beecher1956": {
+   "count": 535,
+   "openalex": "W2022156130",
+   "match": "doi"
+  },
+  "melzack1982": {
+   "count": 295,
+   "openalex": "W1991242046",
+   "match": "doi"
+  },
+  "arntz2004": {
+   "count": 226,
+   "openalex": "W2053679281",
+   "match": "doi"
+  },
+  "moseley2007b": {
+   "count": 204,
+   "openalex": "W2020303056",
+   "match": "doi"
+  },
+  "benedetti2013": {
+   "count": 127,
+   "openalex": "W2046065606",
+   "match": "doi"
+  },
+  "leknes2013": {
+   "count": 222,
+   "openalex": "W2092878775",
+   "match": "doi"
+  },
+  "wiech2008": {
+   "count": 286,
+   "openalex": "W2083236941",
+   "match": "doi"
+  },
+  "wall1979": {
+   "count": 505,
+   "openalex": "W1997259358",
+   "match": "doi"
+  },
+  "harvie2015": {
+   "count": 132,
+   "openalex": "W2171418823",
+   "match": "doi"
+  },
+  "fields2000": {
+   "count": 492,
+   "openalex": "W199967300",
+   "match": "doi"
+  },
+  "fields2018": {
+   "count": 199,
+   "openalex": "W2886720387",
+   "match": "doi"
+  },
+  "leknes2008": {
+   "count": 949,
+   "openalex": "W2050134288",
+   "match": "doi"
+  },
+  "becker2013": {
+   "count": 65,
+   "openalex": "W2045791903",
+   "match": "doi"
+  },
+  "becker2015": {
+   "count": 22,
+   "openalex": "W2180097278",
+   "match": "doi"
+  },
+  "becker2017": {
+   "count": 102,
+   "openalex": "W2579966263",
+   "match": "doi"
+  },
+  "alhadeff2018": {
+   "count": 218,
+   "openalex": "W2789360989",
+   "match": "doi"
+  },
+  "foo2009": {
+   "count": 67,
+   "openalex": "W2040336077",
+   "match": "doi"
+  },
+  "wiech2013": {
+   "count": 228,
+   "openalex": "W2141610063",
+   "match": "doi"
+  },
+  "navratilova2014": {
+   "count": 551,
+   "openalex": "W2085234856",
+   "match": "doi"
+  },
+  "claes2014": {
+   "count": 94,
+   "openalex": "W1964300714",
+   "match": "doi"
+  },
+  "eccleston1999": {
+   "count": 2078,
+   "openalex": "W1996124898",
+   "match": "doi"
+  },
+  "eccleston1994": {
+   "count": 306,
+   "openalex": "W2080775247",
+   "match": "doi"
+  },
+  "crombez1996": {
+   "count": 177,
+   "openalex": "W1970079829",
+   "match": "doi"
+  },
+  "crombez1998": {
+   "count": 448,
+   "openalex": "W2147013577",
+   "match": "doi"
+  },
+  "crombez1998b": {
+   "count": 208,
+   "openalex": "W2042165719",
+   "match": "doi"
+  },
+  "eccleston1997": {
+   "count": 285,
+   "openalex": "W2084391276",
+   "match": "doi"
+  },
+  "vandamme2004": {
+   "count": 305,
+   "openalex": "W2129150173",
+   "match": "doi"
+  },
+  "crombez2005": {
+   "count": 480,
+   "openalex": "W1994644934",
+   "match": "doi"
+  },
+  "crombez2013": {
+   "count": 389,
+   "openalex": "W2055146530",
+   "match": "doi"
+  },
+  "moore2012": {
+   "count": 259,
+   "openalex": "W2000177819",
+   "match": "doi"
+  },
+  "moore2017": {
+   "count": 59,
+   "openalex": "W2735861159",
+   "match": "doi"
+  },
+  "attridge2015": {
+   "count": 68,
+   "openalex": "W431711127",
+   "match": "doi"
+  },
+  "moriarty2011": {
+   "count": 1330,
+   "openalex": "W2098284778",
+   "match": "doi"
+  },
+  "legrain2009": {
+   "count": 581,
+   "openalex": "W2113204990",
+   "match": "doi"
+  },
+  "legrain2002": {
+   "count": 300,
+   "openalex": "W2050874268",
+   "match": "doi"
+  },
+  "legrain2005": {
+   "count": 86,
+   "openalex": "W1990767952",
+   "match": "doi"
+  },
+  "legrain2011b": {
+   "count": 71,
+   "openalex": "W2094822389",
+   "match": "doi"
+  },
+  "vandamme2010": {
+   "count": 478,
+   "openalex": "W1995348248",
+   "match": "doi"
+  },
+  "bantick2002": {
+   "count": 1030,
+   "openalex": "W2151651036",
+   "match": "doi"
+  },
+  "sprenger2012": {
+   "count": 248,
+   "openalex": "W2016587519",
+   "match": "doi"
+  },
+  "buhle2010": {
+   "count": 305,
+   "openalex": "W2079787245",
+   "match": "doi"
+  },
+  "buhle2012": {
+   "count": 159,
+   "openalex": "W2098667567",
+   "match": "doi"
+  },
+  "verhoeven2011": {
+   "count": 112,
+   "openalex": "W2027811131",
+   "match": "doi"
+  },
+  "vanryckeghem2012": {
+   "count": 54,
+   "openalex": "W2148270196",
+   "match": "doi"
+  },
+  "schrooten2012": {
+   "count": 76,
+   "openalex": "W2044017711",
+   "match": "doi"
+  },
+  "torta2017": {
+   "count": 153,
+   "openalex": "W2580899337",
+   "match": "doi"
+  },
+  "vanryckeghem2018": {
+   "count": 135,
+   "openalex": "W2766117261",
+   "match": "doi"
+  },
+  "todd2018": {
+   "count": 170,
+   "openalex": "W2892059215",
+   "match": "doi"
+  },
+  "todd2015": {
+   "count": 172,
+   "openalex": "W1161601564",
+   "match": "doi"
+  },
+  "eccleston2007": {
+   "count": 430,
+   "openalex": "W2084693148",
+   "match": "doi"
+  },
+  "aldrich2000": {
+   "count": 246,
+   "openalex": "W2081504243",
+   "match": "doi"
+  },
+  "eccleston2001": {
+   "count": 126,
+   "openalex": "W2104958931",
+   "match": "doi"
+  },
+  "devlieger2006": {
+   "count": 81,
+   "openalex": "W2051692274",
+   "match": "doi"
+  },
+  "crombez2008": {
+   "count": 47,
+   "openalex": "W1978761676",
+   "match": "doi"
+  },
+  "crombez2008b": {
+   "count": 88,
+   "openalex": "W2031850634",
+   "match": "doi"
+  },
+  "notebaert2011": {
+   "count": 60,
+   "openalex": "W2160962172",
+   "match": "doi"
+  },
+  "mccracken2003": {
+   "count": 748,
+   "openalex": "W2154196385",
+   "match": "doi"
+  },
+  "flink2013": {
+   "count": 186,
+   "openalex": "W2024697591",
+   "match": "doi"
+  },
+  "vandamme2008": {
+   "count": 255,
+   "openalex": "W2036172122",
+   "match": "doi"
+  },
+  "legrain2011": {
+   "count": 1045,
+   "openalex": "W1706861413",
+   "match": "doi"
+  },
+  "mouraux2011": {
+   "count": 646,
+   "openalex": "W2042837986",
+   "match": "doi"
+  },
+  "iannetti2008": {
+   "count": 447,
+   "openalex": "W1992263765",
+   "match": "doi"
+  },
+  "liberati2016": {
+   "count": 83,
+   "openalex": "W2231997468",
+   "match": "doi"
+  },
+  "salomons2016": {
+   "count": 194,
+   "openalex": "W2343973495",
+   "match": "doi"
+  },
+  "wager2013": {
+   "count": 1817,
+   "openalex": "W4245057219",
+   "match": "doi"
+  },
+  "zhang2012": {
+   "count": 366,
+   "openalex": "W1998139571",
+   "match": "doi"
+  },
+  "hu2019": {
+   "count": 185,
+   "openalex": "W2908712203",
+   "match": "doi"
+  },
+  "horing2019": {
+   "count": 72,
+   "openalex": "W2967328983",
+   "match": "doi"
+  },
+  "liang2019": {
+   "count": 83,
+   "openalex": "W2921392007",
+   "match": "doi"
+  },
+  "segerdahl2015": {
+   "count": 498,
+   "openalex": "W2068906079",
+   "match": "doi"
+  },
+  "lee2020": {
+   "count": 71,
+   "openalex": "W2979680128",
+   "match": "doi"
+  },
+  "kirsch1985": {
+   "count": 1119,
+   "openalex": "W1990719199",
+   "match": "doi"
+  },
+  "gracely1983": {
+   "count": 281,
+   "openalex": "W2061372378",
+   "match": "doi"
+  },
+  "voudouris1990": {
+   "count": 419,
+   "openalex": "W1968428857",
+   "match": "doi"
+  },
+  "montgomery1997": {
+   "count": 533,
+   "openalex": "W1971276952",
+   "match": "doi"
+  },
+  "price1999": {
+   "count": 620,
+   "openalex": "W2090630906",
+   "match": "doi"
+  },
+  "amanzio1999": {
+   "count": 1028,
+   "openalex": "W2148993214",
+   "match": "doi"
+  },
+  "hrobjartsson2001": {
+   "count": 1660,
+   "openalex": "W2331364533",
+   "match": "doi"
+  },
+  "vase2002": {
+   "count": 489,
+   "openalex": "W1966127473",
+   "match": "doi"
+  },
+  "benedetti2003": {
+   "count": 922,
+   "openalex": "W1897575770",
+   "match": "doi"
+  },
+  "wager2004": {
+   "count": 2242,
+   "openalex": "W2135382170",
+   "match": "doi"
+  },
+  "stewartwilliams2004": {
+   "count": 804,
+   "openalex": "W2151656499",
+   "match": "doi"
+  },
+  "eippert2009b": {
+   "count": 571,
+   "openalex": "W1967999836",
+   "match": "doi"
+  },
+  "bingel2011": {
+   "count": 934,
+   "openalex": "W2111663549",
+   "match": "doi"
+  },
+  "atlas2012": {
+   "count": 507,
+   "openalex": "W2155155895",
+   "match": "doi"
+  },
+  "carvalho2016": {
+   "count": 473,
+   "openalex": "W2531892847",
+   "match": "doi"
+  },
+  "forsberg2017": {
+   "count": 103,
+   "openalex": "W2559093642",
+   "match": "doi"
+  },
+  "zunhammer2018": {
+   "count": 177,
+   "openalex": "W2885060732",
+   "match": "doi"
+  },
+  "meulders2011": {
+   "count": 234,
+   "openalex": "W2005598814",
+   "match": "doi"
+  },
+  "meulders2013": {
+   "count": 118,
+   "openalex": "W1991033482",
+   "match": "doi"
+  },
+  "meulders2014": {
+   "count": 79,
+   "openalex": "W1991321030",
+   "match": "doi"
+  },
+  "meulders2015": {
+   "count": 131,
+   "openalex": "W2091003694",
+   "match": "doi"
+  },
+  "meulders2017": {
+   "count": 95,
+   "openalex": "W2536132409",
+   "match": "doi"
+  },
+  "harvie2016": {
+   "count": 36,
+   "openalex": "W2188463280",
+   "match": "doi"
+  },
+  "harvie2017": {
+   "count": 96,
+   "openalex": "W2603408045",
+   "match": "doi"
+  },
+  "harvie2020": {
+   "count": 18,
+   "openalex": "W3038058550",
+   "match": "doi"
+  },
+  "madden2015": {
+   "count": 76,
+   "openalex": "W2270875482",
+   "match": "doi"
+  },
+  "madden2016b": {
+   "count": 59,
+   "openalex": "W2498982421",
+   "match": "doi"
+  },
+  "zaman2015": {
+   "count": 135,
+   "openalex": "W2079747954",
+   "match": "doi"
+  },
+  "flor1987": {
+   "count": 360,
+   "openalex": "W2031410737",
+   "match": "doi"
+  },
+  "romano1992": {
+   "count": 206,
+   "openalex": "W2014291178",
+   "match": "doi"
+  },
+  "block1980": {
+   "count": 254,
+   "openalex": "W2016242681",
+   "match": "doi"
+  },
+  "jolliffe2004": {
+   "count": 91,
+   "openalex": "W2131443869",
+   "match": "doi"
+  },
+  "flor2002": {
+   "count": 228,
+   "openalex": "W2102110916",
+   "match": "doi"
+  },
+  "thieme2006": {
+   "count": 192,
+   "openalex": "W1565371173",
+   "match": "doi"
+  },
+  "henschke2010": {
+   "count": 628,
+   "openalex": "W2117118000",
+   "match": "doi"
+  },
+  "newtonjohn2006": {
+   "count": 120,
+   "openalex": "W1986881634",
+   "match": "doi"
+  },
+  "fordyce1986": {
+   "count": 235,
+   "openalex": "W2017605070",
+   "match": "doi"
+  },
+  "turk1987": {
+   "count": 170,
+   "openalex": "W1989128606",
+   "match": "doi"
+  },
+  "gatzounis2012": {
+   "count": 157,
+   "openalex": "W2019149311",
+   "match": "doi"
+  },
+  "holzl2005": {
+   "count": 69,
+   "openalex": "W2074461775",
+   "match": "doi"
+  },
+  "leonard2006": {
+   "count": 309,
+   "openalex": "W2114301646",
+   "match": "doi"
+  },
+  "linton1984": {
+   "count": 98,
+   "openalex": "W2220233316",
+   "match": "doi"
+  },
+  "vlaeyen2015": {
+   "count": 195,
+   "openalex": "W2152447594",
+   "match": "doi"
+  },
+  "vlaeyen2020": {
+   "count": 178,
+   "openalex": "W2994646059",
+   "match": "doi"
+  },
+  "meulders2019": {
+   "count": 173,
+   "openalex": "W2912860843",
+   "match": "doi"
+  },
+  "meulders2020": {
+   "count": 210,
+   "openalex": "W3021292991",
+   "match": "doi"
+  },
+  "madden2016": {
+   "count": 21,
+   "openalex": "W2526611402",
+   "match": "doi"
+  },
+  "traxler2019": {
+   "count": 30,
+   "openalex": "W2919286056",
+   "match": "doi"
+  },
+  "schneider2004": {
+   "count": 105,
+   "openalex": "W2023744733",
+   "match": "doi"
+  },
+  "klinger2010": {
+   "count": 70,
+   "openalex": "W2065771169",
+   "match": "doi"
+  },
+  "jenewein2013": {
+   "count": 48,
+   "openalex": "W1935179538",
+   "match": "doi"
+  },
+  "denhollander2016": {
+   "count": 177,
+   "openalex": "W2462082925",
+   "match": "doi"
+  },
+  "hasenbring2010": {
+   "count": 405,
+   "openalex": "W2170751942",
+   "match": "doi"
+  },
+  "hasenbring1994": {
+   "count": 355,
+   "openalex": "W2086477509",
+   "match": "doi"
+  },
+  "hasenbring2009": {
+   "count": 263,
+   "openalex": "W2051489213",
+   "match": "doi"
+  },
+  "hasenbring2012": {
+   "count": 172,
+   "openalex": "W2027942731",
+   "match": "doi"
+  },
+  "hasenbring2006": {
+   "count": 154,
+   "openalex": "W2114840040",
+   "match": "doi"
+  },
+  "plaas2013": {
+   "count": 55,
+   "openalex": "W1986947626",
+   "match": "doi"
+  },
+  "andrews2012": {
+   "count": 229,
+   "openalex": "W2036314854",
+   "match": "doi"
+  },
+  "fehrmann2017": {
+   "count": 37,
+   "openalex": "W2579097941",
+   "match": "doi"
+  },
+  "kindermans2011": {
+   "count": 141,
+   "openalex": "W2047749593",
+   "match": "doi"
+  },
+  "morf2026": {
+   "count": 0,
+   "openalex": "W7162190330",
+   "match": "doi"
+  },
+  "hasenbring2019": {
+   "count": 56,
+   "openalex": "W2994978891",
+   "match": "doi"
+  },
+  "turk1988": {
+   "count": 415,
+   "openalex": "W4234576498",
+   "match": "doi"
+  },
+  "turk1992": {
+   "count": 275,
+   "openalex": "W2077672187",
+   "match": "doi"
+  },
+  "williams2020": {
+   "count": 1995,
+   "openalex": "W1955446149",
+   "match": "doi"
+  },
+  "morley1999": {
+   "count": 1843,
+   "openalex": "W2079711079",
+   "match": "doi"
+  },
+  "morley2013": {
+   "count": 151,
+   "openalex": "W2039052983",
+   "match": "doi"
+  },
+  "lamb2010": {
+   "count": 470,
+   "openalex": "W2114898872",
+   "match": "doi"
+  },
+  "turner2007": {
+   "count": 628,
+   "openalex": "W2034388485",
+   "match": "doi"
+  },
+  "burns2003": {
+   "count": 287,
+   "openalex": "W1998052169",
+   "match": "doi"
+  },
+  "smeets2006": {
+   "count": 739,
+   "openalex": "W2118452111",
+   "match": "doi"
+  },
+  "cherkin2016": {
+   "count": 896,
+   "openalex": "W2304035054",
+   "match": "doi"
+  },
+  "turner2016": {
+   "count": 326,
+   "openalex": "W2419193481",
+   "match": "doi"
+  },
+  "ehde2014": {
+   "count": 1037,
+   "openalex": "W2014777834",
+   "match": "doi"
+  },
+  "mccracken2014": {
+   "count": 578,
+   "openalex": "W1986499404",
+   "match": "doi"
+  },
+  "mccracken2014b": {
+   "count": 800,
+   "openalex": "W2091828452",
+   "match": "doi"
+  },
+  "hayes2006": {
+   "count": 8669,
+   "openalex": "W2133963272",
+   "match": "doi"
+  },
+  "mccracken1998": {
+   "count": 858,
+   "openalex": "W2020246748",
+   "match": "doi"
+  },
+  "mccracken2004": {
+   "count": 1325,
+   "openalex": "W2156724116",
+   "match": "doi"
+  },
+  "vowles2008": {
+   "count": 604,
+   "openalex": "W2129928688",
+   "match": "doi"
+  },
+  "vowles2014": {
+   "count": 110,
+   "openalex": "W2062069866",
+   "match": "doi"
+  },
+  "wicksell2012": {
+   "count": 310,
+   "openalex": "W2143496747",
+   "match": "doi"
+  },
+  "trompetter2015": {
+   "count": 146,
+   "openalex": "W1789908247",
+   "match": "doi"
+  },
+  "akerblom2015": {
+   "count": 153,
+   "openalex": "W2014083019",
+   "match": "doi"
+  },
+  "hughes2017": {
+   "count": 763,
+   "openalex": "W2511511558",
+   "match": "doi"
+  },
+  "wetherell2011": {
+   "count": 635,
+   "openalex": "W2152511771",
+   "match": "doi"
+  },
+  "ost2014": {
+   "count": 651,
+   "openalex": "W2124990439",
+   "match": "doi"
+  },
+  "veehof2016": {
+   "count": 917,
+   "openalex": "W2254182258",
+   "match": "doi"
+  },
+  "asmundson2002": {
+   "count": 781,
+   "openalex": "W2116881601",
+   "match": "doi"
+  },
+  "asmundson2009": {
+   "count": 932,
+   "openalex": "W1965511761",
+   "match": "doi"
+  },
+  "gasperi2020": {
+   "count": 45,
+   "openalex": "W3113332778",
+   "match": "doi"
+  },
+  "ocanez2010": {
+   "count": 197,
+   "openalex": "W2037043301",
+   "match": "doi"
+  },
+  "marshall2010": {
+   "count": 340,
+   "openalex": "W2056868603",
+   "match": "doi"
+  },
+  "lopezmartinez2014": {
+   "count": 63,
+   "openalex": "W2156039418",
+   "match": "doi"
+  },
+  "siqveland2017": {
+   "count": 224,
+   "openalex": "W2755627067",
+   "match": "doi"
+  },
+  "ruizparraga2014": {
+   "count": 64,
+   "openalex": "W2094903688",
+   "match": "doi"
+  },
+  "sharp2001": {
+   "count": 872,
+   "openalex": "W2040162562",
+   "match": "doi"
+  },
+  "liedl2009": {
+   "count": 154,
+   "openalex": "W2005764954",
+   "match": "doi"
+  },
+  "jenewein2009": {
+   "count": 141,
+   "openalex": "W2058608171",
+   "match": "doi"
+  },
+  "stratton2014": {
+   "count": 52,
+   "openalex": "W2094731915",
+   "match": "doi"
+  },
+  "ravn2018": {
+   "count": 84,
+   "openalex": "W2797677622",
+   "match": "doi"
+  },
+  "andersen2016": {
+   "count": 113,
+   "openalex": "W2281530328",
+   "match": "doi"
+  },
+  "devries2021": {
+   "count": 21,
+   "openalex": "W3166999752",
+   "match": "doi"
+  },
+  "mcandrew2019": {
+   "count": 59,
+   "openalex": "W2945043311",
+   "match": "doi"
+  },
+  "held2026": {
+   "count": 4,
+   "openalex": "W4401423516",
+   "match": "doi"
+  },
+  "otis2009": {
+   "count": 195,
+   "openalex": "W1966659648",
+   "match": "doi"
+  },
+  "banks1996": {
+   "count": 878,
+   "openalex": "W1990682957",
+   "match": "doi"
+  },
+  "turk2002": {
+   "count": 247,
+   "openalex": "W1942479377",
+   "match": "doi"
+  },
+  "dworkin1992": {
+   "count": 170,
+   "openalex": "W1999843776",
+   "match": "doi"
+  },
+  "polatin1993": {
+   "count": 613,
+   "openalex": "W2093582145",
+   "match": "doi"
+  },
+  "fishbain1997": {
+   "count": 1332,
+   "openalex": "W2038709220",
+   "match": "doi"
+  },
+  "gureje2001": {
+   "count": 489,
+   "openalex": "W2017170791",
+   "match": "doi"
+  },
+  "kroenke2011": {
+   "count": 660,
+   "openalex": "W2012410632",
+   "match": "doi"
+  },
+  "martin2010": {
+   "count": 81,
+   "openalex": "W2069965666",
+   "match": "doi"
+  },
+  "picavet2002": {
+   "count": 904,
+   "openalex": "W2124257779",
+   "match": "doi"
+  },
+  "pincus2002": {
+   "count": 1927,
+   "openalex": "W2206411697",
+   "match": "doi"
+  },
+  "carroll2004": {
+   "count": 436,
+   "openalex": "W1983643872",
+   "match": "doi"
+  },
+  "sullivan2001": {
+   "count": 2987,
+   "openalex": "W2099493839",
+   "match": "doi"
+  },
+  "thorn2003": {
+   "count": 87,
+   "openalex": "W1978706148",
+   "match": "doi"
+  },
+  "sullivan2004": {
+   "count": 277,
+   "openalex": "W2119847000",
+   "match": "doi"
+  },
+  "giardino2003": {
+   "count": 152,
+   "openalex": "W2003004823",
+   "match": "doi"
+  },
+  "lackner2004": {
+   "count": 116,
+   "openalex": "W2047322107",
+   "match": "doi"
+  },
+  "buenaver2007": {
+   "count": 137,
+   "openalex": "W1966767544",
+   "match": "doi"
+  },
+  "burns2015": {
+   "count": 64,
+   "openalex": "W1905699525",
+   "match": "doi"
+  },
+  "vervoort2008": {
+   "count": 83,
+   "openalex": "W2028074742",
+   "match": "doi"
+  },
+  "vlaeyen2009": {
+   "count": 96,
+   "openalex": "W2132708207",
+   "match": "doi"
+  },
+  "cano2004": {
+   "count": 185,
+   "openalex": "W2005043307",
+   "match": "doi"
+  },
+  "craig2009": {
+   "count": 528,
+   "openalex": "W1966677887",
+   "match": "doi"
+  },
+  "hadjistavropoulos2002": {
+   "count": 479,
+   "openalex": "W1980748394",
+   "match": "doi"
+  },
+  "hadjistavropoulos2011": {
+   "count": 603,
+   "openalex": "W2161506337",
+   "match": "doi"
+  },
+  "prkachin1992": {
+   "count": 635,
+   "openalex": "W2166087694",
+   "match": "doi"
+  },
+  "labus2003": {
+   "count": 201,
+   "openalex": "W2083544150",
+   "match": "doi"
+  },
+  "kappesser2006": {
+   "count": 155,
+   "openalex": "W1985501359",
+   "match": "doi"
+  },
+  "hoffman2016": {
+   "count": 3044,
+   "openalex": "W2318723339",
+   "match": "doi"
+  },
+  "peeters2011": {
+   "count": 70,
+   "openalex": "W2166503734",
+   "match": "doi"
+  },
+  "krahe2013": {
+   "count": 302,
+   "openalex": "W2133333909",
+   "match": "doi"
+  },
+  "gregoire2016": {
+   "count": 23,
+   "openalex": "W2346062026",
+   "match": "doi"
+  },
+  "williams2002": {
+   "count": 697,
+   "openalex": "W2109933817",
+   "match": "doi"
+  },
+  "goubert2013": {
+   "count": 75,
+   "openalex": "W1148675367",
+   "match": "doi"
+  },
+  "simons2015": {
+   "count": 107,
+   "openalex": "W2323831969",
+   "match": "doi"
+  },
+  "caes2011": {
+   "count": 211,
+   "openalex": "W1975130217",
+   "match": "doi"
+  },
+  "chow2016": {
+   "count": 127,
+   "openalex": "W2297268436",
+   "match": "doi"
+  },
+  "neville2020": {
+   "count": 54,
+   "openalex": "W3044969986",
+   "match": "doi"
+  },
+  "birnie2020": {
+   "count": 48,
+   "openalex": "W3005431231",
+   "match": "doi"
+  },
+  "donnelly2020": {
+   "count": 104,
+   "openalex": "W3009260571",
+   "match": "doi"
+  },
+  "simons2012": {
+   "count": 275,
+   "openalex": "W2149532810",
+   "match": "doi"
+  },
+  "asmundson2012": {
+   "count": 276,
+   "openalex": "W65833959",
+   "match": "doi"
+  },
+  "simons2016": {
+   "count": 32,
+   "openalex": "W2439801015",
+   "match": "doi"
+  },
+  "loeser1999": {
+   "count": 1117,
+   "openalex": "W2164464321",
+   "match": "doi"
+  },
+  "loeser2000": {
+   "count": 175,
+   "openalex": "W2065031842",
+   "match": "doi"
+  },
+  "derbyshire2004": {
+   "count": 492,
+   "openalex": "W2091178362",
+   "match": "doi"
+  },
+  "waddell1987": {
+   "count": 1592,
+   "openalex": "W1989815215",
+   "match": "doi"
+  },
+  "moseley2007": {
+   "count": 417,
+   "openalex": "W2126796881",
+   "match": "doi"
+  },
+  "moseley2015b": {
+   "count": 1064,
+   "openalex": "W1576997161",
+   "match": "doi"
+  },
+  "moseley2004": {
+   "count": 636,
+   "openalex": "W2078673653",
+   "match": "doi"
+  },
+  "moseley2004b": {
+   "count": 482,
+   "openalex": "W2147556061",
+   "match": "doi"
+  },
+  "louw2016": {
+   "count": 917,
+   "openalex": "W2472697878",
+   "match": "doi"
+  },
+  "watson2019": {
+   "count": 530,
+   "openalex": "W2919037986",
+   "match": "doi"
+  },
+  "wood2018": {
+   "count": 316,
+   "openalex": "W2891158586",
+   "match": "doi"
+  },
+  "traeger2019": {
+   "count": 199,
+   "openalex": "W2899689461",
+   "match": "doi"
+  },
+  "gifford1998": {
+   "count": 187,
+   "openalex": "W2024824437",
+   "match": "doi"
+  },
+  "hodges2003": {
+   "count": 537,
+   "openalex": "W1982590950",
+   "match": "doi"
+  },
+  "coninx2021": {
+   "count": 90,
+   "openalex": "W3154571476",
+   "match": "doi"
+  },
+  "goldstein2018": {
+   "count": 368,
+   "openalex": "W2793106680",
+   "match": "doi"
+  },
+  "walters2019": {
+   "count": 154,
+   "openalex": "W2973820493",
+   "match": "doi"
+  },
+  "williams2016": {
+   "count": 62,
+   "openalex": "W2206490880",
+   "match": "doi"
+  },
+  "nesse2019": {
+   "count": 102,
+   "openalex": "W2974667023",
+   "match": "doi"
+  },
+  "cox2006": {
+   "count": 1781,
+   "openalex": "W2108114952",
+   "match": "doi"
+  },
+  "crook2014": {
+   "count": 186,
+   "openalex": "W2067592413",
+   "match": "doi"
+  },
+  "nagasako2003": {
+   "count": 433,
+   "openalex": "W2025097580",
+   "match": "doi"
+  },
+  "kehlet2006": {
+   "count": 4712,
+   "openalex": "W2130141996",
+   "match": "doi"
+  },
+  "eisenberger2003": {
+   "count": 4773,
+   "openalex": "W2110247921",
+   "match": "doi"
+  },
+  "eisenberger2006": {
+   "count": 382,
+   "openalex": "W2027331274",
+   "match": "doi"
+  },
+  "eisenberger2012": {
+   "count": 1213,
+   "openalex": "W2034067099",
+   "match": "doi"
+  },
+  "macdonald2005": {
+   "count": 2144,
+   "openalex": "W2170436315",
+   "match": "doi"
+  },
+  "kross2011": {
+   "count": 857,
+   "openalex": "W2096802921",
+   "match": "doi"
+  },
+  "woo2014": {
+   "count": 325,
+   "openalex": "W2110646298",
+   "match": "doi"
+  },
+  "dewall2010": {
+   "count": 605,
+   "openalex": "W2114477072",
+   "match": "doi"
+  },
+  "rotge2014": {
+   "count": 364,
+   "openalex": "W2112415501",
+   "match": "doi"
+  },
+  "iannetti2013": {
+   "count": 192,
+   "openalex": "W2071802762",
+   "match": "doi"
+  },
+  "lieberman2015": {
+   "count": 277,
+   "openalex": "W2179752489",
+   "match": "doi"
+  },
+  "wager2016": {
+   "count": 178,
+   "openalex": "W2339872010",
+   "match": "doi"
+  },
+  "pitcher1970": {
+   "count": 135,
+   "openalex": "W4242376389",
+   "match": "doi"
+  },
+  "tye1995": {
+   "count": 1787,
+   "openalex": "W4235770514",
+   "match": "doi"
+  },
+  "cutter2011": {
+   "count": 284,
+   "openalex": "W1585639896",
+   "match": "doi"
+  },
+  "aydede2013": {
+   "count": 90,
+   "openalex": "W2055970334",
+   "match": "doi"
+  },
+  "grahek2007": {
+   "count": 265,
+   "openalex": "W1920694872",
+   "match": "doi"
+  },
+  "berthier1988": {
+   "count": 558,
+   "openalex": "W2123246314",
+   "match": "doi"
+  },
+  "rainville1997": {
+   "count": 3028,
+   "openalex": "W2085955270",
+   "match": "doi"
+  },
+  "ploner1999": {
+   "count": 309,
+   "openalex": "W1967601775",
+   "match": "doi"
+  },
+  "bain2012": {
+   "count": 195,
+   "openalex": "W2089566762",
+   "match": "doi"
+  },
+  "bain2013": {
+   "count": 86,
+   "openalex": "W1985132680",
+   "match": "doi"
+  },
+  "bain2017": {
+   "count": 38,
+   "openalex": "W4247358664",
+   "match": "doi"
+  },
+  "corns2014": {
+   "count": 84,
+   "openalex": "W1915594872",
+   "match": "doi"
+  },
+  "klein2007": {
+   "count": 218,
+   "openalex": "W2277679676",
+   "match": "doi"
+  },
+  "klein2015": {
+   "count": 301,
+   "openalex": "W2352135985",
+   "match": "doi"
+  },
+  "klein2015b": {
+   "count": 121,
+   "openalex": "W2043829418",
+   "match": "doi"
+  },
+  "hall2008": {
+   "count": 133,
+   "openalex": "W2034489917",
+   "match": "doi"
+  },
+  "martinez2010": {
+   "count": 221,
+   "openalex": "W2000543914",
+   "match": "doi"
+  },
+  "martinez2015": {
+   "count": 59,
+   "openalex": "W2201861149",
+   "match": "doi"
+  },
+  "zborowski1952": {
+   "count": 1040,
+   "openalex": "W2026177798",
+   "match": "doi"
+  },
+  "bates1987": {
+   "count": 142,
+   "openalex": "W2022459814",
+   "match": "doi"
+  },
+  "bates1993": {
+   "count": 335,
+   "openalex": "W2010474060",
+   "match": "doi"
+  },
+  "morris1991": {
+   "count": 635,
+   "openalex": "W4389413714",
+   "match": "doi"
+  },
+  "campbell2012": {
+   "count": 574,
+   "openalex": "W2153747004",
+   "match": "doi"
+  },
+  "kim2016": {
+   "count": 259,
+   "openalex": "W2524700968",
+   "match": "doi"
+  },
+  "rahimwilliams2012": {
+   "count": 345,
+   "openalex": "W1558072449",
+   "match": "doi"
+  },
+  "anderson2009": {
+   "count": 988,
+   "openalex": "W1991925547",
+   "match": "doi"
+  },
+  "losin2020": {
+   "count": 94,
+   "openalex": "W3004771436",
+   "match": "doi"
+  },
+  "nielsen2008": {
+   "count": 381,
+   "openalex": "W1994521842",
+   "match": "doi"
+  },
+  "jensen1994": {
+   "count": 2631,
+   "openalex": "W2338278742",
+   "match": "doi"
+  },
+  "brinjikji2014": {
+   "count": 1572,
+   "openalex": "W2141841210",
+   "match": "doi"
+  },
+  "ephraim2005": {
+   "count": 856,
+   "openalex": "W2027699535",
+   "match": "doi"
+  },
+  "sherrington1910": {
+   "count": 1555,
+   "openalex": "W2162304282",
+   "match": "doi"
+  },
+  "burgess1967": {
+   "count": 711,
+   "openalex": "W2013914537",
+   "match": "doi"
+  },
+  "bessou1969": {
+   "count": 1165,
+   "openalex": "W1769392980",
+   "match": "doi"
+  },
+  "ochoa1983": {
+   "count": 503,
+   "openalex": "W2138606153",
+   "match": "doi"
+  },
+  "ochoa1989": {
+   "count": 332,
+   "openalex": "W2084044250",
+   "match": "doi"
+  },
+  "torebjork1992": {
+   "count": 866,
+   "openalex": "W2022898812",
+   "match": "doi"
+  },
+  "price1977": {
+   "count": 674,
+   "openalex": "W1980899076",
+   "match": "doi"
+  },
+  "rainville1999": {
+   "count": 635,
+   "openalex": "W2159200925",
+   "match": "doi"
+  },
+  "hofbauer2001": {
+   "count": 725,
+   "openalex": "W2150779634",
+   "match": "doi"
+  },
+  "kulkarni2005": {
+   "count": 383,
+   "openalex": "W2016341768",
+   "match": "doi"
+  },
+  "melzack1990": {
+   "count": 944,
+   "openalex": "W2152758580",
+   "match": "doi"
+  },
+  "melzack1997": {
+   "count": 317,
+   "openalex": "W1986100203",
+   "match": "doi"
+  },
+  "siddall2003": {
+   "count": 1070,
+   "openalex": "W2037702549",
+   "match": "doi"
+  },
+  "vaso2014": {
+   "count": 319,
+   "openalex": "W2108429804",
+   "match": "doi"
+  },
+  "price1994": {
+   "count": 390,
+   "openalex": "W1500514965",
+   "match": "doi"
+  },
+  "staud2001": {
+   "count": 875,
+   "openalex": "W2074122852",
+   "match": "doi"
+  },
+  "staud2009": {
+   "count": 230,
+   "openalex": "W1989837855",
+   "match": "doi"
+  },
+  "crombez1999": {
+   "count": 1952,
+   "openalex": "W2048081411",
+   "match": "doi"
+  },
+  "pincus2006": {
+   "count": 306,
+   "openalex": "W1988251977",
+   "match": "doi"
+  },
+  "wertli2014": {
+   "count": 606,
+   "openalex": "W1991034746",
+   "match": "doi"
+  },
+  "vlaeyen2001": {
+   "count": 527,
+   "openalex": "W2031625326",
+   "match": "doi"
+  },
+  "leeuw2008": {
+   "count": 441,
+   "openalex": "W2111005927",
+   "match": "doi"
+  },
+  "woods2008": {
+   "count": 323,
+   "openalex": "W2080816720",
+   "match": "doi"
+  },
+  "macedo2010": {
+   "count": 219,
+   "openalex": "W2154549794",
+   "match": "doi"
+  },
+  "grahl2018": {
+   "count": 119,
+   "openalex": "W2793180700",
+   "match": "doi"
+  },
+  "hoskin2019": {
+   "count": 85,
+   "openalex": "W2951773365",
+   "match": "doi"
+  },
+  "fazeli2018": {
+   "count": 116,
+   "openalex": "W2809559749",
+   "match": "doi"
+  },
+  "atlas2010": {
+   "count": 440,
+   "openalex": "W2008961184",
+   "match": "doi"
+  },
+  "wiech2014": {
+   "count": 126,
+   "openalex": "W2158046737",
+   "match": "doi"
+  },
+  "yoshida2013": {
+   "count": 171,
+   "openalex": "W2085014216",
+   "match": "doi"
+  },
+  "jepma2018": {
+   "count": 171,
+   "openalex": "W2898173573",
+   "match": "doi"
+  },
+  "flor1992": {
+   "count": 1363,
+   "openalex": "W2084250453",
+   "match": "doi"
+  },
+  "kamper2015": {
+   "count": 1366,
+   "openalex": "W2110535424",
+   "match": "doi"
+  },
+  "hill2011": {
+   "count": 1539,
+   "openalex": "W2160769294",
+   "match": "doi"
+  },
+  "cherkin2018": {
+   "count": 149,
+   "openalex": "W2803743367",
+   "match": "doi"
+  },
+  "seymour2019": {
+   "count": 200,
+   "openalex": "W2923628873",
+   "match": "doi"
+  },
+  "seymour2020": {
+   "count": 63,
+   "openalex": "W3046840428",
+   "match": "doi"
+  },
+  "mahajan2026": {
+   "count": 8,
+   "openalex": "W7125540383",
+   "match": "doi"
+  },
+  "mancini2022": {
+   "count": 41,
+   "openalex": "W4308101994",
+   "match": "doi"
+  },
+  "zhang2018": {
+   "count": 39,
+   "openalex": "W2784315430",
+   "match": "doi"
+  },
+  "seymour2005": {
+   "count": 489,
+   "openalex": "W2132473069",
+   "match": "doi"
+  },
+  "seymour2004": {
+   "count": 713,
+   "openalex": "W2084912121",
+   "match": "doi"
+  },
+  "desch2023": {
+   "count": 20,
+   "openalex": "W4318754360",
+   "match": "doi"
+  },
+  "hewitt2026": {
+   "count": 4,
+   "openalex": "W7125441192",
+   "match": "doi"
+  },
+  "basbaum2009": {
+   "count": 5128,
+   "openalex": "W2075715972",
+   "match": "doi"
+  },
+  "todd2010": {
+   "count": 1774,
+   "openalex": "W2059635921",
+   "match": "doi"
+  },
+  "heinricher2009": {
+   "count": 1173,
+   "openalex": "W2004551214",
+   "match": "doi"
+  },
+  "gauriau2002": {
+   "count": 683,
+   "openalex": "W2171037951",
+   "match": "doi"
+  },
+  "price2000": {
+   "count": 2441,
+   "openalex": "W2007791604",
+   "match": "doi"
+  },
+  "vogt2005": {
+   "count": 2048,
+   "openalex": "W2028850601",
+   "match": "doi"
+  },
+  "garcialarrea2013": {
+   "count": 666,
+   "openalex": "W2140318515",
+   "match": "doi"
+  },
+  "neugebauer2004": {
+   "count": 824,
+   "openalex": "W2144933081",
+   "match": "doi"
+  },
+  "kuner2021": {
+   "count": 412,
+   "openalex": "W3035378275",
+   "match": "doi"
+  },
+  "bushnell2013": {
+   "count": 2549,
+   "openalex": "W1999460576",
+   "match": "doi"
+  },
+  "lorenz2003": {
+   "count": 1076,
+   "openalex": "W2091696767",
+   "match": "doi"
+  },
+  "petrovic2002": {
+   "count": 1690,
+   "openalex": "W2094347820",
+   "match": "doi"
+  },
+  "wiech2008b": {
+   "count": 921,
+   "openalex": "W2093459270",
+   "match": "doi"
+  },
+  "seminowicz2017": {
+   "count": 579,
+   "openalex": "W2604834320",
+   "match": "doi"
+  },
+  "bingel2006": {
+   "count": 622,
+   "openalex": "W2020677557",
+   "match": "doi"
+  },
+  "dubin2010": {
+   "count": 1938,
+   "openalex": "W2140115878",
+   "match": "doi"
+  },
+  "woolf2007": {
+   "count": 1327,
+   "openalex": "W1967776969",
+   "match": "doi"
+  },
+  "julius2013": {
+   "count": 1298,
+   "openalex": "W2128865950",
+   "match": "doi"
+  },
+  "braz2014": {
+   "count": 534,
+   "openalex": "W1988722797",
+   "match": "doi"
+  },
+  "caterina1997": {
+   "count": 10071,
+   "openalex": "W1511198581",
+   "match": "doi"
+  },
+  "schmidt1995": {
+   "count": 622,
+   "openalex": "W1845054049",
+   "match": "doi"
+  },
+  "lamotte1978": {
+   "count": 503,
+   "openalex": "W2320790311",
+   "match": "doi"
+  },
+  "treede1995": {
+   "count": 492,
+   "openalex": "W2150557207",
+   "match": "doi"
+  },
+  "slugg2000": {
+   "count": 192,
+   "openalex": "W2254926144",
+   "match": "doi"
+  },
+  "ranade2014": {
+   "count": 1015,
+   "openalex": "W2083824794",
+   "match": "doi"
+  },
+  "szczot2018": {
+   "count": 329,
+   "openalex": "W2896293926",
+   "match": "doi"
+  },
+  "vandewauw2018": {
+   "count": 512,
+   "openalex": "W2792236328",
+   "match": "doi"
+  },
+  "fordyce1973": {
+   "count": 475,
+   "openalex": "W2414797307",
+   "match": "title"
+  },
+  "fordyce1976": {
+   "count": 1506,
+   "openalex": "W2005633144",
+   "match": "title"
+  },
+  "turk1983": {
+   "count": 308,
+   "openalex": "W2072474047",
+   "match": "title"
+  },
+  "hasenbring2000": {
+   "count": 103,
+   "openalex": "W1576934319",
+   "match": "title"
+  },
+  "sherrington1906": {
+   "count": 966,
+   "openalex": "W1500504256",
+   "match": "title"
+  },
+  "armstrong1962": {
+   "count": 1,
+   "openalex": "W4210486860",
+   "match": "title"
+  }
+ }
+}

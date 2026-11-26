@@ -5,6 +5,7 @@ import DomainBadge from '../../components/DomainBadge.astro';
 import Notice from '../../components/Notice.astro';
 import EvidenceTable from '../../components/EvidenceTable.astro';
 import TheoryDiagram from '../../components/TheoryDiagram.astro';
+import { computeMetrics, fmt, CITATION_DATE } from '../../lib/metrics';
 import { getTheories, url, cite, formatReference, resolveRefs, type Theory, type Mechanism } from '../../lib/data';
 import { KINDS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../../data/taxonomy';
 
@@ -32,6 +33,7 @@ const keyRefs = (await resolveRefs(otherIds.map((id) => ({ id, collection: 'refe
 const openQuestions = (await getCollection('gaps'))
   .filter((g) => g.data.predictions.some((p) => p.theory.id === theory.id))
   .sort((a, b) => a.data.order - b.data.order);
+const met = computeMetrics(all).get(theory.id)!;
 const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draft: 'Draft — not yet reviewed by a domain expert.', reviewed: '' }[d.review];
 ---
 
@@ -91,6 +93,11 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
           <dt>Levels</dt><dd>{d.levels.map((l) => LEVELS[l].label).join(', ')}</dd>
           <dt>Explains</dt><dd>{d.questions.map((q) => QUESTIONS[q].label).join(' ')}</dd>
           <dt>Pain types</dt><dd>{d.painTypes.map((p) => PAIN_TYPES[p].label).join(', ')}</dd>
+          <dt>Citations</dt>
+          <dd>{met.citations === null ? <span class="muted">Unknown (founding work not indexed)</span> : <>≈ {fmt(met.citations)}{met.known < met.total && <span class="muted"> ({met.known} of {met.total} works indexed)</span>}</>}
+            <span class="muted cit-src">Founding publications, all fields · OpenAlex, {CITATION_DATE}</span></dd>
+          <dt>Influence</dt>
+          <dd>{met.influence} {met.influence === 1 ? 'theory relates' : 'theories relate'} to it on this map</dd>
           <dt>Key papers</dt>
           <dd class="keypapers">
             {foundational.map((r) => (

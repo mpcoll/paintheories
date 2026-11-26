@@ -1,0 +1,76 @@
+---
+/**
+ * Toggle for sizing map markers by citations or influence. Emits `mapsize` on window
+ * with detail { mode: 'equal' | 'citations' | 'influence' } and keeps ?size= in the URL.
+ */
+import { CITATION_DATE, SCALE_MIN, SCALE_MAX } from '../lib/metrics';
+interface Props { maxCitations: number; maxInfluence: number }
+const { maxCitations, maxInfluence } = Astro.props;
+const r = (v: number, max: number) => 7.5 * (SCALE_MIN + (SCALE_MAX - SCALE_MIN) * Math.sqrt(v / max));
+const citEx = [100, 1000, 10000].filter((v) => v <= maxCitations);
+// Lay out legend circles left to right with room for their labels.
+const place = (vals: number[], max: number, labelW: number) => { let x = 4; return vals.map((v) => { const rr = r(v, max); const cx = x + rr; x = cx + rr + 6 + labelW; return { v, rr, cx }; }); };
+const citL = place(citEx, maxCitations, 44);
+const infEx = [1, 5, 10].filter((v) => v <= maxInfluence);
+const infL = place(infEx, maxInfluence, 22);
+const wOf = (L: { rr: number; cx: number }[], lw: number) => (L.length ? L[L.length - 1].cx + L[L.length - 1].rr + 6 + lw : 0);
+---
+<div class="size-toggle" data-pagefind-ignore>
+  <div class="st-row" role="group" aria-label="Marker size">
+    <span class="st-label">Size</span>
+    <button type="button" class="chip" data-size="equal" aria-pressed="true">Equal</button>
+    <button type="button" class="chip" data-size="citations" aria-pressed="false">Citations</button>
+    <button type="button" class="chip" data-size="influence" aria-pressed="false">Influence</button>
+  </div>
+  <div class="st-legend" data-for="citations" hidden>
+    <svg width={wOf(citL, 44)} height="40" aria-hidden="true">
+      {citL.map(({ v, rr, cx }) => <g><circle cx={cx} cy="20" r={rr} class="st-dot" /><text x={cx + rr + 4} y="24" class="st-t">{v.toLocaleString('en-US')}</text></g>)}
+    </svg>
+    <p>Approximate citations of each theory's founding publications, all fields (OpenAlex, retrieved {CITATION_DATE}). Hollow markers: founding works not indexed. Marker area grows with the count.</p>
+  </div>
+  <div class="st-legend" data-for="influence" hidden>
+    <svg width={wOf(infL, 22)} height="40" aria-hidden="true">
+      {infL.map(({ v, rr, cx }) => <g><circle cx={cx} cy="20" r={rr} class="st-dot" /><text x={cx + rr + 4} y="24" class="st-t">{v}</text></g>)}
+    </svg>
+    <p>Influence within this map: how many other theories here build on, extend, integrate, challenge or relate to it.</p>
+  </div>
+</div>
+
+<style>
+  .size-toggle { display: grid; gap: .35rem; margin: 0 0 .75rem; }
+  .st-row { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+  .st-label { font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); min-width: 3.6rem; }
+  .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .3rem .75rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .st-legend[hidden] { display: none; }
+  .st-legend { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1rem; }
+  .st-legend p { margin: 0; font-size: .78rem; color: var(--ink-3); max-width: 60ch; }
+  .st-dot { fill: var(--ink-3); opacity: .5; }
+  .st-t { fill: var(--ink-3); font: 11px var(--font); }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLDivElement>('.size-toggle');
+  if (root) {
+    const modes = ['equal', 'citations', 'influence'];
+    let mode = new URLSearchParams(location.search).get('size') ?? 'equal';
+    if (!modes.includes(mode)) mode = 'equal';
+    const apply = (push = true) => {
+      root.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.size === mode)));
+      root.querySelectorAll<HTMLElement>('.st-legend').forEach((l) => (l.hidden = l.dataset.for !== mode));
+      if (push) {
+        const p = new URLSearchParams(location.search);
+        if (mode === 'equal') p.delete('size'); else p.set('size', mode);
+        history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+      }
+      window.dispatchEvent(new CustomEvent('mapsize', { detail: { mode } }));
+    };
+    root.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip');
+      if (!b) return; mode = b.dataset.size!; apply();
+    });
+    if (document.readyState === 'complete') setTimeout(() => apply(false));
+    else window.addEventListener('load', () => apply(false));
+  }
+</script>

@@ -468,6 +468,10 @@ dl.facts dt {
 dl.facts dd {
   margin: 0;
 }
+dl.facts .cit-src {
+  display: block;
+  font-size: 0.75rem;
+}
 dl.facts dd.keypapers {
   display: flex;
   flex-direction: column;

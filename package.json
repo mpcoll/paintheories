@@ -12,7 +12,8 @@
     "ref:verify": "node scripts/refs.mjs verify",
     "ref:lookup": "node scripts/refs.mjs lookup",
     "diagram:preview": "node scripts/preview-diagram.mjs",
-    "planum:check": "node scripts/check-planum.mjs"
+    "planum:check": "node scripts/check-planum.mjs",
+    "citations:fetch": "node scripts/fetch-citations.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.10",
