@@ -55,6 +55,9 @@ evidence:
     direction: contradicts
     method: clinical
     refs: [nathan1976]
+diagram:
+  caption: "Large (L) and small (S) fibres converge on transmission (T) cells in the dorsal horn. Substantia gelatinosa (SG) interneurons, excited by L and inhibited by S, gate this input, and central control from the brain acts on the gate."
+  after: [melzack1965]
 foundational: [melzack1965]
 keyReferences: [wall1978, nathan1976, mendell2014, moayedi2013]
 review: draft

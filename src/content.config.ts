@@ -78,6 +78,8 @@ const theories = defineCollection({
         }),
       )
       .default([]),
+    // Original schematic in src/diagrams/<id>.svg; caption shown under it.
+    diagram: z.object({ caption: z.string(), after: z.array(reference('references')).default([]) }).optional(),
     foundational: z.array(reference('references')).min(1), // the papers that proposed it
     keyReferences: z.array(reference('references')).default([]), // reviews, critiques, tests
     // draft = written but not yet reviewed by a domain expert; reviewed = checked

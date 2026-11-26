@@ -468,6 +468,15 @@ dl.facts dt {
 dl.facts dd {
   margin: 0;
 }
+dl.facts dd.keypapers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+dl.facts dd.keypapers a {
+  text-decoration: none;
+  font-weight: 500;
+}
 @media (max-width: 560px) {
   dl.facts {
     grid-template-columns: 1fr;

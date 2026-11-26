@@ -57,6 +57,9 @@ evidence:
     direction: mixed
     method: meta-analysis
     refs: [macedo2010]
+diagram:
+  caption: "Pain interpreted catastrophically leads to fear, avoidance and hypervigilance, then disuse, depression and disability, which feed back into pain. With low fear, people confront pain and recover."
+  after: [vlaeyen2000]
 foundational: [lethem1983, vlaeyen2000]
 keyReferences: [vlaeyen2012, leeuw2006, crombez2012, moseley2015]
 review: draft

@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import DomainBadge from '../../components/DomainBadge.astro';
 import Notice from '../../components/Notice.astro';
 import EvidenceTable from '../../components/EvidenceTable.astro';
-import { getTheories, url, formatReference, resolveRefs, type Theory, type Mechanism } from '../../lib/data';
+import TheoryDiagram from '../../components/TheoryDiagram.astro';
+import { getTheories, url, cite, formatReference, resolveRefs, type Theory, type Mechanism } from '../../lib/data';
 import { KINDS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS } from '../../data/taxonomy';
 
 export async function getStaticPaths() {
@@ -51,6 +52,7 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
 
   <div class="theory-layout">
     <article class={`prose article d-${d.domain}`}>
+      <TheoryDiagram theory={theory} />
       <h2>Core claims</h2>
       <ol class="claims">{d.coreClaims.map((c) => <li>{c}</li>)}</ol>
       {
@@ -87,6 +89,14 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
           <dt>Levels</dt><dd>{d.levels.map((l) => LEVELS[l].label).join(', ')}</dd>
           <dt>Explains</dt><dd>{d.questions.map((q) => QUESTIONS[q].label).join(' ')}</dd>
           <dt>Pain types</dt><dd>{d.painTypes.map((p) => PAIN_TYPES[p].label).join(', ')}</dd>
+          <dt>Key papers</dt>
+          <dd class="keypapers">
+            {foundational.map((r) => (
+              <a href={r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${r.id}`)} title={r.data.title}>
+                {cite(r)}{r.data.doi && <span aria-hidden="true"> ↗</span>}
+              </a>
+            ))}
+          </dd>
         </dl>
       </section>
       {(outgoing.length > 0 || incoming.length > 0) && (

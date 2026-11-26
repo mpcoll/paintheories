@@ -1,0 +1,31 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Gate control: large (L) and small (S) fibres converge on transmission (T) cells in the dorsal horn; substantia gelatinosa (SG) interneurons, excited by L and inhibited by S, inhibit T; central control from the brain acts on the gate; T output drives the action system.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="area" x="186" y="96" width="282" height="226" rx="14"/>
+<text class="t-xs" x="198" y="312">Dorsal horn</text>
+<rect class="box-accent" x="164" y="18" width="280" height="50" rx="10"/>
+<text class="t mid" x="304" y="40">Central control</text>
+<text class="t-xs mid" x="304" y="57">brain: attention, emotion, past experience</text>
+<path class="ln ln-dash" d="M262,66 L262,162" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M24,130 H336 L372,166" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M24,282 H336 L372,216" marker-end="url(#dg-arr)"/>
+<text class="t-sm" x="24" y="120">L fibres (large, Aβ)</text>
+<text class="t-sm" x="24" y="272">S fibres (small, Aδ / C)</text>
+<path class="ln" d="M206,130 L238,166" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M206,282 L238,222" marker-end="url(#dg-bar)"/>
+<text class="t-b" x="200" y="160">+</text>
+<text class="t-b" x="200" y="258">−</text>
+<rect class="box-accent" x="218" y="168" width="84" height="52" rx="10"/>
+<text class="t-b mid" x="260" y="192">SG</text>
+<text class="t-xs mid" x="260" y="209">gate</text>
+<path class="ln" d="M302,194 H356" marker-end="url(#dg-bar)"/>
+<text class="t-b" x="322" y="186">−</text>
+<text class="t-b" x="352" y="150">+</text>
+<text class="t-b" x="352" y="246">+</text>
+<rect class="box-strong" x="362" y="166" width="78" height="54" rx="10"/>
+<text class="t-on mid" x="401" y="198">T cells</text>
+<path class="ln-accent" d="M440,193 H486" marker-end="url(#dg-arr-accent)"/>
+<rect class="box" x="490" y="166" width="130" height="54" rx="10"/>
+<text class="t mid" x="555" y="190">Action system</text>
+<text class="t-xs mid" x="555" y="207">pain and response</text>
+</svg>

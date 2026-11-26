@@ -1,0 +1,31 @@
+---
+/** Shows the theory's schematic (src/diagrams/<id>.svg) with its caption, if both exist. */
+import '../styles/diagram.css';
+import { getEntries } from 'astro:content';
+import type { Theory, Reference } from '../lib/data';
+import { cite } from '../lib/data';
+
+interface Props { theory: Theory }
+const { theory } = Astro.props;
+const svgs = import.meta.glob('../diagrams/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const svg = svgs[`../diagrams/${theory.id}.svg`];
+const d = theory.data.diagram;
+const after = d?.after.length ? ((await getEntries(d.after)) as Reference[]) : [];
+---
+{svg && d && (
+  <figure class={`theory-diagram d-${theory.data.domain}`}>
+    <div class="dg-wrap" set:html={svg} />
+    <figcaption>
+      {d.caption}
+      {after.length > 0 && <> Based on {after.map((r, i) => <>{i > 0 && '; '}<a href={r.data.doi ? `https://doi.org/${r.data.doi}` : undefined}>{cite(r)}</a></>)}.</>}
+      <span class="muted"> Schematic drawn for this site.</span>
+    </figcaption>
+  </figure>
+)}
+
+<style>
+  .theory-diagram { margin: 0 0 2rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.25rem 1.25rem 0.9rem; }
+  .dg-wrap { max-width: 720px; margin: 0 auto; }
+  figcaption { font-size: 0.86rem; color: var(--ink-2); margin-top: 0.75rem; border-top: 1px solid var(--line); padding-top: 0.6rem; }
+  figcaption a { text-decoration: none; }
+</style>

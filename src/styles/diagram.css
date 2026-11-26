@@ -1,0 +1,35 @@
+/*
+ * Shared vocabulary for theory diagrams (src/diagrams/<theory-id>.svg).
+ * Diagrams use only these classes, so they follow the site theme (light/dark)
+ * and the theory's domain colour (--dc, set by the .d-<domain> wrapper).
+ */
+.dg { width: 100%; height: auto; display: block; font-family: var(--font); }
+.dg text { font-family: var(--font); }
+
+/* Shapes */
+.dg .box { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.5; }
+.dg .box-accent { fill: color-mix(in srgb, var(--dc) 14%, var(--surface)); stroke: var(--dc); stroke-width: 1.6; }
+.dg .box-strong { fill: var(--dc); stroke: none; }
+.dg .area { fill: var(--surface-2); stroke: none; }
+.dg .area-line { fill: none; stroke: var(--line-strong); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.dg .dot { fill: var(--dc); }
+.dg .dot-muted { fill: var(--ink-3); }
+
+/* Lines and arrows (pair with markers #dg-arr, #dg-arr-accent, #dg-bar) */
+.dg .ln { fill: none; stroke: var(--ink-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dg .ln-accent { fill: none; stroke: var(--dc); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.dg .ln-thin { fill: none; stroke: var(--line-strong); stroke-width: 1.2; }
+.dg .ln-dash { stroke-dasharray: 6 5; }
+.dg .mk { fill: var(--ink-2); }
+.dg .mk-accent { fill: var(--dc); }
+.dg .mk-bar { stroke: var(--ink-2); stroke-width: 2.4; }
+
+/* Text */
+.dg .t { fill: var(--ink); font-size: 15px; font-weight: 500; }
+.dg .t-b { fill: var(--ink); font-size: 15px; font-weight: 650; }
+.dg .t-sm { fill: var(--ink-2); font-size: 13px; }
+.dg .t-xs { fill: var(--ink-3); font-size: 12px; }
+.dg .t-on { fill: #fff; font-size: 15px; font-weight: 600; }
+.dg .t-accent { fill: var(--dc); font-size: 15px; font-weight: 650; }
+.dg .mid { text-anchor: middle; }
+.dg .end { text-anchor: end; }

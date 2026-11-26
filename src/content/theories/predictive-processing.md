@@ -57,6 +57,9 @@ evidence:
     direction: mixed
     method: computational
     refs: [jepma2018]
+diagram:
+  caption: "Perceived pain (posterior) combines expected pain (prior) with nociceptive input (likelihood), each weighted by its precision. Here a precise expectation pulls perception towards it."
+  after: [buchel2014]
 foundational: [buchel2014, tabor2017]
 keyReferences: [wiech2016, ongaro2018, anchisi2015, geuter2017, moseley2015, kiverstein2022]
 review: draft

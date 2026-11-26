@@ -1,0 +1,33 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Fear-avoidance model: after injury, pain interpreted catastrophically leads to pain-related fear, avoidance and hypervigilance, then disuse, depression and disability, which feed back into pain; with low fear, people confront pain and recover.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="20" y="24" width="120" height="46" rx="10"/>
+<text class="t mid" x="80" y="52">Injury</text>
+<path class="ln" d="M140,47 H224" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="228" y="24" width="184" height="46" rx="10"/>
+<text class="t-b mid" x="320" y="52">Pain experience</text>
+<path class="ln-accent" d="M412,47 H450" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="454" y="24" width="166" height="46" rx="10"/>
+<text class="t mid" x="537" y="52">Catastrophizing</text>
+<path class="ln-accent" d="M537,70 V146" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="454" y="150" width="166" height="46" rx="10"/>
+<text class="t mid" x="537" y="178">Pain-related fear</text>
+<path class="ln-accent" d="M537,196 V268" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="444" y="272" width="186" height="58" rx="10"/>
+<text class="t mid" x="537" y="297">Avoidance and</text>
+<text class="t mid" x="537" y="316">hypervigilance</text>
+<path class="ln-accent" d="M444,301 H416" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="228" y="272" width="184" height="58" rx="10"/>
+<text class="t mid" x="320" y="297">Disuse, depression,</text>
+<text class="t mid" x="320" y="316">disability</text>
+<path class="ln-accent" d="M320,272 V74" marker-end="url(#dg-arr-accent)"/>
+<text class="t-accent mid" x="420" y="178">vicious</text>
+<text class="t-accent mid" x="420" y="196">cycle</text>
+<path class="ln" d="M240,70 L150,146" marker-end="url(#dg-arr)"/>
+<text class="t-xs" x="196" y="118">low fear</text>
+<rect class="box" x="20" y="150" width="150" height="46" rx="10"/>
+<text class="t mid" x="95" y="178">Confrontation</text>
+<path class="ln" d="M95,196 V268" marker-end="url(#dg-arr)"/>
+<rect class="box" x="20" y="272" width="150" height="46" rx="10"/>
+<text class="t mid" x="95" y="300">Recovery</text>
+</svg>
