@@ -1,0 +1,28 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Neuroimmune theory: nerve injury or inflammation activates microglia, astrocytes and immune cells, which release mediators such as BDNF, IL-1β, TNF and chemokines; these increase synaptic excitation and reduce inhibition, producing central sensitization and persistent pain. Glial modulators are predicted to block this.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="box" x="16" y="40" width="140" height="64" rx="10"/>
+<text class="t mid" x="86" y="67">Nerve injury,</text>
+<text class="t mid" x="86" y="87">inflammation</text>
+<path class="ln" d="M156,72 H196" marker-end="url(#dg-arr)"/>
+<rect class="box-strong" x="200" y="40" width="200" height="64" rx="10"/>
+<text class="t-on mid" x="300" y="67">Microglia, astrocytes,</text>
+<text class="t-on mid" x="300" y="87">immune cells</text>
+<path class="ln-accent" d="M400,72 H440" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="444" y="34" width="180" height="76" rx="10"/>
+<text class="t-b mid" x="534" y="58">Mediators</text>
+<text class="t-xs mid" x="534" y="78">BDNF, IL-1β,</text>
+<text class="t-xs mid" x="534" y="95">TNF, chemokines</text>
+<path class="ln-accent" d="M534,110 V218" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="444" y="222" width="180" height="70" rx="10"/>
+<text class="t mid" x="534" y="251">Excitation ↑</text>
+<text class="t mid" x="534" y="273">Inhibition ↓</text>
+<path class="ln-accent" d="M444,257 H410" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="206" y="230" width="200" height="54" rx="10"/>
+<text class="t-b mid" x="306" y="262">Central sensitization</text>
+<path class="ln" d="M206,257 H174" marker-end="url(#dg-arr)"/>
+<rect class="box" x="16" y="230" width="154" height="54" rx="10"/>
+<text class="t mid" x="93" y="262">Persistent pain</text>
+<path class="ln ln-dash" d="M300,150 V110" marker-end="url(#dg-bar)"/>
+<text class="t-sm mid" x="300" y="172">Glial modulators</text>
+</svg>

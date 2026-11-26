@@ -1,0 +1,33 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Maladaptive cortical plasticity: in the intact somatosensory and motor map the hand area lies next to the lip area; after amputation the lip representation shifts into the former hand area. This reorganisation drives phantom limb pain, which scales with it; restoring input or retraining (for example prosthesis use or mirror therapy) is proposed to reverse it.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-xs" x="120" y="56">S1 / M1 body map</text>
+<text class="t-sm end" x="108" y="97">Intact</text>
+<rect class="box" x="120" y="70" width="76" height="44"/>
+<text class="t mid" x="158" y="97">Arm</text>
+<rect class="box" x="196" y="70" width="90" height="44"/>
+<text class="t mid" x="241" y="97">Hand</text>
+<rect class="box" x="286" y="70" width="74" height="44"/>
+<text class="t mid" x="323" y="97">Lip</text>
+<path class="ln-thin ln-dash" d="M286,114 V180"/>
+<path class="ln-accent" d="M284,148 H238" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs" x="296" y="152">reorganisation</text>
+<text class="t-sm end" x="108" y="198">After</text>
+<text class="t-sm end" x="108" y="215">amputation</text>
+<rect class="box" x="120" y="180" width="76" height="44"/>
+<text class="t mid" x="158" y="207">Arm</text>
+<rect class="box" x="196" y="180" width="36" height="44"/>
+<text class="t-xs mid" x="214" y="206">hand</text>
+<rect class="box-accent" x="232" y="180" width="128" height="44"/>
+<text class="t-b mid" x="296" y="207">Lip</text>
+<path class="ln-accent" d="M360,202 H426" marker-end="url(#dg-arr-accent)"/>
+<text class="t-xs mid" x="393" y="192">drives</text>
+<rect class="box-strong" x="430" y="176" width="190" height="52" rx="10"/>
+<text class="t-on mid" x="525" y="207">Phantom limb pain</text>
+<text class="t-xs mid" x="525" y="250">scales with reorganisation</text>
+<path class="ln" d="M240,278 V230" marker-end="url(#dg-bar)"/>
+<text class="t-xs" x="250" y="258">reverses</text>
+<rect class="box" x="120" y="280" width="240" height="56" rx="10"/>
+<text class="t mid" x="240" y="304">Restore input, retrain</text>
+<text class="t-xs mid" x="240" y="323">e.g. prosthesis, mirror therapy</text>
+</svg>

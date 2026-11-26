@@ -64,6 +64,9 @@ evidence:
     direction: mixed
     method: intervention
     refs: [vanelderen2015]
+diagram:
+  caption: "Injury or inflammation activates glia and immune cells, whose mediators increase synaptic excitation and reduce inhibition, producing central sensitization and persistent pain. Glial modulators are predicted to interrupt this chain."
+  after: [watkins2001]
 foundational: [watkins2001]
 keyReferences: [watkins2003, ji2013, grace2014, ji2018, owen2017]
 review: draft

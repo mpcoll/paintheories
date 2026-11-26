@@ -71,6 +71,9 @@ evidence:
     direction: contradicts
     method: clinical
     refs: [feinstein2015]
+diagram:
+  caption: "Lamina I signals reach the posterior insula via VMpo (sensation) and the anterior cingulate via mediodorsal thalamus (motivation); together they form a homeostatic emotion that drives behaviour. The posterior insula is re-represented in the right anterior insula."
+  after: [craig2003, craig2002]
 foundational: [craig2003, craig2002]
 keyReferences: [craig2003b, craig2009b, willis2002]
 review: draft

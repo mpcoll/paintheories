@@ -65,6 +65,9 @@ evidence:
     direction: mixed
     method: animal
     refs: [goebel2021]
+diagram:
+  caption: "Nociplastic pain is a third descriptor beside nociceptive and neuropathic pain, defined by altered nociception without clear tissue damage or somatosensory lesion and recognised by hypersensitivity. The three can coexist; candidate mechanisms are shown on the right."
+  after: [kosek2016]
 foundational: [kosek2016]
 keyReferences: [fitzcharles2021, kosek2021, raja2020, kosek2024, cohen2022, clauw2014]
 review: draft

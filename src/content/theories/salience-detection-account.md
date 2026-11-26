@@ -67,6 +67,9 @@ evidence:
     direction: contradicts
     method: neuroimaging
     refs: [horing2019]
+diagram:
+  caption: "Equally salient nociceptive, tactile, auditory and visual stimuli activate the same network, the so-called pain matrix, which tracks salience rather than pain and serves to orient attention and prepare defensive action. Pain-specific activity, if any, is a small part."
+  after: [iannetti2010, legrain2011]
 foundational: [iannetti2010, legrain2011]
 keyReferences: [liang2019, segerdahl2015, lee2020]
 review: draft

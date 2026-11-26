@@ -50,6 +50,9 @@ evidence:
     direction: contradicts
     method: clinical
     refs: [vaso2014]
+diagram:
+  caption: "A distributed body-self neuromatrix, genetically specified and shaped by experience, generates neurosignatures that produce pain perception, action programmes and stress regulation. Sensory input and cognitive-emotional processes can trigger or modulate it, but sensory input is not necessary."
+  after: [melzack1990, melzack2001]
 foundational: [melzack1990, melzack1999, melzack2001]
 keyReferences: [iannetti2010, moseley2003, melzack2012]
 review: draft

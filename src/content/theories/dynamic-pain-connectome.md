@@ -61,6 +61,9 @@ evidence:
     direction: mixed
     method: neuroimaging
     refs: [mano2018]
+diagram:
+  caption: "Ascending nociceptive, salience, default mode and descending modulation networks interact through time-varying connectivity, including default mode coupling with the descending system (PAG). Attention to pain drifts spontaneously between pain and mind-wandering."
+  after: [kucyi2015]
 foundational: [kucyi2015]
 keyReferences: [kucyi2016, iannetti2010]
 review: draft

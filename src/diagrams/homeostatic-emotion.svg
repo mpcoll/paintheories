@@ -1,0 +1,36 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Pain as a homeostatic emotion: small-diameter afferents and lamina I neurons signal the body's condition; one thalamic route (VMpo) reaches the dorsal posterior insula (sensation), another (mediodorsal thalamus) reaches the anterior cingulate (motivation); together they form a homeostatic emotion that drives behaviour, and the posterior insula is re-represented in the right anterior insula (feeling, awareness).</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<rect class="area-line" x="260" y="50" width="194" height="258" rx="14"/>
+<rect class="box-strong" x="16" y="152" width="104" height="56" rx="10"/>
+<text class="t-on mid" x="68" y="185">Lamina I</text>
+<path class="ln" d="M68,276 V214" marker-end="url(#dg-arr)"/>
+<text class="t-xs mid" x="68" y="294">small-diameter</text>
+<text class="t-xs mid" x="68" y="310">afferents</text>
+<path class="ln-accent" d="M120,180 H140 V92 H154" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M140,180 V268 H154" marker-end="url(#dg-arr-accent)"/>
+<rect class="box" x="158" y="70" width="80" height="44" rx="10"/>
+<text class="t-b mid" x="198" y="97">VMpo</text>
+<rect class="box" x="158" y="246" width="80" height="44" rx="10"/>
+<text class="t-b mid" x="198" y="273">MD</text>
+<text class="t-xs mid" x="198" y="184">thalamus</text>
+<path class="ln-accent" d="M238,92 H266" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M238,268 H266" marker-end="url(#dg-arr-accent)"/>
+<rect class="box-accent" x="270" y="64" width="174" height="56" rx="10"/>
+<text class="t mid" x="357" y="88">Posterior insula</text>
+<text class="t-xs mid" x="357" y="107">sensation</text>
+<rect class="box-accent" x="270" y="240" width="174" height="56" rx="10"/>
+<text class="t mid" x="357" y="264">Anterior cingulate</text>
+<text class="t-xs mid" x="357" y="283">motivation</text>
+<text class="t-accent mid" x="357" y="176">Homeostatic</text>
+<text class="t-accent mid" x="357" y="195">emotion</text>
+<path class="ln" d="M444,92 H476" marker-end="url(#dg-arr)"/>
+<rect class="box" x="480" y="58" width="144" height="70" rx="10"/>
+<text class="t mid" x="552" y="82">Right anterior</text>
+<text class="t mid" x="552" y="100">insula</text>
+<text class="t-xs mid" x="552" y="118">feeling, awareness</text>
+<path class="ln-accent" d="M454,206 H476" marker-end="url(#dg-arr-accent)"/>
+<rect class="box" x="480" y="180" width="144" height="52" rx="10"/>
+<text class="t mid" x="552" y="203">Behaviour</text>
+<text class="t-xs mid" x="552" y="221">for homeostasis</text>
+</svg>

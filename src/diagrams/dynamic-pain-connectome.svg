@@ -1,0 +1,28 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Dynamic pain connectome: four interacting networks (ascending nociceptive, salience, default mode and descending modulation) communicate through time-varying connectivity, with default mode to descending (periaqueductal grey) coupling highlighted; attention to pain fluctuates spontaneously over time between pain and mind-wandering.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<path class="ln" d="M210,76 L86,150 M210,76 L334,150 M86,202 L210,276"/>
+<path class="ln-accent" d="M334,202 L210,276"/>
+<text class="t-xs mid" x="210" y="172">time-varying</text>
+<text class="t-xs mid" x="210" y="188">connectivity</text>
+<text class="t-accent" x="290" y="258">coupling</text>
+<rect class="box-accent" x="130" y="24" width="160" height="52" rx="10"/>
+<text class="t-b mid" x="210" y="47">Salience</text>
+<text class="t-xs mid" x="210" y="65">insula, mid-cingulate</text>
+<rect class="box" x="16" y="150" width="140" height="52" rx="10"/>
+<text class="t-b mid" x="86" y="173">Ascending</text>
+<text class="t-xs mid" x="86" y="191">nociceptive</text>
+<rect class="box-accent" x="264" y="150" width="140" height="52" rx="10"/>
+<text class="t-b mid" x="334" y="173">Default mode</text>
+<text class="t-xs mid" x="334" y="191">internal thought</text>
+<rect class="box-accent" x="130" y="276" width="160" height="52" rx="10"/>
+<text class="t-b mid" x="210" y="299">Descending</text>
+<text class="t-xs mid" x="210" y="317">PFC, PAG, RVM</text>
+<rect class="area" x="436" y="40" width="188" height="280" rx="14"/>
+<text class="t-sm mid" x="530" y="68">Attention to pain</text>
+<text class="t-xs" x="450" y="98">on pain</text>
+<path class="ln-thin" d="M450,272 H610"/>
+<path class="ln-accent" d="M450,170 C460,128 472,118 482,140 S494,210 506,214 S522,170 530,180 S544,246 558,240 S572,118 586,126 S600,190 610,200"/>
+<text class="t-xs" x="450" y="262">mind-wandering</text>
+<text class="t-xs end" x="610" y="294">time →</text>
+</svg>

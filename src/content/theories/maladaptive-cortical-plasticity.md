@@ -65,6 +65,9 @@ evidence:
     direction: contradicts
     method: longitudinal
     refs: [schone2025]
+diagram:
+  caption: "After amputation the lip representation in the somatosensory and motor map shifts into the former hand area. This reorganisation is proposed to drive phantom limb pain, and restoring input or retraining to reverse it."
+  after: [flor1995]
 foundational: [flor1995]
 keyReferences: [flor2006, makin2020, moseley2012c, kikkert2016, flor2001, flor1997, lotze2001]
 review: draft

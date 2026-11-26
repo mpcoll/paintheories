@@ -48,6 +48,9 @@ evidence:
     direction: mixed
     method: neuroimaging
     refs: [mouraux2011, iannetti2010]
+diagram:
+  caption: "Spinal input reaches a sensory-discriminative system (lateral pathways) and an affective-motivational system (medial brainstem, limbic), which interact. A cognitive-evaluative neocortical system evaluates input against past experience and controls both."
+  after: [melzack1968]
 foundational: [melzack1968]
 keyReferences: [melzack2012, raja2020]
 review: draft

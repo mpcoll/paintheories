@@ -1,0 +1,32 @@
+<svg class="dg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-title">
+<title id="dg-title">Salience detection account: equally salient nociceptive, tactile, auditory and visual stimuli all activate the same network (the so-called pain matrix), whose response tracks salience rather than pain intensity and serves to orient attention and prepare defensive action; any pain-specific activity is a small part of the response.</title>
+<defs><marker id="dg-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-arr-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-accent" d="M0,0 L10,5 L0,10 z"/></marker><marker id="dg-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><line class="mk-bar" x1="5" y1="0" x2="5" y2="10"/></marker></defs>
+<text class="t-xs" x="16" y="28">salient stimuli</text>
+<rect class="box" x="16" y="40" width="140" height="44" rx="10"/>
+<text class="t mid" x="86" y="67">Nociceptive</text>
+<rect class="box" x="16" y="108" width="140" height="44" rx="10"/>
+<text class="t mid" x="86" y="135">Tactile</text>
+<rect class="box" x="16" y="176" width="140" height="44" rx="10"/>
+<text class="t mid" x="86" y="203">Auditory</text>
+<rect class="box" x="16" y="244" width="140" height="44" rx="10"/>
+<text class="t mid" x="86" y="271">Visual</text>
+<path class="ln" d="M156,62 L202,146" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M156,130 L202,168" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M156,198 L202,190" marker-end="url(#dg-arr)"/>
+<path class="ln" d="M156,266 L202,212" marker-end="url(#dg-arr)"/>
+<rect class="box-accent" x="206" y="80" width="200" height="200" rx="12"/>
+<text class="t-b mid" x="306" y="112">Salience detection</text>
+<text class="t-xs mid" x="306" y="132">the so-called "pain matrix"</text>
+<text class="t-xs mid" x="306" y="164">tracks salience, not pain</text>
+<rect class="box-strong" x="224" y="186" width="136" height="32" rx="4"/>
+<text class="t-on mid" x="292" y="207">multimodal</text>
+<rect class="area-line" x="360" y="186" width="28" height="32" rx="4"/>
+<text class="t-xs end" x="388" y="240">pain-specific?</text>
+<path class="ln-accent" d="M406,150 L454,118" marker-end="url(#dg-arr-accent)"/>
+<path class="ln-accent" d="M406,210 L454,242" marker-end="url(#dg-arr-accent)"/>
+<rect class="box" x="458" y="84" width="166" height="56" rx="10"/>
+<text class="t mid" x="541" y="117">Orient attention</text>
+<rect class="box" x="458" y="220" width="166" height="56" rx="10"/>
+<text class="t mid" x="541" y="244">Defensive action</text>
+<text class="t-xs mid" x="541" y="263">prepare</text>
+</svg>

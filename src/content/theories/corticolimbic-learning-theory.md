@@ -67,6 +67,9 @@ evidence:
     direction: mixed
     method: longitudinal
     refs: [fillingim2025]
+diagram:
+  caption: "Nociception after injury engages corticolimbic circuits whose pre-existing properties are risk factors. Pain memories either extinguish, or continued learning keeps them reinforced and chronic pain comes to be represented in emotional, limbic circuitry."
+  after: [apkarian2009]
 foundational: [apkarian2009]
 keyReferences: [baliki2015, kuner2016, borsook2016]
 review: draft
