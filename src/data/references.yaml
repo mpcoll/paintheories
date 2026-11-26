@@ -8136,3 +8136,75 @@
   pages: 502-511
   doi: 10.1038/nrn3516
   source: crossref
+- id: lorenz2003
+  type: article
+  authors:
+    - Lorenz, J.
+    - Minoshima, S.
+    - Casey, K. L.
+  year: 2003
+  title: "Keeping pain out of mind: the role of the dorsolateral prefrontal cortex in pain modulation"
+  container: Brain
+  volume: "126"
+  issue: "5"
+  pages: 1079-1091
+  doi: 10.1093/brain/awg102
+  source: crossref
+- id: petrovic2002
+  type: article
+  authors:
+    - Petrovic, P.
+    - Kalso, E.
+    - Petersson, K. M.
+    - Ingvar, M.
+  year: 2002
+  title: Placebo and Opioid Analgesia-- Imaging a Shared Neuronal Network
+  container: Science
+  volume: "295"
+  issue: "5560"
+  pages: 1737-1740
+  doi: 10.1126/science.1067176
+  source: crossref
+- id: wiech2008b
+  type: article
+  authors:
+    - Wiech, K.
+    - Ploner, M.
+    - Tracey, I.
+  year: 2008
+  title: Neurocognitive aspects of pain perception
+  container: Trends in Cognitive Sciences
+  volume: "12"
+  issue: "8"
+  pages: 306-313
+  doi: 10.1016/j.tics.2008.05.005
+  source: crossref
+- id: seminowicz2017
+  type: article
+  authors:
+    - Seminowicz, D. A.
+    - Moayedi, M.
+  year: 2017
+  title: The Dorsolateral Prefrontal Cortex in Acute and Chronic Pain
+  container: The Journal of Pain
+  volume: "18"
+  issue: "9"
+  pages: 1027-1035
+  doi: 10.1016/j.jpain.2017.03.008
+  source: crossref
+- id: bingel2006
+  type: article
+  authors:
+    - Bingel, U.
+    - Lorenz, J.
+    - Schoell, E.
+    - Weiller, C.
+    - Büchel, C.
+  year: 2006
+  title: "Mechanisms of placebo analgesia: rACC recruitment of a subcortical antinociceptive network"
+  container: Pain
+  volume: "120"
+  issue: 1-2
+  pages: 8-15
+  doi: 10.1016/j.pain.2005.08.027
+  source: crossref

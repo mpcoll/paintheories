@@ -21,34 +21,50 @@ const refLink = (id: string) => {
 };
 
 // ---- Layout of the schematic (presentation only) ----
-const W = 720, H = 640;
+const W = 800, H = 712;
+// Positions found by a layout search (no edge passes through another station), then hand-tuned.
 const POS: Record<string, [number, number]> = {
-  s1: [104, 70], operculum: [248, 70], 'posterior-insula': [411, 70], cingulate: [602, 70],
-  'lateral-thalamus': [175, 185], 'medial-thalamus': [340, 185], amygdala: [488, 185], hypothalamus: [646, 185],
-  pag: [540, 282],
-  parabrachial: [370, 358], 'locus-coeruleus': [640, 358],
-  rvm: [540, 432],
-  'anterolateral-tract': [175, 522], 'dorsal-horn': [370, 590],
+  'dlpfc': [290, 58],
+  'cingulate': [491, 58],
+  'pgacc': [400, 58],
+  'vmpfc': [100, 58],
+  'anterior-insula': [670, 58],
+  'posterior-insula': [674, 140],
+  's1': [322, 140],
+  'operculum': [204, 140],
+  'lateral-thalamus': [247, 226],
+  'medial-thalamus': [619, 226],
+  'hypothalamus': [641, 304],
+  'amygdala': [443, 304],
+  'nucleus-accumbens': [160, 304],
+  'pag': [300, 384],
+  'locus-coeruleus': [480, 456],
+  'parabrachial': [640, 456],
+  'rvm': [380, 528],
+  'anterolateral-tract': [200, 606],
+  'dorsal-horn': [440, 672],
 };
 const BANDS = [
-  { label: 'Cortex', y0: 22, y1: 118 },
-  { label: 'Thalamus · limbic', y0: 138, y1: 232 },
-  { label: 'Midbrain', y0: 252, y1: 312 },
-  { label: 'Pons', y0: 326, y1: 390 },
-  { label: 'Medulla', y0: 404, y1: 462 },
-  { label: 'Spinal cord', y0: 482, y1: 624 },
+  { label: 'Cortex', y0: 22, y1: 176 },
+  { label: 'Thalamus', y0: 192, y1: 260 },
+  { label: 'Limbic', y0: 270, y1: 338 },
+  { label: 'Midbrain', y0: 350, y1: 418 },
+  { label: 'Pons', y0: 424, y1: 490 },
+  { label: 'Medulla', y0: 496, y1: 562 },
+  { label: 'Spinal cord', y0: 574, y1: 706 },
 ];
 const STYLE: Record<string, { cls: string; offset: number }> = {
   lateral: { cls: 'pw-lateral', offset: -4 },
   medial: { cls: 'pw-medial', offset: 4 },
   spinoparabrachial: { cls: 'pw-spinoparabrachial', offset: 0 },
   descending: { cls: 'pw-descending', offset: 0 },
+  cortical: { cls: 'pw-cortical', offset: 0 },
 };
 const nodeW = (s: string) => Math.max(72, s.length * 8.3 + 26);
 const NODE_H = 38;
 
 // Some edges bend around other nodes (control point of a quadratic curve).
-const CURVES: Record<string, [number, number]> = { 'parabrachial>hypothalamus': [486, 228] };
+const CURVES: Record<string, [number, number]> = {};
 
 // Edge from the border of one node box to the border of the other, offset sideways.
 function edgePath(a: string, b: string, offset: number) {
@@ -90,7 +106,7 @@ const payload = Object.fromEntries(
     },
   ]),
 );
-const order = ['lateral', 'medial', 'spinoparabrachial', 'descending'];
+const order = ['lateral', 'medial', 'spinoparabrachial', 'cortical', 'descending'];
 const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 ---
 
@@ -144,6 +160,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-lateral" /></svg>Lateral</li>
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-medial" /></svg>Medial</li>
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-spinoparabrachial" /></svg>Spinoparabrachial</li>
+          <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-cortical" /></svg>Cortical integration</li>
           <li><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" class="lg pw-descending" /></svg>Descending</li>
         </ul>
         Schematic: positions show levels, not exact anatomy. Signals from the left side of the body cross to the right side of the brain. Select a station to see it in 3D.
@@ -195,6 +212,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pw-medial { --c: var(--d2); }
   .pw-spinoparabrachial { --c: var(--d3); }
   .pw-descending { --c: var(--ink-2); }
+  .pw-cortical { --c: var(--d5); }
   .sw.pw-descending { background: repeating-linear-gradient(90deg, var(--ink-2) 0 4px, transparent 4px 7px); }
 
   .pc-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
@@ -206,6 +224,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pc-svg .band-label { fill: var(--ink-3); font: 600 12px var(--font); letter-spacing: .06em; text-transform: uppercase; }
   .pc-svg .edge { fill: none; stroke: var(--c); stroke-width: 2.6; stroke-linecap: round; transition: opacity .2s; }
   .pc-svg .edge.pw-descending { stroke-dasharray: 7 5; stroke-width: 2.2; }
+  .pc-svg .edge.pw-cortical { stroke-dasharray: 1.5 5; stroke-width: 3.2; }
   .pc-svg .mk { fill: var(--c); }
   .pc-svg .st { cursor: pointer; transition: opacity .2s; }
   .pc-svg .st rect { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.5; transition: stroke .15s, fill .15s; }
@@ -220,6 +239,8 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pc-figure .legend { margin: 0 0 .4rem; font-size: .8rem; }
   .lg { stroke: var(--c); stroke-width: 3; }
   .lg.pw-descending { stroke-dasharray: 5 4; stroke-width: 2.4; }
+  .lg.pw-cortical { stroke-dasharray: 1.5 4; stroke-width: 3.2; stroke-linecap: round; }
+  .sw.pw-cortical { background: repeating-linear-gradient(90deg, var(--d5) 0 3px, transparent 3px 6px); }
 
   .pc-panel { position: sticky; top: 128px; }
   @media (max-width: 980px) { .pc-panel { position: static; } }

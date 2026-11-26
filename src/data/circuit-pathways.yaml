@@ -25,7 +25,14 @@
 - id: descending
   name: Descending modulation
   kind: descending
-  summary: Cortex, amygdala and hypothalamus act on the periaqueductal grey, which acts through the rostral ventromedial medulla on the dorsal horn. Noradrenergic input from the locus coeruleus adds a parallel route. These pathways can inhibit or facilitate pain.
-  stations: [cingulate, amygdala, hypothalamus, pag, rvm, locus-coeruleus, dorsal-horn]
-  edges: [[cingulate, pag], [amygdala, pag], [hypothalamus, pag], [pag, rvm], [rvm, dorsal-horn], [locus-coeruleus, dorsal-horn]]
-  refs: [heinricher2009, ossipov2010, bushnell2013]
+  summary: Prefrontal and cingulate cortex, amygdala and hypothalamus act on the periaqueductal grey, which acts through the rostral ventromedial medulla on the dorsal horn. Noradrenergic input from the locus coeruleus adds a parallel route. These pathways can inhibit or facilitate pain.
+  stations: [dlpfc, pgacc, cingulate, amygdala, hypothalamus, pag, rvm, locus-coeruleus, dorsal-horn]
+  edges: [[dlpfc, pgacc], [pgacc, pag], [cingulate, pag], [amygdala, pag], [hypothalamus, pag], [pag, rvm], [rvm, dorsal-horn], [locus-coeruleus, dorsal-horn]]
+  refs: [heinricher2009, ossipov2010, bushnell2013, lorenz2003, bingel2006]
+- id: cortical
+  name: Cortical and corticolimbic integration
+  kind: cortical
+  summary: Beyond the first cortical relays, nociceptive signals are integrated across the insula, cingulate and prefrontal cortex. The posterior insula projects to the anterior insula, which is coupled with the anterior cingulate, and nucleus accumbens–medial prefrontal circuits encode the value of pain and relief and are implicated in chronic pain.
+  stations: [posterior-insula, anterior-insula, cingulate, nucleus-accumbens, vmpfc]
+  edges: [[posterior-insula, anterior-insula], [anterior-insula, cingulate], [nucleus-accumbens, vmpfc]]
+  refs: [craig2009b, baliki2012, navratilova2014]

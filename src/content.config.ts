@@ -113,7 +113,7 @@ const gaps = defineCollection({
 });
 
 /** Pain Biology: stations and pathways of the pain-circuit figure (/biology/). */
-const LEVELS_ANAT = ['spinal', 'medulla', 'pons', 'midbrain', 'limbic', 'thalamus', 'cortex'] as const;
+const LEVELS_ANAT = ['spinal', 'medulla', 'pons', 'midbrain', 'limbic', 'striatum', 'thalamus', 'cortex'] as const;
 const circuitStations = defineCollection({
   loader: file('src/data/circuit-stations.yaml'),
   schema: z.object({
@@ -131,6 +131,7 @@ const circuitStations = defineCollection({
       view: z.enum(['oblique', 'left', 'right', 'anterior', 'posterior', 'superior', 'inferior']),
       cortex: z.boolean(),
       hemi: z.enum(['left', 'right']).optional(),
+      mark: z.array(z.string()).max(12).optional(), // extra regions highlighted together (whole structure)
     }),
     note: z.string().optional(),
   }),
@@ -139,7 +140,7 @@ const circuitPathways = defineCollection({
   loader: file('src/data/circuit-pathways.yaml'),
   schema: z.object({
     name: z.string(),
-    kind: z.enum(['ascending', 'descending']),
+    kind: z.enum(['ascending', 'descending', 'cortical']),
     summary: z.string(),
     stations: z.array(reference('circuitStations')).min(2),
     edges: z.array(z.tuple([reference('circuitStations'), reference('circuitStations')])).min(1),

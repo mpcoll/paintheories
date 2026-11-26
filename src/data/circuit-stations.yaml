@@ -30,8 +30,8 @@
   refs: [price2000, garcialarrea2013]
   theories: [three-dimensional-model, specificity-theory]
   mechanisms: []
-  planum: { region: "nextbrain:right:10424", detail: nextbrain, view: anterior, cortex: false }
-  note: Shown is the ventral posterior inferior nucleus (VPI), the thalamic station of Planum's spinothalamic tour.
+  planum: { region: "nextbrain:right:10458", detail: nextbrain, view: anterior, cortex: false, mark: ["nextbrain:right:10394", "nextbrain:right:10458", "nextbrain:right:10424"] }
+  note: Highlighted are the rostral and caudal divisions of the ventral posterior lateral nucleus and the ventral posterior inferior nucleus (NextBrain).
 - id: medial-thalamus
   name: Medial and intralaminar thalamus
   short: Medial thalamus
@@ -40,8 +40,8 @@
   refs: [price2000, vogt2005]
   theories: [three-dimensional-model]
   mechanisms: []
-  planum: { region: "nextbrain:right:10425", detail: nextbrain, view: anterior, cortex: false }
-  note: Shown is the lateral division of the central lateral nucleus, one of the intralaminar nuclei.
+  planum: { region: "nextbrain:right:10425", detail: nextbrain, view: anterior, cortex: false, mark: ["nextbrain:right:10425", "nextbrain:right:10396", "nextbrain:right:10397", "nextbrain:right:10398"] }
+  note: Highlighted are intralaminar nuclei (central lateral, centromedian, parafascicular; NextBrain). Planum does not delineate the mediodorsal nucleus.
 - id: s1
   name: Primary somatosensory cortex (S1)
   short: S1
@@ -50,36 +50,38 @@
   refs: [price2000, bushnell2013]
   theories: [three-dimensional-model, maladaptive-cortical-plasticity]
   mechanisms: [cortical-reorganisation]
-  planum: { region: "destrieux:right:28", view: right, cortex: true }
+  planum: { region: "desikan:right:22", atlas: desikan, view: right, cortex: true }
+  note: Shown is the whole postcentral gyrus (Desikan-Killiany).
 - id: operculum
-  name: Parietal operculum (S2, OP1)
-  short: Operculum (S2)
+  name: Secondary somatosensory cortex (S2, parietal operculum)
+  short: S2 (operculum)
   level: cortex
   role: With the adjacent posterior insula, the operculo-insular cortex is considered a main cortical target of spinothalamic input and is central to the sensory processing of pain.
   refs: [garcialarrea2013]
   theories: [salience-detection-account]
   mechanisms: [distributed-brain-network]
-  planum: { region: "hcp-mmp:right:101", atlas: hcp-mmp, view: right, cortex: true }
+  planum: { region: "julich:right:29", atlas: julich, view: right, cortex: true, mark: ["julich:right:28", "julich:right:29", "julich:right:30", "julich:right:31"] }
+  note: Highlighted are Julich-Brain areas OP1–OP4 of the parietal operculum.
 - id: posterior-insula
   name: Posterior insula
   short: Posterior insula
   level: cortex
-  role: Receives nociceptive and thermal input from the thalamus. It has been proposed as primary interoceptive cortex, representing the physiological condition of the body, with re-representation in anterior insula linked to subjective feeling.
+  role: Receives nociceptive and thermal input from the thalamus. It has been proposed as primary interoceptive cortex, representing the physiological condition of the body.
   refs: [craig2003, garcialarrea2013]
   theories: [homeostatic-emotion, salience-detection-account]
   mechanisms: [interoception]
-  planum: { region: "julich:right:40", atlas: julich, view: right, cortex: true }
-  note: Shown is Julich-Brain area Ig2, a granular area of the posterior insula.
+  planum: { region: "julich:right:40", atlas: julich, view: right, cortex: true, mark: ["julich:right:41", "julich:right:40", "julich:right:107", "julich:right:42"] }
+  note: Highlighted are granular areas Ig1–Ig3 and dysgranular area Id1 of the posterior insula (Julich-Brain), seen through the overlying cortex.
 - id: cingulate
-  name: Anterior midcingulate cortex
-  short: Midcingulate cortex
+  name: Anterior midcingulate cortex (aMCC)
+  short: aMCC
   level: cortex
   role: Responds to noxious stimuli and is linked to the unpleasantness of pain and to selecting responses to it. It also projects to the periaqueductal grey, through which it can modulate pain.
   refs: [vogt2005, price2000, bushnell2013]
   theories: [three-dimensional-model, salience-detection-account, interruptive-function-model]
   mechanisms: [attention-to-pain]
-  planum: { region: "destrieux:right:7", view: left, cortex: true, hemi: right }
-  note: Shown on the medial face of the right hemisphere.
+  planum: { region: "desikan:right:2", atlas: desikan, view: left, cortex: true, hemi: right }
+  note: Shown is the Desikan-Killiany caudal anterior cingulate, which corresponds approximately to aMCC, on the medial face of the right hemisphere.
 - id: parabrachial
   name: Parabrachial nucleus
   short: Parabrachial
@@ -135,3 +137,52 @@
   theories: [endogenous-modulation-model]
   mechanisms: [descending-modulation]
   planum: { region: "aan:right:locus-coeruleus", view: left, cortex: false }
+- id: anterior-insula
+  name: Anterior insula
+  short: Anterior insula
+  level: cortex
+  role: Re-represents interoceptive signals from the posterior insula and integrates them with emotional, cognitive and motivational information. It has been proposed to underlie subjective awareness of bodily feelings, including pain, and is closely coupled with the anterior cingulate.
+  refs: [craig2009b, craig2003]
+  theories: [homeostatic-emotion, salience-detection-account, predictive-processing]
+  mechanisms: [interoception]
+  planum: { region: "julich:right:110", atlas: julich, view: right, cortex: true, mark: ["julich:right:110", "julich:right:129", "julich:right:128"] }
+  note: Highlighted are agranular areas Ia1–Ia3 of the anterior insula (Julich-Brain), seen through the overlying cortex.
+- id: pgacc
+  name: Pregenual anterior cingulate cortex (pgACC)
+  short: pgACC
+  level: cortex
+  role: Engaged during placebo and opioid analgesia. In placebo analgesia it shows increased coupling with the periaqueductal grey and amygdala, consistent with recruitment of the descending antinociceptive system.
+  refs: [petrovic2002, bingel2006]
+  theories: [expectancy-placebo-analgesia, endogenous-modulation-model]
+  mechanisms: [descending-modulation, expectation]
+  planum: { region: "desikan:right:26", atlas: desikan, view: left, cortex: true, hemi: right }
+  note: Shown is the Desikan-Killiany rostral anterior cingulate on the medial face of the right hemisphere.
+- id: dlpfc
+  name: Dorsolateral prefrontal cortex (dlPFC)
+  short: dlPFC
+  level: cortex
+  role: Engaged by cognitive control of pain. In healthy volunteers, greater dlPFC activity was associated with lower pain intensity and unpleasantness and with weaker coupling between midbrain and medial thalamus, suggesting top-down modulation of ascending pathways.
+  refs: [lorenz2003, seminowicz2017, wiech2008b]
+  theories: [neurocognitive-attention-model, expectancy-placebo-analgesia, cognitive-behavioural-model]
+  mechanisms: [attention-to-pain, expectation]
+  planum: { region: "desikan:right:27", atlas: desikan, view: right, cortex: true, mark: ["desikan:right:27", "desikan:right:3"] }
+  note: Highlighted are the Desikan-Killiany rostral and caudal middle frontal gyri, which contain the dlPFC.
+- id: vmpfc
+  name: Ventromedial prefrontal cortex (vmPFC)
+  short: vmPFC
+  level: cortex
+  role: With the nucleus accumbens, part of circuits that represent the value of pain and of its relief. In people with subacute back pain, stronger nucleus accumbens–medial prefrontal connectivity predicted the transition to chronic pain.
+  refs: [baliki2012, navratilova2014]
+  theories: [corticolimbic-learning-theory, motivation-decision-model, reinforcement-learning-account]
+  mechanisms: [reward-motivation]
+  planum: { region: "desikan:right:14", atlas: desikan, view: left, cortex: true, hemi: right }
+  note: Shown is the Desikan-Killiany medial orbitofrontal cortex on the medial face of the right hemisphere.
+- id: nucleus-accumbens
+  name: Nucleus accumbens
+  short: Accumbens
+  level: striatum
+  role: Part of the mesolimbic reward circuit. It contributes to the motivational value of pain relief and, with medial prefrontal cortex, is implicated in the transition from acute to chronic pain.
+  refs: [navratilova2014, baliki2012]
+  theories: [corticolimbic-learning-theory, reinforcement-learning-account, motivation-decision-model]
+  mechanisms: [reward-motivation]
+  planum: { region: "learning:right:accumbens", view: right, cortex: false }

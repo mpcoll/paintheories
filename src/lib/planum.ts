@@ -12,6 +12,7 @@ export type PlanumView = {
   view: string;
   cortex: boolean;
   hemi?: string;
+  mark?: string[];
 };
 
 export function planumLink(v: PlanumView, opts: { embed?: boolean } = {}) {
@@ -26,6 +27,8 @@ export function planumLink(v: PlanumView, opts: { embed?: boolean } = {}) {
   });
   if (v.hemi) p.set('hemi', v.hemi);
   if (!v.cortex) p.set('cortex', '0');
+  // Highlight every part of a multi-parcel structure (Planum 'mark': region:colour,…).
+  if (v.mark?.length) p.set('mark', v.mark.map((r) => `${r}:raspberry`).join(','));
   if (opts.embed) p.set('embed', '1');
   // Planum writes ids with literal ':' and ','; keep them readable.
   return PLANUM + '#' + p.toString().replace(/%3A/g, ':').replace(/%2C/g, ',');
