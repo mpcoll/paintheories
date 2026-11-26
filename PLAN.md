@@ -79,7 +79,8 @@ without a DOI are marked `source: manual`.
 
 - `/biology/`: interactive pain-circuit figure (lateral, medial, spinoparabrachial,
   descending) with 14 stations, each shown in 3D through embedded Planum views.
-- Next: station pages; cellular level (nociceptor types, dorsal horn laminae and
+- `/biology/periphery/`: nociceptor classes (skin → DRG → laminae), transducers, peripheral sensitization, gate-control simulator.
+- Next: station pages; deeper cellular level (nociceptor types, dorsal horn laminae and
   interneurons, receptors/channels); more circuits (trigeminal, spinoreticular);
   propose pain tours to Planum (descending PAG–RVM, spinoparabrachial).
 

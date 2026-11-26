@@ -1,0 +1,72 @@
+# Primary afferent classes shown on /biology/periphery/. Values are typical ranges
+# for mammalian cutaneous afferents as given in the cited reviews.
+- id: abeta
+  name: Aβ fibres
+  short: Aβ
+  myelin: Thickly myelinated
+  diameter: 6–12 µm
+  velocity: 35–75 m/s
+  velocityMid: 50
+  threshold: Low threshold
+  signals: Touch, vibration and pressure; not normally pain.
+  laminae: [III, IV, V]
+  markers: Large cell bodies; neurofilament-rich.
+  role: In the dorsal horn, Aβ input engages inhibitory interneurons. This is the basis of the spinal gate, which is why rubbing a painful area can reduce pain. When inhibition is lost, the same input can reach pain-transmitting neurons and touch becomes painful (allodynia).
+  refs: [basbaum2009, todd2010, braz2014]
+  theories: [gate-control-theory, population-coding-theory]
+- id: adelta
+  name: Aδ nociceptors
+  short: Aδ
+  myelin: Thinly myelinated
+  diameter: 1–5 µm
+  velocity: 5–30 m/s
+  velocityMid: 15
+  threshold: High threshold (noxious)
+  signals: First pain, which is fast, sharp and well localised, from noxious mechanical and heat stimuli.
+  laminae: [I, V]
+  markers: Medium-diameter cell bodies.
+  role: Their fast conduction gives the first, pricking component of pain after an injury and supports quick withdrawal and localisation.
+  refs: [basbaum2009, dubin2010]
+  theories: [specificity-theory]
+- id: c-peptidergic
+  name: Peptidergic C nociceptors
+  short: C (peptidergic)
+  myelin: Unmyelinated
+  diameter: 0.2–1.5 µm
+  velocity: 0.5–2 m/s
+  velocityMid: 1
+  threshold: High threshold (noxious)
+  signals: Second pain, which is slow, burning and poorly localised. Most respond to several kinds of noxious stimuli (polymodal).
+  laminae: [I, IIo]
+  markers: Release substance P and CGRP; express the NGF receptor TrkA.
+  role: The main input to lamina I projection neurons. Released peptides also act in the periphery and contribute to neurogenic inflammation.
+  refs: [basbaum2009, todd2010, woolf2007]
+  theories: [specificity-theory, central-sensitization]
+- id: c-nonpeptidergic
+  name: Non-peptidergic C nociceptors
+  short: C (non-peptidergic)
+  myelin: Unmyelinated
+  diameter: 0.2–1.5 µm
+  velocity: 0.5–2 m/s
+  velocityMid: 1
+  threshold: High threshold (noxious)
+  signals: Mechanical and other noxious stimuli; a molecularly distinct class of small-diameter nociceptors.
+  laminae: [IIi]
+  markers: Bind the lectin IB4; express the GDNF receptor Ret and the receptor MrgprD.
+  role: Terminate in inner lamina II, largely on interneurons, a different spinal target from peptidergic fibres. This segregation is one argument that pain is carried by partly separate lines.
+  refs: [basbaum2009, todd2010]
+  theories: [population-coding-theory, specificity-theory]
+- id: c-silent
+  name: Mechanically insensitive ("silent") C nociceptors
+  short: Silent C
+  myelin: Unmyelinated
+  diameter: 0.2–1.5 µm
+  velocity: 0.5–2 m/s
+  velocityMid: 1
+  threshold: Unresponsive to mechanical stimuli in normal skin
+  signals: Respond to heat or chemical stimuli. Some become responsive to mechanical stimuli after inflammation or sensitisation.
+  laminae: [I, IIo]
+  markers: A minority of C fibres in human skin, identified by microneurography.
+  role: Recruited when tissue is inflamed, they add input that contributes to hyperalgesia and to the axon-reflex flare around an injury.
+  refs: [schmidt1995, dubin2010]
+  theories: [central-sensitization]

@@ -1,0 +1,187 @@
+---
+/**
+ * Interactive figure: primary afferent classes from skin through the dorsal root
+ * ganglion to their dorsal horn laminae (data: src/data/fibre-types.yaml).
+ */
+import { getCollection, getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+const fibres = await getCollection('fibreTypes');
+const order = ['abeta', 'adelta', 'c-peptidergic', 'c-nonpeptidergic', 'c-silent'];
+fibres.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+const theories = new Map((await getCollection('theories')).map((t) => [t.id, t.data.shortTitle ?? t.data.title]));
+const refIds = [...new Set(fibres.flatMap((f) => f.data.refs.map((r) => r.id)))];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+
+// Geometry
+const W = 800, H = 400;
+const SKIN_X = 150, DRG_X = 400, DH_X0 = 560, DH_X1 = 790;
+const LAMINAE: { id: string; label: string; y0: number; y1: number }[] = [
+  { id: 'I', label: 'I', y0: 50, y1: 92 },
+  { id: 'IIo', label: 'II outer', y0: 92, y1: 134 },
+  { id: 'IIi', label: 'II inner', y0: 134, y1: 176 },
+  { id: 'III', label: 'III', y0: 176, y1: 218 },
+  { id: 'IV', label: 'IV', y0: 218, y1: 260 },
+  { id: 'V', label: 'V', y0: 260, y1: 302 },
+];
+const lamY = (id: string) => { const l = LAMINAE.find((x) => x.id === id)!; return (l.y0 + l.y1) / 2; };
+const FY: Record<string, number> = { abeta: 92, adelta: 152, 'c-peptidergic': 212, 'c-nonpeptidergic': 272, 'c-silent': 332 };
+const STROKE: Record<string, number> = { abeta: 6, adelta: 4, 'c-peptidergic': 2.2, 'c-nonpeptidergic': 2.2, 'c-silent': 2.2 };
+const SOMA: Record<string, number> = { abeta: 13, adelta: 9, 'c-peptidergic': 6, 'c-nonpeptidergic': 6, 'c-silent': 6 };
+const SLOT: Record<string, number> = { abeta: 1, adelta: 2, 'c-peptidergic': 3, 'c-nonpeptidergic': 4, 'c-silent': 5 };
+const termX = (i: number, n: number) => 640 + (n > 1 ? i * 70 : 35);
+
+const central = (id: string, lam: string, i: number, n: number) => {
+  const y = FY[id], ty = lamY(lam), tx = termX(i, n);
+  return `M${DRG_X + SOMA[id]},${y} C${DRG_X + 90},${y} ${DH_X0 - 40},${ty} ${DH_X0 + 10},${ty} L${tx},${ty}`;
+};
+const payload = Object.fromEntries(fibres.map((f) => [f.id, {
+  ...f.data,
+  refs: f.data.refs.map((r) => { const ref = refs.get(r.id)!; return { label: cite(ref), href: ref.data.doi ? `https://doi.org/${ref.data.doi}` : url(`references/#${r.id}`), title: ref.data.title }; }),
+  theories: f.data.theories.map((t) => ({ name: theories.get(t.id), href: url(`theories/${t.id}/`) })),
+  laminaeLabel: f.data.laminae.map((l) => LAMINAE.find((x) => x.id === l)!.label).join(', '),
+  travelMs: Math.round(1000 / f.data.velocityMid),
+}]));
+const maxMs = Math.max(...fibres.map((f) => 1000 / f.data.velocityMid));
+---
+
+<div class="nf" id="nociceptors">
+  <div class="nf-grid">
+    <figure class="card nf-figure">
+      <svg viewBox={`0 0 ${W} ${H}`} class="nf-svg" role="img" aria-labelledby="nf-title">
+        <title id="nf-title">Primary afferent fibres run from the skin through the dorsal root ganglion to the dorsal horn, each class ending in its own laminae: Aβ in III–V, Aδ in I and V, peptidergic C in I and outer II, non-peptidergic C in inner II. Select a fibre for details.</title>
+        <rect class="skin" x="16" y="40" width={SKIN_X - 16} height="320" rx="12" />
+        <rect class="epi" x="16" y="40" width="34" height="320" rx="12" />
+        <text class="lab" x={(16 + SKIN_X) / 2} y="30" text-anchor="middle">Skin</text>
+        <ellipse class="drg" cx={DRG_X} cy="212" rx="38" ry="160" />
+        <text class="lab" x={DRG_X} y="30" text-anchor="middle">Dorsal root ganglion</text>
+        <rect class="dh" x={DH_X0} y="50" width={DH_X1 - DH_X0} height="252" rx="10" />
+        <text class="lab" x={(DH_X0 + DH_X1) / 2} y="30" text-anchor="middle">Dorsal horn</text>
+        {LAMINAE.map((l, i) => (
+          <g>
+            <rect class={`lam ${i % 2 ? 'odd' : ''}`} x={DH_X0} y={l.y0} width={DH_X1 - DH_X0} height={l.y1 - l.y0} />
+            <text class="lam-label" x={DH_X1 - 8} y={l.y0 + 15} text-anchor="end">{l.label}</text>
+          </g>
+        ))}
+        <text class="note" x={(DH_X0 + DH_X1) / 2} y="324" text-anchor="middle">superficial (top) to deep laminae</text>
+        {fibres.map((f) => {
+          const y = FY[f.id];
+          return (
+            <g class="fibre" data-id={f.id} tabindex="0" role="button" aria-label={`${f.data.name}: show details`} style={`--fc: var(--d${SLOT[f.id]})`}>
+              <path class="hit" d={`M40,${y} H${DRG_X}`} />
+              {f.data.laminae.map((lam, i) => <path class="hit" d={central(f.id, lam, i, f.data.laminae.length)} />)}
+              <path class="end" d={`M40,${y - 10} L62,${y} L40,${y + 10} M62,${y} L48,${y - 18} M62,${y} L48,${y + 18}`} />
+              <path class="axon" d={`M62,${y} H${DRG_X - SOMA[f.id]}`} style={`stroke-width:${STROKE[f.id]}`} />
+              {f.data.myelin !== 'Unmyelinated' && <path class="myelin" d={`M80,${y} H${DRG_X - SOMA[f.id] - 6}`} style={`stroke-width:${STROKE[f.id] + 5}`} />}
+              <circle class="soma" cx={DRG_X} cy={y} r={SOMA[f.id]} />
+              {f.data.laminae.map((lam, i) => (
+                <>
+                  <path class="axon" d={central(f.id, lam, i, f.data.laminae.length)} style={`stroke-width:${Math.max(2, STROKE[f.id] - 1.5)}`} />
+                  <circle class="term" cx={termX(i, f.data.laminae.length)} cy={lamY(lam)} r="5" />
+                </>
+              ))}
+              <text class="flabel" x={SKIN_X + 10} y={y - 12}>{f.data.short}</text>
+              <text class="fsub" x={SKIN_X + 10} y={y + 22}>{f.data.velocity}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption>Schematic, not to scale. Line thickness and cell-body size reflect fibre diameter; the light sheath marks myelin. Select a fibre for details.</figcaption>
+    </figure>
+
+    <aside class="card nf-panel" aria-live="polite">
+      <p class="eyebrow nf-myelin"></p>
+      <h3 class="nf-name"></h3>
+      <dl class="facts nf-facts"></dl>
+      <p class="nf-role"></p>
+      <div class="nf-travel">
+        <p class="nf-travel-title">Time to travel 1 m (e.g. foot to spinal cord), at a typical speed</p>
+        <ul>
+          {fibres.filter((f, i, a) => a.findIndex((x) => x.data.velocityMid === f.data.velocityMid) === i).map((f) => (
+            <li data-id={f.id}>
+              <span class="tl">{f.data.short.replace(' (peptidergic)', '')}</span>
+              <span class="bar"><span style={`width:${(1000 / f.data.velocityMid / maxMs) * 100}%; --fc: var(--d${SLOT[f.id]})`}></span></span>
+              <span class="tv">≈ {1000 / f.data.velocityMid >= 1000 ? `${(1 / f.data.velocityMid).toFixed(0)} s` : `${Math.round(1000 / f.data.velocityMid)} ms`}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p class="nf-refs"></p>
+      <p class="nf-theories"></p>
+    </aside>
+  </div>
+</div>
+
+<script type="application/json" id="nf-data" set:html={JSON.stringify(payload)} />
+
+<style>
+  .nf-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+  @media (max-width: 980px) { .nf-grid { grid-template-columns: 1fr; } }
+  .nf-figure { margin: 0; padding: 1rem; }
+  .nf-svg { width: 100%; height: auto; display: block; }
+  .skin { fill: color-mix(in srgb, var(--d5) 12%, var(--surface)); stroke: var(--line-strong); }
+  .epi { fill: color-mix(in srgb, var(--d5) 24%, var(--surface)); }
+  .drg { fill: var(--surface-2); stroke: var(--line-strong); }
+  .dh { fill: var(--surface-2); stroke: var(--line-strong); }
+  .lam { fill: var(--surface); opacity: .55; }
+  .lam.odd { opacity: .2; }
+  .lam-label { fill: var(--ink-3); font: 600 12px var(--font); }
+  .lab { fill: var(--ink-2); font: 600 13px var(--font); }
+  .skin, .epi, .drg, .dh, .lam, .lab, .note, .lam-label { pointer-events: none; }
+  .note { fill: var(--ink-3); font: 12px var(--font); }
+  .fibre { cursor: pointer; }
+  .fibre .hit { fill: none; stroke: transparent; stroke-width: 18; }
+  .fibre .axon { fill: none; stroke: var(--fc); stroke-linecap: round; }
+  .fibre .myelin { fill: none; stroke: var(--fc); opacity: .22; stroke-linecap: round; stroke-dasharray: 22 4; }
+  .fibre .end { fill: none; stroke: var(--fc); stroke-width: 2; stroke-linecap: round; }
+  .fibre .soma { fill: var(--fc); stroke: var(--surface); stroke-width: 2; }
+  .fibre .term { fill: var(--fc); stroke: var(--surface); stroke-width: 1.5; }
+  .fibre .flabel { fill: var(--ink); font: 650 15px var(--font); }
+  .fibre .fsub { fill: var(--ink-3); font: 12px var(--font); }
+  .nf:has(.fibre.sel) .fibre:not(.sel) :is(.axon, .myelin, .end, .soma, .term) { opacity: .25; }
+  .nf:has(.fibre.sel) .fibre:not(.sel) .flabel { fill: var(--ink-3); }
+  .fibre:focus { outline: none; }
+  .fibre:focus-visible .flabel { text-decoration: underline; }
+  .nf-figure figcaption { font-size: .8rem; color: var(--ink-3); margin-top: .5rem; }
+  .nf-panel { position: sticky; top: 128px; }
+  @media (max-width: 980px) { .nf-panel { position: static; } }
+  .nf-panel h3 { margin: .1rem 0 .6rem; font-size: 1.35rem; }
+  .nf-panel .eyebrow { margin: 0; }
+  .nf-facts { margin-bottom: .7rem; }
+  .nf-role { margin: 0 0 .8rem; }
+  .nf-refs, .nf-theories { font-size: .84rem; margin: .4rem 0 0; }
+  .nf-refs a, .nf-theories a { text-decoration: none; }
+  .nf-travel { background: var(--surface-2); border-radius: 10px; padding: .6rem .8rem; }
+  .nf-travel-title { font-size: .76rem; color: var(--ink-3); margin: 0 0 .35rem; }
+  .nf-travel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
+  .nf-travel li { display: grid; grid-template-columns: 3.2rem 1fr 4.2rem; align-items: center; gap: .5rem; font-size: .82rem; }
+  .nf-travel li.sel .tl { font-weight: 650; }
+  .nf-travel .bar { height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; }
+  .nf-travel .bar span { display: block; height: 100%; background: var(--fc); border-radius: 4px; min-width: 3px; }
+  .nf-travel .tv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+</style>
+
+<script>
+  const root = document.getElementById('nociceptors')!;
+  const data = JSON.parse(document.getElementById('nf-data')!.textContent!);
+  const panel = root.querySelector('.nf-panel')!;
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  function select(id: string) {
+    const f = data[id]; if (!f) return;
+    root.querySelectorAll<SVGGElement>('.fibre').forEach((g) => g.classList.toggle('sel', g.dataset.id === id));
+    root.querySelectorAll<HTMLLIElement>('.nf-travel li').forEach((li) => li.classList.toggle('sel', data[li.dataset.id!].velocityMid === f.velocityMid));
+    panel.querySelector('.nf-myelin')!.textContent = `${f.myelin} · ${f.threshold}`;
+    panel.querySelector('.nf-name')!.textContent = f.name;
+    panel.querySelector('.nf-facts')!.innerHTML = [
+      ['Signals', f.signals], ['Diameter', f.diameter], ['Conduction', f.velocity], ['Ends in lamina', f.laminaeLabel], ['Markers', f.markers],
+    ].map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
+    panel.querySelector('.nf-role')!.textContent = f.role;
+    panel.querySelector('.nf-refs')!.innerHTML = 'Sources: ' + f.refs.map((r: any) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+    panel.querySelector('.nf-theories')!.innerHTML = f.theories.length ? 'Theories: ' + f.theories.map((t: any) => `<a href="${t.href}">${esc(t.name)}</a>`).join(' · ') : '';
+  }
+  root.querySelectorAll<SVGGElement>('.fibre').forEach((g) => {
+    g.addEventListener('click', () => select(g.dataset.id!));
+    g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(g.dataset.id!); } });
+  });
+  select('c-peptidergic');
+</script>

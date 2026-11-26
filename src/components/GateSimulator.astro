@@ -1,0 +1,186 @@
+---
+/**
+ * Gate-control simulator: a simplified dorsal horn circuit (after Melzack & Wall 1965,
+ * updated with the interneuron circuits reviewed by Braz et al. 2014).
+ * Scenario outputs are qualitative (0 = no pain signal, 3 = strong), for teaching.
+ */
+import { getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+type Scenario = {
+  id: string; label: string; outcome: string; output: number;
+  on: string[]; active: string[]; blocked: string[]; inhibitionLost?: boolean;
+  text: string; refs: string[];
+};
+const scenarios: Scenario[] = [
+  { id: 'touch', label: 'Light touch', outcome: 'No pain', output: 0,
+    on: ['abeta', 'in'], active: ['abeta-in', 'abeta-ex', 'in-ex', 'in-pn'], blocked: ['ex-pn'],
+    text: 'Light touch activates Aβ fibres. They also excite inhibitory interneurons, which keep the polysynaptic route from low-threshold input to lamina I projection neurons closed, so touch is not felt as pain.',
+    refs: ['braz2014', 'duan2014'] },
+  { id: 'noxious', label: 'Noxious stimulus', outcome: 'Pain', output: 2,
+    on: ['c', 'pn'], active: ['c-pn'], blocked: [],
+    text: 'Nociceptors (C and Aδ fibres) excite lamina I projection neurons, and the signal reaches the brain as pain.',
+    refs: ['todd2010', 'basbaum2009'] },
+  { id: 'rubbing', label: 'Noxious + rubbing', outcome: 'Less pain', output: 1,
+    on: ['abeta', 'c', 'in', 'pn'], active: ['abeta-in', 'abeta-ex', 'in-ex', 'in-pn', 'c-pn'], blocked: ['ex-pn'],
+    text: 'Adding Aβ input (rubbing, vibration, electrical stimulation) recruits inhibitory interneurons that damp the projection neurons: the gate partly closes and pain is reduced. This is the core prediction of gate control theory and the rationale for TENS.',
+    refs: ['melzack1965', 'braz2014'] },
+  { id: 'allodynia', label: 'Touch, inhibition lost', outcome: 'Touch felt as pain', output: 1.6, inhibitionLost: true,
+    on: ['abeta', 'ex', 'pn'], active: ['abeta-ex', 'ex-pn'], blocked: [],
+    text: 'When spinal inhibition is lost, as when inhibitory interneurons are removed in mice or after nerve injury, Aβ input reaches projection neurons through excitatory interneurons and light touch becomes painful (mechanical allodynia).',
+    refs: ['duan2014', 'foster2015', 'braz2014'] },
+  { id: 'hyperalgesia', label: 'Noxious, inhibition lost', outcome: 'More pain', output: 2.8, inhibitionLost: true,
+    on: ['c', 'pn'], active: ['c-pn'], blocked: [],
+    text: 'Without the inhibitory interneurons that normally limit it, the same noxious input produces a stronger output (hyperalgesia).',
+    refs: ['foster2015', 'braz2014'] },
+];
+const refIds = [...new Set(scenarios.flatMap((s) => s.refs))];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const payload = scenarios.map((s) => ({
+  ...s,
+  refs: s.refs.map((id) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; }),
+}));
+
+// Geometry (viewBox 720 × 380)
+const N = {
+  in: { x: 300, y: 196, r: 30 },
+  ex: { x: 432, y: 96, r: 30 },
+  pn: { x: 560, y: 196 },
+};
+const EDGES: Record<string, { d: string; kind: 'exc' | 'inh' }> = {
+  'abeta-ex': { d: 'M30,96 H398', kind: 'exc' },
+  'abeta-in': { d: 'M210,96 C250,96 268,140 282,170', kind: 'exc' },
+  'c-pn': { d: 'M30,300 H470 C510,300 528,260 536,232', kind: 'exc' },
+  'in-ex': { d: 'M322,175 L404,112', kind: 'inh' },
+  'in-pn': { d: 'M332,200 L512,200', kind: 'inh' },
+  'ex-pn': { d: 'M456,116 L532,168', kind: 'exc' },
+};
+---
+
+<div class="gs card" id="gate-sim">
+  <div class="gs-buttons" role="group" aria-label="Scenario">
+    {scenarios.map((s, i) => (
+      <button type="button" class="chip" data-s={s.id} aria-pressed={i === 0 ? 'true' : 'false'}>{s.label}</button>
+    ))}
+  </div>
+  <div class="gs-grid">
+    <svg viewBox="0 0 720 380" class="gs-svg" role="img" aria-labelledby="gs-title">
+      <title id="gs-title">Simplified dorsal horn circuit. Aβ fibres excite an inhibitory interneuron and an excitatory interneuron; the inhibitory interneuron inhibits the excitatory interneuron and the projection neuron; C fibres excite the projection neuron, which sends the output to the brain.</title>
+      <defs>
+        <marker id="gs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="gs-mk" /></marker>
+        <marker id="gs-bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9" orient="auto"><line x1="5" y1="0" x2="5" y2="10" class="gs-mkbar" /></marker>
+      </defs>
+      <rect class="gs-dh" x="190" y="40" width="430" height="300" rx="16" />
+      <text class="gs-xs" x="204" y="330">Dorsal horn (simplified)</text>
+      <rect class="gs-desc" x="482" y="6" width="156" height="26" rx="8" />
+      <text class="gs-xs" x="560" y="24" text-anchor="middle">descending control</text>
+      <path class="gs-edge gs-desc-line" d="M560,32 L560,160" marker-end="url(#gs-arr)" />
+
+      {Object.entries(EDGES).map(([id, e]) => (
+        <path class={`gs-edge ${e.kind}`} data-e={id} d={e.d} marker-end={e.kind === 'inh' ? 'url(#gs-bar)' : 'url(#gs-arr)'} />
+      ))}
+
+      <text class="gs-in-label" x="30" y="84">Aβ fibre</text>
+      <text class="gs-xs" x="30" y="118">touch, vibration</text>
+      <text class="gs-in-label" x="30" y="288">C / Aδ fibre</text>
+      <text class="gs-xs" x="30" y="322">nociceptor</text>
+
+      <g class="gs-node inh" data-n="in">
+        <circle cx={N.in.x} cy={N.in.y} r={N.in.r} />
+        <text x={N.in.x} y={N.in.y + 6} text-anchor="middle" class="gs-sign">−</text>
+        <text x={N.in.x} y={N.in.y + 52} text-anchor="middle" class="gs-node-label">Inhibitory</text>
+        <text x={N.in.x} y={N.in.y + 68} text-anchor="middle" class="gs-xs">interneuron</text>
+        <path class="gs-cross" d={`M${N.in.x - 24},${N.in.y - 24} L${N.in.x + 24},${N.in.y + 24} M${N.in.x + 24},${N.in.y - 24} L${N.in.x - 24},${N.in.y + 24}`} />
+      </g>
+      <g class="gs-node" data-n="ex">
+        <circle cx={N.ex.x} cy={N.ex.y} r={N.ex.r} />
+        <text x={N.ex.x} y={N.ex.y + 6} text-anchor="middle" class="gs-sign">+</text>
+        <text x={N.ex.x} y={N.ex.y - 40} text-anchor="middle" class="gs-node-label">Excitatory interneuron</text>
+      </g>
+      <g class="gs-node pn" data-n="pn">
+        <rect x={N.pn.x - 46} y={N.pn.y - 34} width="92" height="68" rx="12" />
+        <text x={N.pn.x} y={N.pn.y - 4} text-anchor="middle" class="gs-node-label">Projection</text>
+        <text x={N.pn.x} y={N.pn.y + 14} text-anchor="middle" class="gs-node-label">neuron (I)</text>
+      </g>
+      <path class="gs-out" d={`M${N.pn.x + 46},${N.pn.y} H660`} marker-end="url(#gs-arr)" />
+      <text class="gs-xs" x="652" y={N.pn.y - 12} text-anchor="end">to brain</text>
+
+      <rect class="gs-meter-bg" x="676" y="60" width="24" height="270" rx="8" />
+      <rect class="gs-meter" x="676" y="330" width="24" height="0" rx="8" />
+      <text class="gs-xs" x="688" y="50" text-anchor="middle">output</text>
+    </svg>
+
+    <div class="gs-text" aria-live="polite">
+      <p class="gs-outcome"></p>
+      <p class="gs-desc-text"></p>
+      <p class="gs-refs"></p>
+    </div>
+  </div>
+  <p class="gs-foot">Simplified, qualitative model for teaching. In Melzack and Wall's original diagram the inhibitory cells were in the substantia gelatinosa and small fibres also inhibited them. Modern work has identified specific populations (e.g. dynorphin-lineage and glycinergic interneurons) and polysynaptic routes that gate low-threshold input. See <a href={url('theories/gate-control-theory/')}>gate control theory</a> and <a href={url('theories/central-sensitization/')}>central sensitization</a>.</p>
+</div>
+
+<script type="application/json" id="gs-data" set:html={JSON.stringify(payload)} />
+
+<style>
+  .gs { padding: 1rem 1.1rem; }
+  .gs-buttons { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .75rem; }
+  .chip { font: 500 .86rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .32rem .8rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .gs-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.25rem; align-items: center; }
+  @media (max-width: 900px) { .gs-grid { grid-template-columns: 1fr; } }
+  .gs-svg { width: 100%; height: auto; display: block; }
+  .gs-dh { fill: var(--surface-2); }
+  .gs-desc { fill: var(--surface); stroke: var(--line-strong); stroke-dasharray: 4 4; }
+  .gs-desc-line { stroke-dasharray: 5 5; opacity: .5; }
+  .gs-xs { fill: var(--ink-3); font: 12px var(--font); }
+  .gs-in-label { fill: var(--ink); font: 650 15px var(--font); }
+  .gs-node-label { fill: var(--ink); font: 600 13px var(--font); }
+  .gs-sign { fill: var(--ink-2); font: 700 22px var(--font); }
+  .gs-edge { fill: none; stroke: var(--line-strong); stroke-width: 3; stroke-linecap: round; transition: stroke .25s, opacity .25s; }
+  .gs-mk { fill: var(--ink-3); }
+  .gs-mkbar { stroke: var(--ink-3); stroke-width: 2.5; }
+  .gs-edge.on.exc { stroke: var(--d1); stroke-width: 4; }
+  .gs-edge.on.inh { stroke: var(--d2); stroke-width: 4; }
+  .gs-edge.blocked { stroke-dasharray: 3 6; opacity: .55; }
+  .gs-node circle, .gs-node rect { fill: var(--surface); stroke: var(--line-strong); stroke-width: 2; transition: fill .25s, stroke .25s; }
+  .gs-node.on circle, .gs-node.on rect { stroke: var(--d1); fill: color-mix(in srgb, var(--d1) 16%, var(--surface)); }
+  .gs-node.inh.on circle { stroke: var(--d2); fill: color-mix(in srgb, var(--d2) 16%, var(--surface)); }
+  .gs-cross { stroke: var(--ink); stroke-width: 3; opacity: 0; transition: opacity .25s; }
+  .gs-node.lost circle { opacity: .45; stroke-dasharray: 4 4; }
+  .gs-node.lost .gs-cross { opacity: .8; }
+  .gs-out { stroke: var(--ink-2); stroke-width: 3; fill: none; }
+  .gs-meter-bg { fill: var(--surface-2); stroke: var(--line-strong); }
+  .gs-meter { fill: var(--ink); transition: y .35s, height .35s; }
+  .gs-outcome { font: 650 1.25rem var(--serif); margin: 0 0 .4rem; }
+  .gs-desc-text { margin: 0 0 .5rem; }
+  .gs-refs { font-size: .84rem; margin: 0; }
+  .gs-refs a, .gs-foot a { text-decoration: none; }
+  .gs-foot { font-size: .82rem; color: var(--ink-3); margin: .8rem 0 0; }
+</style>
+
+<script>
+  const root = document.getElementById('gate-sim')!;
+  const S = JSON.parse(document.getElementById('gs-data')!.textContent!);
+  const esc = (s: string) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  const meter = root.querySelector<SVGRectElement>('.gs-meter')!;
+  function show(id: string) {
+    const s = S.find((x: any) => x.id === id); if (!s) return;
+    root.querySelectorAll<HTMLButtonElement>('.gs-buttons .chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.s === id)));
+    root.querySelectorAll<SVGPathElement>('.gs-edge[data-e]').forEach((e) => {
+      e.classList.toggle('on', s.active.includes(e.dataset.e));
+      e.classList.toggle('blocked', s.blocked.includes(e.dataset.e));
+    });
+    root.querySelectorAll<SVGGElement>('.gs-node').forEach((n) => {
+      n.classList.toggle('on', s.on.includes(n.dataset.n));
+      n.classList.toggle('lost', !!s.inhibitionLost && n.dataset.n === 'in');
+    });
+    const h = (s.output / 3) * 270;
+    meter.setAttribute('y', String(330 - h)); meter.setAttribute('height', String(h));
+    root.querySelector('.gs-outcome')!.textContent = s.outcome;
+    root.querySelector('.gs-desc-text')!.textContent = s.text;
+    root.querySelector('.gs-refs')!.innerHTML = 'Sources: ' + s.refs.map((r: any) => `<a href="${r.href}" title="${esc(r.title)}">${esc(r.label)}</a>`).join(' · ');
+  }
+  root.querySelectorAll<HTMLButtonElement>('.gs-buttons .chip').forEach((b) => b.addEventListener('click', () => show(b.dataset.s!)));
+  show('touch');
+</script>

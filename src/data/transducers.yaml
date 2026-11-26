@@ -1,0 +1,31 @@
+# Molecular transducers and channels of nociceptors shown on /biology/periphery/.
+- id: trpv1
+  name: TRPV1
+  kind: Ion channel (TRP family)
+  detects: Noxious heat (about 43 °C and above), capsaicin, acid
+  role: Cloned as the capsaicin receptor and activated by noxious heat. It is expressed mainly in peptidergic C nociceptors and is sensitised by inflammatory mediators, contributing to heat hyperalgesia.
+  refs: [caterina1997, julius2013]
+- id: trpa1
+  name: TRPA1
+  kind: Ion channel (TRP family)
+  detects: Reactive chemical irritants (e.g. mustard oil) and inflammatory agents
+  role: A sensor of environmental irritants and of endogenous products of tissue injury and inflammation, often co-expressed with TRPV1.
+  refs: [julius2013, basbaum2009]
+- id: trpm8
+  name: TRPM8
+  kind: Ion channel (TRP family)
+  detects: Cooling and menthol
+  role: The main detector of cool temperatures in a subset of sensory neurons; involved in cold sensation and some forms of cold pain.
+  refs: [julius2013]
+- id: nav17
+  name: Nav1.7
+  kind: Voltage-gated sodium channel (SCN9A)
+  detects: Sets the threshold for firing
+  role: Amplifies small depolarisations so that nociceptors reach firing threshold. Loss-of-function mutations in SCN9A cause a congenital inability to experience pain.
+  refs: [cox2006, dubin2010]
+- id: nav18
+  name: Nav1.8
+  kind: Voltage-gated sodium channel (SCN10A)
+  detects: Carries the action potential
+  role: A tetrodotoxin-resistant sodium channel expressed in nociceptors that carries much of the current of their action potentials.
+  refs: [dubin2010, basbaum2009]

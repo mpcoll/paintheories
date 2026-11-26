@@ -149,4 +149,34 @@ const circuitPathways = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways };
+/** Pain Biology: periphery page (/biology/periphery/). */
+const fibreTypes = defineCollection({
+  loader: file('src/data/fibre-types.yaml'),
+  schema: z.object({
+    name: z.string(),
+    short: z.string(),
+    myelin: z.string(),
+    diameter: z.string(),
+    velocity: z.string(),
+    velocityMid: z.number().positive(), // m/s, for the travel-time comparison
+    threshold: z.string(),
+    signals: z.string(),
+    laminae: z.array(z.enum(['I', 'IIo', 'IIi', 'III', 'IV', 'V'])).min(1),
+    markers: z.string(),
+    role: z.string(),
+    refs: z.array(reference('references')).min(1),
+    theories: z.array(reference('theories')).default([]),
+  }),
+});
+const transducers = defineCollection({
+  loader: file('src/data/transducers.yaml'),
+  schema: z.object({
+    name: z.string(),
+    kind: z.string(),
+    detects: z.string(),
+    role: z.string(),
+    refs: z.array(reference('references')).min(1),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers };

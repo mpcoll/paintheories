@@ -8208,3 +8208,90 @@
   pages: 8-15
   doi: 10.1016/j.pain.2005.08.027
   source: crossref
+- id: dubin2010
+  type: article
+  authors:
+    - Dubin, A. E.
+    - Patapoutian, A.
+  year: 2010
+  title: "Nociceptors: the sensors of the pain pathway"
+  container: Journal of Clinical Investigation
+  volume: "120"
+  issue: "11"
+  pages: 3760-3772
+  doi: 10.1172/jci42843
+  source: crossref
+- id: woolf2007
+  type: article
+  authors:
+    - Woolf, C. J.
+    - Ma, Q.
+  year: 2007
+  title: Nociceptors—Noxious Stimulus Detectors
+  container: Neuron
+  volume: "55"
+  issue: "3"
+  pages: 353-364
+  doi: 10.1016/j.neuron.2007.07.016
+  source: crossref
+- id: julius2013
+  type: article
+  authors:
+    - Julius, D.
+  year: 2013
+  title: TRP Channels and Pain
+  container: Annual Review of Cell and Developmental Biology
+  volume: "29"
+  issue: "1"
+  pages: 355-384
+  doi: 10.1146/annurev-cellbio-101011-155833
+  source: crossref
+- id: braz2014
+  type: article
+  authors:
+    - Braz, J.
+    - Solorzano, C.
+    - Wang, X.
+    - Basbaum, A. I.
+  year: 2014
+  title: "Transmitting Pain and Itch Messages: A Contemporary View of the Spinal Cord Circuits that Generate Gate Control"
+  container: Neuron
+  volume: "82"
+  issue: "3"
+  pages: 522-536
+  doi: 10.1016/j.neuron.2014.01.018
+  source: crossref
+- id: caterina1997
+  type: article
+  authors:
+    - Caterina, M. J.
+    - Schumacher, M. A.
+    - Tominaga, M.
+    - Rosen, T. A.
+    - Levine, J. D.
+    - Julius, D.
+  year: 1997
+  title: "The capsaicin receptor: a heat-activated ion channel in the pain pathway"
+  container: Nature
+  volume: "389"
+  issue: "6653"
+  pages: 816-824
+  doi: 10.1038/39807
+  source: crossref
+- id: schmidt1995
+  type: article
+  authors:
+    - Schmidt, R.
+    - Schmelz, M.
+    - Forster, C.
+    - Ringkamp, M.
+    - Torebjork, E.
+    - Handwerker, H.
+  year: 1995
+  title: Novel classes of responsive and unresponsive C nociceptors in human skin
+  container: The Journal of Neuroscience
+  volume: "15"
+  issue: "1"
+  pages: 333-341
+  doi: 10.1523/jneurosci.15-01-00333.1995
+  source: crossref
