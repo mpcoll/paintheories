@@ -3,8 +3,11 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { getTheories, theoryRecord, url } from '../lib/data';
 import { DOMAINS, DOMAIN_STYLE, RELATIONS } from '../data/taxonomy';
+import MapFilters from '../components/MapFilters.astro';
+import { filterCounts } from '../lib/filters';
 
-const theories = (await getTheories()).map(theoryRecord);
+const theoryEntries = await getTheories();
+const theories = theoryEntries.map(theoryRecord);
 const mechanisms = (await getCollection('mechanisms')).map((m) => ({
   id: m.id,
   title: m.data.title,
@@ -15,35 +18,33 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
 ---
 
 <Base title="Network map" description="Interactive network of pain theories and how they relate." searchable={false}>
-  <header class="page-head">
-    <p class="eyebrow">Explore</p>
+  <header class="map-head">
     <h1>Network map</h1>
-    <p class="lede">Each node is a theory or model; colour and shape show its domain; lines show how theories relate. Click a node for details, double-click to open its page.</p>
+    <p class="muted">Colour and shape show the domain; lines show relations. Click a node for details, double-click to open its page.</p>
   </header>
 
-  <div class="filters" data-pagefind-ignore>
-    <label>Layout
-      <select id="layout">
-        <option value="time">Time × domain</option>
-        <option value="force">Force-directed</option>
-      </select>
-    </label>
-    <label style="flex-direction:row;display:flex;align-items:center;gap:.4rem;font-size:.9rem;color:var(--ink-2)">
-      <input type="checkbox" id="show-mech" /> Show mechanisms
-    </label>
-    <button class="btn" id="fit" type="button">Reset view</button>
+  <div class="card map-controls" data-pagefind-ignore>
+    <div class="row">
+      <label class="ctl">Layout
+        <select id="layout">
+          <option value="time">Time × domain</option>
+          <option value="force">Force-directed</option>
+        </select>
+      </label>
+      <label class="ctl-check"><input type="checkbox" id="show-mech" /> Show mechanisms</label>
+      <button class="btn" id="fit" type="button">Reset view</button>
+    </div>
+    <MapFilters counts={filterCounts(theoryEntries)} />
+    <ul class="legend" aria-label="Legend">
+      {Object.entries(DOMAINS).map(([k, v]) => (
+        <li><span class={`sym dom-${k}`} aria-hidden="true">{DOMAIN_STYLE[k as keyof typeof DOMAIN_STYLE].symbol}</span>{v.label}</li>
+      ))}
+      <li class="sep" aria-hidden="true"></li>
+      <li><svg width="24" height="8" aria-hidden="true"><line x1="0" y1="4" x2="24" y2="4" stroke="currentColor" stroke-width="2" /></svg>builds on / extends</li>
+      <li><svg width="24" height="8" aria-hidden="true"><line x1="0" y1="4" x2="24" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" /></svg>challenges</li>
+      <li><svg width="24" height="8" aria-hidden="true"><line x1="0" y1="4" x2="24" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round" /></svg>integrates / related to</li>
+    </ul>
   </div>
-
-  <ul class="legend" aria-label="Legend">
-    {Object.entries(DOMAINS).map(([k, v]) => (
-      <li><span class={`sym dom-${k}`} aria-hidden="true">{DOMAIN_STYLE[k as keyof typeof DOMAIN_STYLE].symbol}</span>{v.label}</li>
-    ))}
-  </ul>
-  <ul class="legend" aria-label="Relation types">
-    <li><svg width="28" height="8" aria-hidden="true"><line x1="0" y1="4" x2="28" y2="4" stroke="currentColor" stroke-width="2" /></svg>builds on / extends</li>
-    <li><svg width="28" height="8" aria-hidden="true"><line x1="0" y1="4" x2="28" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" /></svg>challenges</li>
-    <li><svg width="28" height="8" aria-hidden="true"><line x1="0" y1="4" x2="28" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round" /></svg>integrates / related to</li>
-  </ul>
 
   <div class="map-shell">
     <div id="cy" role="img" aria-label="Network diagram of pain theories. The same information is available in the theories table."></div>
@@ -56,6 +57,16 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
   <script type="application/json" id="map-data" set:html={JSON.stringify(payload)} />
 
   <style>
+    .map-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1.25rem; margin-bottom: 1rem; }
+    .map-head h1 { font-size: 2rem; margin: 0; }
+    .map-head p { margin: 0; font-size: .92rem; }
+    .map-controls { display: grid; gap: .6rem; margin-bottom: 1rem; padding: .9rem 1.1rem; }
+    .map-controls .row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+    .map-controls :global(.map-filters) { margin: 0; }
+    .map-controls .legend { margin: 0; font-size: .8rem; }
+    .legend .sep { width: 1px; height: 14px; background: var(--line-strong); }
+    .ctl { display: flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+    .ctl-check { display: flex; align-items: center; gap: .4rem; font-size: .9rem; color: var(--ink-2); }
     .map-shell {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 280px;
@@ -63,7 +74,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
       align-items: start;
     }
     #cy {
-      height: 68vh;
+      height: 72vh;
       min-height: 420px;
       background: var(--surface);
       border: 1px solid var(--line);
@@ -80,6 +91,7 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
   <script>
     import cytoscape from 'cytoscape';
     import { makeTimeScale, tickYears as ticksFor } from '../lib/timescale';
+    import { matchesFilter, type MapFilter } from '../lib/filters';
 
     type Payload = {
       theories: any[];
@@ -183,6 +195,8 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
         { selector: 'edge[rel="related-to"]', style: { 'target-arrow-shape': 'none' } },
         { selector: 'edge[rel="mechanism"]', style: { width: 1, 'line-style': 'dotted', 'target-arrow-shape': 'none', opacity: 0.6 } },
         { selector: '.faded', style: { opacity: 0.15 } },
+        { selector: '.off', style: { opacity: 0.07, events: 'no' } },
+        { selector: 'edge.off', style: { display: 'none' } },
         { selector: 'node:selected', style: { 'border-color': css('--accent'), 'border-width': 3 } },
         { selector: 'edge.hl', style: { 'line-color': ink2, 'target-arrow-color': ink2, width: 2.5, opacity: 1 } },
       ];
@@ -262,6 +276,28 @@ const payload = { theories, mechanisms, domainStyle: DOMAIN_STYLE, relations: RE
     });
     window.addEventListener('themechange', () => cy.style(style()));
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => cy.style(style()));
+
+    // Type / scope filter: fade non-matching theories and hide their links.
+    let currentFilter: MapFilter = { kinds: [], questions: [] };
+    function applyFilter() {
+      const f = currentFilter;
+      let shown = 0, total = 0;
+      cy.nodes('[kind="theory"]').forEach((n) => {
+        total++;
+        const r = n.data('rec');
+        const ok = matchesFilter(r.kind, r.questions, f);
+        n.toggleClass('off', !ok);
+        if (ok) shown++;
+      });
+      cy.nodes('[kind="mechanism"]').forEach((m) => {
+        m.toggleClass('off', m.neighborhood('node[kind="theory"]').filter((n) => !n.hasClass('off')).empty());
+      });
+      cy.edges().forEach((e) => { e.toggleClass('off', e.source().hasClass('off') || e.target().hasClass('off')); });
+      window.dispatchEvent(new CustomEvent('mapfilter:count', { detail: { shown, total } }));
+    }
+    window.addEventListener('mapfilter', (e) => { currentFilter = (e as CustomEvent<MapFilter>).detail; applyFilter(); });
+    // Re-apply after mechanisms are added/removed.
+    mechBox.addEventListener('change', () => applyFilter());
 
     const focus = new URLSearchParams(location.search).get('focus');
     if (focus && cy.getElementById(focus).nonempty()) {

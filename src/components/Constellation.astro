@@ -7,6 +7,8 @@ import type { Theory } from '../lib/data';
 import { url } from '../lib/data';
 import { DOMAINS, DOMAIN_STYLE } from '../data/taxonomy';
 import { makeTimeScale, tickYears } from '../lib/timescale';
+import { filterCounts } from '../lib/filters';
+import MapFilters from './MapFilters.astro';
 
 interface Props { theories: Theory[] }
 const { theories } = Astro.props;
@@ -80,6 +82,7 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
 ---
 
 <figure class="constellation">
+  <MapFilters counts={filterCounts(theories)} />
   <figcaption class="cap">
     <ul class="legend dom-legend" aria-label="Domains">
       {allDomains.map((d) => <li><span class={`sym dom-${d}`} aria-hidden="true">{DOMAIN_STYLE[d].symbol}</span>{DOMAINS[d].label}</li>)}
@@ -105,7 +108,7 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
           <rect x="0" y={b.y0} width="5" height={b.h} rx="2.5" style={`fill: var(--d${st.slot})`} />
           <path d={shape(st.shape, 26, b.y0 + 24)} style={`fill: var(--d${st.slot})`} class="band-sym" />
           {lines.map((l, i) => <text class="band-label" x="44" y={b.y0 + 29 + i * 18}>{l}</text>)}
-          <text class="band-count" x="44" y={b.y0 + 31 + lines.length * 18}>{b.count} {b.count === 1 ? 'theory' : 'theories'} →</text>
+          <text class="band-count" x="44" y={b.y0 + 31 + lines.length * 18} data-domain={b.d} data-total={b.count}>{b.count} {b.count === 1 ? 'theory' : 'theories'} →</text>
         </a>
       );
     })}
@@ -123,7 +126,7 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
       const p = P(t);
       const st = DOMAIN_STYLE[t.data.domain];
       return (
-        <a href={url(`theories/${t.id}/`)} class="node" data-id={t.id}>
+        <a href={url(`theories/${t.id}/`)} class="node" data-id={t.id} data-domain={t.data.domain} data-kind={t.data.kind} data-questions={t.data.questions.join(' ')}>
           <title>{`${t.data.title} (${t.data.year}) — ${t.data.summary}`}</title>
           <path d={shape(st.shape, p.x, p.y)} style={`fill: var(--d${st.slot})`} />
           <text x={p.x} y={p.y + 22} text-anchor="middle">{t.data.shortTitle ?? t.data.title}</text>
@@ -159,6 +162,9 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
   .node:hover path, .node:focus-visible path { transform: scale(1.35); }
   .node:hover text { fill: var(--accent); }
   svg:has(.node:hover) .edge { opacity: 0.05; }
+  .node, .edge { transition: opacity .2s; }
+  .node.off { opacity: 0.12; pointer-events: none; }
+  .edge.off { opacity: 0 !important; }
   svg:has(.node:hover) .edge.on { opacity: 0.95; stroke-width: 2; stroke: var(--ink-2); }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   @media (max-width: 760px) {
@@ -169,6 +175,30 @@ const LABEL_LINES: Record<keyof typeof DOMAINS, string[]> = {
 </style>
 
 <script>
+  import { matchesFilter, type MapFilter } from '../lib/filters';
+
+  // Fade theories (and their links) that don't match the type/scope filter.
+  window.addEventListener('mapfilter', (e) => {
+    const f = (e as CustomEvent<MapFilter>).detail;
+    const off = new Set<string>();
+    let shown = 0;
+    const nodes = document.querySelectorAll<SVGAElement>('.constellation .node');
+    nodes.forEach((n) => {
+      const ok = matchesFilter(n.dataset.kind!, n.dataset.questions!.split(' '), f);
+      n.classList.toggle('off', !ok);
+      if (ok) shown++; else off.add(n.dataset.id!);
+    });
+    document.querySelectorAll<SVGPathElement>('.constellation .edge').forEach((p) =>
+      p.classList.toggle('off', off.has(p.dataset.from!) || off.has(p.dataset.to!)),
+    );
+    document.querySelectorAll<SVGTextElement>('.constellation .band-count').forEach((el) => {
+      const total = Number(el.dataset.total);
+      const n = [...nodes].filter((x) => x.dataset.domain === el.dataset.domain && !x.classList.contains('off')).length;
+      el.textContent = n === total ? `${total} ${total === 1 ? 'theory' : 'theories'} →` : `${n} of ${total} shown →`;
+    });
+    window.dispatchEvent(new CustomEvent('mapfilter:count', { detail: { shown, total: nodes.length } }));
+  });
+
   // Highlight a node's relations on hover.
   document.querySelectorAll<SVGAElement>('.constellation .node').forEach((n) => {
     const id = n.dataset.id;

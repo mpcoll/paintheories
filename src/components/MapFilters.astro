@@ -1,0 +1,106 @@
+---
+/**
+ * Toggle chips that filter a map by entry type (kind) and by the question a
+ * theory addresses (scope). Emits a `mapfilter` event on window:
+ *   detail = { kinds: string[], questions: string[] }  (empty array = no filter)
+ * Behaviour per group: "All" is on by default; clicking a chip while "All" is on
+ * selects only that chip; further clicks add/remove chips; clearing every chip
+ * (or clicking "All") resets the group. State is mirrored in the URL (?kind=…&q=…).
+ */
+import { KINDS, QUESTIONS } from '../data/taxonomy';
+
+interface Props { counts?: { kinds: Record<string, number>; questions: Record<string, number> } }
+const { counts } = Astro.props;
+const groups = [
+  { key: 'kind', label: 'Type', vocab: KINDS, counts: counts?.kinds },
+  { key: 'q', label: 'Scope', vocab: QUESTIONS, counts: counts?.questions },
+] as const;
+---
+
+<div class="map-filters" data-pagefind-ignore>
+  {groups.map((g) => (
+    <div class="mf-group" role="group" aria-label={`Filter by ${g.label.toLowerCase()}`} data-group={g.key}>
+      <span class="mf-label">{g.label}</span>
+      <button type="button" class="chip" data-value="" aria-pressed="true">All</button>
+      {Object.entries(g.vocab).map(([k, v]) => (
+        <button type="button" class="chip" data-value={k} aria-pressed="false" title={v.description}>
+          {v.label}{g.counts?.[k] !== undefined && <span class="n">{g.counts[k]}</span>}
+        </button>
+      ))}
+    </div>
+  ))}
+  <p class="mf-status muted" aria-live="polite"></p>
+</div>
+
+<style>
+  .map-filters { display: grid; gap: 0.5rem; margin: 0 0 1rem; }
+  .mf-group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+  .mf-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-3); min-width: 3.6rem;
+  }
+  .chip {
+    font: 500 0.84rem var(--font); color: var(--ink-2); background: var(--surface);
+    border: 1px solid var(--line-strong); border-radius: 999px; padding: 0.3rem 0.75rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.4rem; transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .chip .n { font-size: 0.72rem; opacity: 0.7; font-variant-numeric: tabular-nums; }
+  @media (max-width: 640px) {
+    .mf-group { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+    .mf-group::-webkit-scrollbar { display: none; }
+    .chip, .mf-label { flex: none; }
+  }
+  .mf-status { margin: 0; font-size: 0.82rem; min-height: 1.2em; }
+</style>
+
+<script>
+  type State = Record<'kind' | 'q', Set<string>>;
+  const root = document.querySelector<HTMLDivElement>('.map-filters');
+  if (root) {
+    const state: State = { kind: new Set(), q: new Set() };
+    const params = new URLSearchParams(location.search);
+    for (const key of ['kind', 'q'] as const)
+      for (const v of (params.get(key) ?? '').split(',').filter(Boolean)) state[key].add(v);
+
+    const render = () => {
+      root.querySelectorAll<HTMLDivElement>('.mf-group').forEach((g) => {
+        const set = state[g.dataset.group as 'kind' | 'q'];
+        g.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => {
+          const v = b.dataset.value!;
+          b.setAttribute('aria-pressed', String(v === '' ? set.size === 0 : set.has(v)));
+        });
+      });
+      const p = new URLSearchParams(location.search);
+      for (const key of ['kind', 'q'] as const) {
+        if (state[key].size) p.set(key, [...state[key]].join(','));
+        else p.delete(key);
+      }
+      history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+      window.dispatchEvent(new CustomEvent('mapfilter', { detail: { kinds: [...state.kind], questions: [...state.q] } }));
+    };
+
+    root.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip');
+      if (!b) return;
+      const set = state[b.closest<HTMLDivElement>('.mf-group')!.dataset.group as 'kind' | 'q'];
+      const v = b.dataset.value!;
+      if (v === '') set.clear();
+      else if (set.has(v)) set.delete(v);
+      else set.add(v);
+      render();
+    });
+
+    // Let the map report how many entries match.
+    window.addEventListener('mapfilter:count', (e) => {
+      const { shown, total } = (e as CustomEvent).detail;
+      root.querySelector('.mf-status')!.textContent = shown === total ? `Showing all ${total} entries` : `Showing ${shown} of ${total} entries`;
+    });
+
+    // Defer the first dispatch until listeners (map scripts) are registered.
+    if (document.readyState === 'complete') setTimeout(render);
+    else window.addEventListener('load', () => render());
+  }
+
+</script>
