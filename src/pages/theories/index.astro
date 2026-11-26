@@ -1,25 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import TheoryCard from '../../components/TheoryCard.astro';
 import Constellation from '../../components/Constellation.astro';
 import Notice from '../../components/Notice.astro';
 import { getTheories, url } from '../../lib/data';
-import { DOMAINS, DOMAIN_STYLE } from '../../data/taxonomy';
 
 const theories = await getTheories();
-const mechanisms = await getCollection('mechanisms');
-const references = await getCollection('references');
-const relations = theories.reduce((n, t) => n + t.data.relations.length, 0);
-const byDomain = Object.entries(DOMAINS).map(([k, v]) => ({
-  k: k as keyof typeof DOMAINS,
-  label: v.label,
-  description: v.description,
-  items: theories.filter((t) => t.data.domain === k),
-}));
-const featured = ['gate-control-theory', 'fear-avoidance-model', 'predictive-processing']
-  .map((id) => theories.find((t) => t.id === id))
-  .filter((t) => t !== undefined);
 ---
 <Base title="Pain Theories" description="An open, structured map of scientific theories and models of pain.">
   <section class="hero">
@@ -37,28 +22,7 @@ const featured = ['gate-control-theory', 'fear-avoidance-model', 'predictive-pro
     <Constellation theories={theories} />
   </section>
 
-  <section class="stats" aria-label="Map in numbers" style="margin-top:1.5rem">
-    <div><div class="n">{theories.length}</div><div class="l">theories and models</div></div>
-    <div><div class="n">{relations}</div><div class="l">relations</div></div>
-    <div><div class="n">{mechanisms.length}</div><div class="l">mechanisms</div></div>
-    <div><div class="n">{references.length}</div><div class="l">verified references</div></div>
-  </section>
-
-  <Notice>The map is under construction. Current entries are drafts under expert review, and many more theories are being added.</Notice>
-
-  <h2>Browse by domain</h2>
-  <div class="domains">
-    {byDomain.map((d) => (
-      <a class={`card domain d-${d.k}`} href={url(`theories/all/?domain=${d.k}`)}>
-        <strong><span class={`sym dom-${d.k}`} aria-hidden="true">{DOMAIN_STYLE[d.k].symbol}</span> {d.label}</strong>
-        <span class="desc">{d.description}</span>
-        <span class="count">{d.items.length} {d.items.length === 1 ? 'entry' : 'entries'}</span>
-      </a>
-    ))}
-  </div>
-
-  <h2>Start here</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(270px,1fr))">{featured.map((t) => <TheoryCard theory={t} />)}</div>
+  <div style="margin-top:1.25rem"><Notice>The map is under construction. Current entries are drafts under expert review, and many more theories are being added.</Notice></div>
 
   <style>
     .hero { padding: 1.5rem 0 2.25rem; max-width: 860px; }
@@ -67,17 +31,6 @@ const featured = ['gate-control-theory', 'fear-avoidance-model', 'predictive-pro
     .hero .lede { font-size: 1.2rem; }
     .cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.6rem 0 0; }
     .overview { padding: 1.5rem 1.5rem 1rem; }
-    .domains { display: grid; gap: 0.8rem; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
-    .domain {
-      display: grid; gap: 0.3rem; text-decoration: none; color: var(--ink);
-      border-top: 3px solid var(--dc); transition: transform .18s, box-shadow .18s;
-    }
-    .domain:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
-    .domain .sym { font-size: 0.95rem; margin-right: 0.15rem; }
-    .domain strong { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
-    .domain .desc { font-size: 0.86rem; color: var(--ink-2); }
-    .domain { align-content: start; }
-    .domain .count { font-size: 0.8rem; color: var(--ink-3); margin-top: auto; padding-top: 0.4rem; }
     @media (max-width: 600px) { .overview { padding: 0.75rem; } }
   </style>
 </Base>
