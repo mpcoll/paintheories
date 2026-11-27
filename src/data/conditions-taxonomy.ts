@@ -91,6 +91,18 @@ export const ICD_MG30: { code: string; title: string }[] = [
   { code: 'MG30.67', title: 'Chronic headache associated with a substance or its withdrawal' },
 ];
 
+/** Short labels for the third-level codes (our wording, for compact diagrams). */
+export const ICD_SHORT: Record<string, string> = {
+  'MG30.00': 'Visceral', 'MG30.01': 'Widespread', 'MG30.02': 'Musculoskeletal', 'MG30.03': 'Headache / orofacial', 'MG30.04': 'CRPS',
+  'MG30.10': 'Cancer pain', 'MG30.11': 'After cancer treatment',
+  'MG30.20': 'Post-traumatic', 'MG30.21': 'Postsurgical',
+  'MG30.30': 'Inflammation', 'MG30.31': 'Structural change', 'MG30.32': 'Nervous-system disease',
+  'MG30.40': 'Mechanical', 'MG30.41': 'Vascular', 'MG30.42': 'Inflammation',
+  'MG30.50': 'Central', 'MG30.51': 'Peripheral',
+  'MG30.61': 'Dental', 'MG30.62': 'Neuropathic orofacial', 'MG30.63': 'TMD', 'MG30.64': 'Homoeostasis',
+  'MG30.65': 'Vascular', 'MG30.66': 'Intracranial', 'MG30.67': 'Substance',
+};
+
 /** ICD-11 extension codes for chronic pain severity and psychosocial factors (verbatim titles). */
 export const ICD_EXTENSIONS: { scale: string; description: string; codes: { code: string; title: string }[] }[] = [
   { scale: 'Pain intensity', description: 'How strong the pain is, rated on a numerical or verbal scale.', codes: [

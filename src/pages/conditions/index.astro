@@ -2,40 +2,43 @@
 import Base from '../../layouts/Base.astro';
 import BodyMap from '../../components/BodyMap.astro';
 import DescriptorPills from '../../components/DescriptorPills.astro';
+import IcdHierarchy from '../../components/IcdHierarchy.astro';
 import { url } from '../../lib/data';
-import { getConditions, categoriesOf, descriptorProfile, conditionUrl, DESC_ORDER, ROLE_ORDER, CATEGORY_ORDER, FAMILY_ORDER, REGION_ORDER, type Condition } from '../../lib/conditions';
-import { FAMILIES, ICD_CATEGORIES, DESCRIPTORS, DESCRIPTOR_ROLES, icdCategoryOf } from '../../data/conditions-taxonomy';
+import { getConditions, descriptorProfile, conditionUrl, DESC_ORDER, ROLE_ORDER, CATEGORY_ORDER, FAMILY_ORDER, REGION_ORDER, type Condition } from '../../lib/conditions';
+import { FAMILIES, ICD_CATEGORIES, ICD_MG30, DESCRIPTORS, DESCRIPTOR_ROLES } from '../../data/conditions-taxonomy';
 
 const conditions = await getConditions();
 const counts = Object.fromEntries(REGION_ORDER.map((r) => [r, conditions.filter((c) => c.data.regions.includes(r)).length]));
 const firstSentence = (s: string) => (s.match(/^.+?[.!?](\s|$)/)?.[0] ?? s).trim();
 const attrs = (c: Condition) => ({
+  'data-id': c.id,
   'data-regions': c.data.regions.join(' '),
   'data-desc': DESC_ORDER.filter((t) => descriptorProfile(c)[t]).join(' '),
 });
+const codesOf = (c: Condition) => [...new Set(c.data.icd.pain.map((p) => p.code))];
 
 const byFamily = FAMILY_ORDER.map((f) => ({ key: f, items: conditions.filter((c) => c.data.family === f) })).filter((g) => g.items.length);
-const byCategory = CATEGORY_ORDER.map((cat) => ({
-  key: cat,
-  items: conditions
-    .filter((c) => categoriesOf(c).includes(cat))
-    .map((c) => ({ c, codes: c.data.icd.pain.filter((p) => icdCategoryOf(p.code) === cat) })),
-})).filter((g) => g.items.length);
+
+// ICD lens: category -> rows (subcodes, then category-level / residual codes)
+const icd = CATEGORY_ORDER.map((cat) => {
+  const subs = ICD_MG30.filter((s) => s.code.startsWith(cat) && s.code.length === cat.length + 1);
+  const rows = subs.map((s) => ({ code: s.code, title: s.title, items: conditions.flatMap((c) => c.data.icd.pain.filter((p) => p.code === s.code).map((p) => ({ c, when: p.when }))) }));
+  const other = conditions.flatMap((c) => c.data.icd.pain.filter((p) => p.code === cat || p.code === `${cat}Y`).map((p) => ({ c, when: p.when })));
+  if (other.length) rows.push({ code: `${cat}Y`, title: 'Other specified', items: other });
+  return { cat, rows };
+});
+
 const byDescriptor = DESC_ORDER.map((t) => ({
   key: t,
-  items: conditions
-    .map((c) => ({ c, role: descriptorProfile(c)[t] }))
-    .filter((x) => x.role)
-    .sort((a, b) => ROLE_ORDER.indexOf(a.role!) - ROLE_ORDER.indexOf(b.role!) || a.c.data.title.localeCompare(b.c.data.title)),
+  roles: ROLE_ORDER.map((r) => ({ role: r, items: conditions.filter((c) => descriptorProfile(c)[t] === r) })).filter((x) => x.items.length),
 }));
-const nPrimary = conditions.filter((c) => categoriesOf(c).includes('MG30.0')).length;
 ---
 
 <Base title="Pain conditions" description="Chronic pain conditions seen through three lenses: traditional clinical families, the ICD-11 chronic pain classification and the IASP mechanistic descriptors (nociceptive, neuropathic, nociplastic).">
   <header class="page-head">
     <p class="eyebrow">Pain Conditions</p>
     <h1>Chronic pain conditions</h1>
-    <p class="lede">{conditions.length} chronic pain conditions, each classified three ways: by the traditional clinical family, by the ICD-11 chronic pain codes, and by the IASP mechanistic descriptors. Switch lenses to see how the same conditions regroup.</p>
+    <p class="lede">{conditions.length} chronic pain conditions, each classified three ways. Pick a lens to regroup them, or filter by body region and mechanism.</p>
   </header>
 
   <div class="cx" id="cx" data-lens="family">
@@ -48,34 +51,38 @@ const nPrimary = conditions.filter((c) => categoriesOf(c).includes('MG30.0')).le
         <h2 class="side-h">Mechanism</h2>
         <div class="cx-desc" role="group" aria-label="Filter by mechanistic descriptor">
           <button type="button" class="chip" data-desc="" aria-pressed="true">Any</button>
-          {DESC_ORDER.map((t) => <button type="button" class={`chip dchip desc-${t}`} data-desc={t} aria-pressed="false"><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</button>)}
+          {DESC_ORDER.map((t) => <button type="button" class={`chip desc-${t}`} data-desc={t} aria-pressed="false"><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</button>)}
         </div>
-        <p class="side-note">Includes conditions where the mechanism is defining, common or found in a subset.</p>
       </section>
     </aside>
 
     <div class="cx-main">
       <div class="cx-bar" data-pagefind-ignore>
         <div class="lens" role="tablist" aria-label="Classification lens">
-          <button type="button" role="tab" data-lens="family" aria-selected="true">Traditional</button>
-          <button type="button" role="tab" data-lens="icd" aria-selected="false">ICD-11</button>
-          <button type="button" role="tab" data-lens="desc" aria-selected="false">Mechanism (IASP)</button>
+          <button type="button" role="tab" data-lens="family" aria-selected="true"><span class="lt">Traditional</span><span class="ls">body region, specialty</span></button>
+          <button type="button" role="tab" data-lens="icd" aria-selected="false"><span class="lt">ICD-11</span><span class="ls">WHO chronic pain codes</span></button>
+          <button type="button" role="tab" data-lens="desc" aria-selected="false"><span class="lt">Mechanism</span><span class="ls">IASP descriptors</span></button>
         </div>
-        <p class="cx-count" aria-live="polite"><span class="n">{conditions.length}</span> of {conditions.length} conditions</p>
+        <div class="cx-right">
+          <label class="sw-toggle"><input type="checkbox" id="cx-sum" /> Summaries</label>
+          <p class="cx-count" aria-live="polite"><span class="n">{conditions.length}</span>/{conditions.length}</p>
+        </div>
       </div>
 
+      <!-- Traditional -->
       <section class="view" data-view="family">
-        <p class="view-intro">Grouped as clinicians and textbooks usually group them: by body region and specialty.</p>
+        <nav class="jump" aria-label="Families">
+          {byFamily.map((g) => <a href={`#fam-${g.key}`} data-jump={`fam-${g.key}`}>{FAMILIES[g.key].label} <span class="jn">{g.items.length}</span></a>)}
+        </nav>
         {byFamily.map((g) => (
-          <div class="grp">
+          <div class="grp" id={`fam-${g.key}`}>
             <h2>{FAMILIES[g.key].label}</h2>
-            <p class="grp-d">{FAMILIES[g.key].description}</p>
             <div class="cards">
               {g.items.map((c) => (
                 <a class="cc card" href={conditionUrl(c.id)} {...attrs(c)}>
-                  <h3>{c.data.title}</h3>
-                  <p>{firstSentence(c.data.summary)}</p>
-                  <p class="cc-codes">{[...new Set(c.data.icd.pain.map((p) => p.code))].join(' · ')}</p>
+                  <span class="cc-t">{c.data.title}</span>
+                  <span class="cc-m">{codesOf(c).join(' · ')}</span>
+                  <span class="cc-s">{firstSentence(c.data.summary)}</span>
                   <DescriptorPills condition={c} compact />
                 </a>
               ))}
@@ -84,99 +91,173 @@ const nPrimary = conditions.filter((c) => categoriesOf(c).includes('MG30.0')).le
         ))}
       </section>
 
+      <!-- ICD-11 hierarchy -->
       <section class="view" data-view="icd" hidden>
-        <p class="view-intro">Grouped by the ICD-11 chronic pain code (MG30). {nPrimary} conditions can be coded as <strong>chronic primary pain</strong>, a condition in its own right; the rest are <strong>chronic secondary pain</strong>, a symptom of an underlying disease. A condition appears more than once when its code depends on the case. <a href={url('conditions/classification/')}>How ICD-11 classifies chronic pain →</a></p>
-        {byCategory.map((g) => (
-          <div class={`grp icd-${ICD_CATEGORIES[g.key].kind}`}>
-            <h2><span class="code">{g.key}</span> {ICD_CATEGORIES[g.key].label} <span class="kind">{ICD_CATEGORIES[g.key].kind}</span></h2>
-            <p class="grp-d">{ICD_CATEGORIES[g.key].description}</p>
-            <div class="cards">
-              {g.items.map(({ c, codes }) => (
-                <a class="cc card" href={conditionUrl(c.id)} {...attrs(c)}>
-                  <h3>{c.data.title}</h3>
-                  {codes.map((p) => <p class="cc-code"><span class="code">{p.code}</span> {p.title}</p>)}
-                  {codes.some((p) => p.when) && <p class="cc-when">{codes.filter((p) => p.when).map((p) => p.when).join(' ')}</p>}
-                  <DescriptorPills condition={c} compact />
-                </a>
+        <div id="icd-MG30" class="anchor"></div>
+        <IcdHierarchy conditions={conditions} prefix="icd-" id="cx-icdh" />
+        {icd.map(({ cat, rows }) => (
+          <div class={`grp icat ${ICD_CATEGORIES[cat].kind}`} id={`icd-${cat}`}>
+            <h2><span class="code">{cat}</span> {ICD_CATEGORIES[cat].label} <span class="kind">{ICD_CATEGORIES[cat].kind === 'primary' ? 'primary' : 'secondary'}</span></h2>
+            <p class="grp-d">{ICD_CATEGORIES[cat].description}</p>
+            <div class="rows">
+              {rows.map((r) => (
+                <div class:list={['row', { empty: !r.items.length }]} id={`icd-${r.code}`} data-code={r.code}>
+                  <div class="row-h"><span class="code">{r.code}</span> {r.title}</div>
+                  <div class="row-c">
+                    {r.items.length ? r.items.map(({ c, when }) => (
+                      <a class="cc chipc" href={conditionUrl(c.id)} {...attrs(c)} data-code={r.code}>
+                        <span class="cc-t">{c.data.title}</span>
+                        <DescriptorPills condition={c} compact />
+                        {when && <span class="cc-s cc-when">{when}</span>}
+                      </a>
+                    )) : <span class="none">No condition on this site yet</span>}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         ))}
+        <p class="more"><a href={url('conditions/classification/')}>How ICD-11 classifies chronic pain →</a></p>
       </section>
 
+      <!-- Mechanism -->
       <section class="view" data-view="desc" hidden>
-        <p class="view-intro">Grouped by the IASP mechanistic descriptors. Most conditions involve more than one mechanism, so they appear in several groups, ordered from defining to in a subset. <a href={url('conditions/descriptors/')}>Nociceptive, neuropathic, nociplastic →</a></p>
-        {byDescriptor.map((g) => (
-          <div class={`grp desc-${g.key}`}>
-            <h2><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[g.key].label}</h2>
-            <p class="grp-d">{DESCRIPTORS[g.key].description}</p>
-            <div class="cards">
-              {g.items.map(({ c, role }) => (
-                <a class="cc card" href={conditionUrl(c.id)} {...attrs(c)}>
-                  <h3>{c.data.title}</h3>
-                  <p class={`cc-role role-${role}`}>{DESCRIPTOR_ROLES[role!].label}</p>
-                  <p>{c.data.descriptors.find((x) => x.type === g.key)?.note}</p>
-                </a>
+        <div class="dcols">
+          {byDescriptor.map((g) => (
+            <div class={`dcol desc-${g.key}`} id={`desc-${g.key}`}>
+              <h2><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[g.key].label}</h2>
+              <p class="grp-d">{DESCRIPTORS[g.key].description}</p>
+              {g.roles.map((r) => (
+                <div class="rgrp">
+                  <h3 class={`role-${r.role}`}><span class="rbox" aria-hidden="true"></span>{DESCRIPTOR_ROLES[r.role].label}</h3>
+                  <ul>
+                    {r.items.map((c) => (
+                      <li><a class="cc ditem" href={conditionUrl(c.id)} {...attrs(c)}>
+                        <span class="cc-t">{c.data.title}</span>
+                        <span class="cc-s">{c.data.descriptors.find((x) => x.type === g.key)?.note}</span>
+                      </a></li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <p class="more"><a href={url('conditions/descriptors/')}>Nociceptive, neuropathic, nociplastic →</a> · <a href={url('conditions/crosswalk/')}>All three lenses side by side →</a></p>
       </section>
       <p class="cx-empty" hidden>No condition matches these filters.</p>
     </div>
   </div>
 
   <style>
-    .cx { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 2rem; align-items: start; }
-    @media (max-width: 860px) { .cx { grid-template-columns: 1fr; } }
+    .cx { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 1.8rem; align-items: start; }
+    @media (max-width: 900px) { .cx { grid-template-columns: 1fr; } }
     .cx-side { display: grid; gap: 1rem; position: sticky; top: 128px; }
-    @media (max-width: 860px) { .cx-side { position: static; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+    @media (max-width: 900px) { .cx-side { position: static; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
     .side-h { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 .6rem; }
-    .side-note { font-size: .8rem; color: var(--ink-3); margin: .6rem 0 0; }
     .cx-desc { display: flex; flex-wrap: wrap; gap: .35rem; }
     .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .3rem .75rem; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; }
     .chip:hover { border-color: var(--ink-3); color: var(--ink); }
     .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
-    .dsw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; background: var(--c); margin-right: .1rem; flex: none; }
+    .dsw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; background: var(--c); flex: none; }
     .desc-nociceptive { --c: var(--desc-noc); }
     .desc-neuropathic { --c: var(--desc-neu); }
     .desc-nociplastic { --c: var(--desc-npl); }
-    .cx-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; margin-bottom: 1rem; position: sticky; top: 112px; z-index: 2; background: var(--bg); padding: .4rem 0; }
-    @media (max-width: 860px) { .cx-bar { position: static; } }
-    .lens { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--surface); }
-    .lens button { font: 600 .88rem var(--font); border: 0; background: transparent; color: var(--ink-2); padding: .5rem .95rem; cursor: pointer; }
+
+    .cx-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; margin-bottom: 1rem; position: sticky; top: 108px; z-index: 3; background: var(--bg); padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    @media (max-width: 900px) { .cx-bar { position: static; } }
+    .lens { display: inline-grid; grid-auto-flow: column; border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; background: var(--surface); }
+    .lens button { border: 0; background: transparent; color: var(--ink-2); padding: .45rem 1rem; cursor: pointer; text-align: left; display: grid; }
     .lens button + button { border-left: 1px solid var(--line-strong); }
+    .lens .lt { font: 650 .92rem var(--font); }
+    .lens .ls { font: .7rem var(--font); color: var(--ink-3); }
     .lens button[aria-selected='true'] { background: var(--ink); color: var(--bg); }
-    .cx-count { margin: 0; font-size: .85rem; color: var(--ink-3); }
-    .view-intro { color: var(--ink-2); max-width: var(--measure); margin: 0 0 1.2rem; }
-    .grp { margin-bottom: 1.8rem; }
-    .grp h2 { font-size: 1.3rem; margin: 0 0 .2rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
-    .grp-d { color: var(--ink-3); font-size: .9rem; margin: 0 0 .7rem; max-width: var(--measure); }
-    .grp .code, .cc-code .code { font: 600 .82em var(--mono); color: var(--ink-2); }
-    .grp .kind { font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .08em; padding: .15rem .45rem; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--ink-3); }
-    .icd-primary .kind { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .8rem; }
-    .cc { display: flex; flex-direction: column; gap: .4rem; text-decoration: none; color: inherit; padding: .9rem 1rem; transition: box-shadow .15s, transform .15s; }
-    .cc:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
-    .cc h3 { margin: 0; font-size: 1.05rem; }
-    .cc p { margin: 0; font-size: .86rem; color: var(--ink-2); }
-    .cc-codes { font: .78rem var(--mono) !important; color: var(--ink-3) !important; }
-    .cc-code { font-size: .82rem !important; }
-    .cc-when { font-size: .78rem !important; color: var(--ink-3) !important; font-style: italic; }
-    .cc-role { font: 600 .7rem var(--font) !important; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3) !important; }
-    .cc[hidden], .grp[hidden] { display: none; }
+    .lens button[aria-selected='true'] .ls { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+    @media (max-width: 520px) { .lens .ls { display: none; } .lens button { padding: .45rem .7rem; } }
+    .cx-right { display: flex; align-items: center; gap: 1rem; }
+    .sw-toggle { font-size: .85rem; color: var(--ink-2); display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
+    .cx-count { margin: 0; font-size: .85rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+    .jump { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1.2rem; }
+    .jump a { font-size: .82rem; text-decoration: none; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: .2rem .6rem; }
+    .jump a:hover { border-color: var(--accent); color: var(--accent-ink); }
+    .jump a.zero { opacity: .4; }
+    .jn { font-weight: 650; color: var(--ink-3); margin-left: .15rem; }
+
+    .grp, .anchor { scroll-margin-top: 180px; }
+    .grp { margin-bottom: 1.6rem; }
+    .grp h2 { font-size: 1.2rem; margin: 0 0 .5rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .grp-d { color: var(--ink-3); font-size: .86rem; margin: -.2rem 0 .7rem; max-width: var(--measure); }
+    .code { font: 600 .8em var(--mono); color: var(--ink-3); }
+    .kind { font: 600 .66rem var(--font); text-transform: uppercase; letter-spacing: .08em; padding: .12rem .45rem; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--ink-3); }
+    .icat.primary .kind { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem; }
+    .cc { text-decoration: none; color: inherit; }
+    .cc.card { display: flex; flex-direction: column; gap: .3rem; padding: .7rem .8rem; transition: box-shadow .15s, transform .15s; }
+    .cc.card:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+    .cc-t { font: 600 .98rem var(--serif); line-height: 1.25; }
+    .cc-m { font: .74rem var(--mono); color: var(--ink-3); }
+    .cc-s { font-size: .82rem; color: var(--ink-2); display: none; }
+    .cx.sum .cc-s { display: block; }
+
+    /* ICD rows */
+    .icat { border-left: 3px solid var(--line-strong); padding-left: 1rem; }
+    .icat.primary { border-left-color: var(--ink); }
+    .rows { display: grid; gap: .3rem; }
+    .row { display: grid; grid-template-columns: minmax(150px, 230px) minmax(0, 1fr); gap: .4rem 1rem; align-items: start; padding: .45rem 0; border-top: 1px solid var(--line); scroll-margin-top: 180px; }
+    .row:target { background: var(--accent-soft); border-radius: 8px; }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+    .row-h { font-size: .86rem; font-weight: 600; color: var(--ink); }
+    .row.empty .row-h { color: var(--ink-3); font-weight: 500; }
+    .row-c { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .none { font-size: .8rem; color: var(--ink-3); font-style: italic; }
+    .chipc { display: inline-flex; flex-direction: column; gap: .25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .4rem .6rem; max-width: 100%; }
+    .chipc:hover { border-color: var(--accent); }
+    .chipc .cc-t { font-size: .9rem; }
+    .cc-when { font-style: italic; max-width: 36ch; }
+
+    /* Mechanism columns */
+    .dcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+    @media (max-width: 1050px) { .dcols { grid-template-columns: 1fr; } }
+    .dcol { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: var(--radius); padding: .8rem .9rem; scroll-margin-top: 180px; }
+    .dcol h2 { font-size: 1.15rem; margin: 0 0 .3rem; display: flex; align-items: center; gap: .45rem; }
+    .dcol .grp-d { margin: 0 0 .6rem; font-size: .8rem; }
+    .rgrp h3 { font: 600 .7rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin: .7rem 0 .3rem; display: flex; align-items: center; gap: .4rem; }
+    .rbox { width: 12px; height: 12px; border-radius: 3px; border: 1.5px solid var(--c); }
+    .role-defining .rbox { background: var(--c); }
+    .role-common .rbox { background: linear-gradient(to top, var(--c) 55%, transparent 55%); }
+    .role-subset .rbox { background: radial-gradient(circle, var(--c) 1.2px, transparent 1.6px) 0 0 / 4px 4px; }
+    .rgrp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .1rem; }
+    .ditem { display: block; padding: .3rem .4rem; border-radius: 6px; }
+    .ditem:hover { background: var(--accent-soft); }
+    .ditem .cc-t { font: 500 .9rem var(--font); }
+    .ditem .cc-s { font-size: .78rem; margin-top: .15rem; }
+
+    .more { font-size: .88rem; margin-top: 1rem; }
+    .more a { text-decoration: none; }
+    [hidden] { display: none !important; }
     .cx-empty { color: var(--ink-3); }
   </style>
 
   <script>
     const root = document.getElementById('cx')!;
     let lens = 'family', region: string | null = null, desc = '';
+    const sum = document.getElementById('cx-sum') as HTMLInputElement;
+    try { sum.checked = localStorage.getItem('cx-sum') === '1'; } catch {}
+    const syncSum = () => { root.classList.toggle('sum', sum.checked); try { localStorage.setItem('cx-sum', sum.checked ? '1' : '0'); } catch {} };
+    sum.addEventListener('change', syncSum); syncSum();
+
     const params = () => {
       const p = new URLSearchParams();
       if (lens !== 'family') p.set('lens', lens);
       if (region) p.set('region', region);
       if (desc) p.set('desc', desc);
-      history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+      history.replaceState(null, '', (p.size ? `?${p}` : location.pathname) + location.hash);
+    };
+    const match = (el: HTMLElement) => {
+      const regs = (el.dataset.regions ?? '').split(' ');
+      return (!region || regs.includes(region) || regs.includes('widespread')) && (!desc || (el.dataset.desc ?? '').split(' ').includes(desc));
     };
     function apply() {
       root.dataset.lens = lens;
@@ -185,12 +266,29 @@ const nPrimary = conditions.filter((c) => categoriesOf(c).includes('MG30.0')).le
       const view = root.querySelector<HTMLElement>(`.view[data-view="${lens}"]`)!;
       const shown = new Set<string>();
       view.querySelectorAll<HTMLElement>('.cc').forEach((c) => {
-        const regs = (c.dataset.regions ?? '').split(' ');
-        const ok = (!region || regs.includes(region) || regs.includes('widespread')) && (!desc || (c.dataset.desc ?? '').split(' ').includes(desc));
-        c.hidden = !ok;
-        if (ok) shown.add(c.getAttribute('href')!);
+        const ok = match(c);
+        (c.closest('li') ?? c).toggleAttribute('hidden', !ok);
+        if (ok) shown.add(c.dataset.id!);
       });
-      view.querySelectorAll<HTMLElement>('.grp').forEach((g) => (g.hidden = !g.querySelector('.cc:not([hidden])')));
+      // containers with nothing visible
+      view.querySelectorAll<HTMLElement>('.grp:not(.icat), .rgrp').forEach((g) => (g.hidden = !g.querySelector('.cc:not([hidden]), li:not([hidden]) .cc')));
+      const filtering = !!(region || desc);
+      view.querySelectorAll<HTMLElement>('.row:not(.empty)').forEach((r) => (r.hidden = filtering && !r.querySelector('.cc:not([hidden])')));
+      view.querySelectorAll<HTMLElement>('.row.empty').forEach((r) => (r.hidden = filtering));
+      // jump counts (traditional)
+      view.querySelectorAll<HTMLAnchorElement>('.jump a').forEach((a) => {
+        const n = document.getElementById(a.dataset.jump!)!.querySelectorAll('.cc:not([hidden])').length;
+        a.querySelector('.jn')!.textContent = String(n);
+        a.classList.toggle('zero', n === 0);
+      });
+      // hierarchy counts (ICD)
+      if (lens === 'icd') {
+        const vis = [...view.querySelectorAll<HTMLElement>('.chipc:not([hidden])')];
+        view.querySelectorAll<HTMLElement>('.ih-n[data-code]').forEach((n) => {
+          const code = n.dataset.code!;
+          n.textContent = String(new Set(vis.filter((c) => c.dataset.code!.startsWith(code)).map((c) => c.dataset.id)).size);
+        });
+      }
       root.querySelector('.cx-count .n')!.textContent = String(shown.size);
       (root.querySelector('.cx-empty') as HTMLElement).hidden = shown.size > 0;
       params();
@@ -204,10 +302,12 @@ const nPrimary = conditions.filter((c) => categoriesOf(c).includes('MG30.0')).le
     root.addEventListener('bodyregion', (e) => { region = (e as CustomEvent).detail; apply(); });
     const init = new URLSearchParams(location.search);
     if (['icd', 'desc'].includes(init.get('lens') ?? '')) lens = init.get('lens')!;
+    if (location.hash.startsWith('#icd-')) lens = 'icd';
     const d0 = init.get('desc');
     if (d0) root.querySelector<HTMLButtonElement>(`.cx-desc [data-desc="${d0}"]`)?.click();
     const r0 = init.get('region');
     if (r0) (document.getElementById('cx-body') as any)?.setRegion?.(r0);
     apply();
+    if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
   </script>
 </Base>

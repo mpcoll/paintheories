@@ -1,0 +1,101 @@
+---
+/**
+ * ICD-11 chronic pain hierarchy at a glance: MG30 → primary / secondary →
+ * 7 categories → subcodes, with the number of conditions on this site at each node.
+ * Nodes link to `${prefix}<code>` anchors on the same page (e.g. #icd-MG30.31).
+ * Counts carry data-code so a page script can update them after filtering.
+ */
+import { ICD_CATEGORIES, ICD_MG30, ICD_SHORT } from '../data/conditions-taxonomy';
+import { CATEGORY_ORDER, type Condition } from '../lib/conditions';
+
+interface Props { conditions: Condition[]; prefix?: string; id?: string }
+const { conditions, prefix = 'icd-', id = 'icdh' } = Astro.props;
+
+const subcodes = (cat: string) => ICD_MG30.filter((c) => c.code.startsWith(cat) && c.code.length === cat.length + 1);
+const count = (prefixCode: string) => new Set(conditions.filter((c) => c.data.icd.pain.some((p) => p.code.startsWith(prefixCode))).map((c) => c.id)).size;
+const secondary = CATEGORY_ORDER.filter((c) => ICD_CATEGORIES[c].kind === 'secondary');
+const Node = (code: string) => ({ code, n: count(code) });
+---
+<nav class="icdh" id={id} aria-label="ICD-11 chronic pain hierarchy">
+  <a class="ih-root" href={`#${prefix}MG30`}>
+    <span class="ih-code">MG30</span> <strong>Chronic pain</strong>
+    <span class="ih-sub">persists or recurs for more than 3 months</span>
+    <span class="ih-n" data-code="MG30">{count('MG30')}</span>
+  </a>
+  <div class="ih-split">
+    <div class="ih-branch primary">
+      <p class="ih-kind">Pain as the disease</p>
+      <div class="ih-cat">
+        <a class="ih-cat-h" href={`#${prefix}MG30.0`}>
+          <span class="ih-code">MG30.0</span> Chronic primary pain <span class="ih-n" data-code="MG30.0">{count('MG30.0')}</span>
+        </a>
+        <ul>
+          {subcodes('MG30.0').map((s) => { const { n } = Node(s.code); return (
+            <li class:list={{ empty: n === 0 }}><a href={`#${prefix}${s.code}`} title={s.title}><span class="ih-code">{s.code}</span> <span class="ih-l">{ICD_SHORT[s.code]}</span> <span class="ih-n" data-code={s.code}>{n}</span></a></li>
+          ); })}
+        </ul>
+      </div>
+    </div>
+    <div class="ih-branch secondary">
+      <p class="ih-kind">Pain as a symptom of an underlying disease <span class="ih-kind-sub">chronic secondary pain</span></p>
+      <div class="ih-cats">
+        {secondary.map((cat) => (
+          <div class="ih-cat">
+            <a class="ih-cat-h" href={`#${prefix}${cat}`} title={ICD_CATEGORIES[cat].label}>
+              <span class="ih-code">{cat}</span> {ICD_CATEGORIES[cat].short} <span class="ih-n" data-code={cat}>{count(cat)}</span>
+            </a>
+            <ul>
+              {subcodes(cat).map((s) => { const { n } = Node(s.code); return (
+                <li class:list={{ empty: n === 0 }}><a href={`#${prefix}${s.code}`} title={s.title}><span class="ih-code">{s.code}</span> <span class="ih-l">{ICD_SHORT[s.code]}</span> <span class="ih-n" data-code={s.code}>{n}</span></a></li>
+              ); })}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <p class="ih-key"><span class="ih-n">n</span> conditions on this site at that level · select a node to jump to it</p>
+</nav>
+
+<style>
+  .icdh { --gap: .7rem; margin: 0 0 1.6rem; font-size: .82rem; }
+  .icdh a { text-decoration: none; color: inherit; }
+  .ih-code { font: 600 .74rem var(--mono); color: var(--ink-3); }
+  .ih-n { display: inline-block; min-width: 1.5em; text-align: center; font: 650 .72rem var(--font); padding: .05rem .35rem; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); margin-left: .2rem; }
+  .ih-root { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .45rem; justify-content: center; margin: 0 auto; width: fit-content; max-width: 100%; padding: .55rem 1rem; border: 1.5px solid var(--ink-3); border-radius: 12px; background: var(--surface); font-size: .95rem; }
+  .ih-root .ih-sub { color: var(--ink-3); font-size: .8rem; }
+  .ih-root:hover, .ih-cat-h:hover, .ih-cat li a:hover { border-color: var(--accent); color: var(--accent-ink); }
+  /* connectors */
+  .ih-split { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: var(--gap); padding-top: 1.4rem; margin-top: .2rem; }
+  .ih-split::before { content: ''; position: absolute; top: 0; left: 50%; height: .7rem; border-left: 2px solid var(--line-strong); }
+  .ih-split::after { content: ''; position: absolute; top: .7rem; left: calc(100% / 8); right: calc(100% * 3 / 8); border-top: 2px solid var(--line-strong); }
+  .ih-branch { position: relative; }
+  .ih-branch::before { content: ''; position: absolute; top: -.7rem; left: 50%; height: .7rem; border-left: 2px solid var(--line-strong); }
+  .ih-kind { margin: 0 0 .4rem; text-align: center; font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+  .ih-kind-sub { display: block; text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .ih-cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); align-items: start; }
+  .ih-cat { border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); overflow: hidden; }
+  .ih-cat-h { display: block; padding: .45rem .55rem; font-weight: 650; font-size: .84rem; line-height: 1.25; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+  .primary .ih-cat { border: 1.5px solid var(--ink); }
+  .primary .ih-cat-h { background: var(--ink); color: var(--bg); }
+  .primary .ih-cat-h .ih-code { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+  .primary .ih-cat-h .ih-n { background: var(--bg); color: var(--ink); }
+  .ih-cat ul { list-style: none; margin: 0; padding: .3rem; display: grid; gap: .1rem; }
+  .ih-cat li a { display: flex; align-items: baseline; gap: .35rem; padding: .22rem .3rem; border-radius: 6px; line-height: 1.25; min-width: 0; }
+  .ih-l { min-width: 0; overflow-wrap: anywhere; }
+  .ih-cat { min-width: 0; }
+  .ih-cat li a:hover { background: var(--accent-soft); }
+  .ih-cat li a .ih-n { margin-left: auto; }
+  .ih-cat li.empty a { color: var(--ink-3); }
+  .ih-cat li.empty .ih-n { opacity: .5; }
+  .ih-key { text-align: center; color: var(--ink-3); font-size: .76rem; margin: .7rem 0 0; }
+  /* adapt to the width of the container, not the screen */
+  .icdh { container-type: inline-size; }
+  @container (max-width: 640px) {
+    .ih-split { grid-template-columns: 1fr; padding-top: .8rem; }
+    .ih-split::after, .ih-split::before, .ih-branch::before { display: none; }
+    .ih-cats { grid-template-columns: 1fr 1fr; }
+    .ih-kind { text-align: left; }
+  }
+  @container (max-width: 400px) { .ih-cats { grid-template-columns: 1fr; } }
+</style>

@@ -1,6 +1,7 @@
 ---
 import { getEntries } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import IcdHierarchy from '../../components/IcdHierarchy.astro';
 import { cite, url, type Reference } from '../../lib/data';
 import { getConditions, conditionUrl, CATEGORY_ORDER } from '../../lib/conditions';
 import { ICD_CATEGORIES, ICD_MG30, ICD_EXTENSIONS, ICD_RELEASE, icdBrowser } from '../../data/conditions-taxonomy';
@@ -73,15 +74,16 @@ const toc = [['chapter', 'The chronic pain chapter'], ['tree', 'The ICD-11 tree'
 
   <section id="tree">
     <h2>The ICD-11 tree</h2>
-    <p class="muted intro">Codes and titles from ICD-11 MMS {ICD_RELEASE}; descriptions are our paraphrases. Conditions on this site appear under the code they are usually given; open a branch to see them. Residual "other specified" codes appear only where a condition uses them.</p>
+    <p class="muted intro">Codes and titles from ICD-11 MMS {ICD_RELEASE}; descriptions are our paraphrases. Select a box in the diagram, or open a branch below, to see each code's definition and the conditions coded under it. Residual "other specified" codes appear only where a condition uses them.</p>
+    <IcdHierarchy conditions={conditions} prefix="cat-" id="cls-icdh" />
     <div class="tree">
-      <div class="root"><a class="code" href={icdBrowser('MG30')}>MG30</a> Chronic pain <span class="muted">persists or recurs for longer than 3 months</span></div>
+      <div class="root" id="cat-MG30"><a class="code" href={icdBrowser('MG30')}>MG30</a> Chronic pain <span class="muted">persists or recurs for longer than 3 months</span></div>
       <ul>
         {CATEGORY_ORDER.map((cat) => {
           const c = ICD_CATEGORIES[cat];
           const direct = atCategoryOnly(cat);
           return (
-            <li class={`cat ${c.kind}`}>
+            <li class={`cat ${c.kind}`} id={`cat-${cat}`}>
               <details open={cat === 'MG30.0'}>
                 <summary><a class="code" href={icdBrowser(cat)}>{cat}</a> <span class="t">{c.label}</span> <span class={`kind kind-${c.kind}`}>{c.kind}</span></summary>
                 <p class="cat-d">{c.description} <a href={L(CAT_REF[cat]).href} title={L(CAT_REF[cat]).title}>{L(CAT_REF[cat]).label}</a></p>
@@ -90,7 +92,7 @@ const toc = [['chapter', 'The chronic pain chapter'], ['tree', 'The ICD-11 tree'
                   {subcodes(cat).map((s) => {
                     const cs = at(s.code);
                     return (
-                      <li>
+                      <li id={`cat-${s.code}`}>
                         <p class="sub"><a class="code" href={icdBrowser(s.code)}>{s.code}</a> <span class="t">{s.title}</span></p>
                         <p class="sub-d">{SUB[s.code]}</p>
                         {cs.length > 0 && <p class="conds">{cs.map((x, i) => <>{i > 0 && ', '}<a href={conditionUrl(x.id)}>{x.data.title}</a></>)}</p>}
@@ -98,7 +100,7 @@ const toc = [['chapter', 'The chronic pain chapter'], ['tree', 'The ICD-11 tree'
                     );
                   })}
                   {atOther(cat).length > 0 && (
-                    <li>
+                    <li id={`cat-${cat}Y`}>
                       <p class="sub"><a class="code" href={icdBrowser(`${cat}Y`)}>{cat}Y</a> <span class="t">Other specified</span></p>
                       <p class="sub-d">Residual code for conditions that fit the category but none of its subcodes.</p>
                       <p class="conds">{atOther(cat).map((x, i) => <>{i > 0 && ', '}<a href={conditionUrl(x.id)}>{x.data.title}</a></>)}</p>
@@ -142,7 +144,24 @@ const toc = [['chapter', 'The chronic pain chapter'], ['tree', 'The ICD-11 tree'
     <p>The previous revision, ICD-10, organised pain mainly by anatomical site and disease and did not represent chronic pain systematically, which made it hard to count, study or fund its care (<a href={L('treede2019').href}>{L('treede2019').label}</a>; <a href={L('perrot2019').href}>{L('perrot2019').label}</a>). IASP had its own taxonomy, which described chronic pain syndromes along several axes, including body region, system, temporal pattern, intensity and cause (<a href={L('merskey1994').href}>{L('merskey1994').label}</a>), but it was not part of the WHO classification. The IASP task force first proposed the new structure in 2015 (<a href={L('treede2015').href}>{L('treede2015').label}</a>) and published the detailed categories in 2019.</p>
   </section>
 
+  <script>
+    // Open the branch that contains the target of a hierarchy link, then scroll to it.
+    const openTarget = () => {
+      const el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (!el) return;
+      el.closest('details')?.setAttribute('open', '');
+      el.querySelector(':scope > details')?.setAttribute('open', '');
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 1600);
+      el.scrollIntoView({ block: 'start' });
+    };
+    window.addEventListener('hashchange', openTarget);
+    openTarget();
+  </script>
+
   <style>
+    .tree li, .tree .root { scroll-margin-top: 140px; }
+    .tree li.flash > details, .tree li.flash > .sub { background: var(--accent-soft); border-radius: 8px; transition: background .4s; }
     section { margin-bottom: 2.6rem; scroll-margin-top: 130px; }
     .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
     .toc a, .src a, .intro a, .cat-d a, .conds a { text-decoration: none; }
