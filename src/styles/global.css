@@ -273,6 +273,17 @@ main.wrap {
 .footer-links a {
   color: var(--ink-2);
 }
+.footer-credit {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.footer-credit p {
+  margin: 0;
+}
+.footer-credit a {
+  color: var(--ink-2);
+}
 .lede {
   color: var(--ink-2);
   font-size: 1.14rem;
