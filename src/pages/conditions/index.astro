@@ -43,6 +43,9 @@ const byDescriptor = DESC_ORDER.map((t) => ({
 
   <div class="cx" id="cx" data-lens="family">
     <aside class="cx-side" data-pagefind-ignore>
+      <details class="cx-filters" open>
+      <summary>Filter by region or mechanism <span class="fsum"></span></summary>
+      <div class="cx-fbody">
       <section class="card">
         <h2 class="side-h">Where it hurts</h2>
         <BodyMap mode="filter" counts={counts} id="cx-body" />
@@ -54,6 +57,8 @@ const byDescriptor = DESC_ORDER.map((t) => ({
           {DESC_ORDER.map((t) => <button type="button" class={`chip desc-${t}`} data-desc={t} aria-pressed="false"><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</button>)}
         </div>
       </section>
+      </div>
+      </details>
     </aside>
 
     <div class="cx-main">
@@ -69,6 +74,14 @@ const byDescriptor = DESC_ORDER.map((t) => ({
         </div>
       </div>
 
+      <p class="legend" data-pagefind-ignore aria-hidden="true">
+        <span class="lg-h">Mechanism squares</span>
+        {DESC_ORDER.map((t) => <span class={`lg desc-${t}`}><span class="sq role-defining"></span>{DESCRIPTORS[t].label}</span>)}
+        <span class="lg-sep">·</span>
+        {ROLE_ORDER.map((r) => <span class="lg"><span class={`sq grey role-${r}`}></span>{DESCRIPTOR_ROLES[r].label.toLowerCase()}</span>)}
+        <span class="lg"><span class="sq grey role-none"></span>not typical</span>
+      </p>
+
       <!-- Traditional -->
       <section class="view" data-view="family">
         <nav class="jump" aria-label="Families">
@@ -77,16 +90,16 @@ const byDescriptor = DESC_ORDER.map((t) => ({
         {byFamily.map((g) => (
           <div class="grp" id={`fam-${g.key}`}>
             <h2>{FAMILIES[g.key].label}</h2>
-            <div class="cards">
+            <ul class="clist">
               {g.items.map((c) => (
-                <a class="cc card" href={conditionUrl(c.id)} {...attrs(c)}>
+                <li><a class="cc crow" href={conditionUrl(c.id)} {...attrs(c)}>
                   <span class="cc-t">{c.data.title}</span>
                   <span class="cc-m">{codesOf(c).join(' · ')}</span>
+                  <DescriptorPills condition={c} mini />
                   <span class="cc-s">{firstSentence(c.data.summary)}</span>
-                  <DescriptorPills condition={c} compact />
-                </a>
+                </a></li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </section>
@@ -103,15 +116,17 @@ const byDescriptor = DESC_ORDER.map((t) => ({
               {rows.map((r) => (
                 <div class:list={['row', { empty: !r.items.length }]} id={`icd-${r.code}`} data-code={r.code}>
                   <div class="row-h"><span class="code">{r.code}</span> {r.title}</div>
-                  <div class="row-c">
-                    {r.items.length ? r.items.map(({ c, when }) => (
-                      <a class="cc chipc" href={conditionUrl(c.id)} {...attrs(c)} data-code={r.code}>
-                        <span class="cc-t">{c.data.title}</span>
-                        <DescriptorPills condition={c} compact />
-                        {when && <span class="cc-s cc-when">{when}</span>}
-                      </a>
-                    )) : <span class="none">No condition on this site yet</span>}
-                  </div>
+                  {r.items.length ? (
+                    <ul class="clist row-c">
+                      {r.items.map(({ c, when }) => (
+                        <li><a class="cc crow icdrow" href={conditionUrl(c.id)} {...attrs(c)} data-code={r.code}>
+                          <span class="cc-t">{c.data.title}</span>
+                          <DescriptorPills condition={c} mini />
+                          {when && <span class="cc-s cc-when">{when}</span>}
+                        </a></li>
+                      ))}
+                    </ul>
+                  ) : <span class="none">No condition on this site yet</span>}
                 </div>
               ))}
             </div>
@@ -153,7 +168,16 @@ const byDescriptor = DESC_ORDER.map((t) => ({
     .cx { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 1.8rem; align-items: start; }
     @media (max-width: 900px) { .cx { grid-template-columns: 1fr; } }
     .cx-side { display: grid; gap: 1rem; position: sticky; top: 128px; }
-    @media (max-width: 900px) { .cx-side { position: static; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+    @media (max-width: 900px) { .cx-side { position: static; } }
+    .cx-filters > summary { display: none; }
+    .cx-fbody { display: grid; gap: 1rem; }
+    @media (max-width: 900px) {
+      .cx-filters > summary { display: flex; align-items: center; gap: .5rem; cursor: pointer; font: 600 .92rem var(--font); padding: .6rem .9rem; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); }
+      .cx-filters[open] > summary { margin-bottom: .8rem; }
+      .fsum { font-weight: 500; color: var(--accent-ink); font-size: .85rem; }
+      .cx-fbody { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .cx-fbody :global(.bm svg) { max-width: 220px; }
+    }
     .side-h { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 .6rem; }
     .cx-desc { display: flex; flex-wrap: wrap; gap: .35rem; }
     .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .3rem .75rem; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; }
@@ -192,14 +216,31 @@ const byDescriptor = DESC_ORDER.map((t) => ({
     .kind { font: 600 .66rem var(--font); text-transform: uppercase; letter-spacing: .08em; padding: .12rem .45rem; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--ink-3); }
     .icat.primary .kind { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem; }
     .cc { text-decoration: none; color: inherit; }
-    .cc.card { display: flex; flex-direction: column; gap: .3rem; padding: .7rem .8rem; transition: box-shadow .15s, transform .15s; }
-    .cc.card:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
-    .cc-t { font: 600 .98rem var(--serif); line-height: 1.25; }
-    .cc-m { font: .74rem var(--mono); color: var(--ink-3); }
+    .clist { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .clist > li + li { border-top: 1px solid var(--line); }
+    .crow { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: 't m d' 's s s'; align-items: center; gap: .1rem 1rem; padding: .5rem .8rem; }
+    .crow:hover { background: var(--accent-soft); }
+    .crow:hover .cc-t { color: var(--accent-ink); }
+    .crow .cc-t { grid-area: t; }
+    .crow .cc-m { grid-area: m; text-align: right; }
+    .crow :global(.dp) { grid-area: d; }
+    .crow .cc-s { grid-area: s; }
+    .icdrow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 't d' 's s'; }
+    @media (max-width: 560px) { .crow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 't d' 'm m' 's s'; } .crow .cc-m { text-align: left; } }
+    .cc-t { font: 500 .95rem var(--font); line-height: 1.3; }
+    .cc-m { font: .74rem var(--mono); color: var(--ink-3); white-space: nowrap; }
     .cc-s { font-size: .82rem; color: var(--ink-2); display: none; }
     .cx.sum .cc-s { display: block; }
+    .legend { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; font-size: .76rem; color: var(--ink-3); margin: -.4rem 0 1rem; }
+    .lg-h { font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: .68rem; }
+    .lg { display: inline-flex; align-items: center; gap: .3rem; }
+    .sq { width: 12px; height: 12px; border-radius: 3px; border: 1.5px solid var(--c, var(--ink-3)); display: inline-block; }
+    .sq.grey { --c: var(--ink-3); }
+    .sq.role-defining { background: var(--c); }
+    .sq.role-common { background: linear-gradient(to top, var(--c) 55%, transparent 55%); }
+    .sq.role-subset { background: radial-gradient(circle, var(--c) 1.2px, transparent 1.6px) 0 0 / 4px 4px; }
+    .sq.role-none { border-color: var(--line-strong); }
 
     /* ICD rows */
     .icat { border-left: 3px solid var(--line-strong); padding-left: 1rem; }
@@ -210,12 +251,9 @@ const byDescriptor = DESC_ORDER.map((t) => ({
     @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
     .row-h { font-size: .86rem; font-weight: 600; color: var(--ink); }
     .row.empty .row-h { color: var(--ink-3); font-weight: 500; }
-    .row-c { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .row-c { min-width: 0; }
     .none { font-size: .8rem; color: var(--ink-3); font-style: italic; }
-    .chipc { display: inline-flex; flex-direction: column; gap: .25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .4rem .6rem; max-width: 100%; }
-    .chipc:hover { border-color: var(--accent); }
-    .chipc .cc-t { font-size: .9rem; }
-    .cc-when { font-style: italic; max-width: 36ch; }
+    .cc-when { font-style: italic; }
 
     /* Mechanism columns */
     .dcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
@@ -259,6 +297,8 @@ const byDescriptor = DESC_ORDER.map((t) => ({
       const regs = (el.dataset.regions ?? '').split(' ');
       return (!region || regs.includes(region) || regs.includes('widespread')) && (!desc || (el.dataset.desc ?? '').split(' ').includes(desc));
     };
+    const filters = root.querySelector<HTMLDetailsElement>('.cx-filters')!;
+    if (matchMedia('(max-width: 900px)').matches) filters.open = false;
     function apply() {
       root.dataset.lens = lens;
       root.querySelectorAll<HTMLButtonElement>('.lens [data-lens]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.lens === lens)));
@@ -267,7 +307,8 @@ const byDescriptor = DESC_ORDER.map((t) => ({
       const shown = new Set<string>();
       view.querySelectorAll<HTMLElement>('.cc').forEach((c) => {
         const ok = match(c);
-        (c.closest('li') ?? c).toggleAttribute('hidden', !ok);
+        c.toggleAttribute('hidden', !ok);
+        c.closest('li')?.toggleAttribute('hidden', !ok);
         if (ok) shown.add(c.dataset.id!);
       });
       // containers with nothing visible
@@ -283,12 +324,14 @@ const byDescriptor = DESC_ORDER.map((t) => ({
       });
       // hierarchy counts (ICD)
       if (lens === 'icd') {
-        const vis = [...view.querySelectorAll<HTMLElement>('.chipc:not([hidden])')];
+        const vis = [...view.querySelectorAll<HTMLElement>('.icdrow:not([hidden])')];
         view.querySelectorAll<HTMLElement>('.ih-n[data-code]').forEach((n) => {
           const code = n.dataset.code!;
           n.textContent = String(new Set(vis.filter((c) => c.dataset.code!.startsWith(code)).map((c) => c.dataset.id)).size);
         });
       }
+      const lab = [region && document.querySelector(`#cx-body [data-region="${region}"]`)?.getAttribute('aria-label')?.replace(/ \(.*$|: filter$/, ''), desc && desc[0].toUpperCase() + desc.slice(1)].filter(Boolean).join(' · ');
+      root.querySelector('.fsum')!.textContent = lab ? `(${lab})` : '';
       root.querySelector('.cx-count .n')!.textContent = String(shown.size);
       (root.querySelector('.cx-empty') as HTMLElement).hidden = shown.size > 0;
       params();

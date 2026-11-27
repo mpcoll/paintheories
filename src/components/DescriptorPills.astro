@@ -8,21 +8,21 @@
 import { DESCRIPTOR_ROLES } from '../data/conditions-taxonomy';
 import { DESC_ORDER, descriptorProfile, type Condition } from '../lib/conditions';
 
-interface Props { condition: Condition; compact?: boolean }
-const { condition, compact = false } = Astro.props;
+interface Props { condition: Condition; compact?: boolean; mini?: boolean }
+const { condition, compact = false, mini = false } = Astro.props;
 const prof = descriptorProfile(condition);
 const LABEL = { nociceptive: 'Nociceptive', neuropathic: 'Neuropathic', nociplastic: 'Nociplastic' } as const;
 const SHORT = { nociceptive: 'Nocicep.', neuropathic: 'Neuropath.', nociplastic: 'Nocipl.' } as const;
 ---
-<ul class:list={['dp', { compact }]} aria-label="IASP mechanistic descriptors">
+<ul class:list={['dp', { compact, mini }]} aria-label="IASP mechanistic descriptors">
   {DESC_ORDER.map((t) => {
     const role = prof[t];
     return (
       <li class={`dp-i desc-${t} role-${role ?? 'none'}`} title={role ? `${LABEL[t]}: ${DESCRIPTOR_ROLES[role].label.toLowerCase()}. ${DESCRIPTOR_ROLES[role].description}` : `${LABEL[t]}: not typical`}>
         <span class="dp-sw" aria-hidden="true"></span>
-        <span class="dp-l">{compact ? SHORT[t] : LABEL[t]}</span>
-        {!compact && <span class="dp-r">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
-        {compact && <span class="sr-only">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
+        {mini ? <span class="sr-only">{LABEL[t]}: </span> : <span class="dp-l">{compact ? SHORT[t] : LABEL[t]}</span>}
+        {!compact && !mini && <span class="dp-r">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
+        {(compact || mini) && <span class="sr-only">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
       </li>
     );
   })}
@@ -43,5 +43,10 @@ const SHORT = { nociceptive: 'Nocicep.', neuropathic: 'Neuropath.', nociplastic:
   .dp-r { color: var(--ink-3); }
   .dp-r::before { content: '· '; }
   .compact .dp-i { font-size: .72rem; padding: .08rem .45rem .08rem .32rem; }
+  .mini { gap: .25rem; flex-wrap: nowrap; }
+  .mini .dp-i { border: 0; padding: 0; background: none; }
+  .mini .dp-sw { width: 14px; height: 14px; }
+  .mini .role-none { opacity: 1; }
+  .mini .role-none .dp-sw { border-color: var(--line); border-style: solid; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 </style>
