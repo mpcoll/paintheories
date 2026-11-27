@@ -40,7 +40,8 @@ const theorySub: [string, string, boolean][] = [
 const inTheories = is('theories/');
 const inConditions = is('conditions/');
 const conditionsSub: [string, string, boolean][] = [
-  ['conditions/', 'Overview', inConditions && !['classification', 'descriptors', 'crosswalk'].some((p) => is(`conditions/${p}/`))],
+  ['conditions/', 'Overview', inConditions && !['prevalence', 'classification', 'descriptors', 'crosswalk'].some((p) => is(`conditions/${p}/`))],
+  ['conditions/prevalence/', 'Prevalence', is('conditions/prevalence/')],
   ['conditions/classification/', 'ICD-11', is('conditions/classification/')],
   ['conditions/descriptors/', 'Mechanisms', is('conditions/descriptors/')],
   ['conditions/crosswalk/', 'Crosswalk', is('conditions/crosswalk/')],

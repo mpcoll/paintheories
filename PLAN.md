@@ -98,6 +98,7 @@ without a DOI are marked `source: manual`.
 ## Pain Conditions module (started 2026-11-27)
 
 - `/conditions/`: explorer with three lenses (traditional family, ICD-11 MG30 category, IASP descriptor), body-map and descriptor filters.
+- `/conditions/prevalence/`: ranked prevalence chart (general population vs people with an underlying condition, never mixed).
 - `/conditions/classification/`: ICD-11 chronic pain tree (WHO 2026-01), primary vs secondary, extension codes, worked example, history.
 - `/conditions/descriptors/`: nociceptive / neuropathic / nociplastic, grading flowcharts (Finnerup 2016; Kosek 2021 simplified), mixed pain, condition matrix, debates.
 - `/conditions/crosswalk/`: alluvial strands family → ICD-11 → descriptor, plus category × descriptor matrix.

@@ -49,7 +49,7 @@ const tip = (r: Row) => `${r.c.data.title}: ${r.label}${r.group ? ` of ${r.group
 ---
 <section class="pv card" aria-labelledby="pv-h">
   <div class="pv-head">
-    <h2 id="pv-h">How common are they?</h2>
+    <h2 id="pv-h" class="sr-only">Prevalence chart</h2>
     <p class="pv-key" aria-hidden="true">
       <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" class="k-dot" /></svg>reported estimate</span>
       <span><svg width="14" height="14"><circle cx="7" cy="7" r="4.2" class="k-hollow" /></svg>derived from a global count</span>
@@ -114,6 +114,8 @@ const tip = (r: Row) => `${r.c.data.title}: ${r.label}${r.group ? ` of ${r.group
   .pv { padding: 1.1rem 1.2rem .9rem; margin-bottom: 1.8rem; }
   .pv-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.5rem; }
   .pv h2 { margin: 0; font-size: 1.3rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pv-head { justify-content: flex-end; }
   .pv-key { margin: 0; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-3); }
   .pv-key span { display: inline-flex; align-items: center; gap: .35rem; }
   .k-dot { fill: var(--accent); }

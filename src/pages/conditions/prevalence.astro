@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PrevalenceChart from '../../components/PrevalenceChart.astro';
+import { url } from '../../lib/data';
+import { getConditions } from '../../lib/conditions';
+
+const conditions = await getConditions();
+---
+
+<Base title="How common are chronic pain conditions?" description="Estimated prevalence of chronic pain conditions, ranked: in the general population and among people with an underlying condition, with sources and caveats.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Conditions · prevalence</p>
+    <h1>How common are they?</h1>
+    <p class="lede">Estimated prevalence of each condition, ranked. Figures with different denominators are kept apart: the general population on the left, people who already have an underlying disease, injury or treatment on the right. Select a row for the condition page.</p>
+  </header>
+  <PrevalenceChart conditions={conditions} />
+  <p class="muted back"><a href={url('conditions/')}>← All conditions</a></p>
+  <style>
+    .back { font-size: .9rem; }
+    .back a { text-decoration: none; }
+  </style>
+</Base>
