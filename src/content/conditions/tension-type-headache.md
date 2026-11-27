@@ -27,6 +27,7 @@ prevalence:
   value: 1.89 billion people (95% UI 1.71–2.10 billion) in 2016
   population: Global estimate for all forms of tension-type headache (mostly episodic), Global Burden of Disease Study 2016
   refs: [stovner2018]
+  chart: { basis: population, pct: 25, derived: true, note: "all forms, mostly episodic; 1.89 billion of about 7.5 billion people" }
 criteria:
   name: ICHD-3 (2.3 Chronic tension-type headache)
   summary: Headache on 15 or more days a month on average for more than 3 months, lasting hours to days or unremitting, with at least two of bilateral location, pressing or tightening quality, mild or moderate intensity and no aggravation by routine physical activity; no more than one of photophobia, phonophobia or mild nausea, and no moderate or severe nausea or vomiting.

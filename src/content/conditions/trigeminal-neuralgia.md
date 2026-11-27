@@ -26,6 +26,7 @@ prevalence:
   value: 0.03% to 0.3%
   population: General adult population, systematic review of 3 population-based studies; about 3 women affected for every man
   refs: [detoledo2016]
+  chart: { basis: population, low: 0.03, high: 0.3 }
 criteria:
   name: ICHD-3 and the 2016 IASP NeuPSIG classification and grading
   summary: Recurrent paroxysms of unilateral facial pain in one or more trigeminal divisions, lasting a fraction of a second to 2 minutes, severe, electric shock-like or stabbing, and triggered by innocuous stimuli. Cases are classical (nerve root changes from vascular compression), secondary (an underlying neurological disease such as a tumour or multiple sclerosis) or idiopathic.

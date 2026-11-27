@@ -30,6 +30,7 @@ prevalence:
   value: 595 million people (7.6% of the world population) in 2020
   population: Symptomatic, radiographically confirmed osteoarthritis, all sites; Global Burden of Disease Study 2021
   refs: [steinmetz2023]
+  chart: { basis: population, pct: 7.6, note: "symptomatic, radiographically confirmed" }
 mechanisms: [specialized-nociceptors, neuroinflammation, synaptic-plasticity]
 theories: [central-sensitization, neuroimmune-theory, biopsychosocial-model]
 related: [chronic-low-back-pain, rheumatoid-arthritis]

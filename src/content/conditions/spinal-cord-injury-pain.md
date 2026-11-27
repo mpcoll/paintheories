@@ -29,6 +29,7 @@ prevalence:
   value: Neuropathic pain in 53% (95% CI 39–67%); at-level 19%, below-level 27%
   population: People with spinal cord injury, meta-analysis of 17 studies (2529 patients)
   refs: [burke2016]
+  chart: { basis: group, pct: 53, low: 39, high: 67, group: "people with spinal cord injury", note: "neuropathic pain" }
 criteria:
   name: International Spinal Cord Injury Pain (ISCIP) Classification
   summary: A consensus classification that first sorts pain after spinal cord injury into nociceptive, neuropathic, other or unknown, then into subtypes such as musculoskeletal, visceral, at-level and below-level neuropathic pain, and finally records the presumed source. It includes pains common after injury that are not directly caused by it.

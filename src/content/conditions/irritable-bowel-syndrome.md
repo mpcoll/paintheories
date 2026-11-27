@@ -26,6 +26,7 @@ prevalence:
   value: 4.1% (Rome IV), 10.1% (Rome III)
   population: Adults in 33 countries, internet survey arm of the Rome Foundation Global Epidemiology Study
   refs: [sperber2021]
+  chart: { basis: population, pct: 4.1, low: 4.1, high: 10.1, note: "Rome IV criteria; 10.1% with the older Rome III criteria" }
 criteria:
   name: Rome IV
   summary: Recurrent abdominal pain on average at least 1 day a week in the last 3 months, with at least two of three features (related to defecation, a change in stool frequency, a change in stool form) and symptom onset at least 6 months before diagnosis. Subtypes by predominant stool pattern.

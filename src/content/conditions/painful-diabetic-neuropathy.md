@@ -22,6 +22,7 @@ prevalence:
   value: 21% had painful diabetic neuropathy; 34% had painful neuropathic symptoms
   population: 15,692 people with diabetes receiving community care in northwest England
   refs: [abbott2011]
+  chart: { basis: group, pct: 21, group: "people with diabetes"}
 criteria:
   name: Toronto consensus (2010)
   summary: Diabetic sensorimotor polyneuropathy is graded as possible, probable or confirmed; confirmation needs an abnormal nerve conduction study together with a symptom or sign of neuropathy. Painful neuropathy is pain arising as a direct consequence of abnormalities of the peripheral somatosensory system in a person with diabetes.

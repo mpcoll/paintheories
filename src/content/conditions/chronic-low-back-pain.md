@@ -39,6 +39,7 @@ prevalence:
   value: 619 million people (all durations) in 2020
   population: Global estimate, Global Burden of Disease Study 2021
   refs: [ferreira2023]
+  chart: { basis: population, pct: 7.9, derived: true, note: "low back pain of any duration; 619 million of about 7.8 billion people" }
 mechanisms: [descending-modulation, pain-catastrophizing, avoidance-behaviour, cortical-reorganisation]
 theories: [fear-avoidance-model, corticolimbic-learning-theory, biopsychosocial-model, central-sensitization]
 related: [fibromyalgia, osteoarthritis]

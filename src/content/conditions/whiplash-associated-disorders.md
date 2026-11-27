@@ -39,6 +39,7 @@ prevalence:
   value: About 50% still report neck pain 1 year after injury
   population: People with whiplash-associated disorders grades I to III; best-evidence synthesis of 47 studies by the Bone and Joint Decade Neck Pain Task Force
   refs: [carroll2008]
+  chart: { basis: group, pct: 50, group: "people after a whiplash injury", note: "neck pain still present at 1 year" }
 criteria:
   name: Quebec Task Force classification (1995)
   summary: Grades whiplash-associated disorders by clinical findings. Grade 0, no neck complaint or signs; I, neck pain, stiffness or tenderness only; II, neck complaint with musculoskeletal signs; III, neck complaint with neurological signs; IV, neck complaint with fracture or dislocation.

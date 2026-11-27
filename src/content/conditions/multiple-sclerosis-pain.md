@@ -32,6 +32,7 @@ prevalence:
   value: 63% (95% CI 55–70%) report pain
   population: Adults with definite MS, meta-analysis of 17 studies (5319 people)
   refs: [foley2013]
+  chart: { basis: group, pct: 63, low: 55, high: 70, group: "people with multiple sclerosis", note: "any pain" }
 related: [central-post-stroke-pain, spinal-cord-injury-pain, trigeminal-neuralgia]
 references: [foley2013, truini2012, jungersen2026, scholz2019]
 review: draft

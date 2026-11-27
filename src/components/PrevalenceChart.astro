@@ -1,0 +1,165 @@
+---
+/**
+ * Ranked dot/range plot of estimated prevalence, from `prevalence.chart` in each condition.
+ * Two panels with different denominators, never mixed on one axis:
+ *  - population: % of the general (or a stated sub-)population, log scale
+ *  - group: % of people with an underlying condition (amputation, stroke...), linear 0–100
+ * Filled dot = reported estimate; hollow dot = derived by us (global count / world population);
+ * bar = range or confidence interval; bar without dot = range only.
+ */
+import { getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+import { conditionUrl, type Condition } from '../lib/conditions';
+
+interface Props { conditions: Condition[] }
+const { conditions } = Astro.props;
+
+const charted = conditions.filter((c) => c.data.prevalence?.chart);
+const refIds = [...new Set(charted.flatMap((c) => c.data.prevalence!.refs.map((r) => r.id)))];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const src = (c: Condition) => c.data.prevalence!.refs.map((r) => refs.get(r.id)!).map((r) => ({ label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${r.id}`) }));
+
+const fmt = (v: number) => (v >= 10 ? v.toFixed(0) : v >= 1 ? (+v.toFixed(1)).toString() : v >= 0.1 ? (+v.toFixed(2)).toString() : (+v.toFixed(3)).toString());
+type Row = { c: Condition; pct?: number; low?: number; high?: number; derived: boolean; group?: string; note?: string; key: number; label: string };
+const rows = (basis: 'population' | 'group', mid: (lo: number, hi: number) => number) =>
+  charted
+    .filter((c) => c.data.prevalence!.chart!.basis === basis)
+    .map((c) => {
+      const ch = c.data.prevalence!.chart!;
+      const key = ch.pct ?? mid(ch.low!, ch.high!);
+      const label = ch.pct != null ? `${fmt(ch.pct)}%` + (ch.low != null && ch.high != null && (ch.low !== ch.pct || ch.high !== ch.pct) ? ` (${fmt(ch.low)}–${fmt(ch.high)})` : '') : `${fmt(ch.low!)}–${fmt(ch.high!)}%`;
+      return { c, pct: ch.pct, low: ch.low, high: ch.high, derived: ch.derived, group: ch.group, note: ch.note, key, label } as Row;
+    })
+    .sort((a, b) => b.key - a.key);
+const pop = rows('population', (lo, hi) => Math.sqrt(lo * hi));
+const grp = rows('group', (lo, hi) => (lo + hi) / 2);
+
+// Scales (percent -> 0..100% of track)
+const LMIN = Math.log10(0.01), LMAX = Math.log10(50);
+const xLog = (v: number) => ((Math.log10(v) - LMIN) / (LMAX - LMIN)) * 100;
+const xLin = (v: number) => v;
+const logTicks = [{ v: 0.01, l: '0.01%', s: '1 in 10 000' }, { v: 0.1, l: '0.1%', s: '1 in 1000' }, { v: 1, l: '1%', s: '1 in 100' }, { v: 10, l: '10%', s: '1 in 10' }];
+const linTicks = [0, 25, 50, 75, 100].map((v) => ({ v, l: `${v}%`, s: '' }));
+const panels = [
+  { id: 'pop', title: 'In the general population', sub: 'Share of people who have the condition. Log scale: each step is ten times more common.', rows: pop, x: xLog, ticks: logTicks },
+  { id: 'grp', title: 'Among people with an underlying condition', sub: 'Share of people with a given disease, injury or treatment who develop the pain.', rows: grp, x: xLin, ticks: linTicks },
+];
+const notCharted = conditions.filter((c) => c.data.prevalence && !c.data.prevalence.chart);
+const tip = (r: Row) => `${r.c.data.title}: ${r.label}${r.group ? ` of ${r.group}` : ''}${r.note ? `. ${r.note}` : ''}${r.derived ? '. Derived: global count divided by world population' : ''}. Source: ${src(r.c).map((s) => s.label).join(', ')}`;
+---
+<section class="pv card" aria-labelledby="pv-h">
+  <div class="pv-head">
+    <h2 id="pv-h">How common are they?</h2>
+    <p class="pv-key" aria-hidden="true">
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" class="k-dot" /></svg>reported estimate</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="4.2" class="k-hollow" /></svg>derived from a global count</span>
+      <span><svg width="26" height="14"><line x1="2" y1="7" x2="24" y2="7" class="k-bar" /></svg>range or 95% CI</span>
+    </p>
+  </div>
+  <div class="pv-panels">
+    {panels.map((p) => (
+      <div class="pv-panel" data-panel={p.id}>
+        <h3>{p.title}</h3>
+        <p class="pv-sub">{p.sub}</p>
+        <div class="pv-axis" aria-hidden="true">
+          <span></span>
+          <div class="pv-track">{p.ticks.map((t) => <span class="tick" style={`left:${p.x(t.v)}%`}><b>{t.l}</b>{t.s && <i>{t.s}</i>}</span>)}</div>
+          <span></span>
+        </div>
+        <ol class="pv-rows">
+          {p.rows.map((r) => (
+            <li>
+              <a class="pv-row" href={conditionUrl(r.c.id)} title={tip(r)} data-id={r.c.id}>
+                <span class="pv-name">{r.c.data.title}{p.id === 'pop' && r.group && <span class="pv-tag">{r.group}</span>}</span>
+                <span class="pv-track">
+                  {p.ticks.map((t) => <span class="gl" style={`left:${p.x(t.v)}%`}></span>)}
+                  {r.low != null && r.high != null && <span class:list={['bar', { only: r.pct == null }]} style={`left:${p.x(r.low)}%;width:${Math.max(p.x(r.high) - p.x(r.low), 0.6)}%`}></span>}
+                  {r.pct != null && <span class:list={['dot', { hollow: r.derived }]} style={`left:${p.x(r.pct)}%`}></span>}
+                </span>
+                <span class="pv-val">{r.label}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </div>
+  <p class="pv-foot">
+    Estimates come from different studies, populations and case definitions, so read the order as approximate. Hover a row for its source and caveats.
+    Hollow dots divide a Global Burden of Disease count by world population (about 7.5 billion in 2016, 7.8 billion in 2020); they are not age-standardised.
+    {notCharted.length > 0 && <> Not shown because the figure is not a prevalence: {notCharted.map((c, i) => <>{i > 0 && '; '}<a href={conditionUrl(c.id)}>{c.data.title}</a> ({c.data.prevalence!.value.charAt(0).toLowerCase() + c.data.prevalence!.value.slice(1)})</>)}.</>}
+  </p>
+  <details class="pv-table">
+    <summary>Show as a table</summary>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Condition</th><th>Estimate</th><th>Denominator</th><th>Notes</th><th>Source</th></tr></thead>
+        <tbody>
+          {[...pop, ...grp].map((r) => (
+            <tr>
+              <th scope="row"><a href={conditionUrl(r.c.id)}>{r.c.data.title}</a></th>
+              <td>{r.label}{r.derived && ' (derived)'}</td>
+              <td>{r.c.data.prevalence!.chart!.basis === 'population' ? (r.group ? `General population: ${r.group}` : 'General population') : r.group}</td>
+              <td>{r.note}</td>
+              <td>{src(r.c).map((s, i) => <>{i > 0 && ', '}<a href={s.href}>{s.label}</a></>)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+<style>
+  .pv { padding: 1.1rem 1.2rem .9rem; margin-bottom: 1.8rem; }
+  .pv-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.5rem; }
+  .pv h2 { margin: 0; font-size: 1.3rem; }
+  .pv-key { margin: 0; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-3); }
+  .pv-key span { display: inline-flex; align-items: center; gap: .35rem; }
+  .k-dot { fill: var(--accent); }
+  .k-hollow { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+  .k-bar { stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: 4; stroke-linecap: round; }
+  .pv-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; margin-top: .9rem; }
+  @media (max-width: 1100px) { .pv-panels { grid-template-columns: 1fr; } }
+  .pv h3 { margin: 0; font: 650 .95rem var(--font); }
+  .pv-sub { margin: .15rem 0 .5rem; font-size: .8rem; color: var(--ink-3); }
+  .pv-axis, .pv-row { display: grid; grid-template-columns: minmax(120px, 34%) minmax(0, 1fr) 6.6rem; gap: .6rem; align-items: center; }
+  .pv-axis { height: 2.1rem; border-bottom: 1px solid var(--line-strong); }
+  .pv-axis .pv-track { position: relative; height: 100%; }
+  .tick { position: absolute; bottom: .25rem; transform: translateX(-50%); text-align: center; line-height: 1.05; white-space: nowrap; }
+  [data-panel='grp'] .tick:last-child { transform: translateX(-100%); text-align: right; }
+  .tick b { display: block; font: 600 .7rem var(--font); color: var(--ink-2); }
+  .tick i { display: block; font: normal .62rem var(--font); color: var(--ink-3); }
+  .pv-rows { list-style: none; margin: 0; padding: 0; }
+  .pv-row { text-decoration: none; color: inherit; padding: .16rem 0; border-radius: 6px; }
+  .pv-row:hover, .pv-row:focus-visible { background: var(--accent-soft); outline: none; }
+  .pv-row:hover .pv-name { color: var(--accent-ink); }
+  .pv-name { font-size: .84rem; line-height: 1.2; padding-left: .3rem; overflow: hidden; text-overflow: ellipsis; }
+  .pv-tag { display: inline-block; margin-left: .35rem; font-size: .66rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); border: 1px solid var(--line-strong); border-radius: 4px; padding: 0 .25rem; vertical-align: 1px; }
+  .pv-row .pv-track { position: relative; height: 18px; }
+  .gl { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line); }
+  .bar { position: absolute; top: 50%; height: 4px; margin-top: -2px; border-radius: 2px; background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .bar.only { height: 8px; margin-top: -4px; border-radius: 4px; background: color-mix(in srgb, var(--accent) 60%, transparent); }
+  .dot { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--surface); }
+  .dot.hollow { background: var(--surface); border: 2px solid var(--accent); }
+  .pv-val { font: .76rem var(--font); color: var(--ink-2); font-variant-numeric: tabular-nums; text-align: right; padding-right: .3rem; white-space: nowrap; }
+  @media (max-width: 520px) {
+    .pv-axis, .pv-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'n v' 't t'; row-gap: .1rem; }
+    .pv-axis { grid-template-areas: none; grid-template-columns: 1fr; height: 2.4rem; }
+    .pv-axis > span:not(.pv-track) { display: none; }
+    .pv-axis .pv-track { grid-area: auto; }
+    .tick:first-child { transform: none; text-align: left; }
+    .pv-name { grid-area: n; }
+    .pv-val { grid-area: v; }
+    .pv-track { grid-area: t; }
+    .pv-row { padding: .3rem 0; border-bottom: 1px solid var(--line); }
+  }
+  .pv-foot { font-size: .78rem; color: var(--ink-3); margin: .9rem 0 .4rem; max-width: 110ch; }
+  .pv-foot a { text-decoration: none; }
+  .pv-table summary { cursor: pointer; font-size: .84rem; color: var(--ink-2); }
+  .tw { overflow-x: auto; }
+  .pv-table table { border-collapse: collapse; width: 100%; font-size: .8rem; margin-top: .5rem; min-width: 620px; }
+  .pv-table th, .pv-table td { text-align: left; padding: .3rem .45rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .pv-table thead th { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+  .pv-table a { text-decoration: none; }
+</style>

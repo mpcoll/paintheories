@@ -24,6 +24,7 @@ prevalence:
   value: At least 7.3% (definite or probable CPSP)
   population: Stroke survivors in a population-based study in Aarhus County, Denmark
   refs: [klit2011]
+  chart: { basis: group, pct: 7.3, group: "stroke survivors", note: "at least 7.3%" }
 criteria:
   name: NeuPSIG grading system for neuropathic pain
   summary: Neuropathic pain is possible when there is a relevant lesion (here a stroke) and a neuroanatomically plausible pain distribution, probable when sensory signs are found in the same distribution, and definite when a diagnostic test confirms the lesion. Even the definite level does not prove that the lesion causes the pain.

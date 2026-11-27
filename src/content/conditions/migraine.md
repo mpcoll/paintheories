@@ -29,6 +29,7 @@ prevalence:
   value: 1.04 billion people in 2016
   population: Global estimate for migraine (all forms), Global Burden of Disease Study 2016
   refs: [stovner2018]
+  chart: { basis: population, pct: 14, derived: true, note: "all forms; 1.04 billion of about 7.5 billion people" }
 criteria:
   name: ICHD-3
   summary: Migraine is diagnosed from recurrent attacks with typical features (for example unilateral, pulsating pain, nausea or sensitivity to light and sound). Chronic migraine is headache on 15 or more days a month for more than 3 months, with migraine features on at least 8 of them.

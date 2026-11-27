@@ -22,6 +22,7 @@ prevalence:
   value: CIPN in 68% in the first month after chemotherapy, 60% at 3 months and 30% at 6 months or more
   population: Patients treated with chemotherapy, meta-analysis of 31 studies (4179 patients); includes painless neuropathy
   refs: [seretny2014]
+  chart: { basis: group, pct: 30, group: "people treated with chemotherapy", note: "6 months or more after; includes painless neuropathy" }
 criteria:
   name: ICD-11 diagnostic criteria for chronic post cancer treatment pain
   summary: Pain present for more than 3 months after neurotoxic chemotherapy (or another cancer treatment) and likely caused by it; active or recurrent tumour has been excluded or does not better account for the pain; and no other chronic pain diagnosis explains it better.

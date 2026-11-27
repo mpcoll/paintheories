@@ -34,6 +34,7 @@ prevalence:
   value: About 0.24% in Europe and 0.32% in North America
   population: Mean prevalence of ankylosing spondylitis (the radiographic form only) by continent, systematic review of 36 studies
   refs: [dean2013]
+  chart: { basis: population, low: 0.24, high: 0.32, note: "ankylosing spondylitis only; Europe and North America" }
 criteria:
   name: ASAS classification criteria for axial spondyloarthritis (2009)
   summary: In people with back pain for at least 3 months that began before age 45, either sacroiliitis on radiographs or MRI plus at least one spondyloarthritis feature (imaging arm), or HLA-B27 plus at least two features (clinical arm). Sensitivity was about 83% and specificity about 84% in the validation cohort.

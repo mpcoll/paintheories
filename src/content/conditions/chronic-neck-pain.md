@@ -43,6 +43,7 @@ prevalence:
   value: 203 million people (all durations) in 2020
   population: Global estimate, Global Burden of Disease Study 2021; age-standardised 2450 per 100 000, higher in women than in men
   refs: [wu2024]
+  chart: { basis: population, pct: 2.45, note: "neck pain of any duration, age-standardised" }
 mechanisms: [associative-learning, body-representation, descending-modulation, avoidance-behaviour]
 theories: [imprecision-hypothesis, fear-avoidance-model, biopsychosocial-model]
 related: [whiplash-associated-disorders, chronic-low-back-pain, radiculopathy]

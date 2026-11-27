@@ -32,6 +32,7 @@ prevalence:
   value: 2.7% to 6.5% of adult women
   population: US women aged 18 and over meeting symptom criteria, national survey; the range reflects high-specificity and high-sensitivity case definitions, and only 9.7% had been given the diagnosis
   refs: [berry2011]
+  chart: { basis: population, low: 2.7, high: 6.5, group: "women", note: "US adult women; range reflects case definitions" }
 criteria:
   name: ESSIC criteria (2008)
   summary: Chronic pelvic pain, pressure or discomfort perceived to be related to the bladder, with at least one other urinary symptom such as persistent urge to void or frequency, after confusable diseases have been excluded. Subtypes can be assigned from cystoscopy with hydrodistension and bladder biopsy.

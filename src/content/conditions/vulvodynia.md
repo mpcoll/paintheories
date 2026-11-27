@@ -22,6 +22,7 @@ prevalence:
   value: 7–8% by age 40
   population: Women aged 18–40 reporting vulvar pain consistent with vulvodynia, two US metropolitan areas (Boston and Minneapolis/Saint Paul)
   refs: [harlow2014]
+  chart: { basis: population, low: 7, high: 8, group: "women", note: "cumulative by age 40" }
 criteria:
   name: 2015 ISSVD, ISSWSH and IPPS consensus terminology
   summary: Vulvar pain of at least 3 months' duration without a clear identifiable cause, which may have potential associated factors. It is described by location (localised, generalised or mixed), whether it is provoked, spontaneous or mixed, onset (primary or secondary) and temporal pattern. Vulvar pain caused by a specific disorder is classified separately.

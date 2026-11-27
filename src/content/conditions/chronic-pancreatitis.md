@@ -34,6 +34,7 @@ prevalence:
   value: About 42 per 100 000 (2006)
   population: Age- and sex-adjusted prevalence in Olmsted County, Minnesota, USA (population-based study); about half of cases alcohol-related
   refs: [yadav2011]
+  chart: { basis: population, pct: 0.042, note: "one US county" }
 mechanisms: [neuroinflammation, specialized-nociceptors, synaptic-plasticity, descending-modulation]
 theories: [neuroimmune-theory, central-sensitization, biopsychosocial-model]
 related: [inflammatory-bowel-disease, cancer-pain]

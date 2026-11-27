@@ -26,6 +26,7 @@ prevalence:
   value: 1% to 2% (1-year prevalence)
   population: General population; more common in women and in people with depression, anxiety or other chronic pain conditions
   refs: [diener2019]
+  chart: { basis: population, low: 1, high: 2, note: "1-year prevalence" }
 criteria:
   name: ICHD-3 (8.2 Medication-overuse headache)
   summary: Headache on 15 or more days a month in a person with a pre-existing headache disorder, with regular overuse for more than 3 months of one or more drugs taken for acute treatment of headache (on 10 or more days a month for triptans, ergots, opioids or combination analgesics; 15 or more days a month for simple analgesics), not better accounted for by another diagnosis.

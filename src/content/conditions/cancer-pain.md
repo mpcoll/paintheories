@@ -27,6 +27,7 @@ prevalence:
   value: 39% after curative treatment, 55% during treatment, 66% in advanced disease
   population: People with cancer, meta-analysis of 117 studies; moderate to severe pain in 38%
   refs: [vandenbeuken2016]
+  chart: { basis: group, pct: 55, low: 39, high: 66.4, group: "people with cancer", note: "39% after curative treatment, 55% during treatment, 66% in advanced disease" }
 mechanisms: [specialized-nociceptors, neuroinflammation]
 theories: [neuroimmune-theory, biopsychosocial-model]
 related: [chemotherapy-induced-neuropathy, chronic-postsurgical-pain]

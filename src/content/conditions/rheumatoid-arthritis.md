@@ -40,6 +40,7 @@ prevalence:
   value: 17.6 million people in 2020 (age-standardised 208.8 per 100 000)
   population: Global estimate, Global Burden of Disease Study 2021; about 2.5 times more common in women than in men
   refs: [black2023]
+  chart: { basis: population, pct: 0.21, note: "age-standardised" }
 criteria:
   name: 2010 ACR/EULAR classification criteria
   summary: Confirmed synovitis in at least one joint, no alternative diagnosis that better explains it, and a score of at least 6 of 10 across four domains (number and site of involved joints, serology, acute-phase reactants and symptom duration). Designed to identify early disease at high risk of becoming persistent or erosive.

@@ -23,6 +23,7 @@ prevalence:
   value: 10–50% after common operations; severe in about 2–10%
   population: People after operations such as groin hernia repair, breast and thoracic surgery, leg amputation and coronary bypass
   refs: [kehlet2006]
+  chart: { basis: group, low: 10, high: 50, group: "people after common operations"}
 mechanisms: [specialized-nociceptors, synaptic-plasticity, neuroinflammation]
 theories: [central-sensitization, biopsychosocial-model]
 related: [phantom-limb-pain, cancer-pain, complex-regional-pain-syndrome]

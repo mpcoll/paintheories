@@ -31,6 +31,7 @@ prevalence:
   value: Reported prevalence of sciatica ranges from 1.2% to 43%
   population: Review of 23 epidemiological studies, with widely differing definitions of sciatica
   refs: [konstantinou2008]
+  chart: { basis: population, low: 1.2, high: 43, note: "sciatica, definitions differ widely between studies" }
 mechanisms: [neuroinflammation]
 theories: [neuroimmune-theory]
 related: [chronic-low-back-pain, chronic-neck-pain, painful-diabetic-neuropathy]

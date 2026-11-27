@@ -29,6 +29,7 @@ prevalence:
   value: About 64% (95% CI 60–68%)
   population: People with limb amputation; meta-analysis of studies published 1980–2019
   refs: [limakatso2020]
+  chart: { basis: group, pct: 64, low: 60, high: 68, group: "people with an amputation"}
 mechanisms: [cortical-reorganisation, body-representation]
 theories: [maladaptive-cortical-plasticity, neuromatrix-theory, sensorimotor-incongruence]
 related: [chronic-postsurgical-pain, complex-regional-pain-syndrome, spinal-cord-injury-pain]

@@ -26,6 +26,7 @@ prevalence:
   value: About 58% (95% CI 55.5–60.2%) report chronic headache
   population: Adults after traumatic brain injury, systematic review (12 studies, 1670 patients); among civilians, chronic pain overall was more common after mild than after moderate or severe injury
   refs: [nampiaparampil2008]
+  chart: { basis: group, pct: 58, low: 55.5, high: 60.2, group: "adults after traumatic brain injury"}
 criteria:
   name: ICHD-3 (5.2 Persistent headache attributed to traumatic injury to the head)
   summary: Headache that develops within 7 days of an injury to the head (or of regaining consciousness, or of being able to report pain) and persists for more than 3 months after onset. Subtypes are distinguished by whether the injury was mild or moderate to severe.

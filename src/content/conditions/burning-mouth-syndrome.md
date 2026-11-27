@@ -27,6 +27,7 @@ prevalence:
   value: About 1.7% in the general population
   population: Pooled from population-based studies (n = 26,632), meta-analysis of 18 studies; higher in women and in people over 50
   refs: [wu2021]
+  chart: { basis: population, pct: 1.7 }
 criteria:
   name: ICHD-3 (13.10 Burning mouth syndrome)
   summary: Intraoral burning or dysaesthetic pain recurring daily for more than 2 hours a day over more than 3 months, felt superficially in the oral mucosa, with a normal-looking mucosa and normal clinical examination, and not better accounted for by another diagnosis.

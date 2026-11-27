@@ -237,7 +237,27 @@ const conditions = defineCollection({
         }),
       )
       .min(1),
-    prevalence: z.object({ value: z.string(), population: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
+    prevalence: z
+      .object({
+        value: z.string(),
+        population: z.string(),
+        refs: z.array(reference('references')).min(1),
+        // Numbers for the prevalence chart (percent). basis: population = % of the general (or stated
+        // sub-)population; group = % of people with an underlying condition. rangeOnly: no point estimate.
+        // derived: computed by us (e.g. global count / world population), shown as a hollow marker.
+        chart: z
+          .object({
+            basis: z.enum(['population', 'group']),
+            pct: z.number().positive().optional(),
+            low: z.number().positive().optional(),
+            high: z.number().positive().optional(),
+            derived: z.boolean().default(false),
+            group: z.string().optional(),
+            note: z.string().optional(),
+          })
+          .optional(),
+      })
+      .optional(),
     criteria: z.object({ name: z.string(), summary: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
     mechanisms: z.array(reference('mechanisms')).default([]),
     theories: z.array(reference('theories')).default([]),

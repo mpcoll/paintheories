@@ -32,6 +32,7 @@ prevalence:
   value: About 5–10% of women of reproductive age (about 176 million women)
   population: Worldwide estimate for women of reproductive age, Nature Reviews Disease Primers
   refs: [zondervan2018]
+  chart: { basis: population, low: 5, high: 10, group: "women", note: "women of reproductive age" }
 mechanisms: [neuroinflammation, specialized-nociceptors, synaptic-plasticity, stress-response]
 theories: [neuroimmune-theory, central-sensitization, nociplastic-pain, biopsychosocial-model]
 related: [bladder-pain-syndrome, irritable-bowel-syndrome, vulvodynia]

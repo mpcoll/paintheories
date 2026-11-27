@@ -22,6 +22,7 @@ prevalence:
   value: Develops in 5% to more than 30% of people after herpes zoster
   population: Risk after shingles, systematic review of 130 studies in 26 countries (herpes zoster incidence 3–5 per 1000 person-years)
   refs: [kawai2014]
+  chart: { basis: group, low: 5, high: 30, group: "people after shingles"}
 mechanisms: [specialized-nociceptors, synaptic-plasticity]
 theories: [central-sensitization]
 related: [trigeminal-neuralgia, painful-diabetic-neuropathy]

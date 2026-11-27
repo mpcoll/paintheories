@@ -38,6 +38,7 @@ prevalence:
   value: 6.8 million people in 2017 (age-standardised 84.3 per 100 000)
   population: Global estimate, Global Burden of Disease Study 2017; highest rates in high-income North America
   refs: [alatab2020]
+  chart: { basis: population, pct: 0.084, note: "age-standardised" }
 mechanisms: [neuroinflammation, synaptic-plasticity, descending-modulation, interoception]
 theories: [neuroimmune-theory, central-sensitization, biopsychosocial-model]
 related: [irritable-bowel-syndrome, chronic-pancreatitis, axial-spondyloarthritis]

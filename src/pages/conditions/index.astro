@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import BodyMap from '../../components/BodyMap.astro';
 import DescriptorPills from '../../components/DescriptorPills.astro';
 import IcdHierarchy from '../../components/IcdHierarchy.astro';
+import PrevalenceChart from '../../components/PrevalenceChart.astro';
 import { url } from '../../lib/data';
 import { getConditions, descriptorProfile, conditionUrl, DESC_ORDER, ROLE_ORDER, CATEGORY_ORDER, FAMILY_ORDER, REGION_ORDER, type Condition } from '../../lib/conditions';
 import { FAMILIES, ICD_CATEGORIES, ICD_MG30, DESCRIPTORS, DESCRIPTOR_ROLES } from '../../data/conditions-taxonomy';
@@ -40,6 +41,8 @@ const byDescriptor = DESC_ORDER.map((t) => ({
     <h1>Chronic pain conditions</h1>
     <p class="lede">{conditions.length} chronic pain conditions, each classified three ways. Pick a lens to regroup them, or filter by body region and mechanism.</p>
   </header>
+
+  <PrevalenceChart conditions={conditions} />
 
   <div class="cx" id="cx" data-lens="family">
     <aside class="cx-side" data-pagefind-ignore>

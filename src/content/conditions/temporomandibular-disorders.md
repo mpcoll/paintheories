@@ -32,6 +32,7 @@ prevalence:
   value: About 29.5% (any TMD diagnosis)
   population: General population, meta-analysis of 27 studies (20,971 people) using RDC/TMD or DC/TMD; includes non-painful diagnoses such as joint sounds; higher in women (36.7%) than men (26.7%)
   refs: [alqutaibi2025]
+  chart: { basis: population, pct: 29.5, note: "any TMD diagnosis, including painless joint sounds" }
 criteria:
   name: Diagnostic Criteria for Temporomandibular Disorders (DC/TMD)
   summary: A dual-axis protocol. Axis I gives a validated screener and examination-based criteria for the common pain-related TMD (such as myalgia and arthralgia) and for intra-articular disorders; Axis II assesses pain intensity, pain-related disability, psychological distress, jaw function and parafunctional behaviours.

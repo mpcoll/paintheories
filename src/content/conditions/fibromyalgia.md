@@ -19,6 +19,7 @@ prevalence:
   value: About 1.8% (95% CI 1.7–1.9%)
   population: General population, meta-analysis of 65 studies; about 4% in women
   refs: [heidari2017]
+  chart: { basis: population, pct: 1.78, low: 1.65, high: 1.92 }
 criteria:
   name: ACR 2016 revised criteria
   summary: Generalised pain in at least 4 of 5 body regions, symptoms for at least 3 months, and a combined widespread pain index and symptom severity score above set thresholds. The diagnosis is valid whatever other diagnoses are present and does not exclude other illnesses.
