@@ -125,3 +125,18 @@ Judgement calls to check:
 - [ ] Exercise: Fransen 2015 SMD -0.49 labelled small (authors: moderate); Hayden 2021 MD -15.2/100 labelled moderate (authors: clinically important); Bidonde 2017 labelled small.
 - [ ] Graded exposure, open-label placebo, acupuncture (targets, sham comparisons) and pain reprocessing therapy (one trial with 5-year follow-up) need expert reading.
 - [ ] EULAR 2017 full text was not accessible: only exercise (strong for) and multimodal rehabilitation (weak for, from the abstract) carry EULAR records.
+
+## Pain Assessment (2026-11-27)
+
+Pages:
+- /assessment/psychophysics/: QST profile z-scores are invented for teaching; shapes follow the three clusters in baron2017. The fibre attributions of detection thresholds (cold and pinprick mainly Aδ, warmth C, touch and vibration Aβ) are textbook statements without a citation on the page.
+- /assessment/core-outcomes/: Dworkin 2005 full text and abstract were not available; the measures listed per core domain come from the Dworkin 2008 abstract. Domains from turk2003.
+
+Observational, psychophysical and neurophysiological entries (batch c):
+- Item content not in the abstracts (from general knowledge): PAINAD five items 0 to 2; CPOT four items 0 to 2, total 0 to 8; wind-up ratio definition. FLACC scoring confirmed on the University of Michigan licence page.
+- format.time without a source: PAINAD, pressure pain threshold, LEPs.
+- PAINAD and FLACC (merkel1997) reliability quoted as worded in the abstracts ("adequate", "high"); no coefficients.
+- obrien2018: CPM g = 0.57 with the CI printed in the abstract as -0.88 to -0.26 (sign inconsistency in the source).
+- arendtnielsen2017 cited for local versus widespread pressure thresholds and temporal summation as a sign of central facilitation; only the abstract was read.
+- Availability: FLACC licensed (Michigan: free academic/research licence, paid licence for clinical operations); CPOT and PAINAD unclear (no terms page found); QST unclear (dfns.de unreachable); CPM, temporal summation, pressure pain threshold, LEPs and skin biopsy marked "method" (no licence applies; our reading, not a quoted source).
+- Links by judgement: observational scales → pain-communication, social-communication-model; LEPs → salience-detection-account; QST and PPT → synaptic-plasticity; PPT → central-sensitization.

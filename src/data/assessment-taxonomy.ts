@@ -60,5 +60,6 @@ export const AVAILABILITY = {
   free: { label: 'Free to use', description: 'Public domain or free for clinical and research use.' },
   permission: { label: 'Free with permission', description: 'Free, but the developer asks users to register or request permission.' },
   licensed: { label: 'Licensed', description: 'Requires a licence, which may involve a fee.' },
+  method: { label: 'Method, no licence', description: 'A test procedure rather than a proprietary instrument: no licence applies, but it needs equipment and trained staff.' },
   unclear: { label: 'Check terms', description: 'We could not confirm the terms of use.' },
 } as const satisfies Vocab;

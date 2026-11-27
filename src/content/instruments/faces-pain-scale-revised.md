@@ -2,7 +2,7 @@
 title: Faces Pain Scale - Revised
 short: FPS-R
 aliases: [Faces Pain Scale-Revised, Revised Faces Pain Scale]
-summary: Children point to one of six faces, from no pain to very much pain, that shows how much they hurt; faces are scored 0 to 10 so results share the metric of other 0 to 10 scales. Validated against visual analogue scales for acute pain from about age 4 or 5, and recommended for research among faces scales.
+summary: Children choose which of six faces, ordered from least to most pain, shows how much they hurt; faces are scored 0 to 10 so results share the metric of other 0 to 10 scales. Validated against visual analogue scales for acute pain from about age 4 or 5, and recommended for research among faces scales.
 category: self-report
 constructs: [intensity]
 populations: [children]

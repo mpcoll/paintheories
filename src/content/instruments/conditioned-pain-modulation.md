@@ -19,7 +19,7 @@ properties:
     population: 778 patients with chronic pain and 664 healthy controls
     refs: [lewis2012]
   - kind: validity
-    value: Meta-analysis of 23 studies. Effect size (Hedges' g) of 0.57 for CPM (reported 95% CI -0.88 to -0.26), a 65% relative difference between patients and controls, with large heterogeneity between protocols.
+    value: Meta-analysis of 23 studies. Effect size (Hedges' g) of 0.57 for CPM (95% confidence interval printed in the abstract as -0.88 to -0.26, with the opposite sign), a 65% relative difference between patients and controls, with large heterogeneity between protocols.
     population: 648 patients with fibromyalgia (625 women) and 672 healthy controls (591 women), in studies of temporal summation or CPM
     refs: [obrien2018]
   - kind: validity
@@ -27,7 +27,7 @@ properties:
     population: 30 patients with painful diabetic neuropathy
     refs: [yarnitsky2012]
 availability:
-  status: free
+  status: method
   note: A testing paradigm rather than a proprietary instrument, so no licence applies. Recommendations for practice come from a consensus meeting of researchers (Yarnitsky et al. 2015). It needs a test stimulus and a conditioning stimulus, for example contact heat or pressure and a cold water bath.
 mechanisms: [descending-modulation]
 theories: [endogenous-modulation-model]

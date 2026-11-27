@@ -23,7 +23,7 @@ properties:
     population: 648 patients with fibromyalgia (625 women) and 672 healthy controls (591 women), in studies of temporal summation or CPM
     refs: [obrien2018]
 availability:
-  status: free
+  status: method
   note: A testing method rather than a proprietary instrument, so no licence applies. Protocols differ in stimulus type (contact heat, pinprick, pressure), number of stimuli and interval. The DFNS QST protocol includes a standardised wind-up ratio (Rolke et al. 2006).
 mechanisms: [synaptic-plasticity]
 theories: [central-sensitization]

@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { url, cite, resolveRefs } from '../../lib/data';
 import { getInstruments, instrumentUrl } from '../../lib/assessment';
 
-const refs = await resolveRefs(['rolke2006', 'baron2017', 'yarnitsky2015'].map((id) => ({ id, collection: 'references' as const })));
+const refs = await resolveRefs(['rolke2006', 'baron2017', 'yarnitsky2015', 'yarnitsky2010', 'price1977'].map((id) => ({ id, collection: 'references' as const })));
 const r = Object.fromEntries(refs.map((x) => [x.id, { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${x.id}`), title: x.data.title }]));
 const instruments = await getInstruments();
 const psych = instruments.filter((i) => i.data.category === 'psychophysical');
@@ -99,7 +99,7 @@ const path = (z: number[]) => z.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)
           <text x="4" y="16" class="mt">pain rating</text><text x="256" y="128" class="mt" text-anchor="end">same stimulus, repeated</text>
         </svg>
         <h3>Temporal summation</h3>
-        <p>The same painful stimulus repeated at a short interval feels increasingly painful. It is the perceptual counterpart of wind-up in dorsal horn neurons and is used as an index of central amplification. The DFNS protocol includes it as the wind-up ratio to repeated pinprick <a href={r.rolke2006.href} title={r.rolke2006.title}>[{r.rolke2006.label}]</a>.</p>
+        <p>The same painful stimulus repeated at a short interval feels increasingly painful. In a classic experiment, second pain grew with each heat pulse when pulses came every 3 seconds or faster; the summation was attributed to central mechanisms, in line with the summated responses of dorsal horn neurons to repeated C-fibre input <a href={r.price1977.href} title={r.price1977.title}>[{r.price1977.label}]</a>. The DFNS protocol includes it as the wind-up ratio to repeated pinprick <a href={r.rolke2006.href} title={r.rolke2006.title}>[{r.rolke2006.label}]</a>.</p>
         <p class="go"><Fragment set:html={link('temporal-summation', 'Temporal summation →')} /></p>
       </div>
       <div class="card dc">
@@ -111,7 +111,7 @@ const path = (z: number[]) => z.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)
           <text x="4" y="16" class="mt">pain to test stimulus</text>
         </svg>
         <h3>Conditioned pain modulation</h3>
-        <p>A test stimulus is rated alone, then during or after a second painful "conditioning" stimulus elsewhere on the body, such as a hand in cold water. In most healthy people the test stimulus then hurts less: pain inhibits pain. A smaller reduction is read as less efficient endogenous inhibition. Protocols vary between laboratories, which led to consensus recommendations on how to test it <a href={r.yarnitsky2015.href} title={r.yarnitsky2015.title}>[{r.yarnitsky2015.label}]</a>.</p>
+        <p>A test stimulus is rated alone, then during or after a second painful "conditioning" stimulus elsewhere on the body, such as a hand in cold water. Pain at one site is reduced by the second painful stimulus elsewhere: pain inhibits pain <a href={r.yarnitsky2010.href} title={r.yarnitsky2010.title}>[{r.yarnitsky2010.label}]</a>. A smaller reduction is read as less efficient endogenous inhibition. Protocols vary between laboratories, which led to consensus recommendations on how to test it <a href={r.yarnitsky2015.href} title={r.yarnitsky2015.title}>[{r.yarnitsky2015.label}]</a>.</p>
         <p class="go"><Fragment set:html={link('conditioned-pain-modulation', 'Conditioned pain modulation →')} /> · <a href={url('theories/')}>Theories of pain modulation</a></p>
       </div>
     </div>

@@ -2,7 +2,7 @@
 title: Laser-evoked potentials
 short: LEPs
 aliases: [LEP, Laser-evoked brain potentials]
-summary: EEG responses to brief radiant heat pulses from a laser, which activate Aδ and C skin nociceptors without touching the skin. In clinical neurophysiology they test the function of the nociceptive pathways; guidelines on neuropathic pain assessment rate them the best laboratory tool for Aδ pathway dysfunction.
+summary: EEG responses to brief radiant heat pulses from a laser, which activate Aδ and C skin nociceptors. In clinical neurophysiology they test the function of the nociceptive pathways; guidelines on neuropathic pain assessment rate them the best laboratory tool for Aδ pathway dysfunction.
 category: neurophysiological
 constructs: [sensory]
 populations: [adults]
@@ -23,7 +23,7 @@ properties:
     population: Two experiments in 34 and 96 healthy participants
     refs: [hu2014]
 availability:
-  status: free
+  status: method
   note: A clinical neurophysiology test rather than a proprietary instrument, so no licence applies. It needs a laser stimulator, EEG recording and staff trained in both.
 mechanisms: [specialized-nociceptors, distributed-brain-network]
 theories: [salience-detection-account]
@@ -39,4 +39,4 @@ Intense radiant heat pulses activate Aδ and C nociceptors together and produce 
 
 ## In research and practice
 
-Clinical guidelines recommend LEPs for assessing Aδ pathway function in people with suspected neuropathic pain [@cruccu2010; @haanpaa2011]. C-fibre responses are harder to record, but suitable stimulus parameters make them detectable in most people, which matters for assessing small-fibre function [@hu2014]. LEPs are not a direct measure of pain: they can be explained by multimodal and somatosensory activity that is not specific to nociception, and their size follows the salience of the stimulus [@mouraux2009]. A normal response therefore shows that the pathway conducts, not how much pain a person feels.
+Clinical guidelines recommend LEPs for assessing Aδ pathway function in people with suspected neuropathic pain [@cruccu2010; @haanpaa2011]. C-fibre responses are harder to record, but suitable stimulus parameters make them detectable in most people, which matters for assessing small-fibre function [@hu2014]. LEPs are not a direct measure of pain: they can be explained by multimodal and somatosensory activity that is not specific to nociception, and the size of the multimodal part correlates with how salient the stimulus is rated [@mouraux2009]. They test whether nociceptive pathways conduct, not how much pain a person feels.

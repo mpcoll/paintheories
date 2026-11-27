@@ -2,12 +2,12 @@
 title: Skin biopsy for intraepidermal nerve fibre density
 short: IENFD
 aliases: [Skin punch biopsy, Intraepidermal nerve fibre density, IENF density]
-summary: A 3 mm punch biopsy, usually from the distal leg, is immunostained and the linear density of intraepidermal nerve fibres is counted. A density below age-matched reference values supports a diagnosis of small fibre neuropathy, the thin nerve fibres that carry pain and temperature.
+summary: A 3 mm punch biopsy, usually from the distal leg, is immunostained and the linear density of intraepidermal nerve fibres is counted. A density below age-matched reference values supports a diagnosis of small fibre neuropathy.
 category: neurophysiological
 constructs: [sensory]
 populations: [adults]
 format:
-  time: A short procedure under local anaesthesia, followed by laboratory processing
+  time: A 3 mm punch biopsy, followed by laboratory processing
   scale: Intraepidermal nerve fibres per mm of epidermis, compared with reference values for age and sex
 properties:
   - kind: validity
@@ -19,7 +19,7 @@ properties:
     population: 550 healthy participants (285 women, 265 men) from 8 laboratories in Europe, the USA and Asia
     refs: [lauria2010b]
 availability:
-  status: free
+  status: method
   note: A clinical laboratory procedure rather than a proprietary instrument, so no licence applies. The EFNS/PNS guideline asks new laboratories to train in an established skin biopsy laboratory, to collect their own age- and sex-stratified normative values and reliability data, and to run quality control at all levels.
 mechanisms: [specialized-nociceptors]
 conditions: [fibromyalgia]
@@ -31,7 +31,7 @@ updated: 2026-11-27
 
 ## Overview
 
-Thin nerve fibres end freely in the epidermis, where they can be stained and counted in a small skin sample. The EFNS/PNS guideline recommends a 3 mm biopsy from the distal leg, quantified with agreed counting rules and always compared with age-matched normative values [@lauria2010]; worldwide reference values for the distal leg are available [@lauria2010b]. In about 35,000 biopsies reported by 10 laboratories there were no serious side effects and non-serious side effects in 0.19% [@lauria2010].
+Intraepidermal nerve fibres can be stained and counted in a small skin sample. The EFNS/PNS guideline recommends a 3 mm biopsy from the distal leg, quantified with agreed counting rules and always compared with age-matched normative values [@lauria2010]; worldwide reference values for the distal leg are available [@lauria2010b]. In about 35,000 biopsies reported by 10 laboratories there were no serious side effects and non-serious side effects in 0.19% [@lauria2010].
 
 ## In research and practice
 

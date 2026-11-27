@@ -19,7 +19,7 @@ properties:
     population: 180 healthy subjects
     refs: [rolke2006]
 availability:
-  status: free
+  status: method
   note: A measurement method rather than a proprietary instrument, so no licence applies. It needs a pressure algometer, and results are comparable only with the same probe, rate of force increase and number of trials.
 mechanisms: [synaptic-plasticity]
 theories: [central-sensitization]
