@@ -34,6 +34,7 @@ const openQuestions = (await getCollection('gaps'))
   .filter((g) => g.data.predictions.some((p) => p.theory.id === theory.id))
   .sort((a, b) => a.data.order - b.data.order);
 const met = computeMetrics(all).get(theory.id)!;
+const instrumentsLinked = (await getCollection('instruments')).filter((i) => i.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const treatmentsLinked = (await getCollection('treatments')).filter((t) => t.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const imagingFindings = (await getCollection('imagingFindings')).filter((f) => f.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.year - b.data.year);
 const conditions = (await getCollection('conditions')).filter((c) => c.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
@@ -131,6 +132,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         <section class="card">
           <h2>Treatments it motivates</h2>
           <ul>{treatmentsLinked.map((t) => <li><a href={url(`treatments/${t.id}/`)}>{t.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {instrumentsLinked.length > 0 && (
+        <section class="card">
+          <h2>Measured with</h2>
+          <ul>{instrumentsLinked.map((i) => <li><a href={url(`assessment/${i.id}/`)}>{i.data.title}</a></li>)}</ul>
         </section>
       )}
       {imagingFindings.length > 0 && (

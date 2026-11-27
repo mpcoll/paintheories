@@ -23,6 +23,7 @@ const nav: [string, string][] = [
   ['biology/', 'Biology'],
   ['conditions/', 'Conditions'],
   ['treatments/', 'Treatments'],
+  ['assessment/', 'Assessment'],
   ['references/', 'References'],
   ['search/', 'Search'],
   ['about/', 'About'],
@@ -46,6 +47,13 @@ const treatmentsSub: [string, string, boolean][] = [
   ['treatments/evidence/', 'Evidence map', is('treatments/evidence/')],
   ['treatments/guidelines/', 'Guidelines', is('treatments/guidelines/')],
   ['treatments/reading-evidence/', 'Reading the evidence', is('treatments/reading-evidence/')],
+];
+const inAssessment = is('assessment/');
+const assessmentSub: [string, string, boolean][] = [
+  ['assessment/', 'Overview', inAssessment && !['core-outcomes', 'meaningful-change', 'psychophysics'].some((p) => is(`assessment/${p}/`))],
+  ['assessment/core-outcomes/', 'Core outcomes', is('assessment/core-outcomes/')],
+  ['assessment/meaningful-change/', 'Meaningful change', is('assessment/meaningful-change/')],
+  ['assessment/psychophysics/', 'Psychophysics', is('assessment/psychophysics/')],
 ];
 const conditionsSub: [string, string, boolean][] = [
   ['conditions/', 'Overview', inConditions && !['prevalence', 'classification', 'descriptors', 'crosswalk'].some((p) => is(`conditions/${p}/`))],
@@ -115,6 +123,18 @@ const biologySub: [string, string, boolean][] = [
             <a class="module-name" href={url('treatments/')}>Pain Treatments</a>
             <nav aria-label="Pain Treatments">
               {treatmentsSub.map(([href, label, active]) => (
+                <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+      {inAssessment && (
+        <div class="subnav">
+          <div class="wrap">
+            <a class="module-name" href={url('assessment/')}>Pain Assessment</a>
+            <nav aria-label="Pain Assessment">
+              {assessmentSub.map(([href, label, active]) => (
                 <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
               ))}
             </nav>

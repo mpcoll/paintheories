@@ -14305,3 +14305,1189 @@
   pages: 633-639
   doi: 10.1111/j.1469-7793.2000.t01-1-00633.x
   source: crossref
+- id: dworkin2005
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Turk, D. C.
+    - Farrar, J. T.
+    - Haythornthwaite, J. A.
+    - Jensen, M. P.
+    - Katz, N. P.
+    - Kerns, R. D.
+    - Stucki, G.
+    - Allen, R. R.
+    - Bellamy, N.
+    - Carr, D. B.
+    - Chandler, J.
+    - Cowan, P.
+    - Dionne, R.
+    - Galer, B. S.
+    - Hertz, S.
+    - Jadad, A. R.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - Martin, S.
+    - McCormick, C. G.
+    - McDermott, M. P.
+    - McGrath, P.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Robbins, W.
+    - Robinson, J. P.
+    - Rothman, M.
+    - Royal, M. A.
+    - Simon, L.
+    - Stauffer, J. W.
+    - Stein, W.
+    - Tollett, J.
+    - Wernicke, J.
+    - Witter, J.
+  year: 2005
+  title: "Core outcome measures for chronic pain clinical trials: IMMPACT recommendations"
+  container: Pain
+  volume: "113"
+  issue: "1"
+  pages: 9-19
+  doi: 10.1016/j.pain.2004.09.012
+  source: crossref
+- id: dworkin2008
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Turk, D. C.
+    - Wyrwich, K. W.
+    - Beaton, D.
+    - Cleeland, C. S.
+    - Farrar, J. T.
+    - Haythornthwaite, J. A.
+    - Jensen, M. P.
+    - Kerns, R. D.
+    - Ader, D. N.
+    - Brandenburg, N.
+    - Burke, L. B.
+    - Cella, D.
+    - Chandler, J.
+    - Cowan, P.
+    - Dimitrova, R.
+    - Dionne, R.
+    - Hertz, S.
+    - Jadad, A. R.
+    - Katz, N. P.
+    - Kehlet, H.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - McCormick, C.
+    - McDermott, M. P.
+    - McQuay, H. J.
+    - Patel, S.
+    - Porter, L.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Rauschkolb, C.
+    - Revicki, D. A.
+    - Rothman, M.
+    - Schmader, K. E.
+    - Stacey, B. R.
+    - Stauffer, J. W.
+    - von Stein, T.
+    - White, R. E.
+    - Witter, J.
+    - Zavisic, S.
+  year: 2008
+  title: "Interpreting the Clinical Importance of Treatment Outcomes in Chronic Pain Clinical Trials: IMMPACT Recommendations"
+  container: The Journal of Pain
+  volume: "9"
+  issue: "2"
+  pages: 105-121
+  doi: 10.1016/j.jpain.2007.09.005
+  source: crossref
+- id: farrar2001
+  type: article
+  authors:
+    - Farrar, J. T.
+    - Young, J. P.
+    - LaMoreaux, L.
+    - Werth, J. L.
+    - Poole, M. R.
+  year: 2001
+  title: Clinical importance of changes in chronic pain intensity measured on an 11-point numerical pain rating scale
+  container: Pain
+  volume: "94"
+  issue: "2"
+  pages: 149-158
+  doi: 10.1016/s0304-3959(01)00349-9
+  source: crossref
+- id: rolke2006
+  type: article
+  authors:
+    - Rolke, R.
+    - Baron, R.
+    - Maier, C.
+    - Tölle, T. R.
+    - Treede, D. R.
+    - Beyer, A.
+    - Binder, A.
+    - Birbaumer, N.
+    - Birklein, F.
+    - Bötefür, I. C.
+    - Braune, S.
+    - Flor, H.
+    - Huge, V.
+    - Klug, R.
+    - Landwehrmeyer, G. B.
+    - Magerl, W.
+    - Maihöfner, C.
+    - Rolko, C.
+    - Schaub, C.
+    - Scherens, A.
+    - Sprenger, T.
+    - Valet, M.
+    - Wasserka, B.
+  year: 2006
+  title: "Quantitative sensory testing in the German Research Network on Neuropathic Pain (DFNS): Standardized protocol and reference values"
+  container: Pain
+  volume: "123"
+  issue: "3"
+  pages: 231-243
+  doi: 10.1016/j.pain.2006.01.041
+  source: crossref
+- id: yarnitsky2015
+  type: article
+  authors:
+    - Yarnitsky, D.
+    - Bouhassira, D.
+    - Drewes, A. M.
+    - Fillingim, R. B.
+    - Granot, M.
+    - Hansson, P.
+    - Landau, R.
+    - Marchand, S.
+    - Matre, D.
+    - Nilsen, K. B.
+    - Stubhaug, A.
+    - Treede, R. D.
+    - Wilder-Smith, O. H. G.
+  year: 2015
+  title: Recommendations on practice of conditioned pain modulation ( CPM ) testing
+  container: European Journal of Pain
+  volume: "19"
+  issue: "6"
+  pages: 805-806
+  doi: 10.1002/ejp.605
+  source: crossref
+- id: baron2017
+  type: article
+  authors:
+    - Baron, R.
+    - Maier, C.
+    - Attal, N.
+    - Binder, A.
+    - Bouhassira, D.
+    - Cruccu, G.
+    - Finnerup, N. B.
+    - Haanpää, M.
+    - Hansson, P.
+    - Hüllemann, P.
+    - Jensen, T. S.
+    - Freynhagen, R.
+    - Kennedy, J. D.
+    - Magerl, W.
+    - Mainka, T.
+    - Reimer, M.
+    - Rice, A. S. C.
+    - Segerdahl, M.
+    - Serra, J.
+    - Sindrup, S.
+    - Sommer, C.
+    - Tölle, T.
+    - Vollert, J.
+    - Treede, R. D.
+    - on behalf of the German Neuropathic Pain Research Network (DFNS), and the EUROPAIN, and NEUROPAIN consortia
+  year: 2017
+  title: "Peripheral neuropathic pain: a mechanism-related organizing principle based on sensory profiles"
+  container: Pain
+  volume: "158"
+  issue: "2"
+  pages: 261-272
+  doi: 10.1097/j.pain.0000000000000753
+  source: crossref
+- id: mokkink2010
+  type: article
+  authors:
+    - Mokkink, L. B.
+    - Terwee, C. B.
+    - Patrick, D. L.
+    - Alonso, J.
+    - Stratford, P. W.
+    - Knol, D. L.
+    - Bouter, L. M.
+    - de Vet, H. C. W.
+  year: 2010
+  title: The COSMIN study reached international consensus on taxonomy, terminology, and definitions of measurement properties for health-related patient-reported outcomes
+  container: Journal of Clinical Epidemiology
+  volume: "63"
+  issue: "7"
+  pages: 737-745
+  doi: 10.1016/j.jclinepi.2010.02.006
+  source: crossref
+- id: hjermstad2011
+  type: article
+  authors:
+    - Hjermstad, M. J.
+    - Fayers, P. M.
+    - Haugen, D. F.
+    - Caraceni, A.
+    - Hanks, G. W.
+    - Loge, J. H.
+    - Fainsinger, R.
+    - Aass, N.
+    - Kaasa, S.
+  year: 2011
+  title: "Studies Comparing Numerical Rating Scales, Verbal Rating Scales, and Visual Analogue Scales for Assessment of Pain Intensity in Adults: A Systematic Literature Review"
+  container: Journal of Pain and Symptom Management
+  volume: "41"
+  issue: "6"
+  pages: 1073-1093
+  doi: 10.1016/j.jpainsymman.2010.08.016
+  source: crossref
+- id: moore2010
+  type: article
+  authors:
+    - Moore, R. A.
+    - Moore, O. A.
+    - Derry, S.
+    - Peloso, P. M.
+    - Gammaitoni, A. R.
+    - Wang, H.
+  year: 2010
+  title: "Responder analysis for pain relief and numbers needed to treat in a meta-analysis of etoricoxib osteoarthritis trials: bridging a gap between clinical trials and clinical practice"
+  container: Annals of the Rheumatic Diseases
+  volume: "69"
+  issue: "2"
+  pages: 374-379
+  doi: 10.1136/ard.2009.107805
+  source: crossref
+- id: sullivan1995
+  type: article
+  authors:
+    - Sullivan, M. J. L.
+    - Bishop, S. R.
+    - Pivik, J.
+  year: 1995
+  title: "The Pain Catastrophizing Scale: Development and validation."
+  container: Psychological Assessment
+  volume: "7"
+  issue: "4"
+  pages: 524-532
+  doi: 10.1037/1040-3590.7.4.524
+  source: crossref
+- id: osman2000
+  type: article
+  authors:
+    - Osman, A.
+    - Barrios, F. X.
+    - Gutierrez, P. M.
+    - Kopper, B. A.
+    - Merrifield, T.
+    - Grittmann, L.
+  year: 2000
+  title: "The Pain Catastrophizing Scale: Further Psychometric Evaluation with Adult Samples"
+  container: Journal of Behavioral Medicine
+  volume: "23"
+  issue: "4"
+  pages: 351-365
+  doi: 10.1023/a:1005548801037
+  source: crossref
+- id: turk2003
+  type: article
+  authors:
+    - Turk, D. C.
+    - Dworkin, R. H.
+    - Allen, R. R.
+    - Bellamy, N.
+    - Brandenburg, N.
+    - Carr, D. B.
+    - Cleeland, C.
+    - Dionne, R.
+    - Farrar, J. T.
+    - Galer, B. S.
+    - Hewitt, D. J.
+    - Jadad, A. R.
+    - Katz, N. P.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - McCormick, C. G.
+    - McDermott, M. P.
+    - McGrath, P.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Robinson, J. P.
+    - Royal, M. A.
+    - Simon, L.
+    - Stauffer, J. W.
+    - Stein, W.
+    - Tollett, J.
+    - Witter, J.
+  year: 2003
+  title: "Core outcome domains for chronic pain clinical trials: IMMPACT recommendations"
+  container: Pain
+  volume: "106"
+  issue: "3"
+  pages: 337-345
+  doi: 10.1016/j.pain.2003.08.001
+  source: crossref
+- id: hicks2001
+  type: article
+  authors:
+    - Hicks, C. L.
+    - von Baeyer, C. L.
+    - Spafford, P. A.
+    - van Korlaar, I.
+    - Goodenough, B.
+  year: 2001
+  title: "The Faces Pain Scale – Revised: toward a common metric in pediatric pain measurement"
+  container: Pain
+  volume: "93"
+  issue: "2"
+  pages: 173-183
+  doi: 10.1016/s0304-3959(01)00314-1
+  source: crossref
+- id: tomlinson2010
+  type: article
+  authors:
+    - Tomlinson, D.
+    - von Baeyer, C. L.
+    - Stinson, J. N.
+    - Sung, L.
+  year: 2010
+  title: A Systematic Review of Faces Scales for the Self-report of Pain Intensity in Children
+  container: Pediatrics
+  volume: "126"
+  issue: "5"
+  pages: e1168-e1198
+  doi: 10.1542/peds.2010-1609
+  source: crossref
+- id: cleeland1994
+  type: article
+  authors:
+    - Cleeland, C. S.
+    - Ryan, K. M.
+  year: 1994
+  title: "Pain assessment: global use of the Brief Pain Inventory"
+  container: Annals of the Academy of Medicine, Singapore
+  volume: "23"
+  pages: 129-138
+  source: manual
+- id: tan2004
+  type: article
+  authors:
+    - Tan, G.
+    - Jensen, M. P.
+    - Thornby, J. I.
+    - Shanti, B. F.
+  year: 2004
+  title: Validation of the brief pain inventory for chronic nonmalignant pain
+  container: The Journal of Pain
+  volume: "5"
+  issue: "2"
+  pages: 133-137
+  doi: 10.1016/j.jpain.2003.12.005
+  source: crossref
+- id: keller2004
+  type: article
+  authors:
+    - Keller, S.
+    - Bann, C. M.
+    - Dodd, S. L.
+    - Schein, J.
+    - Mendoza, T. R.
+    - Cleeland, C. S.
+  year: 2004
+  title: Validity of the Brief Pain Inventory for Use in Documenting the Outcomes of Patients With Noncancer Pain
+  container: The Clinical Journal of Pain
+  volume: "20"
+  issue: "5"
+  pages: 309-318
+  doi: 10.1097/00002508-200409000-00005
+  source: crossref
+- id: melzack1975
+  type: article
+  authors:
+    - Melzack, R.
+  year: 1975
+  title: "The McGill Pain Questionnaire: Major properties and scoring methods"
+  container: Pain
+  volume: "1"
+  issue: "3"
+  pages: 277-299
+  doi: 10.1016/0304-3959(75)90044-5
+  source: crossref
+- id: melzack1987
+  type: article
+  authors:
+    - Melzack, R.
+  year: 1987
+  title: The short-form McGill pain questionnaire
+  container: Pain
+  volume: "30"
+  issue: "2"
+  pages: 191-197
+  doi: 10.1016/0304-3959(87)91074-8
+  source: crossref
+- id: dworkin2009
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Turk, D. C.
+    - Revicki, D. A.
+    - Harding, G.
+    - Coyne, K. S.
+    - Peirce-Sandner, S.
+    - Bhagwat, D.
+    - Everton, D.
+    - Burke, L. B.
+    - Cowan, P.
+    - Farrar, J. T.
+    - Hertz, S.
+    - Max, M. B.
+    - Rappaport, B. A.
+    - Melzack, R.
+  year: 2009
+  title: Development and initial validation of an expanded and revised version of the Short-form McGill Pain Questionnaire (SF-MPQ-2)
+  container: Pain
+  volume: "144"
+  issue: "1"
+  pages: 35-42
+  doi: 10.1016/j.pain.2009.02.007
+  source: crossref
+- id: fairbank1980
+  type: article
+  authors:
+    - Fairbank, J. C. T.
+    - Couper, J.
+    - Davies, J. B.
+    - O'Brien, J. P.
+  year: 1980
+  title: The Oswestry low back pain disability questionnaire
+  container: Physiotherapy
+  volume: "66"
+  pages: 271-273
+  source: manual
+- id: fairbank2000
+  type: article
+  authors:
+    - Fairbank, J. C. T.
+    - Pynsent, P. B.
+  year: 2000
+  title: The Oswestry Disability Index
+  container: Spine
+  volume: "25"
+  issue: "22"
+  pages: 2940-2953
+  doi: 10.1097/00007632-200011150-00017
+  source: crossref
+- id: roland1983
+  type: article
+  authors:
+    - Roland, M.
+    - Morris, R.
+  year: 1983
+  title: A Study of the Natural History of Back Pain
+  container: Spine
+  volume: "8"
+  issue: "2"
+  pages: 141-144
+  doi: 10.1097/00007632-198303000-00004
+  source: crossref
+- id: roland2000
+  type: article
+  authors:
+    - Roland, M.
+    - Fairbank, J.
+  year: 2000
+  title: The Roland–Morris Disability Questionnaire and the Oswestry Disability Questionnaire
+  container: Spine
+  volume: "25"
+  issue: "24"
+  pages: 3115-3124
+  doi: 10.1097/00007632-200012150-00006
+  source: crossref
+- id: ostelo2008
+  type: article
+  authors:
+    - Ostelo, R. W. J. G.
+    - Deyo, R. A.
+    - Stratford, P.
+    - Waddell, G.
+    - Croft, P.
+    - Von Korff, M.
+    - Bouter, L. M.
+    - de Vet, H. C.
+  year: 2008
+  title: Interpreting Change Scores for Pain and Functional Status in Low Back Pain
+  container: Spine
+  volume: "33"
+  issue: "1"
+  pages: 90-94
+  doi: 10.1097/brs.0b013e31815e3a10
+  source: crossref
+- id: chiarotto2016
+  type: article
+  authors:
+    - Chiarotto, A.
+    - Maxwell, L. J.
+    - Terwee, C. B.
+    - Wells, G. A.
+    - Tugwell, P.
+    - Ostelo, R. W.
+  year: 2016
+  title: "Roland-Morris Disability Questionnaire and Oswestry Disability Index: Which Has Better Measurement Properties for Measuring Physical Functioning in Nonspecific Low Back Pain? Systematic Review and Meta-Analysis"
+  container: Physical Therapy
+  volume: "96"
+  issue: "10"
+  pages: 1620-1637
+  doi: 10.2522/ptj.20150420
+  source: crossref
+- id: amtmann2010
+  type: article
+  authors:
+    - Amtmann, D.
+    - Cook, K. F.
+    - Jensen, M. P.
+    - Chen, W. H.
+    - Choi, S.
+    - Revicki, D.
+    - Cella, D.
+    - Rothrock, N.
+    - Keefe, F.
+    - Callahan, L.
+    - Lai, J. S.
+  year: 2010
+  title: Development of a PROMIS item bank to measure pain interference
+  container: Pain
+  volume: "150"
+  issue: "1"
+  pages: 173-182
+  doi: 10.1016/j.pain.2010.04.025
+  source: crossref
+- id: chen2017
+  type: article
+  authors:
+    - Chen, C. X.
+    - Kroenke, K.
+    - Stump, T. E.
+    - Kean, J.
+    - Carpenter, J. S.
+    - Krebs, E. E.
+    - Bair, M. J.
+    - Damush, T. M.
+    - Monahan, P. O.
+  year: 2017
+  title: "Estimating minimally important differences for the PROMIS pain interference scales: results from 3 randomized clinical trials"
+  container: Pain
+  volume: "159"
+  issue: "4"
+  pages: 775-782
+  doi: 10.1097/j.pain.0000000000001121
+  source: crossref
+- id: kori1990
+  type: article
+  authors:
+    - Kori, S. H.
+    - Miller, R. P.
+    - Todd, D. D.
+  year: 1990
+  title: "Kinesiophobia: a new view of chronic pain behavior"
+  container: Pain Management
+  volume: "3"
+  pages: 35-43
+  source: manual
+- id: vlaeyen1995
+  type: article
+  authors:
+    - Vlaeyen, J. W. S.
+    - Kole-Snijders, A. M. J.
+    - Boeren, R. G. B.
+    - van Eek, H.
+  year: 1995
+  title: Fear of movement/(re)injury in chronic low back pain and its relation to behavioral performance
+  container: Pain
+  volume: "62"
+  issue: "3"
+  pages: 363-372
+  doi: 10.1016/0304-3959(94)00279-n
+  source: crossref
+- id: woby2005
+  type: article
+  authors:
+    - Woby, S. R.
+    - Roach, N. K.
+    - Urmston, M.
+    - Watson, P. J.
+  year: 2005
+  title: "Psychometric properties of the TSK-11: A shortened version of the Tampa Scale for Kinesiophobia"
+  container: Pain
+  volume: "117"
+  issue: "1"
+  pages: 137-144
+  doi: 10.1016/j.pain.2005.05.029
+  source: crossref
+- id: dupuis2023
+  type: article
+  authors:
+    - Dupuis, F.
+    - Cherif, A.
+    - Batcho, C.
+    - Massé-Alarie, H.
+    - Roy, J. S.
+  year: 2023
+  title: "The Tampa Scale of Kinesiophobia: a systematic review of its psychometric properties in people with musculoskeletal pain"
+  container: The Clinical Journal of Pain
+  volume: "39"
+  issue: "5"
+  pages: 236-247
+  doi: 10.1097/ajp.0000000000001104
+  source: crossref
+- id: waddell1993
+  type: article
+  authors:
+    - Waddell, G.
+    - Newton, M.
+    - Henderson, I.
+    - Somerville, D.
+    - Main, C. J.
+  year: 1993
+  title: A Fear-Avoidance Beliefs Questionnaire (FABQ) and the role of fear-avoidance beliefs in chronic low back pain and disability
+  container: Pain
+  volume: "52"
+  issue: "2"
+  pages: 157-168
+  doi: 10.1016/0304-3959(93)90127-b
+  source: crossref
+- id: nicholas2007
+  type: article
+  authors:
+    - Nicholas, M. K.
+  year: 2007
+  title: "The pain self-efficacy questionnaire: Taking pain into account"
+  container: European Journal of Pain
+  volume: "11"
+  issue: "2"
+  pages: 153-163
+  doi: 10.1016/j.ejpain.2005.12.008
+  source: crossref
+- id: dube2021
+  type: article
+  authors:
+    - Dubé, M. O.
+    - Langevin, P.
+    - Roy, J. S.
+  year: 2021
+  title: "Measurement properties of the Pain Self-Efficacy Questionnaire in populations with musculoskeletal disorders: a systematic review"
+  container: PAIN Reports
+  volume: "6"
+  issue: "4"
+  pages: e972
+  doi: 10.1097/pr9.0000000000000972
+  source: crossref
+- id: fish2010
+  type: article
+  authors:
+    - Fish, R. A.
+    - McGuire, B.
+    - Hogan, M.
+    - Morrison, T. G.
+    - Stewart, I.
+  year: 2010
+  title: Validation of the Chronic Pain Acceptance Questionnaire (CPAQ) in an Internet sample and development and preliminary validation of the CPAQ-8
+  container: Pain
+  volume: "149"
+  issue: "3"
+  pages: 435-443
+  doi: 10.1016/j.pain.2009.12.016
+  source: crossref
+- id: reneman2010
+  type: article
+  authors:
+    - Reneman, M. F.
+    - Dijkstra, A.
+    - Geertzen, J. H. B.
+    - Dijkstra, P. U.
+  year: 2010
+  title: "Psychometric properties of Chronic Pain Acceptance Questionnaires: A systematic review"
+  container: European Journal of Pain
+  volume: "14"
+  issue: "5"
+  pages: 457-465
+  doi: 10.1016/j.ejpain.2009.08.003
+  source: crossref
+- id: mayer2011
+  type: article
+  authors:
+    - Mayer, T. G.
+    - Neblett, R.
+    - Cohen, H.
+    - Howard, K. J.
+    - Choi, Y. H.
+    - Williams, M. J.
+    - Perez, Y.
+    - Gatchel, R. J.
+  year: 2011
+  title: The Development and Psychometric Validation of the Central Sensitization Inventory
+  container: Pain Practice
+  volume: "12"
+  issue: "4"
+  pages: 276-285
+  doi: 10.1111/j.1533-2500.2011.00493.x
+  source: crossref
+- id: neblett2013
+  type: article
+  authors:
+    - Neblett, R.
+    - Cohen, H.
+    - Choi, Y.
+    - Hartzell, M. M.
+    - Williams, M.
+    - Mayer, T. G.
+    - Gatchel, R. J.
+  year: 2013
+  title: "The Central Sensitization Inventory (CSI): Establishing Clinically Significant Values for Identifying Central Sensitivity Syndromes in an Outpatient Chronic Pain Sample"
+  container: The Journal of Pain
+  volume: "14"
+  issue: "5"
+  pages: 438-445
+  doi: 10.1016/j.jpain.2012.11.012
+  source: crossref
+- id: adams2022
+  type: article
+  authors:
+    - Adams, G. R.
+    - Gandhi, W.
+    - Harrison, R.
+    - van Reekum, C. M.
+    - Wood-Anderson, D.
+    - Gilron, I.
+    - Salomons, T. V.
+  year: 2022
+  title: Do “central sensitization” questionnaires reflect measures of nociceptive sensitization or psychological constructs? A systematic review and meta-analyses
+  container: Pain
+  volume: "164"
+  issue: "6"
+  pages: 1222-1239
+  doi: 10.1097/j.pain.0000000000002830
+  source: crossref
+- id: neblett2024
+  type: article
+  authors:
+    - Neblett, R.
+    - Sanabria-Mazo, J. P.
+    - Luciano, J. V.
+    - Mirčić, M.
+    - Čolović, P.
+    - Bojanić, M.
+    - Jeremić-Knežević, M.
+    - Aleksandrić, T.
+    - Knežević, A.
+  year: 2024
+  title: Is the Central Sensitization Inventory (CSI) associated with quantitative sensory testing (QST)? A systematic review and meta-analysis
+  container: Neuroscience &amp; Biobehavioral Reviews
+  volume: "161"
+  pages: "105612"
+  doi: 10.1016/j.neubiorev.2024.105612
+  source: crossref
+- id: hill2008
+  type: article
+  authors:
+    - Hill, J. C.
+    - Dunn, K. M.
+    - Lewis, M.
+    - Mullis, R.
+    - Main, C. J.
+    - Foster, N. E.
+    - Hay, E. M.
+  year: 2008
+  title: "A primary care back pain screening tool: Identifying patient subgroups for initial treatment"
+  container: Arthritis Care &amp; Research
+  volume: "59"
+  issue: "5"
+  pages: 632-641
+  doi: 10.1002/art.23563
+  source: crossref
+- id: linton2011
+  type: article
+  authors:
+    - Linton, S. J.
+    - Nicholas, M.
+    - MacDonald, S.
+  year: 2011
+  title: Development of a Short Form of the Örebro Musculoskeletal Pain Screening Questionnaire
+  container: Spine
+  volume: "36"
+  issue: "22"
+  pages: 1891-1895
+  doi: 10.1097/brs.0b013e3181f8f775
+  source: crossref
+- id: bouhassira2005
+  type: article
+  authors:
+    - Bouhassira, D.
+    - Attal, N.
+    - Alchaar, H.
+    - Boureau, F.
+    - Brochet, B.
+    - Bruxelle, J.
+    - Cunin, G.
+    - Fermanian, J.
+    - Ginies, P.
+    - Grun-Overdyking, A.
+    - Jafari-Schluep, H.
+    - Lantéri-Minet, M.
+    - Laurent, B.
+    - Mick, G.
+    - Serrie, A.
+    - Valade, D.
+    - Vicaut, E.
+  year: 2005
+  title: Comparison of pain syndromes associated with nervous or somatic lesions and development of a new neuropathic pain diagnostic questionnaire (DN4)
+  container: Pain
+  volume: "114"
+  issue: "1"
+  pages: 29-36
+  doi: 10.1016/j.pain.2004.12.010
+  source: crossref
+- id: bennett2007
+  type: article
+  authors:
+    - Bennett, M. I.
+    - Attal, N.
+    - Backonja, M. M.
+    - Baron, R.
+    - Bouhassira, D.
+    - Freynhagen, R.
+    - Scholz, J.
+    - Tölle, T. R.
+    - Wittchen, H. U.
+    - Jensen, T. S.
+  year: 2007
+  title: Using screening tools to identify neuropathic pain
+  container: Pain
+  volume: "127"
+  issue: "3"
+  pages: 199-203
+  doi: 10.1016/j.pain.2006.10.034
+  source: crossref
+- id: mathieson2015
+  type: article
+  authors:
+    - Mathieson, S.
+    - Maher, C. G.
+    - Terwee, C. B.
+    - Folly de Campos, T.
+    - Lin, C. W. C.
+  year: 2015
+  title: Neuropathic pain screening questionnaires have limited measurement properties. A systematic review
+  container: Journal of Clinical Epidemiology
+  volume: "68"
+  issue: "8"
+  pages: 957-966
+  doi: 10.1016/j.jclinepi.2015.03.010
+  source: crossref
+- id: sachau2023
+  type: article
+  authors:
+    - Sachau, J.
+    - Kersebaum, D.
+    - Hüllemann, P.
+    - Adolf, D.
+    - Kabelitz, M.
+    - Keller, T.
+    - Freynhagen, R.
+    - Tölle, T. R.
+    - Binder, A.
+    - Baron, R.
+  year: 2023
+  title: The association of self-reported symptoms of central sensitization and sleep disturbances in neuropathic pain
+  container: PAIN Reports
+  volume: "8"
+  issue: "5"
+  pages: e1098
+  doi: 10.1097/pr9.0000000000001098
+  source: crossref
+- id: bennett2001
+  type: article
+  authors:
+    - Bennett, M.
+  year: 2001
+  title: "The LANSS Pain Scale: the Leeds assessment of neuropathic symptoms and signs"
+  container: Pain
+  volume: "92"
+  issue: "1"
+  pages: 147-157
+  doi: 10.1016/s0304-3959(00)00482-6
+  source: crossref
+- id: bennett2005
+  type: article
+  authors:
+    - Bennett, M. I.
+    - Smith, B. H.
+    - Torrance, N.
+    - Potter, J.
+  year: 2005
+  title: "The S-LANSS score for identifying pain of predominantly neuropathic origin: Validation for use in clinical and postal research"
+  container: The Journal of Pain
+  volume: "6"
+  issue: "3"
+  pages: 149-158
+  doi: 10.1016/j.jpain.2004.11.007
+  source: crossref
+- id: torrance2014
+  type: article
+  authors:
+    - Torrance, N.
+    - Lawson, K. D.
+    - Afolabi, E.
+    - Bennett, M. I.
+    - Serpell, M. G.
+    - Dunn, K. M.
+    - Smith, B. H.
+  year: 2014
+  title: "Estimating the burden of disease in chronic pain with and without neuropathic characteristics: Does the choice between the EQ-5D and SF-6D matter?"
+  container: Pain
+  volume: "155"
+  issue: "10"
+  pages: 1996-2004
+  doi: 10.1016/j.pain.2014.07.001
+  source: crossref
+- id: warden2003
+  type: article
+  authors:
+    - Warden, V.
+    - Hurley, A. C.
+    - Volicer, L.
+  year: 2003
+  title: Development and Psychometric Evaluation of the Pain Assessment in Advanced Dementia (PAINAD) Scale
+  container: Journal of the American Medical Directors Association
+  volume: "4"
+  issue: "1"
+  pages: 9-15
+  doi: 10.1097/01.jam.0000043422.31640.f7
+  source: crossref
+- id: gelinas2006
+  type: article
+  authors:
+    - Gélinas, C.
+    - Fillion, L.
+    - Puntillo, K. A.
+    - Viens, C.
+    - Fortier, M.
+  year: 2006
+  title: Validation of the Critical-Care Pain Observation Tool in Adult Patients
+  container: American Journal of Critical Care
+  volume: "15"
+  issue: "4"
+  pages: 420-427
+  doi: 10.4037/ajcc2006.15.4.420
+  source: crossref
+- id: merkel1997
+  type: article
+  authors:
+    - Merkel, S. I.
+    - Voepel-Lewis, T.
+    - Shayevitz, J. R.
+    - Malviya, S.
+  year: 1997
+  title: "The FLACC: a behavioral scale for scoring postoperative pain in young children"
+  container: Pediatric Nursing
+  volume: "23"
+  pages: 293-297
+  source: manual
+- id: voepellewis2010
+  type: article
+  authors:
+    - Voepel-Lewis, T.
+    - Zanotti, J.
+    - Dammeyer, J. A.
+    - Merkel, S.
+  year: 2010
+  title: Reliability and Validity of the Face, Legs, Activity, Cry, Consolability Behavioral Tool in Assessing Acute Pain in Critically Ill Patients
+  container: American Journal of Critical Care
+  volume: "19"
+  issue: "1"
+  pages: 55-61
+  doi: 10.4037/ajcc2010624
+  source: crossref
+- id: geber2011
+  type: article
+  authors:
+    - Geber, C.
+    - Klein, T.
+    - Azad, S.
+    - Birklein, F.
+    - Gierthmühlen, J.
+    - Huge, V.
+    - Lauchart, M.
+    - Nitzsche, D.
+    - Stengel, M.
+    - Valet, M.
+    - Baron, R.
+    - Maier, C.
+    - Tölle, T.
+    - Treede, R. D.
+  year: 2011
+  title: "Test–retest and interobserver reliability of quantitative sensory testing according to the protocol of the German Research Network on Neuropathic Pain (DFNS): A multi-centre study"
+  container: Pain
+  volume: "152"
+  issue: "3"
+  pages: 548-556
+  doi: 10.1016/j.pain.2010.11.013
+  source: crossref
+- id: obrien2018
+  type: article
+  authors:
+    - O'Brien, A. T.
+    - Deitos, A.
+    - Triñanes Pego, Y.
+    - Fregni, F.
+    - Carrillo-de-la-Peña, M. T.
+  year: 2018
+  title: "Defective Endogenous Pain Modulation in Fibromyalgia: A Meta-Analysis of Temporal Summation and Conditioned Pain Modulation Paradigms"
+  container: The Journal of Pain
+  volume: "19"
+  issue: "8"
+  pages: 819-836
+  doi: 10.1016/j.jpain.2018.01.010
+  source: crossref
+- id: arendtnielsen2017
+  type: article
+  authors:
+    - Arendt-Nielsen, L.
+    - Morlion, B.
+    - Perrot, S.
+    - Dahan, A.
+    - Dickenson, A.
+    - Kress, H. G.
+    - Wells, C.
+    - Bouhassira, D.
+    - Drewes, A. M.
+  year: 2017
+  title: Assessment and manifestation of central sensitisation across different chronic pain conditions
+  container: European Journal of Pain
+  volume: "22"
+  issue: "2"
+  pages: 216-241
+  doi: 10.1002/ejp.1140
+  source: crossref
+- id: chesterton2007
+  type: article
+  authors:
+    - Chesterton, L. S.
+    - Sim, J.
+    - Wright, C. C.
+    - Foster, N. E.
+  year: 2007
+  title: Interrater Reliability of Algometry in Measuring Pressure Pain Thresholds in Healthy Humans, Using Multiple Raters
+  container: The Clinical Journal of Pain
+  volume: "23"
+  issue: "9"
+  pages: 760-766
+  doi: 10.1097/ajp.0b013e318154b6ae
+  source: crossref
+- id: cruccu2010
+  type: article
+  authors:
+    - Cruccu, G.
+    - Sommer, C.
+    - Anand, P.
+    - Attal, N.
+    - Baron, R.
+    - Garcia-Larrea, L.
+    - Haanpaa, M.
+    - Jensen, T. S.
+    - Serra, J.
+    - Treede, R.-D.
+  year: 2010
+  title: "EFNS guidelines on neuropathic pain assessment: revised 2009"
+  container: European Journal of Neurology
+  volume: "17"
+  issue: "8"
+  pages: 1010-1018
+  doi: 10.1111/j.1468-1331.2010.02969.x
+  source: crossref
+- id: haanpaa2011
+  type: article
+  authors:
+    - Haanpää, M.
+    - Attal, N.
+    - Backonja, M.
+    - Baron, R.
+    - Bennett, M.
+    - Bouhassira, D.
+    - Cruccu, G.
+    - Hansson, P.
+    - Haythornthwaite, J. A.
+    - Iannetti, G. D.
+    - Jensen, T. S.
+    - Kauppila, T.
+    - Nurmikko, T. J.
+    - Rice, A. S. C.
+    - Rowbotham, M.
+    - Serra, J.
+    - Sommer, C.
+    - Smith, B. H.
+    - Treede, R. D.
+  year: 2011
+  title: NeuPSIG guidelines on neuropathic pain assessment
+  container: Pain
+  volume: "152"
+  issue: "1"
+  pages: 14-27
+  doi: 10.1016/j.pain.2010.07.031
+  source: crossref
+- id: lauria2010
+  type: article
+  authors:
+    - Lauria, G.
+    - Hsieh, S. T.
+    - Johansson, O.
+    - Kennedy, W. R.
+    - Leger, J. M.
+    - Mellgren, S. I.
+    - Nolano, M.
+    - Merkies, I. S. J.
+    - Polydefkis, M.
+    - Smith, A. G.
+    - Sommer, C.
+    - Valls-Solé, J.
+  year: 2010
+  title: European Federation of Neurological Societies/Peripheral Nerve Society Guideline on the use of skin biopsy in the diagnosis of small fiber neuropathy. Report of a joint task force of the European Federation of Neurological Societies and the Peripheral Nerve Society
+  container: European Journal of Neurology
+  volume: "17"
+  issue: "7"
+  pages: "903"
+  doi: 10.1111/j.1468-1331.2010.03023.x
+  source: crossref
+- id: lauria2010b
+  type: article
+  authors:
+    - Lauria, G.
+    - Bakkers, M.
+    - Schmitz, C.
+    - Lombardi, R.
+    - Penza, P.
+    - Devigili, G.
+    - Smith, A. G.
+    - Hsieh, S.
+    - Mellgren, S. I.
+    - Umapathi, T.
+    - Ziegler, D.
+    - Faber, C. G.
+    - Merkies, I. S. J.
+  year: 2010
+  title: "Intraepidermal nerve fiber density at the distal leg: a worldwide normative reference study"
+  container: Journal of the Peripheral Nervous System
+  volume: "15"
+  issue: "3"
+  pages: 202-207
+  doi: 10.1111/j.1529-8027.2010.00271.x
+  source: crossref

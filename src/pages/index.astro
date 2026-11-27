@@ -9,6 +9,7 @@ const circuitStations = await getCollection('circuitStations');
 const gaps = await getCollection('gaps');
 const conditions = await getCollection('conditions');
 const treatments = await getCollection('treatments');
+const instruments = await getCollection('instruments');
 const findings = theories.reduce((n, t) => n + t.data.evidence.length, 0);
 
 type Module = {
@@ -54,8 +55,10 @@ const modules: Module[] = [
   },
   {
     name: 'Pain Assessment',
-    status: 'planned',
-    blurb: 'Questionnaires, quantitative sensory testing, conditioned pain modulation and imaging markers, linked to the constructs they measure.',
+    href: 'assessment/',
+    status: 'early',
+    blurb: 'Rating scales, questionnaires, observational scales, quantitative sensory testing and neurophysiology: what each measures, in whom, how well, and on what terms.',
+    stats: [`${instruments.length} instruments`, 'IMMPACT core outcomes', 'meaningful change'],
     icon: 'M4 20 V10 M10 20 V4 M16 20 V13 M22 20 H2',
   },
 ];

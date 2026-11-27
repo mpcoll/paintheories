@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url, cite, resolveRefs } from '../../lib/data';
+import { getInstruments, instrumentUrl } from '../../lib/assessment';
+import { PROPERTY_KINDS } from '../../data/assessment-taxonomy';
+
+const refs = await resolveRefs(['farrar2001', 'moore2010', 'dworkin2008'].map((id) => ({ id, collection: 'references' as const })));
+const r = Object.fromEntries(refs.map((x) => [x.id, { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${x.id}`), title: x.data.title }]));
+const withMic = (await getInstruments()).filter((i) => i.data.properties.some((p) => p.kind === 'mic'));
+const micRefs = await resolveRefs([...new Set(withMic.flatMap((i) => i.data.properties.filter((p) => p.kind === 'mic').flatMap((p) => p.refs.map((x) => x.id))))].map((id) => ({ id, collection: 'references' as const })));
+const micCite = new Map(micRefs.map((x) => [x.id, { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${x.id}`), title: x.data.title }]));
+
+/** Moore et al. 2010 responder levels (percentage reduction from baseline). */
+const tiers = [
+  { min: 70, label: 'Extensive', key: 'ext' },
+  { min: 50, label: 'Substantial', key: 'sub' },
+  { min: 30, label: 'Moderate', key: 'mod' },
+  { min: 15, label: 'Minimally important', key: 'min' },
+];
+const baselines = [3, 4, 5, 6, 7, 8, 9, 10];
+---
+
+<Base title="Meaningful change in pain scores" description="How much does a pain rating have to fall to matter? Clinically important change on the 0 to 10 scale, absolute versus percentage change, and responder levels, with a calculator.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Assessment · meaningful change</p>
+    <h1>Meaningful change</h1>
+    <p class="lede">A drop from 8 to 6 and a drop from 3 to 1 are both 2 points on a 0 to 10 scale, but they are not the same experience. To decide whether a change matters, researchers relate score changes to how much better people say they feel.</p>
+  </header>
+
+  <section class="card calc" id="mc" data-pagefind-ignore>
+    <h2>Try it</h2>
+    <p class="hint">Set a pain intensity rating before and after treatment (0 = no pain, 10 = worst pain imaginable).</p>
+    <div class="sliders">
+      <label>Before <output id="mc-b-o">7</output><input id="mc-b" type="range" min="0" max="10" step="0.5" value="7" /></label>
+      <label>After <output id="mc-a-o">4</output><input id="mc-a" type="range" min="0" max="10" step="0.5" value="4" /></label>
+    </div>
+    <div class="res">
+      <div class="stat"><span class="sv" id="mc-abs">3 points</span><span class="sl">change</span></div>
+      <div class="stat"><span class="sv" id="mc-pct">43%</span><span class="sl">relative change</span></div>
+      <div class="stat wide"><span class="sv" id="mc-tier">Moderate</span><span class="sl">responder level <a href={r.moore2010.href} title={r.moore2010.title}>({r.moore2010.label})</a></span></div>
+    </div>
+    <div class="bar" aria-hidden="true">
+      <div class="band b-none" style="left:0;width:15%"></div>
+      {tiers.slice().reverse().map((t, n, arr) => <div class={`band b-${t.key}`} style={`left:${t.min}%;width:${(arr[n + 1]?.min ?? 100) - t.min}%`}></div>)}
+      <div class="mark" id="mc-mark" style="left:43%"></div>
+      <div class="ticks">{[0, 15, 30, 50, 70, 100].map((v) => <span style={`left:${v}%`}>{v}%</span>)}</div>
+    </div>
+    <p class="verdict" id="mc-verdict" aria-live="polite"></p>
+  </section>
+
+  <section class="prose two">
+    <div>
+      <h2>Anchoring change to what people report</h2>
+      <p>Farrar and colleagues compared changes on the 0 to 10 numerical rating scale with the 7-point Patient Global Impression of Change in 2724 people from 10 pregabalin trials in diabetic neuropathy, postherpetic neuralgia, chronic low back pain, fibromyalgia and osteoarthritis. Taking "much improved" or "very much improved" as clinically important, a reduction of about 2 points or about 30% corresponded to a clinically important difference. The relationship with percentage change held regardless of baseline pain, while higher baseline scores needed larger raw changes <a href={r.farrar2001.href} title={r.farrar2001.title}>[{r.farrar2001.label}]</a>.</p>
+      <p>This is an <em>anchor-based</em> estimate: the anchor is the person's own global rating. IMMPACT recommends using two or more methods to judge clinical importance <a href={r.dworkin2008.href} title={r.dworkin2008.title}>[{r.dworkin2008.label}]</a>.</p>
+    </div>
+    <div>
+      <h2>The same 2 points</h2>
+      <p class="fig-cap">What a 2-point reduction means in relative terms, and how many points a 30% reduction needs, by starting score (arithmetic only).</p>
+      <table class="pts">
+        <thead><tr><th scope="col">Before</th><th scope="col">2 points is</th><th scope="col">30% is</th></tr></thead>
+        <tbody>
+          {baselines.map((b) => { const p = Math.round((2 / b) * 100); return (
+            <tr><th scope="row">{b}</th><td><span class="pbar" style={`--w:${Math.min(p, 100)}%`}></span>{p}%</td><td>{(b * 0.3).toFixed(1)} points</td></tr>
+          ); })}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="prose resp">
+    <h2>Responder levels</h2>
+    <p>Trials often report the proportion of people who reach a given level of relief. In seven placebo-controlled trials of etoricoxib in osteoarthritis (3554 patients), Moore and colleagues counted responders at four levels of pain relief from baseline: at least 15% (minimally important), 30% (moderate), 50% (substantial) and 70% (extensive). Response rates fell as the threshold rose, from 60 to 80% of patients at 15% to 20 to 30% at 70% <a href={r.moore2010.href} title={r.moore2010.title}>[{r.moore2010.label}]</a>. Responder counts are what the number needed to treat is calculated from; see <a href={url('treatments/reading-evidence/')}>Reading the evidence</a>.</p>
+    <h3>Cautions</h3>
+    <ul>
+      <li>These thresholds come from groups of trial participants. Whether a given change matters to one person is for that person to say.</li>
+      <li>Thresholds depend on the instrument, the population and the anchor. A value for one scale does not transfer to another.</li>
+      <li>Improvement and worsening need not have the same threshold.</li>
+    </ul>
+  </section>
+
+  {withMic.length > 0 && (
+    <section class="mic">
+      <h2>{PROPERTY_KINDS.mic.label} on this site</h2>
+      <ul class="mic-list">
+        {withMic.map((i) => i.data.properties.filter((p) => p.kind === 'mic').map((p) => (
+          <li><a href={instrumentUrl(i.id)}><strong>{i.data.short}</strong> {i.data.title}</a><span class="mv">{p.value}</span><span class="mr">{p.population && <>{p.population} · </>}{p.refs.map((x, n) => { const c = micCite.get(x.id)!; return <>{n > 0 && '; '}<a href={c.href} title={c.title}>{c.label}</a></>; })}</span></li>
+        )))}
+      </ul>
+    </section>
+  )}
+
+  <script type="application/json" id="mc-tiers" set:html={JSON.stringify(tiers)} />
+
+  <style>
+    .calc { padding: 1.1rem 1.2rem; margin-bottom: 2.2rem; }
+    .calc h2 { margin: 0 0 .2rem; font-size: 1.15rem; }
+    .hint { font-size: .88rem; color: var(--ink-3); margin: 0 0 .8rem; }
+    .sliders { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1.5rem; }
+    @media (max-width: 560px) { .sliders { grid-template-columns: 1fr; } }
+    .sliders label { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .2rem .6rem; font-weight: 600; font-size: .9rem; }
+    .sliders output { justify-self: end; font: 650 1.1rem var(--mono); }
+    .sliders input { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); }
+    .res { display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin: 1rem 0 .7rem; }
+    .stat { display: grid; }
+    .sv { font: 650 1.45rem var(--serif); color: var(--ink); }
+    .sl { font-size: .78rem; color: var(--ink-3); }
+    .sl a { text-decoration: none; }
+    .bar { position: relative; height: 22px; border-radius: 6px; background: var(--surface-2); margin: .3rem 0 1.6rem; }
+    .band { position: absolute; top: 0; bottom: 0; }
+    .b-none { background: var(--surface-2); border-radius: 6px 0 0 6px; }
+    .b-min { background: color-mix(in srgb, var(--accent) 15%, var(--surface)); }
+    .b-mod { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
+    .b-sub { background: color-mix(in srgb, var(--accent) 60%, var(--surface)); }
+    .b-ext { background: color-mix(in srgb, var(--accent) 85%, var(--surface)); border-radius: 0 6px 6px 0; }
+    .mark { position: absolute; top: -5px; bottom: -5px; width: 4px; margin-left: -2px; border-radius: 2px; background: var(--ink); box-shadow: 0 0 0 2px var(--surface); transition: left .15s; }
+    .ticks span { position: absolute; top: 26px; transform: translateX(-50%); font-size: .72rem; color: var(--ink-3); }
+    .ticks span:first-child { transform: none; }
+    .ticks span:last-child { transform: translateX(-100%); }
+    .verdict { margin: 0; font-size: .92rem; color: var(--ink-2); }
+    .two { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1rem 2.5rem; max-width: none; }
+    @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
+    .two h2 { margin-top: 0; }
+    .fig-cap { font-size: .86rem; color: var(--ink-3); }
+    .pts { border-collapse: collapse; width: 100%; font-size: .9rem; }
+    .pts th, .pts td { padding: .28rem .5rem; border-bottom: 1px solid var(--line); text-align: left; }
+    .pts thead th { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+    .pts td:nth-child(2) { width: 50%; white-space: nowrap; }
+    .pbar { display: inline-block; vertical-align: middle; height: 10px; width: calc(var(--w) * .6); background: var(--accent); border-radius: 3px; margin-right: .4rem; }
+    .resp { max-width: 46rem; margin-top: 1.5rem; }
+    .mic { margin-top: 2rem; }
+    .mic-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+    .mic-list li { display: grid; gap: .15rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+    .mic-list a { text-decoration: none; }
+    .mv { font-size: .92rem; }
+    .mr { font-size: .8rem; color: var(--ink-3); }
+  </style>
+
+  <script>
+    const tiers: { min: number; label: string }[] = JSON.parse(document.getElementById('mc-tiers')!.textContent!);
+    const b = document.getElementById('mc-b') as HTMLInputElement;
+    const a = document.getElementById('mc-a') as HTMLInputElement;
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (x: number) => (Number.isInteger(x) ? String(x) : x.toFixed(1));
+    function update() {
+      const before = +b.value, after = +a.value, diff = before - after;
+      $('mc-b-o').textContent = fmt(before);
+      $('mc-a-o').textContent = fmt(after);
+      $('mc-abs').textContent = `${diff > 0 ? '−' : diff < 0 ? '+' : ''}${fmt(Math.abs(diff))} point${Math.abs(diff) === 1 ? '' : 's'}`;
+      const pct = before > 0 ? (diff / before) * 100 : NaN;
+      $('mc-pct').textContent = Number.isNaN(pct) ? '–' : `${pct > 0 ? '−' : pct < 0 ? '+' : ''}${Math.round(Math.abs(pct))}%`;
+      const t = pct > 0 ? tiers.find((x) => pct >= x.min) : undefined;
+      $('mc-tier').textContent = Number.isNaN(pct) ? '–' : diff < 0 ? 'Worse' : t ? t.label : 'Below 15%';
+      ($('mc-mark') as HTMLElement).style.left = `${Math.max(0, Math.min(100, Number.isNaN(pct) ? 0 : pct))}%`;
+      let v: string;
+      if (before === 0) v = 'With no pain at baseline there is nothing to reduce.';
+      else if (diff <= 0) v = diff === 0 ? 'No change.' : 'Pain increased.';
+      else {
+        const pts = diff >= 2, rel = pct >= 30;
+        v = pts && rel ? 'Meets both benchmarks from Farrar et al. 2001: about 2 points and about 30%.'
+          : rel ? `A ${Math.round(pct)}% reduction meets the 30% benchmark even though it is under 2 points: at a low starting score, small raw changes are large relative changes.`
+          : pts ? `A ${fmt(diff)}-point reduction, but only ${Math.round(pct)}%: from a high starting score, 2 points may fall short of a clinically important change.`
+          : 'Below both benchmarks for a clinically important change.';
+      }
+      $('mc-verdict').textContent = v;
+    }
+    b.addEventListener('input', update);
+    a.addEventListener('input', update);
+    update();
+  </script>
+</Base>

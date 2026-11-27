@@ -114,3 +114,12 @@ without a DOI are marked `source: manual`.
 - `/treatments/reading-evidence/`: NNT demo with placebo response, effect-size rules, GRADE, recommendation strength, sources of bias.
 - Treatment pages; links from conditions, theories and mechanisms; treatments.json export.
 - Next: owner review of entries (review: draft); more treatments and condition groups on request.
+
+## Pain Assessment module (started 2026-11-27)
+
+- `/assessment/`: "what can be measured" matrix (constructs × method: self-report, observation, psychophysics, neurophysiology) with a population filter, and the list of instruments with terms of use.
+- `/assessment/core-outcomes/`: the six IMMPACT domains (Turk 2003) and the measures recommended for the four core domains (Dworkin 2005, 2008).
+- `/assessment/meaningful-change/`: calculator (Farrar 2001 benchmarks, Moore 2010 responder levels), absolute versus relative change, cautions, MIC values on the site.
+- `/assessment/psychophysics/`: DFNS QST profile demo (illustrative z-scores shaped after the Baron 2017 clusters), temporal summation, conditioned pain modulation.
+- Instrument pages; links from conditions, theories and mechanisms; instruments.json export.
+- Next: owner review (review: draft); possible additions: imaging markers of pain (link to /biology/imaging/ signatures), paediatric self-report, ecological momentary assessment, PROMIS profiles.

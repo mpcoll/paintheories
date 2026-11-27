@@ -7,6 +7,7 @@ import DescriptorPills from '../../components/DescriptorPills.astro';
 import { url, cite, formatReference, resolveRefs, type Mechanism, type Theory } from '../../lib/data';
 import { getConditions, conditionUrl, DESC_ORDER, ROLE_ORDER, type Condition } from '../../lib/conditions';
 import { getTreatments, treatmentsForCondition, treatmentUrl } from '../../lib/treatments';
+import { getInstruments, instrumentsFor, instrumentUrl } from '../../lib/assessment';
 import { FAMILIES, REGIONS, ICD_CATEGORIES, DESCRIPTORS, DESCRIPTOR_ROLES, icdCategoryOf, icdBrowser } from '../../data/conditions-taxonomy';
 
 export async function getStaticPaths() {
@@ -29,6 +30,7 @@ const theories = d.theories.length ? ((await getEntries(d.theories)) as Theory[]
 const mechanisms = d.mechanisms.length ? ((await getEntries(d.mechanisms)) as Mechanism[]) : [];
 const related = d.related.map((r) => all.find((c) => c.id === r.id)).filter(Boolean) as Condition[];
 const descriptors = [...d.descriptors].sort((a, b) => DESC_ORDER.indexOf(a.type) - DESC_ORDER.indexOf(b.type) || ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role));
+const instrumentsHere = instrumentsFor(await getInstruments(), 'conditions', condition.id);
 const treatmentsHere = treatmentsForCondition(await getTreatments(), condition.id);
 const reviewLabel = { stub: 'Stub: only the basic facts are filled in.', draft: 'Draft: not yet reviewed by a domain expert.', reviewed: '' }[d.review];
 ---
@@ -115,6 +117,12 @@ const reviewLabel = { stub: 'Stub: only the basic facts are filled in.', draft: 
           <h2>Treatments with evidence</h2>
           <ul>{treatmentsHere.map((t) => <li><a href={treatmentUrl(t.id)}>{t.data.title}</a></li>)}</ul>
           <a class="more" href={url('treatments/evidence/')}>Evidence map →</a>
+        </section>
+      )}
+      {instrumentsHere.length > 0 && (
+        <section class="card">
+          <h2>Assessment tools</h2>
+          <ul>{instrumentsHere.map((i) => <li><a href={instrumentUrl(i.id)}>{i.data.title}</a></li>)}</ul>
         </section>
       )}
       {theories.length > 0 && (

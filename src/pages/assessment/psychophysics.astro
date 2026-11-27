@@ -1,0 +1,186 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url, cite, resolveRefs } from '../../lib/data';
+import { getInstruments, instrumentUrl } from '../../lib/assessment';
+
+const refs = await resolveRefs(['rolke2006', 'baron2017', 'yarnitsky2015', 'yarnitsky2010', 'price1977'].map((id) => ({ id, collection: 'references' as const })));
+const r = Object.fromEntries(refs.map((x) => [x.id, { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${x.id}`), title: x.data.title }]));
+const instruments = await getInstruments();
+const psych = instruments.filter((i) => i.data.category === 'psychophysical');
+const link = (id: string, text: string) => (instruments.some((i) => i.id === id) ? `<a href="${instrumentUrl(id)}">${text}</a>` : text);
+
+/** The 13 DFNS QST parameters (Rolke et al. 2006). PHS and DMA are shown as present/absent. */
+const params = [
+  { k: 'CDT', name: 'Cold detection threshold', group: 'Thermal' },
+  { k: 'WDT', name: 'Warm detection threshold', group: 'Thermal' },
+  { k: 'TSL', name: 'Thermal sensory limen (alternating warm and cold)', group: 'Thermal' },
+  { k: 'CPT', name: 'Cold pain threshold', group: 'Thermal' },
+  { k: 'HPT', name: 'Heat pain threshold', group: 'Thermal' },
+  { k: 'PPT', name: 'Pressure pain threshold (blunt pressure)', group: 'Mechanical' },
+  { k: 'MPT', name: 'Mechanical pain threshold (pinprick)', group: 'Mechanical' },
+  { k: 'MPS', name: 'Mechanical pain sensitivity (pinprick stimulus-response)', group: 'Mechanical' },
+  { k: 'WUR', name: 'Wind-up ratio (pain summation to repeated pinprick)', group: 'Mechanical' },
+  { k: 'MDT', name: 'Mechanical detection threshold (von Frey)', group: 'Mechanical' },
+  { k: 'VDT', name: 'Vibration detection threshold (64 Hz tuning fork)', group: 'Mechanical' },
+];
+/** Illustrative z-scores, positive = gain of function. Shapes follow the cluster descriptions in Baron et al. 2017; numbers are invented for teaching. */
+const profiles = [
+  { id: 'normal', label: 'Within reference range', note: 'Every parameter within the range of healthy people of the same age, sex and body region.', z: [0.2, -0.3, 0.1, 0.4, -0.2, 0.3, -0.4, 0.2, 0.1, -0.1, 0.3], phs: false, dma: false },
+  { id: 'loss', label: 'Sensory loss', note: 'Cluster 1 (42% of patients): loss of small and large fibre function, with paradoxical heat sensations.', z: [-2.6, -2.4, -2.5, -0.9, -1.4, -0.4, -1.9, -1.1, 0.1, -2.5, -2.1], phs: true, dma: false },
+  { id: 'thermal', label: 'Thermal hyperalgesia', note: 'Cluster 2 (33%): preserved sensory function with heat and cold hyperalgesia and mild dynamic mechanical allodynia.', z: [-0.3, -0.5, -0.4, 1.9, 2.3, 0.4, 0.3, 0.6, 0.1, -0.2, 0.1], phs: false, dma: true },
+  { id: 'mech', label: 'Mechanical hyperalgesia', note: 'Cluster 3 (24%): loss of small fibre function with pinprick hyperalgesia and dynamic mechanical allodynia.', z: [-1.9, -2.1, -2.0, -0.3, -0.6, 0.5, 2.2, 1.8, 0.4, -0.7, -0.4], phs: false, dma: true },
+];
+const W = 640, H = 300, L = 56, R = 16, T = 18, B = 62;
+const zMax = 3.5;
+const x = (i: number) => L + ((i + 0.5) * (W - L - R)) / params.length;
+const y = (z: number) => T + ((zMax - Math.max(-zMax, Math.min(zMax, z))) * (H - T - B)) / (2 * zMax);
+const path = (z: number[]) => z.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+---
+
+<Base title="Psychophysics: QST, temporal summation and CPM" description="Quantitative sensory testing profiles, temporal summation and conditioned pain modulation: how pain sensitivity and its modulation are measured with controlled stimuli.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Assessment · psychophysics</p>
+    <h1>Psychophysics</h1>
+    <p class="lede">Psychophysical tests apply controlled stimuli (heat, cold, pinprick, pressure, vibration) and record what the person detects or finds painful. They show which sensory channels have lost or gained function, and how the nervous system amplifies or dampens pain.</p>
+  </header>
+
+  <section class="qst">
+    <h2>Quantitative sensory testing: a sensory profile</h2>
+    <p class="intro">The German Research Network on Neuropathic Pain (DFNS) protocol gives a full somatosensory profile for one body region in about 30 minutes. Each result is converted to a z-score against reference values from 180 healthy people, matched for body region, age and sex <a href={r.rolke2006.href} title={r.rolke2006.title}>[{r.rolke2006.label}]</a>. In the plot below, values above zero mean more sensitive than expected (gain of function), values below zero less sensitive (loss).</p>
+
+    <div class="card qcard" id="qst" data-pagefind-ignore>
+      <div class="qtabs" role="tablist" aria-label="Example profiles">
+        {profiles.map((p, n) => <button type="button" role="tab" data-p={p.id} aria-selected={n === 1 ? 'true' : 'false'}>{p.label}</button>)}
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} class="qsvg" role="img" aria-labelledby="qst-title">
+        <title id="qst-title">Example QST profile as z-scores for 11 parameters, with the healthy reference band from −1.96 to +1.96</title>
+        <rect x={L} y={y(1.96)} width={W - L - R} height={y(-1.96) - y(1.96)} class="ref" />
+        {[-3, -2, -1, 0, 1, 2, 3].map((v) => <><line x1={L} x2={W - R} y1={y(v)} y2={y(v)} class={v === 0 ? 'zero' : 'gl'} /><text x={L - 8} y={y(v) + 4} class="tick" text-anchor="end">{v > 0 ? `+${v}` : v}</text></>)}
+        <text x={14} y={y(2.6)} class="side" transform={`rotate(-90 14 ${y(2.6)})`} text-anchor="middle">gain</text>
+        <text x={14} y={y(-2.6)} class="side" transform={`rotate(-90 14 ${y(-2.6)})`} text-anchor="middle">loss</text>
+        <line x1={x(4.5)} x2={x(4.5)} y1={T} y2={H - B + 40} class="sep" />
+        <text x={(L + x(4.5)) / 2} y={H - 8} class="grp" text-anchor="middle">Thermal</text>
+        <text x={(x(4.5) + W - R) / 2} y={H - 8} class="grp" text-anchor="middle">Mechanical</text>
+        {params.map((p, i) => <text x={x(i)} y={H - B + 18} class="pl" text-anchor="middle"><title>{p.name}</title>{p.k}</text>)}
+        {profiles.map((p, n) => (
+          <g class="prof" data-p={p.id} style={n === 1 ? '' : 'display:none'}>
+            <path d={path(p.z)} class="line" />
+            {p.z.map((v, i) => <circle cx={x(i)} cy={y(v)} r="5" class={Math.abs(v) > 1.96 ? 'out' : 'in'}><title>{`${params[i].name}: z = ${v > 0 ? '+' : ''}${v.toFixed(1)}`}</title></circle>)}
+          </g>
+        ))}
+      </svg>
+      <div class="qfoot">
+        <p class="pd" aria-live="polite">{profiles.map((p, n) => <span data-p={p.id} hidden={n !== 1}><strong>{p.label}.</strong> {p.note} <span class="flags">Paradoxical heat sensations: {p.phs ? 'present' : 'absent'} · Dynamic mechanical allodynia: {p.dma ? 'present' : 'absent'}</span></span>)}</p>
+        <p class="legend"><span class="lk ref-k"></span>Healthy reference range (z within ±1.96) <span class="lk out-k"></span>Outside the range</p>
+      </div>
+    </div>
+    <p class="fn">Profile shapes follow the three subgroups that a cluster analysis of 13 QST parameters found and replicated in 902 and 233 patients with peripheral neuropathic pain <a href={r.baron2017.href} title={r.baron2017.title}>[{r.baron2017.label}]</a>. <strong>The z-scores are invented for illustration.</strong> Paradoxical heat sensations and dynamic mechanical allodynia are absent in healthy people, so they are shown as present or absent rather than as z-scores. Hover a parameter for its full name.</p>
+
+    <div class="prose cols">
+      <div>
+        <h3>Reading a profile</h3>
+        <p>Detection thresholds (CDT, WDT, MDT, VDT) mainly test whether a sensory channel conducts: cold and pinprick depend largely on thinly myelinated Aδ fibres, warmth on unmyelinated C fibres, touch and vibration on thick Aβ fibres. Pain thresholds and stimulus-response measures (CPT, HPT, PPT, MPT, MPS) test how strongly the system responds. A person can show loss in one channel and gain in another, as in the mechanical hyperalgesia profile. See <a href={url('biology/periphery/')}>Nociceptors and the gate</a> and <a href={url('biology/sensitization/')}>Sensitization</a>.</p>
+      </div>
+      <div>
+        <h3>Limits</h3>
+        <p>Because the healthy range already reaches the ends of what can be measured, heat and cold hypoalgesia and mechanical hyperesthesia can hardly be diagnosed in one person, though they can be compared between groups. Comparing the affected side with the other side improves sensitivity by a factor of 1.1 to 2.5 <a href={r.rolke2006.href} title={r.rolke2006.title}>[{r.rolke2006.label}]</a>. QST depends on attention and cooperation, takes trained examiners and equipment, and is not a diagnosis by itself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dyn">
+    <h2>Dynamic tests: amplification and inhibition</h2>
+    <div class="dgrid">
+      <div class="card dc">
+        <svg viewBox="0 0 260 132" class="mini" aria-hidden="true">
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => <rect x={18 + i * 23} y="98" width="7" height="12" class="stim" />)}
+          <polyline points={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => `${21.5 + i * 23},${84 - 50 * (1 - Math.exp(-i / 3.5))}`).join(' ')} class="resp" />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => <circle cx={21.5 + i * 23} cy={84 - 50 * (1 - Math.exp(-i / 3.5))} r="3.5" class="rdot" />)}
+          <text x="4" y="16" class="mt">pain rating</text><text x="256" y="128" class="mt" text-anchor="end">same stimulus, repeated</text>
+        </svg>
+        <h3>Temporal summation</h3>
+        <p>The same painful stimulus repeated at a short interval feels increasingly painful. In a classic experiment, second pain grew with each heat pulse when pulses came every 3 seconds or faster; the summation was attributed to central mechanisms, in line with the summated responses of dorsal horn neurons to repeated C-fibre input <a href={r.price1977.href} title={r.price1977.title}>[{r.price1977.label}]</a>. The DFNS protocol includes it as the wind-up ratio to repeated pinprick <a href={r.rolke2006.href} title={r.rolke2006.title}>[{r.rolke2006.label}]</a>.</p>
+        <p class="go"><Fragment set:html={link('temporal-summation', 'Temporal summation →')} /></p>
+      </div>
+      <div class="card dc">
+        <svg viewBox="0 0 260 120" class="mini" aria-hidden="true">
+          <rect x="22" y="40" width="40" height="52" class="bar1" /><text x="42" y="108" class="mt" text-anchor="middle">test alone</text>
+          <rect x="150" y="62" width="40" height="30" class="bar1" /><text x="170" y="108" class="mt" text-anchor="middle">test + conditioning</text>
+          <rect x="196" y="22" width="44" height="70" class="cond" rx="4" /><text x="218" y="16" class="mt" text-anchor="middle">e.g. cold water</text>
+          <path d="M70 48 C 110 40, 120 60, 142 66" class="arr" /><polygon points="142,66 133,59 131,69" class="arrh" />
+          <text x="4" y="16" class="mt">pain to test stimulus</text>
+        </svg>
+        <h3>Conditioned pain modulation</h3>
+        <p>A test stimulus is rated alone, then during or after a second painful "conditioning" stimulus elsewhere on the body, such as a hand in cold water. Pain at one site is reduced by the second painful stimulus elsewhere: pain inhibits pain <a href={r.yarnitsky2010.href} title={r.yarnitsky2010.title}>[{r.yarnitsky2010.label}]</a>. A smaller reduction is read as less efficient endogenous inhibition. Protocols vary between laboratories, which led to consensus recommendations on how to test it <a href={r.yarnitsky2015.href} title={r.yarnitsky2015.title}>[{r.yarnitsky2015.label}]</a>.</p>
+        <p class="go"><Fragment set:html={link('conditioned-pain-modulation', 'Conditioned pain modulation →')} /> · <a href={url('theories/')}>Theories of pain modulation</a></p>
+      </div>
+    </div>
+  </section>
+
+  {psych.length > 0 && (
+    <section>
+      <h2>Psychophysical tests on this site</h2>
+      <ul class="plist">{psych.map((i) => <li><a href={instrumentUrl(i.id)}><strong>{i.data.title}</strong></a> <span class="muted">{i.data.summary}</span></li>)}</ul>
+    </section>
+  )}
+
+  <style>
+    section { margin-bottom: 2.4rem; }
+    .intro { max-width: 46rem; }
+    .qcard { padding: 1rem 1.1rem; }
+    .qtabs { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .6rem; }
+    .qtabs button { font: 500 .84rem var(--font); padding: .3rem .7rem; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2); cursor: pointer; }
+    .qtabs button[aria-selected='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    .qsvg { width: 100%; height: auto; display: block; max-width: 760px; }
+    .ref { fill: color-mix(in srgb, var(--ev-support) 14%, transparent); }
+    .gl { stroke: var(--line); stroke-width: 1; }
+    .zero { stroke: var(--ink-3); stroke-width: 1.2; }
+    .sep { stroke: var(--line-strong); stroke-dasharray: 3 3; }
+    .tick, .pl { font: 500 11px var(--font); fill: var(--ink-3); }
+    .pl { font-weight: 600; fill: var(--ink-2); cursor: help; }
+    .grp { font: 600 10.5px var(--font); fill: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; }
+    .side { font: 600 10px var(--font); fill: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; }
+    .line { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .prof circle { stroke: var(--surface); stroke-width: 2; }
+    .in { fill: var(--accent); }
+    .out { fill: var(--ev-contra); }
+    .qfoot { display: grid; gap: .3rem; }
+    .pd { margin: .3rem 0 0; font-size: .92rem; min-height: 3em; }
+    .flags { display: block; font-size: .82rem; color: var(--ink-3); margin-top: .15rem; }
+    .legend { margin: 0; font-size: .8rem; color: var(--ink-3); display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .5rem; }
+    .lk { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+    .ref-k { background: color-mix(in srgb, var(--ev-support) 25%, var(--surface)); }
+    .out-k { background: var(--ev-contra); border-radius: 50%; margin-left: .6rem; }
+    .fn { font-size: .84rem; color: var(--ink-3); max-width: 52rem; }
+    .fn a, .dc a, .plist a { text-decoration: none; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.2rem; max-width: none; }
+    @media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+    .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 760px) { .dgrid { grid-template-columns: 1fr; } }
+    .dc { padding: 1rem 1.1rem; }
+    .dc h3 { margin: .4rem 0 .3rem; }
+    .dc p { font-size: .92rem; color: var(--ink-2); margin: 0 0 .5rem; }
+    .go { font-weight: 500; }
+    .mini { width: 100%; max-width: 300px; height: auto; display: block; }
+    .stim { fill: var(--ink-3); }
+    .resp { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .rdot { fill: var(--accent); }
+    .mt { font: 500 10px var(--font); fill: var(--ink-3); }
+    .bar1 { fill: var(--accent); }
+    .cond { fill: color-mix(in srgb, var(--d2) 30%, transparent); stroke: var(--d2); }
+    .arr { fill: none; stroke: var(--ink-3); stroke-width: 1.5; }
+    .arrh { fill: var(--ink-3); }
+    .plist { padding-left: 1.1rem; display: grid; gap: .5rem; }
+    .plist .muted { display: block; font-size: .86rem; }
+  </style>
+
+  <script>
+    const root = document.getElementById('qst')!;
+    root.querySelectorAll<HTMLButtonElement>('.qtabs button').forEach((b) => b.addEventListener('click', () => {
+      const p = b.dataset.p!;
+      root.querySelectorAll('.qtabs button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      root.querySelectorAll<SVGGElement>('.prof').forEach((g) => (g.style.display = g.dataset.p === p ? '' : 'none'));
+      root.querySelectorAll<HTMLElement>('.pd > span').forEach((s) => (s.hidden = s.dataset.p !== p));
+    }));
+  </script>
+</Base>

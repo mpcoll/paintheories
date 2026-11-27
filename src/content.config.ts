@@ -4,6 +4,7 @@ import { z } from 'astro/zod';
 import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, EVIDENCE_DIRECTIONS, EVIDENCE_METHODS, keys } from './data/taxonomy';
 import { FAMILIES, REGIONS, DESCRIPTORS, DESCRIPTOR_ROLES } from './data/conditions-taxonomy';
 import { MODALITIES, TARGETS, GROUPS, EFFECT_SIZES, CERTAINTY, RECOMMENDATIONS, GUIDELINES } from './data/treatments-taxonomy';
+import { CATEGORIES, CONSTRUCTS, POPULATIONS, IMMPACT_DOMAINS, PROPERTY_KINDS, AVAILABILITY } from './data/assessment-taxonomy';
 
 /**
  * Bibliography. One shared list so that a paper cited by several theories is
@@ -369,4 +370,31 @@ const treatments = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions, imagingMethods, imagingFindings, painSignatures, treatments };
+/** Pain Assessment (/assessment/): instruments, what they measure, and their measurement properties. */
+const instruments = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/instruments' }),
+  schema: z.object({
+    title: z.string(),
+    short: z.string(), // acronym or short name
+    aliases: z.array(z.string()).default([]),
+    summary: z.string().max(400),
+    category: z.enum(keys(CATEGORIES)),
+    constructs: z.array(z.enum(keys(CONSTRUCTS))).min(1),
+    populations: z.array(z.enum(keys(POPULATIONS))).min(1),
+    format: z.object({ items: z.number().int().positive().optional(), time: z.string(), scale: z.string() }),
+    properties: z
+      .array(z.object({ kind: z.enum(keys(PROPERTY_KINDS)), value: z.string(), population: z.string().optional(), refs: z.array(reference('references')).min(1) }))
+      .default([]),
+    immpact: z.object({ domain: z.enum(keys(IMMPACT_DOMAINS)), note: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
+    availability: z.object({ status: z.enum(keys(AVAILABILITY)), note: z.string(), url: z.url().optional() }),
+    mechanisms: z.array(reference('mechanisms')).default([]),
+    theories: z.array(reference('theories')).default([]),
+    conditions: z.array(reference('conditions')).default([]),
+    related: z.array(reference('instruments')).default([]),
+    references: z.array(reference('references')).default([]),
+    review: z.enum(['stub', 'draft', 'reviewed']).default('draft'),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions, imagingMethods, imagingFindings, painSignatures, treatments, instruments };

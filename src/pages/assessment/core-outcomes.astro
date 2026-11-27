@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url, cite, resolveRefs } from '../../lib/data';
+import { getInstruments, instrumentUrl, DOMAIN_ORDER } from '../../lib/assessment';
+import { IMMPACT_DOMAINS } from '../../data/assessment-taxonomy';
+
+const instruments = await getInstruments();
+const has = new Set(instruments.map((i) => i.id));
+const refs = await resolveRefs(['turk2003', 'dworkin2005', 'dworkin2008'].map((id) => ({ id, collection: 'references' as const })));
+const r = Object.fromEntries(refs.map((x) => [x.id, { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${x.id}`), title: x.data.title }]));
+
+/** Measures named for the four core domains in the abstract of Dworkin et al. 2008. */
+const named: Record<string, { name: string; id?: string }[]> = {
+  pain: [{ name: '0 to 10 numerical rating scale of pain intensity', id: 'numeric-rating-scale' }],
+  physical: [{ name: 'Multidimensional Pain Inventory, interference scale' }, { name: 'Brief Pain Inventory, interference scale', id: 'brief-pain-inventory' }],
+  emotional: [{ name: 'Beck Depression Inventory' }, { name: 'Profile of Mood States' }],
+  global: [{ name: 'Patient Global Impression of Change', id: 'patient-global-impression-of-change' }],
+};
+const core = ['pain', 'physical', 'emotional', 'global'];
+---
+
+<Base title="Core outcomes for chronic pain trials" description="The six IMMPACT core outcome domains for chronic pain clinical trials and the measures recommended for each.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Assessment · core outcomes</p>
+    <h1>Core outcomes</h1>
+    <p class="lede">Pain intensity alone does not tell whether a treatment helped. The Initiative on Methods, Measurement, and Pain Assessment in Clinical Trials (IMMPACT) agreed that chronic pain trials should consider six core outcome domains, so that results can be compared and pooled across studies <a href={r.turk2003.href} title={r.turk2003.title}>[{r.turk2003.label}]</a>.</p>
+  </header>
+
+  <ol class="domains">
+    {DOMAIN_ORDER.map((k, n) => {
+      const onSite = instruments.filter((i) => i.data.immpact?.domain === k && !(named[k] ?? []).some((m) => m.id === i.id));
+      return (
+        <li class={`card dom ${core.includes(k) ? 'core' : ''}`}>
+          <span class="num" aria-hidden="true">{n + 1}</span>
+          <h2>{IMMPACT_DOMAINS[k].label}</h2>
+          <p class="desc">{IMMPACT_DOMAINS[k].description}</p>
+          {named[k] ? (
+            <>
+              <p class="lab">Recommended measures</p>
+              <ul class="meas">
+                {named[k].map((m) => <li>{m.id && has.has(m.id) ? <a href={instrumentUrl(m.id)}>{m.name}</a> : m.name}</li>)}
+              </ul>
+              {onSite.length > 0 && <>
+                <p class="lab lab2">Also mentioned by IMMPACT</p>
+                <ul class="meas">{onSite.map((i) => <li><a href={instrumentUrl(i.id)} title={i.data.immpact!.note}>{i.data.title}</a></li>)}</ul>
+              </>}
+            </>
+          ) : (
+            <p class="lab muted">Recorded as part of trial conduct rather than with a rating scale.</p>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+  <p class="muted fn">Domains from <a href={r.turk2003.href} title={r.turk2003.title}>{r.turk2003.label}</a>. Measures for domains 1 to 4 as listed in <a href={r.dworkin2008.href} title={r.dworkin2008.title}>{r.dworkin2008.label}</a>, which summarises the measures recommended in <a href={r.dworkin2005.href} title={r.dworkin2005.title}>{r.dworkin2005.label}</a>. Linked measures have a page on this site.</p>
+
+  <section class="prose interp">
+    <h2>From a score to a clinically important change</h2>
+    <p>A second IMMPACT consensus addressed how to judge whether a change on these measures matters. It recommended using two or more different methods to evaluate the clinical importance of improvement or worsening, and proposed provisional benchmarks for clinically important change on the recommended measures <a href={r.dworkin2008.href} title={r.dworkin2008.title}>[{r.dworkin2008.label}]</a>. The <a href={url('assessment/meaningful-change/')}>Meaningful change</a> page shows how these thresholds work for pain intensity.</p>
+  </section>
+
+  <style>
+    .domains { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; counter-reset: none; }
+    @media (max-width: 900px) { .domains { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 580px) { .domains { grid-template-columns: 1fr; } }
+    .dom { position: relative; padding: 1rem 1.1rem 1rem 3.1rem; line-height: 1.45; }
+    .num { position: absolute; left: 1rem; top: 1rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font: 600 .82rem var(--font); border: 1.5px solid var(--line-strong); color: var(--ink-3); }
+    .core .num { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .dom h2 { font-size: 1.05rem; margin: .1rem 0 .3rem; }
+    .desc { font-size: .88rem; color: var(--ink-2); margin: 0 0 .6rem; }
+    .lab { font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin: 0 0 .25rem; }
+    .lab.muted { text-transform: none; letter-spacing: 0; font: 400 .84rem var(--font); }
+    .lab2 { margin-top: .6rem; }
+    .meas { margin: 0; padding-left: 1.1rem; font-size: .9rem; }
+    .meas a { text-decoration: none; }
+    .fn { font-size: .82rem; }
+    .fn a { text-decoration: none; }
+    .interp { max-width: 46rem; margin-top: 2rem; }
+  </style>
+</Base>

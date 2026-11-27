@@ -12,6 +12,7 @@ const { Content } = await render(m);
 const users = (await getTheories()).filter((t) => t.data.mechanisms.some((x) => x.id === m.id));
 const refs = await resolveRefs(m.data.references);
 const treats = (await getCollection('treatments')).filter((t) => t.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const measures = (await getCollection('instruments')).filter((i) => i.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const conds = (await getCollection('conditions')).filter((c) => c.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 <Base title={m.data.title} description={m.data.summary}>
@@ -29,6 +30,10 @@ const conds = (await getCollection('conditions')).filter((c) => c.data.mechanism
   {treats.length > 0 && <>
     <h2>Treatments that target it</h2>
     <ul>{treats.map((t) => <li><a href={url(`treatments/${t.id}/`)}>{t.data.title}</a></li>)}</ul>
+  </>}
+  {measures.length > 0 && <>
+    <h2>How it is measured</h2>
+    <ul>{measures.map((i) => <li><a href={url(`assessment/${i.id}/`)}>{i.data.title}</a></li>)}</ul>
   </>}
   {refs.length > 0 && <>
     <h2>References</h2>

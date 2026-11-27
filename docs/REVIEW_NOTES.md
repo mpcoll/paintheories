@@ -125,3 +125,35 @@ Judgement calls to check:
 - [ ] Exercise: Fransen 2015 SMD -0.49 labelled small (authors: moderate); Hayden 2021 MD -15.2/100 labelled moderate (authors: clinically important); Bidonde 2017 labelled small.
 - [ ] Graded exposure, open-label placebo, acupuncture (targets, sham comparisons) and pain reprocessing therapy (one trial with 5-year follow-up) need expert reading.
 - [ ] EULAR 2017 full text was not accessible: only exercise (strong for) and multimodal rehabilitation (weak for, from the abstract) carry EULAR records.
+
+## Pain Assessment (2026-11-27)
+
+Pages:
+- /assessment/psychophysics/: QST profile z-scores are invented for teaching; shapes follow the three clusters in baron2017. The fibre attributions of detection thresholds (cold and pinprick mainly Aδ, warmth C, touch and vibration Aβ) are textbook statements without a citation on the page.
+- /assessment/core-outcomes/: Dworkin 2005 full text and abstract were not available; the measures listed per core domain come from the Dworkin 2008 abstract. Domains from turk2003.
+
+Observational, psychophysical and neurophysiological entries (batch c):
+- Item content not in the abstracts (from general knowledge): PAINAD five items 0 to 2; CPOT four items 0 to 2, total 0 to 8; wind-up ratio definition. FLACC scoring confirmed on the University of Michigan licence page.
+- format.time without a source: PAINAD, pressure pain threshold, LEPs.
+- PAINAD and FLACC (merkel1997) reliability quoted as worded in the abstracts ("adequate", "high"); no coefficients.
+- obrien2018: CPM g = 0.57 with the CI printed in the abstract as -0.88 to -0.26 (sign inconsistency in the source).
+- arendtnielsen2017 cited for local versus widespread pressure thresholds and temporal summation as a sign of central facilitation; only the abstract was read.
+- Availability: FLACC licensed (Michigan: free academic/research licence, paid licence for clinical operations); CPOT and PAINAD unclear (no terms page found); QST unclear (dfns.de unreachable); CPM, temporal summation, pressure pain threshold, LEPs and skin biopsy marked "method" (no licence applies; our reading, not a quoted source).
+- Links by judgement: observational scales → pain-communication, social-communication-model; LEPs → salience-detection-account; QST and PPT → synaptic-plasticity; PPT → central-sensitization.
+
+Self-report entries for pain and function (batch a):
+- Format fields without a citation: VAS "usually 100 mm"; FPS-R scoring 0, 2, 4, 6, 8, 10 (abstract: six faces, 0-10 metric); ODI 10 sections scored 0 to 5, percentage; PROMIS T-score mean 50, SD 10; completion times for VAS, FPS-R, ODI, RMDQ and PGIC.
+- roland1983 property is the developers' own wording ("short, simple, sensitive, and reliable"); full text closed.
+- Availability: VAS free (generic format, no licence holder; confirm); FPS-R unclear (IASP page blocked automated access: please check it); BPI licensed (MD Anderson: permission required, fees may apply); MPQ family licensed (immpact.org: contact Mapi Research Trust for SF-MPQ-2; terms for the original MPQ and SF-MPQ not confirmed); ODI and PGIC unclear (Mapi ePROVIDE under maintenance on 2026-11-27); RMDQ free (rmdq.org: public domain); PROMIS free for paper use (HealthMeasures: digital or translated use may need permission or fees).
+- MPQ immpact field records the SF-MPQ as a secondary measure (dworkin2005); ODI and RMDQ have no immpact field because IMMPACT names them only as examples of disease-specific measures.
+- MPQ → three-dimensional-model link and BPI → osteoarthritis and painful-diabetic-neuropathy links are judgement (MD Anderson's version list, Keller's arthritis sample), not validation papers per condition.
+
+Psychological, screening and neuropathic entries (batch b):
+- kori1990 (TSK origin) is a manual entry from memory (Pain Management 3:35-43); please check.
+- DN4 83%/90%, LANSS 85%/80% and later ranges are taken from bennett2007's summary (original abstracts give no numbers); painDETECT ≤12 / ≥19 bands cited to sachau2023; S-LANSS maximum 24 and ≥12 cut-off cited to torrance2014. Both are secondary sources for these values.
+- Scoring details without a source read: TSK (1 to 4, totals 17 to 68 and 11 to 44, reverse-scored items), FABQ subscales, CPAQ subscales and CPAQ-8 range, PSEQ anchors, CSI anchors, painDETECT item weighting.
+- CSI now uses a new construct "Symptom burden" plus emotional functioning; the entry presents adams2022 (CSI tracks psychological constructs, weak link to QST) and neblett2024 (developers' meta-analysis: significant QST correlations).
+- Key years follow Crossref online dates: mayer2011 (print 2012), adams2022 (print 2023), chen2017 (print 2018), arendtnielsen2017 (print 2018).
+- Örebro cut-off: linton2011 says "a cutoff of 50", the developers' guide ">50"; both reported as written.
+- Availability: Örebro free (developer FAQ: free copies for research or clinical use); painDETECT licensed (IQVIA: licence agreement required for all use, fee waiver possible for academic use); TSK, FABQ, PSEQ, CPAQ, CSI, STarT Back, DN4 and LANSS unclear (no terms page found; Mapi ePROVIDE was under maintenance). Re-check ePROVIDE when it is back.
+- Theory links are judgement: fear-avoidance-model (TSK, FABQ, Örebro), psychological-flexibility-model (CPAQ), cognitive-behavioural-model (PSEQ), central-sensitization and nociplastic-pain (CSI), biopsychosocial-model (STarT Back, Örebro).
