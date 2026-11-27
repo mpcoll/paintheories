@@ -37,3 +37,14 @@ export function planumLink(v: PlanumView, opts: { embed?: boolean } = {}) {
 export function planumTourLink(circuit: string) {
   return `${PLANUM}#anatomy=cdmd&lang=en&atlas=destrieux&detail=learning&tab=circuits&circuit=${circuit}`;
 }
+
+/**
+ * A Planum view of a Neurosynth meta-analytic map (Functions tab): a curated function id
+ * (e.g. 'pain'), 'term:<term>' or 'compare:<a>,<b>'. Maps are painted on HCP-MMP areas.
+ */
+export function planumFunctionLink(fn: string, opts: { view?: string; hemi?: string; embed?: boolean } = {}) {
+  const p = new URLSearchParams({ anatomy: 'cdmd', lang: 'en', atlas: 'hcp-mmp', tab: 'functions', function: fn, view: opts.view ?? 'left' });
+  if (opts.hemi) p.set('hemi', opts.hemi);
+  if (opts.embed) p.set('embed', '1');
+  return PLANUM + '#' + p.toString().replace(/%3A/g, ':').replace(/%2C/g, ',');
+}

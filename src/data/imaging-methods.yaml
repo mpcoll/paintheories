@@ -1,0 +1,73 @@
+# Methods for imaging pain (/biology/imaging/). `spatial` (mm) and `temporal` (s) are typical
+# ranges as approximate orders of magnitude, for the resolution chart; they are editorial, not
+# measured values. Qualitative comparisons follow Morton et al. 2016.
+- id: eeg
+  name: Electroencephalography (EEG)
+  short: EEG
+  measures: Voltage changes at the scalp produced by the summed synaptic currents of large populations of cortical neurons.
+  spatial: [10, 100]
+  temporal: [0.001, 10]
+  strengths: Millisecond timing, cheap and portable; separates a pain response into early and late components and oscillations.
+  limits: Poor spatial resolution; sources must be estimated (the inverse problem), and deep sources are unreliable.
+  painUse: Laser-evoked potentials time-locked to brief noxious heat, and oscillations such as gamma-band activity.
+  refs: [morton2016]
+- id: meg
+  name: Magnetoencephalography (MEG)
+  short: MEG
+  measures: Magnetic fields produced by the same neuronal currents that EEG records.
+  spatial: [5, 30]
+  temporal: [0.001, 10]
+  strengths: Millisecond timing with better spatial resolution than EEG.
+  limits: Expensive and immobile; deep sources are still unreliable.
+  painUse: Timing and oscillations of cortical responses to brief noxious stimuli.
+  refs: [morton2016]
+- id: ieeg
+  name: Intracranial EEG (depth or surface electrodes)
+  short: iEEG
+  measures: Local field potentials recorded directly from the brain in patients with implanted electrodes, usually for epilepsy surgery.
+  spatial: [1, 10]
+  temporal: [0.001, 10]
+  strengths: Millisecond timing with millimetre precision, including deep regions such as the insula.
+  limits: Only in patients with electrodes placed for clinical reasons, so coverage and samples are limited.
+  painUse: Testing whether insular and opercular responses are specific to nociception.
+  refs: [liberati2016]
+- id: fmri
+  name: Functional MRI (BOLD)
+  short: fMRI
+  measures: Changes in blood oxygenation that follow local neural activity (the haemodynamic response).
+  spatial: [1, 5]
+  temporal: [1, 30]
+  strengths: Whole-brain coverage with millimetre resolution; the workhorse of pain imaging and of multivariate signatures.
+  limits: Slow and indirect; the haemodynamic response lags neural events by seconds.
+  painUse: Mapping responses to noxious stimuli, modulation by expectation or attention, and machine-learning signatures.
+  refs: [morton2016]
+- id: spinal-fmri
+  name: Spinal cord fMRI
+  short: Spinal fMRI
+  measures: BOLD signal in the spinal cord, technically harder than in the brain because the cord is small and moves.
+  spatial: [1, 5]
+  temporal: [1, 30]
+  strengths: Shows modulation at the first relay of nociception, before signals reach the brain.
+  limits: Low signal-to-noise; few labs and studies.
+  painUse: Testing whether placebo or attention change dorsal horn responses.
+  refs: [eippert2009b]
+- id: pet
+  name: Positron emission tomography (PET)
+  short: PET
+  measures: Radioactive tracers that report blood flow, metabolism or the binding of molecules such as opioid receptors.
+  spatial: [4, 10]
+  temporal: [60, 3600]
+  strengths: Measures neurochemistry, for example endogenous opioid release, which no other method can.
+  limits: Slow (minutes), uses radiation, and is expensive.
+  painUse: Early mapping of pain responses, and opioid and dopamine receptor binding during pain and placebo.
+  refs: [morton2016]
+- id: structural
+  name: Structural and diffusion MRI
+  short: Structural MRI
+  measures: Grey matter volume or thickness, and white matter structure from water diffusion.
+  spatial: [0.7, 2]
+  temporal: [86400, 31536000]
+  strengths: Millimetre anatomy; can be repeated over months or years.
+  limits: No information about activity in the moment.
+  painUse: Brain structure in chronic pain and its change over time (covered in the chronic pain section, to come).
+  refs: [morton2016]

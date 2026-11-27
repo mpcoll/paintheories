@@ -1,0 +1,27 @@
+# Key neuroimaging findings on pain (/biology/imaging/). One entry per study (or tightly linked pair).
+# finding = what was shown (supported by the cited abstract or paper); significance = why it matters.
+# evidence: robust (replicated), debated (contested interpretation), single-study.
+- id: rainville1997
+  title: Hypnosis separates pain unpleasantness from intensity in the anterior cingulate
+  year: 1997
+  method: pet
+  kind: mapping
+  population: experimental
+  finding: Hypnotic suggestions changed how unpleasant noxious heat felt without changing its perceived intensity. Pain-evoked activity changed in the anterior cingulate cortex, in line with unpleasantness, but not in primary somatosensory cortex.
+  significance: Early direct evidence in humans that the affective dimension of pain has partly separate cortical substrates, as the medial pain system predicts.
+  evidence: robust
+  stations: [cingulate, s1]
+  theories: [three-dimensional-model, neuromatrix-theory]
+  refs: [rainville1997]
+- id: segerdahl2015
+  title: The dorsal posterior insula and ongoing pain
+  year: 2015
+  method: fmri
+  kind: specificity
+  population: experimental
+  finding: With arterial spin labelling perfusion imaging of sustained pain, the authors identified a specific role for the dorsal posterior insula, a region that animal tract tracing marks as a target of nociceptive pathways.
+  significance: A candidate for a pain-specific cortical region, in contrast with views that pain-evoked responses mostly reflect salience.
+  evidence: debated
+  stations: [posterior-insula]
+  theories: [homeostatic-emotion]
+  refs: [segerdahl2015]

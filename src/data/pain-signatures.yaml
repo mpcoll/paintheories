@@ -1,0 +1,14 @@
+# Multivariate brain signatures of pain (/biology/imaging/). Report performance as the source does.
+- id: nps
+  name: Neurologic Pain Signature
+  short: NPS
+  year: 2013
+  method: fmri
+  target: Pain intensity evoked by noxious heat, in individual people.
+  development: Machine-learning pattern trained on fMRI responses to painful heat; weights in thalamus, posterior and anterior insula, secondary somatosensory cortex, anterior cingulate, periaqueductal grey and other regions.
+  validation: Four studies, 114 participants. Painful heat vs non-painful warmth, pain anticipation and pain recall at 94% sensitivity and specificity or more; heat vs warmth in a new sample at 93%; response strongly reduced by the opioid remifentanil.
+  specificity: Physical vs social pain (romantic rejection) at 85% sensitivity and 73% specificity, and 95% in a forced choice of which condition was more painful.
+  caveats: Developed on brief noxious heat in healthy volunteers; it is a measure of evoked nociceptive pain, not a test for clinical pain.
+  availability: on-request
+  availabilityNote: Pattern weights are shared by the developers on request.
+  refs: [wager2013]

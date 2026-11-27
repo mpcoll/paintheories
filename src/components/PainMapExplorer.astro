@@ -1,0 +1,84 @@
+---
+/**
+ * Real meta-analytic brain maps of pain-related terms, shown in Planum (Neurosynth v7
+ * uniformity maps on HCP-MMP areas; ODbL). Embedded, not copied: the map loads on demand
+ * inside Planum's own viewer.
+ */
+import { planumFunctionLink } from '../lib/planum';
+
+type MapDef = { id: string; fn: string; label: string; studies?: number; note: string };
+const MAPS: MapDef[] = [
+  { id: 'pain', fn: 'pain', label: 'Pain', studies: 516, note: 'Regions where studies whose abstracts use the term "pain" consistently report activation.' },
+  { id: 'painful', fn: 'term:painful', label: 'Painful', studies: 189, note: 'Studies using the word "painful", mostly experimental noxious stimulation.' },
+  { id: 'noxious', fn: 'term:noxious', label: 'Noxious', studies: 89, note: 'Studies of noxious stimulation; a smaller literature, so the map is noisier.' },
+  { id: 'touch', fn: 'term:touch', label: 'Touch', studies: 110, note: 'A non-painful comparison: touch also engages somatosensory and opercular-insular cortex.' },
+  { id: 'salience', fn: 'term:salience', label: 'Salience', studies: 396, note: 'A non-pain comparison: studies of salient, attention-grabbing events. Compare its overlap with the pain map.' },
+  { id: 'pain-touch', fn: 'compare:pain,touch', label: 'Pain vs touch', note: 'Areas reached by the pain map, the touch (somatosensation) map, or both. Overlap shows where both literatures report activation; it does not show whether an area is selective for either.' },
+  { id: 'pain-salience', fn: 'compare:pain,term:salience', label: 'Pain vs salience', note: 'Areas reached by the pain map, the salience map, or both. Each literature is mapped separately, so this compares where studies report activation, not what a region does.' },
+  { id: 'placebo', fn: 'term:placebo', label: 'Placebo', studies: 332, note: 'Studies using the word "placebo", many of them on placebo analgesia.' },
+];
+const VIEWS = [
+  { id: 'lateral', label: 'Left, outside', view: 'left' },
+  { id: 'medial', label: 'Left, inside', view: 'right', hemi: 'left' },
+  { id: 'top', label: 'From above', view: 'superior' },
+];
+const links = Object.fromEntries(MAPS.flatMap((m) => VIEWS.map((v) => [`${m.id}|${v.id}`, { embed: planumFunctionLink(m.fn, { view: v.view, hemi: v.hemi, embed: true }), open: planumFunctionLink(m.fn, { view: v.view, hemi: v.hemi }) }])));
+const notes = Object.fromEntries(MAPS.map((m) => [m.id, `${m.note}${m.studies ? ` Based on ${m.studies} studies.` : ''}`]));
+---
+<div class="pme card" id="pme">
+  <div class="pme-bar">
+    <div class="pme-group" role="group" aria-label="Map">
+      <span class="pme-l">Map</span>
+      {MAPS.map((m, i) => <button type="button" class="chip" data-map={m.id} aria-pressed={i === 0 ? 'true' : 'false'}>{m.label}</button>)}
+    </div>
+    <div class="pme-group" role="group" aria-label="View">
+      <span class="pme-l">View</span>
+      {VIEWS.map((v, i) => <button type="button" class="chip" data-view={v.id} aria-pressed={i === 0 ? 'true' : 'false'}>{v.label}</button>)}
+    </div>
+  </div>
+  <p class="pme-note" aria-live="polite"></p>
+  <div class="pme-frame">
+    <iframe title="Meta-analytic brain map in the Planum atlas" loading="lazy" allow="fullscreen" src="about:blank"></iframe>
+  </div>
+  <p class="pme-foot">
+    Neurosynth version 7 uniformity (consistency) maps, averaged over HCP-MMP areas and drawn on one individual's brain by <a class="pme-open" href="#" target="_blank" rel="noopener">Planum ↗</a>.
+    Select "Load the 3D brain" in the frame to draw it (about 20 MB). Data: Neurosynth, Open Database License.
+  </p>
+</div>
+<script type="application/json" id="pme-data" set:html={JSON.stringify({ links, notes })} />
+
+<style>
+  .pme { padding: 1rem 1.1rem; }
+  .pme-bar { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; }
+  .pme-group { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+  .pme-l { font: 600 .7rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin-right: .2rem; }
+  .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .28rem .7rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .pme-note { font-size: .88rem; color: var(--ink-2); margin: .7rem 0 .6rem; min-height: 1.4em; }
+  .pme-frame { aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  @media (max-width: 640px) { .pme-frame { aspect-ratio: 4 / 3; } }
+  .pme-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .pme-foot { font-size: .78rem; color: var(--ink-3); margin: .6rem 0 0; }
+  .pme-foot a { text-decoration: none; }
+</style>
+
+<script>
+  const root = document.getElementById('pme')!;
+  const { links, notes } = JSON.parse(document.getElementById('pme-data')!.textContent!);
+  const frame = root.querySelector('iframe')!;
+  let map = 'pain', view = 'lateral';
+  function apply() {
+    const l = links[`${map}|${view}`];
+    if (frame.dataset.src !== l.embed) { frame.src = l.embed; frame.dataset.src = l.embed; }
+    (root.querySelector('.pme-open') as HTMLAnchorElement).href = l.open;
+    root.querySelector('.pme-note')!.textContent = notes[map];
+    root.querySelectorAll<HTMLButtonElement>('[data-map]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.map === map)));
+    root.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+  }
+  root.querySelectorAll<HTMLButtonElement>('[data-map]').forEach((b) => b.addEventListener('click', () => { map = b.dataset.map!; apply(); }));
+  root.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((b) => b.addEventListener('click', () => { view = b.dataset.view!; apply(); }));
+  // Load the frame only when it comes near the viewport.
+  new IntersectionObserver((es, ob) => { if (es.some((e) => e.isIntersecting)) { apply(); ob.disconnect(); } }, { rootMargin: '300px' }).observe(root);
+  root.querySelector('.pme-note')!.textContent = notes[map];
+</script>

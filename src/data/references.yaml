@@ -12513,3 +12513,44 @@
   volume: "20"
   pages: 1S-73S
   source: manual
+- id: morton2016
+  type: article
+  authors:
+    - Morton, D.
+    - Jones, A.
+    - Sandhu, J.
+  year: 2016
+  title: "Brain imaging of pain: state of the art"
+  container: Journal of Pain Research
+  volume: Volume 9
+  pages: 613-624
+  doi: 10.2147/jpr.s60433
+  source: crossref
+- id: yarkoni2011
+  type: article
+  authors:
+    - Yarkoni, T.
+    - Poldrack, R. A.
+    - Nichols, T. E.
+    - Van Essen, D. C.
+    - Wager, T. D.
+  year: 2011
+  title: Large-scale automated synthesis of human functional neuroimaging data
+  container: Nature Methods
+  volume: "8"
+  issue: "8"
+  pages: 665-670
+  doi: 10.1038/nmeth.1635
+  source: crossref
+- id: poldrack2006
+  type: article
+  authors:
+    - Poldrack, R.
+  year: 2006
+  title: Can cognitive processes be inferred from neuroimaging data?
+  container: Trends in Cognitive Sciences
+  volume: "10"
+  issue: "2"
+  pages: 59-63
+  doi: 10.1016/j.tics.2005.12.004
+  source: crossref

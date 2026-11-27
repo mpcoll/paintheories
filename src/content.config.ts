@@ -205,6 +205,57 @@ const inflammatoryMediators = defineCollection({
   }),
 });
 
+/** Pain Biology: neuroimaging page (/biology/imaging/). */
+const IMAGING_METHODS = ['eeg', 'meg', 'ieeg', 'fmri', 'spinal-fmri', 'pet', 'structural'] as const;
+const imagingMethods = defineCollection({
+  loader: file('src/data/imaging-methods.yaml'),
+  schema: z.object({
+    name: z.string(),
+    short: z.string(),
+    measures: z.string(), // what the signal is
+    spatial: z.tuple([z.number().positive(), z.number().positive()]), // typical range, mm (approximate orders of magnitude)
+    temporal: z.tuple([z.number().positive(), z.number().positive()]), // typical range, seconds
+    strengths: z.string(),
+    limits: z.string(),
+    painUse: z.string(), // how it is used in pain research
+    refs: z.array(reference('references')).min(1),
+  }),
+});
+const imagingFindings = defineCollection({
+  loader: file('src/data/imaging-findings.yaml'),
+  schema: z.object({
+    title: z.string(),
+    year: z.number().int(),
+    method: z.enum(IMAGING_METHODS),
+    kind: z.enum(['mapping', 'specificity', 'decoding', 'modulation', 'timing', 'molecular', 'connectivity']),
+    population: z.enum(['experimental', 'clinical']), // acute experimental pain in healthy people vs patients
+    finding: z.string().max(500),
+    significance: z.string().max(400),
+    evidence: z.enum(['robust', 'debated', 'single-study']),
+    stations: z.array(reference('circuitStations')).default([]),
+    theories: z.array(reference('theories')).default([]),
+    conditions: z.array(reference('conditions')).default([]),
+    refs: z.array(reference('references')).min(1),
+  }),
+});
+const painSignatures = defineCollection({
+  loader: file('src/data/pain-signatures.yaml'),
+  schema: z.object({
+    name: z.string(),
+    short: z.string(),
+    year: z.number().int(),
+    method: z.enum(IMAGING_METHODS),
+    target: z.string(), // what it is meant to track
+    development: z.string(), // training data
+    validation: z.string(), // tests and performance, as reported
+    specificity: z.string(), // tests against other states (warmth, rejection, anticipation...)
+    caveats: z.string(),
+    availability: z.enum(['open', 'on-request', 'not-shared']),
+    availabilityNote: z.string().optional(),
+    refs: z.array(reference('references')).min(1),
+  }),
+});
+
 /**
  * Pain Conditions (/conditions/): chronic pain conditions seen through three lenses,
  * traditional family, ICD-11 (MG30 chronic pain codes) and IASP mechanistic descriptors.
@@ -268,4 +319,4 @@ const conditions = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions };
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions, imagingMethods, imagingFindings, painSignatures };
