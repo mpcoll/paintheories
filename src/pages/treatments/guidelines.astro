@@ -1,0 +1,84 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { cite, url, type Reference } from '../../lib/data';
+import { getTreatments, treatmentUrl, REC_ORDER, GUIDELINE_ORDER } from '../../lib/treatments';
+import { GUIDELINES, RECOMMENDATIONS } from '../../data/treatments-taxonomy';
+
+const treatments = await getTreatments();
+const used = GUIDELINE_ORDER.filter((g) => treatments.some((t) => t.data.guidelines.some((x) => x.guideline === g)));
+const refs = new Map(((await getEntries(used.map((g) => ({ collection: 'references' as const, id: GUIDELINES[g].ref })))) as Reference[]).map((r) => [r.id, r]));
+const link = (g: (typeof used)[number]) => { const r = refs.get(GUIDELINES[g].ref)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : r.data.url ?? url(`references/#${r.id}`), title: r.data.title }; };
+const entries = (g: string) => treatments.flatMap((t) => t.data.guidelines.filter((x) => x.guideline === g).map((x) => ({ t, ...x })));
+const matrixRows = treatments.filter((t) => t.data.guidelines.length);
+---
+
+<Base title="Guidelines: pain treatments" description="What major pain guidelines (NICE, IASP NeuPSIG, CDC, EULAR, ACP) recommend for and against, treatment by treatment, quoted from the guidelines.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Treatments · guidelines</p>
+    <h1>What guidelines recommend</h1>
+    <p class="lede">Guidelines weigh benefits, harms, costs and values, so they can differ for the same treatment, and they apply to specific populations. Each recommendation below gives the guideline's own direction in its own terms.</p>
+  </header>
+
+  <div class="gm-wrap">
+    <table class="gm">
+      <thead><tr><th scope="col">Treatment</th>{used.map((g) => <th scope="col"><a href={`#g-${g}`}>{GUIDELINES[g].label}</a></th>)}</tr></thead>
+      <tbody>
+        {matrixRows.map((t) => (
+          <tr>
+            <th scope="row"><a href={treatmentUrl(t.id)}>{t.data.title}</a></th>
+            {used.map((g) => {
+              const xs = t.data.guidelines.filter((x) => x.guideline === g);
+              return <td>{xs.map((x) => <span class={`rec r-${x.recommendation}`} title={`${x.population}: ${x.note}`}>{RECOMMENDATIONS[x.recommendation].label}</span>)}</td>;
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {used.map((g) => (
+    <section class="card gcard" id={`g-${g}`}>
+      <header>
+        <h2>{GUIDELINES[g].label}</h2>
+        <p class="scope">{GUIDELINES[g].scope} <a href={link(g).href} title={link(g).title}>{link(g).label} ↗</a></p>
+      </header>
+      {REC_ORDER.map((r) => {
+        const xs = entries(g).filter((x) => x.recommendation === r);
+        return xs.length > 0 && (
+          <div class="rgroup">
+            <h3><span class={`rec r-${r}`}>{RECOMMENDATIONS[r].label}</span></h3>
+            <ul>
+              {xs.map((x) => <li><a href={treatmentUrl(x.t.id)}>{x.t.data.title}</a> <span class="pop">({x.population})</span><span class="note">{x.note}</span></li>)}
+            </ul>
+          </div>
+        );
+      })}
+    </section>
+  ))}
+
+  <style>
+    .gm-wrap { overflow-x: auto; margin-bottom: 2rem; }
+    .gm { border-collapse: collapse; width: 100%; min-width: 760px; font-size: .84rem; }
+    .gm th, .gm td { border-bottom: 1px solid var(--line); padding: .35rem .45rem; text-align: left; vertical-align: top; }
+    .gm thead th { font: 600 .72rem var(--font); color: var(--ink-2); white-space: nowrap; }
+    .gm a { text-decoration: none; }
+    .gm tbody th { font-weight: 500; white-space: nowrap; }
+    .gm td { display: table-cell; }
+    .gm td .rec { display: block; margin-bottom: .15rem; width: max-content; }
+    .rec { display: inline-block; font: 600 .7rem var(--font); padding: .1rem .45rem; border-radius: 6px; border: 1.5px solid; white-space: nowrap; }
+    .r-strong-for { color: var(--bg); background: var(--ev-support); border-color: var(--ev-support); }
+    .r-weak-for { color: var(--ev-support); border-color: var(--ev-support); }
+    .r-against { color: var(--bg); background: var(--ev-contra); border-color: var(--ev-contra); }
+    .r-insufficient { color: var(--ink-3); border-color: var(--line-strong); }
+    .gcard { margin-bottom: 1.2rem; scroll-margin-top: 130px; }
+    .gcard h2 { margin: 0; font-size: 1.25rem; }
+    .scope { margin: .2rem 0 .6rem; color: var(--ink-2); font-size: .9rem; }
+    .scope a { text-decoration: none; }
+    .rgroup h3 { margin: .7rem 0 .3rem; }
+    .rgroup ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; font-size: .9rem; }
+    .rgroup a { text-decoration: none; font-weight: 500; }
+    .pop { color: var(--ink-3); font-size: .82rem; }
+    .note { display: block; color: var(--ink-2); font-size: .85rem; }
+  </style>
+</Base>

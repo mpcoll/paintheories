@@ -3,6 +3,7 @@ import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, EVIDENCE_DIRECTIONS, EVIDENCE_METHODS, keys } from './data/taxonomy';
 import { FAMILIES, REGIONS, DESCRIPTORS, DESCRIPTOR_ROLES } from './data/conditions-taxonomy';
+import { MODALITIES, TARGETS, GROUPS, EFFECT_SIZES, CERTAINTY, RECOMMENDATIONS, GUIDELINES } from './data/treatments-taxonomy';
 
 /**
  * Bibliography. One shared list so that a paper cited by several theories is
@@ -319,4 +320,53 @@ const conditions = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions, imagingMethods, imagingFindings, painSignatures };
+/**
+ * Pain Treatments (/treatments/). Evidence records are per condition group, with the
+ * effect as the source reports it (e.g. NNT) and GRADE certainty when given.
+ * Guideline records state the guideline's own direction and cite its wording in `note`.
+ */
+const treatments = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/treatments' }),
+  schema: z.object({
+    title: z.string(),
+    aliases: z.array(z.string()).default([]),
+    summary: z.string().max(400),
+    modality: z.enum(keys(MODALITIES)),
+    class: z.string(), // e.g. "Serotonin-noradrenaline reuptake inhibitor"
+    targets: z.array(z.enum(keys(TARGETS))).min(1),
+    mechanism: z.object({ summary: z.string(), refs: z.array(reference('references')).min(1) }),
+    evidence: z
+      .array(
+        z.object({
+          group: z.enum(keys(GROUPS)),
+          condition: reference('conditions').optional(), // when the evidence is for one specific condition
+          comparator: z.string(),
+          outcome: z.string(),
+          effect: z.string(), // as the source reports it, e.g. "NNT 7.4 (95% CI 5.6 to 10.9) for 50% pain relief"
+          size: z.enum(keys(EFFECT_SIZES)),
+          certainty: z.enum(keys(CERTAINTY)),
+          refs: z.array(reference('references')).min(1),
+        }),
+      )
+      .default([]),
+    harms: z.object({ summary: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
+    guidelines: z
+      .array(
+        z.object({
+          guideline: z.enum(keys(GUIDELINES)),
+          recommendation: z.enum(keys(RECOMMENDATIONS)),
+          population: z.string(),
+          note: z.string(), // the guideline's direction in its own terms, briefly quoted or paraphrased
+        }),
+      )
+      .default([]),
+    mechanisms: z.array(reference('mechanisms')).default([]),
+    theories: z.array(reference('theories')).default([]),
+    related: z.array(reference('treatments')).default([]),
+    references: z.array(reference('references')).default([]),
+    review: z.enum(['stub', 'draft', 'reviewed']).default('draft'),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions, imagingMethods, imagingFindings, painSignatures, treatments };

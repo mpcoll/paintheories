@@ -12786,3 +12786,209 @@
   pages: 2116-2124
   doi: 10.1152/jn.01088.2009
   source: crossref
+- id: soliman2025
+  type: article
+  authors:
+    - Soliman, N.
+    - Moisset, X.
+    - Ferraro, M. C.
+    - de Andrade, D. C.
+    - Baron, R.
+    - Belton, J.
+    - Bennett, D. L. H.
+    - Calvo, M.
+    - Dougherty, P.
+    - Gilron, I.
+    - Hietaharju, A. J.
+    - Hosomi, K.
+    - Kamerman, P. R.
+    - Kemp, H.
+    - Enax-Krumova, E. K.
+    - McNicol, E.
+    - Price, T. J.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Smith, B. H.
+    - Talkington, F.
+    - Truini, A.
+    - Vollert, J.
+    - Attal, N.
+    - Finnerup, N. B.
+    - Haroutounian, S.
+    - Abuukar Abdullahi, R.
+    - Evans, M.
+    - Freigang, S.
+    - Gwyther, B.
+    - Taricani Kubota, G.
+    - Phalip, J.
+    - Phillips, H.
+    - Ramirez Piriz, C.
+    - Istri Pramitasuri, T.
+    - Rottenberg, A.
+    - Hohenschurz-Schmidt, D.
+    - Tau-Lim, N.
+    - Than, Q. V.
+    - Wandrey, J. D.
+    - Wang, C.
+    - Zachariadis, A.
+    - Zunaid, M. D.
+  year: 2025
+  title: "Pharmacotherapy and non-invasive neuromodulation for neuropathic pain: a systematic review and meta-analysis"
+  container: The Lancet Neurology
+  volume: "24"
+  issue: "5"
+  pages: 413-428
+  doi: 10.1016/s1474-4422(25)00068-7
+  source: crossref
+- id: finnerup2015
+  type: article
+  authors:
+    - Finnerup, N. B.
+    - Attal, N.
+    - Haroutounian, S.
+    - McNicol, E.
+    - Baron, R.
+    - Dworkin, R. H.
+    - Gilron, I.
+    - Haanpää, M.
+    - Hansson, P.
+    - Jensen, T. S.
+    - Kamerman, P. R.
+    - Lund, K.
+    - Moore, A.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Rowbotham, M.
+    - Sena, E.
+    - Siddall, P.
+    - Smith, B. H.
+    - Wallace, M.
+  year: 2015
+  title: "Pharmacotherapy for neuropathic pain in adults: a systematic review and meta-analysis"
+  container: The Lancet Neurology
+  volume: "14"
+  issue: "2"
+  pages: 162-173
+  doi: 10.1016/s1474-4422(14)70251-0
+  source: crossref
+- id: dowell2022
+  type: article
+  authors:
+    - Dowell, D.
+    - Ragan, K. R.
+    - Jones, C. M.
+    - Baldwin, G. T.
+    - Chou, R.
+  year: 2022
+  title: CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022
+  container: MMWR. Recommendations and Reports
+  volume: "71"
+  issue: "3"
+  pages: 1-95
+  doi: 10.15585/mmwr.rr7103a1
+  source: crossref
+- id: macfarlane2017
+  type: article
+  authors:
+    - Macfarlane, G. J.
+    - Kronisch, C.
+    - Dean, L. E.
+    - Atzeni, F.
+    - Häuser, W.
+    - Fluß, E.
+    - Choy, E.
+    - Kosek, E.
+    - Amris, K.
+    - Branco, J.
+    - Dincer, F.
+    - Leino-Arjas, P.
+    - Longley, K.
+    - McCarthy, G. M.
+    - Makri, S.
+    - Perrot, S.
+    - Sarzi-Puttini, P.
+    - Taylor, A.
+    - Jones, G. T.
+  year: 2017
+  title: EULAR revised recommendations for the management of fibromyalgia
+  container: Annals of the Rheumatic Diseases
+  volume: "76"
+  issue: "2"
+  pages: 318-328
+  doi: 10.1136/annrheumdis-2016-209724
+  source: crossref
+- id: qaseem2017
+  type: article
+  authors:
+    - Qaseem, A.
+    - Wilt, T. J.
+    - McLean, R. M.
+    - Forciea, M. A.
+    - for the Clinical Guidelines Committee of the American College of Physicians*
+  year: 2017
+  title: "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians"
+  container: Annals of Internal Medicine
+  volume: "166"
+  issue: "7"
+  pages: 514-530
+  doi: 10.7326/m16-2367
+  source: crossref
+- id: guyatt2008
+  type: article
+  authors:
+    - Guyatt, G. H.
+    - Oxman, A. D.
+    - Vist, G. E.
+    - Kunz, R.
+    - Falck-Ytter, Y.
+    - Alonso-Coello, P.
+    - Schünemann, H. J.
+  year: 2008
+  title: "GRADE: an emerging consensus on rating quality of evidence and strength of recommendations"
+  container: BMJ
+  volume: "336"
+  issue: "7650"
+  pages: 924-926
+  doi: 10.1136/bmj.39489.470347.ad
+  source: crossref
+- id: nice2021
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2021
+  title: "Chronic pain (primary and secondary) in over 16s: assessment of all chronic pain and management of chronic primary pain (NICE guideline NG193)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng193
+  source: manual
+- id: nice2016
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2016
+  title: "Low back pain and sciatica in over 16s: assessment and management (NICE guideline NG59)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng59
+  note: Published 30 November 2016; last updated 29 July 2026.
+  source: manual
+- id: nice2022
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2022
+  title: "Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng226
+  source: manual
+- id: lunn2014
+  type: article
+  authors:
+    - Lunn, M. P.
+    - Hughes, R. A.
+    - Wiffen, P. J.
+  year: 2014
+  title: Duloxetine for treating painful neuropathy, chronic pain or fibromyalgia
+  container: Cochrane Database of Systematic Reviews
+  volume: "2015"
+  issue: "10"
+  doi: 10.1002/14651858.cd007115.pub3
+  source: crossref

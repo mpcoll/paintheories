@@ -11,6 +11,7 @@ const { m } = Astro.props as { m: Mechanism };
 const { Content } = await render(m);
 const users = (await getTheories()).filter((t) => t.data.mechanisms.some((x) => x.id === m.id));
 const refs = await resolveRefs(m.data.references);
+const treats = (await getCollection('treatments')).filter((t) => t.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const conds = (await getCollection('conditions')).filter((c) => c.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 <Base title={m.data.title} description={m.data.summary}>
@@ -24,6 +25,10 @@ const conds = (await getCollection('conditions')).filter((c) => c.data.mechanism
   {conds.length > 0 && <>
     <h2>Conditions where it is implicated</h2>
     <ul>{conds.map((c) => <li><a href={url(`conditions/${c.id}/`)}>{c.data.title}</a></li>)}</ul>
+  </>}
+  {treats.length > 0 && <>
+    <h2>Treatments that target it</h2>
+    <ul>{treats.map((t) => <li><a href={url(`treatments/${t.id}/`)}>{t.data.title}</a></li>)}</ul>
   </>}
   {refs.length > 0 && <>
     <h2>References</h2>

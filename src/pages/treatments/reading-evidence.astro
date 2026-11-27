@@ -1,0 +1,142 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { cite, url, type Reference } from '../../lib/data';
+import { CERTAINTY, EFFECT_SIZES, RECOMMENDATIONS } from '../../data/treatments-taxonomy';
+import { CERTAINTY_ORDER } from '../../lib/treatments';
+
+const ids = ['guyatt2008', 'finnerup2015', 'soliman2025', 'lunn2014', 'williams2020'];
+const refs = new Map(((await getEntries(ids.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`) }; };
+const A = (id: string) => `<a href="${L(id).href}">${L(id).label}</a>`;
+const toc = [['nnt', 'Number needed to treat'], ['size', 'Effect sizes'], ['grade', 'Certainty (GRADE)'], ['recs', 'Recommendations'], ['bias', 'Why effects look bigger or smaller']];
+---
+
+<Base title="Reading the evidence on pain treatments" description="How to read treatment evidence for pain: number needed to treat and harm, placebo response, standardised effect sizes, GRADE certainty and recommendation strength.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Treatments · reading the evidence</p>
+    <h1>Reading the evidence</h1>
+    <p class="lede">The same trial result can be described in very different ways. These are the measures used across this module, and the rules we use to label them.</p>
+    <nav class="toc" aria-label="On this page">{toc.map(([id, l]) => <a href={`#${id}`}>{l}</a>)}</nav>
+  </header>
+
+  <section id="nnt">
+    <h2>Number needed to treat (NNT)</h2>
+    <p class="intro">Many pain trials count "responders", for example people whose pain halves. The NNT is how many people need the treatment for <strong>one more</strong> to respond than with placebo. In pain trials many people improve with placebo too, which the NNT already subtracts. Neuropathic pain trials, for instance, show modest effects and large placebo responses (<Fragment set:html={A('finnerup2015')} />).</p>
+    <div class="card nnt" id="nnt-demo">
+      <div class="nnt-controls">
+        <label><span>People who respond with placebo</span><span class="row"><input type="range" min="0" max="60" value="30" data-k="pl" /><output data-o="pl">30%</output></span></label>
+        <label><span>NNT</span><span class="row"><input type="range" min="2" max="20" value="7" data-k="nnt" /><output data-o="nnt">7</output></span></label>
+        <div class="presets"><span>Try:</span>
+          <button type="button" data-p="30,5">duloxetine, diabetic neuropathy (NNT 5)</button>
+          <button type="button" data-p="30,9">α2δ-ligands, neuropathic pain (NNT 8.9, shown as 9)</button>
+          <button type="button" data-p="30,3">NNT 3</button>
+        </div>
+        <p class="nnt-note">Placebo response is set for illustration; it varies widely between trials.</p>
+      </div>
+      <div class="nnt-out">
+        <div class="arm"><p class="arm-h">100 people on placebo</p><div class="ngrid" data-arm="pl"></div><p class="arm-n" data-n="pl"></p></div>
+        <div class="arm"><p class="arm-h">100 people on the treatment</p><div class="ngrid" data-arm="tx"></div><p class="arm-n" data-n="tx"></p></div>
+        <p class="nnt-key"><span><i class="d resp"></i>would respond anyway</span><span><i class="d extra"></i>respond because of the treatment</span><span><i class="d"></i>no response</span></p>
+      </div>
+    </div>
+    <p class="intro">The number needed to harm (NNH) works the same way for adverse effects. NeuPSIG reports both: for SNRIs in neuropathic pain, an NNT of 7.4 and an NNH of 13.9 (<Fragment set:html={A('soliman2025')} />).</p>
+  </section>
+
+  <section id="size">
+    <h2>Effect sizes and our labels</h2>
+    <p class="intro">When trials measure pain on a scale rather than counting responders, reviews pool a standardised mean difference (SMD), in standard-deviation units. For example, CBT versus usual care for chronic pain gives an SMD of −0.22 for pain (<Fragment set:html={A('williams2020')} />). On this site, effect sizes are labelled with fixed rules so that treatments can be compared:</p>
+    <table class="rules">
+      <thead><tr><th>Label</th><th>NNT for ≥50% relief vs placebo</th><th>SMD (pain)</th></tr></thead>
+      <tbody>
+        <tr><th>{EFFECT_SIZES.large.label}</th><td>4 or less</td><td>0.8 or more</td></tr>
+        <tr><th>{EFFECT_SIZES.moderate.label}</th><td>more than 4, up to 7</td><td>0.5 to under 0.8</td></tr>
+        <tr><th>{EFFECT_SIZES.small.label}</th><td>more than 7</td><td>under 0.5 (and the interval excludes zero)</td></tr>
+        <tr><th>{EFFECT_SIZES.none.label}</th><td colspan="2">No difference from the comparator</td></tr>
+        <tr><th>{EFFECT_SIZES.unclear.label}</th><td colspan="2">Too little or inconsistent evidence</td></tr>
+      </tbody>
+    </table>
+    <p class="muted fn">These thresholds are our editorial convention, not a standard; every entry also gives the numbers as the source reports them.</p>
+  </section>
+
+  <section id="grade">
+    <h2>Certainty of evidence (GRADE)</h2>
+    <p class="intro">GRADE rates how confident we can be that an estimate is close to the truth, taking into account risk of bias, inconsistency, indirectness, imprecision and publication bias (<Fragment set:html={A('guyatt2008')} />).</p>
+    <ul class="levels">{CERTAINTY_ORDER.map((c) => <li class={`lv c-${c}`}><span class="lvm" aria-hidden="true"></span><strong>{CERTAINTY[c].label}</strong> {CERTAINTY[c].description}</li>)}</ul>
+  </section>
+
+  <section id="recs">
+    <h2>Strength of recommendations</h2>
+    <p class="intro">Guidelines combine evidence with harms, costs and values. A strong recommendation means most informed people would choose the option; a weak (conditional) one means the choice depends on the person (<Fragment set:html={A('guyatt2008')} />). We map guideline wording onto four labels:</p>
+    <ul class="recs">{Object.entries(RECOMMENDATIONS).map(([k, v]) => <li><span class={`rec r-${k}`}>{v.label}</span> {v.description}</li>)}</ul>
+  </section>
+
+  <section id="bias">
+    <h2>Why effects can look bigger or smaller</h2>
+    <ul class="intro">
+      <li><strong>Publication bias.</strong> In neuropathic pain, analysis suggested a 10% overstatement of treatment effects, and published trials reported larger effects than unpublished ones (<Fragment set:html={A('finnerup2015')} />).</li>
+      <li><strong>Who runs the trial.</strong> Almost every duloxetine trial was performed or sponsored by the manufacturer (<Fragment set:html={A('lunn2014')} />).</li>
+      <li><strong>The comparator.</strong> A therapy can beat usual care yet barely beat another active treatment, as CBT does (<Fragment set:html={A('williams2020')} />).</li>
+      <li><strong>Expectations.</strong> Placebo responses are part of every treatment effect; see <a href={url('theories/expectancy-placebo-analgesia/')}>expectancy and placebo</a> and the <a href={url('biology/imaging/#modulation')}>imaging of placebo</a>.</li>
+    </ul>
+  </section>
+
+  <style>
+    section { margin-bottom: 2.6rem; scroll-margin-top: 130px; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a, .intro :global(a), .fn a { text-decoration: none; }
+    .intro { max-width: var(--measure); }
+    .nnt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 1.4rem; padding: 1rem 1.1rem; margin: 1rem 0; }
+    @media (max-width: 860px) { .nnt { grid-template-columns: 1fr; } }
+    .nnt-controls { display: grid; gap: .8rem; align-content: start; }
+    .nnt-controls label { display: grid; gap: .2rem; font-size: .9rem; }
+    .row { display: grid; grid-template-columns: minmax(0, 1fr) 3rem; gap: .5rem; align-items: center; }
+    .row input { width: 100%; accent-color: var(--accent); }
+    .row output { font: 650 .95rem var(--font); text-align: right; font-variant-numeric: tabular-nums; }
+    .presets { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; font-size: .8rem; color: var(--ink-3); }
+    .presets button { font: 500 .78rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .2rem .55rem; cursor: pointer; }
+    .nnt-note { font-size: .78rem; color: var(--ink-3); margin: 0; }
+    .nnt-out { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .arm-h { margin: 0 0 .3rem; font: 600 .78rem var(--font); color: var(--ink-2); }
+    .ngrid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; }
+    .nnt :global(.d) { display: inline-block; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid var(--ink-3); }
+    .nnt :global(.d.resp) { background: var(--ink-3); }
+    .nnt :global(.d.extra) { background: var(--d2); border-color: var(--d2); }
+    .nnt-key :global(.d) { width: 11px; }
+    .arm-n { margin: .4rem 0 0; font-size: .82rem; color: var(--ink-2); }
+    .nnt-key { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .76rem; color: var(--ink-3); margin: 0; }
+    .nnt-key span { display: inline-flex; align-items: center; gap: .3rem; }
+    .rules { border-collapse: collapse; font-size: .9rem; margin: .6rem 0; }
+    .rules th, .rules td { border-bottom: 1px solid var(--line); padding: .35rem .7rem; text-align: left; }
+    .rules thead th { font: 600 .74rem var(--font); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+    .fn { font-size: .82rem; }
+    .levels, .recs { list-style: none; padding: 0; display: grid; gap: .45rem; max-width: var(--measure); }
+    .lv { display: flex; gap: .5rem; align-items: baseline; }
+    .lvm { flex: none; width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) var(--f), var(--surface)); transform: translateY(2px); }
+    .c-high { --f: 100%; } .c-moderate { --f: 70%; } .c-low { --f: 38%; } .c-very-low { --f: 12%; } .c-not-graded { --f: 0%; }
+    .rec { display: inline-block; font: 600 .72rem var(--font); padding: .1rem .45rem; border-radius: 6px; border: 1.5px solid; margin-right: .3rem; }
+    .r-strong-for { color: var(--bg); background: var(--ev-support); border-color: var(--ev-support); }
+    .r-weak-for { color: var(--ev-support); border-color: var(--ev-support); }
+    .r-against { color: var(--bg); background: var(--ev-contra); border-color: var(--ev-contra); }
+    .r-insufficient { color: var(--ink-3); border-color: var(--line-strong); }
+  </style>
+
+  <script>
+    const root = document.getElementById('nnt-demo')!;
+    const inp = Object.fromEntries([...root.querySelectorAll<HTMLInputElement>('input[data-k]')].map((i) => [i.dataset.k!, i]));
+    const grids = Object.fromEntries([...root.querySelectorAll<HTMLElement>(".ngrid")].map((g) => { g.innerHTML = Array.from({ length: 100 }, () => '<i class="d"></i>').join(''); return [g.dataset.arm!, [...g.children] as HTMLElement[]]; }));
+    function update() {
+      const pl = +inp.pl.value, nnt = +inp.nnt.value;
+      const extra = Math.min(100 - pl, Math.round(100 / nnt));
+      root.querySelector('output[data-o="pl"]')!.textContent = `${pl}%`;
+      root.querySelector('output[data-o="nnt"]')!.textContent = String(nnt);
+      grids.pl.forEach((d, i) => (d.className = `d${i < pl ? ' resp' : ''}`));
+      grids.tx.forEach((d, i) => (d.className = `d${i < pl ? ' resp' : i < pl + extra ? ' extra' : ''}`));
+      root.querySelector('[data-n="pl"]')!.textContent = `${pl} respond`;
+      root.querySelector('[data-n="tx"]')!.textContent = `${pl + extra} respond, ${extra} of them because of the treatment`;
+    }
+    Object.values(inp).forEach((i) => i.addEventListener('input', update));
+    root.querySelectorAll<HTMLButtonElement>('[data-p]').forEach((b) => b.addEventListener('click', () => { const [p, n] = b.dataset.p!.split(','); inp.pl.value = p; inp.nnt.value = n; update(); }));
+    update();
+  </script>
+</Base>

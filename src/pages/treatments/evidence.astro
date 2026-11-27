@@ -1,0 +1,95 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/data';
+import { getTreatments, treatmentUrl, bestEvidence, MODALITY_ORDER, GROUP_ORDER, SIZE_ORDER, CERTAINTY_ORDER } from '../../lib/treatments';
+import { MODALITIES, GROUPS, EFFECT_SIZES, CERTAINTY } from '../../data/treatments-taxonomy';
+
+const treatments = await getTreatments();
+const groups = GROUP_ORDER.filter((g) => treatments.some((t) => t.data.evidence.some((e) => e.group === g)));
+const byModality = MODALITY_ORDER.map((m) => ({ key: m, items: treatments.filter((t) => t.data.modality === m) })).filter((g) => g.items.length);
+const nRecords = treatments.reduce((n, t) => n + t.data.evidence.length, 0);
+---
+
+<Base title="Evidence map: pain treatments" description="Matrix of pain treatments by condition group: size of the best-supported effect and its GRADE certainty, with sources.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Treatments · evidence map</p>
+    <h1>Evidence map</h1>
+    <p class="lede">Each cell shows the best-supported result for a treatment in a condition group: the size of the effect and how certain the evidence is. Empty cells mean no evidence record on this site yet, not absence of evidence. {nRecords} records from systematic reviews, meta-analyses and trials.</p>
+  </header>
+
+  <div class="em-key card" aria-hidden="true">
+    <div><p class="k-h">Effect size (marker size)</p>
+      {SIZE_ORDER.map((s) => <span class="k"><i class={`m s-${s} c-moderate`}></i>{EFFECT_SIZES[s].label}</span>)}
+    </div>
+    <div><p class="k-h">Certainty, GRADE (fill)</p>
+      {CERTAINTY_ORDER.map((c) => <span class="k"><i class={`m s-moderate c-${c}`}></i>{CERTAINTY[c].label}</span>)}
+    </div>
+    <p class="k-note">Size labels follow fixed rules for NNT and standardised mean differences; see <a href={url('treatments/reading-evidence/')}>Reading the evidence</a>.</p>
+  </div>
+
+  <div class="em-wrap">
+    <table class="em">
+      <thead>
+        <tr><th scope="col">Treatment</th>{groups.map((g) => <th scope="col" class="gh" title={GROUPS[g].description}><span>{GROUPS[g].label}</span></th>)}</tr>
+      </thead>
+      {byModality.map((m) => (
+        <tbody>
+          <tr class="mrow"><th colspan={groups.length + 1} scope="colgroup">{MODALITIES[m.key].label}</th></tr>
+          {m.items.map((t) => (
+            <tr>
+              <th scope="row"><a href={treatmentUrl(t.id)}>{t.data.title}</a></th>
+              {groups.map((g) => {
+                const e = bestEvidence(t, g);
+                const n = t.data.evidence.filter((x) => x.group === g).length;
+                return (
+                  <td>
+                    {e ? (
+                      <a class="cell" href={`${treatmentUrl(t.id)}#evidence-summary`} title={`${t.data.title}, ${GROUPS[g].label}: ${EFFECT_SIZES[e.size].label.toLowerCase()} effect, ${CERTAINTY[e.certainty].label.toLowerCase()} certainty. ${e.effect} vs ${e.comparator.toLowerCase()} (${e.outcome.toLowerCase()}).${n > 1 ? ` ${n} records.` : ''}`}>
+                        <i class={`m s-${e.size} c-${e.certainty}`}></i>
+                        <span class="sr">{EFFECT_SIZES[e.size].label} effect, {CERTAINTY[e.certainty].label} certainty</span>
+                      </a>
+                    ) : <span class="none" aria-label="no record">·</span>}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      ))}
+    </table>
+  </div>
+
+  <style>
+    .em-key { display: flex; flex-wrap: wrap; gap: .8rem 2rem; padding: .8rem 1rem; margin-bottom: 1.2rem; font-size: .82rem; color: var(--ink-2); }
+    .k-h { margin: 0 0 .3rem; font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+    .k { display: inline-flex; align-items: center; gap: .35rem; margin-right: .9rem; }
+    .k-note { flex-basis: 100%; margin: 0; font-size: .78rem; color: var(--ink-3); }
+    .k-note a { text-decoration: none; }
+    .em-wrap { overflow-x: auto; position: relative; }
+    .cell { position: relative; }
+    .em { border-collapse: collapse; min-width: 680px; width: 100%; font-size: .88rem; }
+    .em th, .em td { border-bottom: 1px solid var(--line); padding: .35rem .4rem; }
+    .em thead th { vertical-align: bottom; font: 600 .74rem var(--font); color: var(--ink-2); text-align: center; }
+    .em thead th:first-child { text-align: left; }
+    .gh span { display: inline-block; max-width: 7.5em; line-height: 1.2; }
+    .em tbody th[scope='row'] { text-align: left; font-weight: 500; white-space: nowrap; }
+    .em tbody th a { text-decoration: none; }
+    .mrow th { text-align: left; font: 650 .74rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); background: var(--surface-2); padding: .4rem .5rem; }
+    .em td { text-align: center; }
+    .cell { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 6px; }
+    .cell:hover { background: var(--accent-soft); }
+    .none { color: var(--line-strong); }
+    .m { display: inline-block; border-radius: 50%; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) var(--f), var(--surface)); }
+    .s-large { width: 20px; height: 20px; }
+    .s-moderate { width: 15px; height: 15px; }
+    .s-small { width: 10px; height: 10px; }
+    .s-none { width: 13px; height: 13px; border-style: dashed; background: none !important; }
+    .s-unclear { width: 12px; height: 12px; border-radius: 3px; border-style: dotted; background: none !important; }
+    .c-high { --f: 100%; }
+    .c-moderate { --f: 70%; }
+    .c-low { --f: 38%; }
+    .c-very-low { --f: 12%; }
+    .c-not-graded { --f: 0%; background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--accent) 45%, transparent) 0 2px, transparent 2px 4px); }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  </style>
+</Base>
