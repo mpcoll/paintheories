@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/data';
+import { getInstruments, instrumentUrl, CATEGORY_ORDER, CONSTRUCT_ORDER, POPULATION_ORDER } from '../../lib/assessment';
+import { CATEGORIES, CONSTRUCTS, POPULATIONS, AVAILABILITY } from '../../data/assessment-taxonomy';
+
+const instruments = await getInstruments();
+const cats = CATEGORY_ORDER.filter((c) => instruments.some((i) => i.data.category === c));
+const constructs = CONSTRUCT_ORDER.filter((k) => instruments.some((i) => i.data.constructs.includes(k)));
+const pops = POPULATION_ORDER.filter((p) => instruments.some((i) => i.data.populations.includes(p)));
+const byCat = cats.map((c) => ({ key: c, items: instruments.filter((i) => i.data.category === c) }));
+const popAttr = (i: (typeof instruments)[number]) => i.data.populations.join(' ');
+---
+
+<Base title="Pain assessment" description="How pain is measured: rating scales, questionnaires, observational scales, quantitative sensory testing and neurophysiology, with what each measures, measurement properties and terms of use.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Assessment</p>
+    <h1>Measuring pain</h1>
+    <p class="lede">Pain is private, so every measure is indirect: a rating, a questionnaire, an observer's judgement, a response to a controlled stimulus or a recording of the nervous system. {instruments.length} instruments, with what each measures, in whom it was tested, its measurement properties as the sources report them, and its terms of use.</p>
+  </header>
+
+  <nav class="jump" aria-label="In this module">
+    <a class="card jc" href={url('assessment/core-outcomes/')}><strong>Core outcomes</strong><span>The IMMPACT domains that chronic pain trials should measure, and the instruments recommended for each.</span></a>
+    <a class="card jc" href={url('assessment/meaningful-change/')}><strong>Meaningful change</strong><span>How much a pain score has to fall to matter. Try the calculator.</span></a>
+    <a class="card jc" href={url('assessment/psychophysics/')}><strong>Psychophysics</strong><span>Quantitative sensory testing profiles, temporal summation and conditioned pain modulation.</span></a>
+  </nav>
+
+  <section id="am" data-pop="">
+    <div class="am-bar" data-pagefind-ignore>
+      <h2>What can be measured</h2>
+      <div class="pop" role="group" aria-label="Population">
+        <span class="pop-l">Population</span>
+        <button type="button" data-p="" aria-pressed="true">All</button>
+        {pops.map((p) => <button type="button" data-p={p} aria-pressed="false" title={POPULATIONS[p].description}>{POPULATIONS[p].label}</button>)}
+      </div>
+    </div>
+    <p class="am-note">Rows are what is measured, columns how. An instrument appears in every row it covers. Choosing a population fades instruments not tested in it.</p>
+    <div class="am-wrap">
+      <table class="am">
+        <thead><tr><th scope="col"><span class="vh">Construct</span></th>{cats.map((c) => <th scope="col" title={CATEGORIES[c].description}>{CATEGORIES[c].label}</th>)}</tr></thead>
+        <tbody>
+          {constructs.map((k) => (
+            <tr>
+              <th scope="row" title={CONSTRUCTS[k].description}>{CONSTRUCTS[k].label}</th>
+              {cats.map((c) => {
+                const here = instruments.filter((i) => i.data.category === c && i.data.constructs.includes(k));
+                return (
+                  <td data-cat={CATEGORIES[c].label}>
+                    {here.length ? here.map((i) => <a class="chip" href={instrumentUrl(i.id)} title={i.data.title} data-pops={popAttr(i)}>{i.data.short}</a>) : <span class="none" aria-label="none">·</span>}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="all-h">All instruments</h2>
+    {byCat.map((g) => (
+      <div class="grp">
+        <h3>{CATEGORIES[g.key].label} <span class="grp-d">{CATEGORIES[g.key].description}</span></h3>
+        <ul class="rows">
+          {g.items.map((i) => (
+            <li><a class="row" href={instrumentUrl(i.id)} data-pops={popAttr(i)}>
+              <span class="r-t">{i.data.title} <span class="r-s">{i.data.short}</span></span>
+              <span class="r-c">{i.data.constructs.map((k) => CONSTRUCTS[k].label).join(' · ')}</span>
+              <span class="r-p">{i.data.populations.map((p) => POPULATIONS[p].label).join(', ')}</span>
+              <span class={`av av-${i.data.availability.status}`}>{AVAILABILITY[i.data.availability.status].label}</span>
+            </a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <p class="muted fine">Terms of use are summarised from the developer's or licence holder's page on the date shown on each instrument page; they change, so check before use. This site describes instruments and does not reproduce their items. Data: <a href={url('data/instruments.json')}>instruments.json</a>.</p>
+
+  <style>
+    .jump { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: 0 0 2.2rem; }
+    @media (max-width: 760px) { .jump { grid-template-columns: 1fr; } }
+    .jc { display: grid; gap: .25rem; padding: .9rem 1rem; text-decoration: none; color: inherit; }
+    .jc strong { font: 600 1.02rem var(--serif); color: var(--accent-ink); }
+    .jc span { font-size: .88rem; color: var(--ink-2); }
+    .jc:hover { border-color: var(--accent); }
+    .am-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; }
+    .am-bar h2 { margin: 0; }
+    .pop { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+    .pop-l { font-size: .78rem; color: var(--ink-3); margin-right: .2rem; }
+    .pop button { font: 500 .8rem var(--font); padding: .2rem .55rem; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2); cursor: pointer; }
+    .pop button[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    .am-note { font-size: .84rem; color: var(--ink-3); margin: .4rem 0 .8rem; }
+    .am-wrap { overflow-x: auto; }
+    .am { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .86rem; table-layout: fixed; }
+    .am th, .am td { border-bottom: 1px solid var(--line); padding: .45rem .5rem; vertical-align: top; text-align: left; }
+    .am thead th { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+    .am thead th:first-child { width: 11.5rem; }
+    .am tbody th { font: 600 .86rem var(--font); color: var(--ink); text-transform: none; letter-spacing: 0; }
+    .am td { line-height: 1.9; }
+    .chip { display: inline-block; font: 600 .76rem var(--font); padding: .08rem .45rem; margin: 0 .2rem .1rem 0; border-radius: 6px; background: var(--accent-soft); color: var(--accent-ink); text-decoration: none; white-space: nowrap; line-height: 1.5; transition: opacity .15s; }
+    .chip:hover { background: var(--accent); color: var(--bg); }
+    .none { color: var(--line-strong); }
+    .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .faded { opacity: .22; }
+    @media (max-width: 640px) {
+      .am, .am tbody, .am tr, .am th, .am td { display: block; min-width: 0; width: auto !important; }
+      .am thead { display: none; }
+      .am tr { border-bottom: 1px solid var(--line); padding: .5rem 0; }
+      .am th, .am td { border: 0; padding: .1rem 0; }
+      .am td:has(.none) { display: none; }
+      .am td::before { content: attr(data-cat); display: inline-block; min-width: 7.5rem; font-size: .74rem; color: var(--ink-3); }
+    }
+    .all-h { margin-top: 2.4rem; }
+    .grp h3 { font-size: 1.1rem; margin: 1.3rem 0 .45rem; }
+    .grp-d { font: 400 .84rem var(--font); color: var(--ink-3); margin-left: .3rem; }
+    .rows { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .rows > li + li { border-top: 1px solid var(--line); }
+    .row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr) minmax(0, .9fr) 8.5rem; gap: .2rem 1rem; align-items: center; padding: .5rem .8rem; text-decoration: none; color: inherit; transition: opacity .15s; }
+    .row:hover { background: var(--accent-soft); }
+    .r-t { font-weight: 500; }
+    .r-s { font: 600 .74rem var(--font); color: var(--ink-3); margin-left: .25rem; }
+    .r-c, .r-p { font-size: .8rem; color: var(--ink-3); }
+    .av { justify-self: end; font: 600 .7rem var(--font); padding: .08rem .45rem; border-radius: 5px; border: 1px solid; white-space: nowrap; }
+    .av-free { color: var(--ev-support); border-color: var(--ev-support); }
+    .av-permission { color: var(--accent-ink); border-color: var(--accent); }
+    .av-licensed { color: var(--ink-2); border-color: var(--line-strong); background: var(--surface-2); }
+    .av-unclear { color: var(--ink-3); border-color: var(--line-strong); border-style: dashed; }
+    @media (max-width: 760px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .r-c, .r-p { grid-column: 1 / -1; } .av { grid-row: 1; grid-column: 2; } }
+    .fine { font-size: .82rem; margin-top: 2rem; }
+  </style>
+
+  <script>
+    const root = document.getElementById('am')!;
+    const btns = root.querySelectorAll<HTMLButtonElement>('.pop button');
+    function apply(p: string) {
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.p === p)));
+      root.querySelectorAll<HTMLElement>('[data-pops]').forEach((el) => el.classList.toggle('faded', !!p && !el.dataset.pops!.split(' ').includes(p)));
+      const q = new URLSearchParams(location.search); if (p) q.set('population', p); else q.delete('population');
+      history.replaceState(null, '', q.size ? `?${q}` : location.pathname);
+    }
+    btns.forEach((b) => b.addEventListener('click', () => apply(b.dataset.p!)));
+    const p0 = new URLSearchParams(location.search).get('population');
+    if (p0 && [...btns].some((b) => b.dataset.p === p0)) apply(p0);
+  </script>
+</Base>

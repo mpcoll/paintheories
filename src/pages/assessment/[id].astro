@@ -1,0 +1,121 @@
+---
+import { getEntries, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Notice from '../../components/Notice.astro';
+import { url, cite, formatReference, resolveRefs, type Mechanism, type Theory } from '../../lib/data';
+import { getInstruments, instrumentUrl, PROPERTY_ORDER, type Instrument } from '../../lib/assessment';
+import { conditionUrl } from '../../lib/conditions';
+import { CATEGORIES, CONSTRUCTS, POPULATIONS, IMMPACT_DOMAINS, PROPERTY_KINDS, AVAILABILITY } from '../../data/assessment-taxonomy';
+
+export async function getStaticPaths() {
+  const all = await getInstruments();
+  return all.map((i) => ({ params: { id: i.id }, props: { instrument: i, all } }));
+}
+const { instrument, all } = Astro.props as { instrument: Instrument; all: Instrument[] };
+const d = instrument.data;
+const { Content } = await render(instrument);
+const refIds = [...new Set([...d.properties.flatMap((p) => p.refs), ...(d.immpact?.refs ?? []), ...d.references].map((r) => r.id))];
+const refs = await resolveRefs(refIds.map((id) => ({ id, collection: 'references' })));
+const byId = new Map([...refs, ...(await resolveRefs([{ id: 'mokkink2010', collection: 'references' }]))].map((r) => [r.id, r]));
+const links = (rs: { id: string }[]) => rs.map((r) => byId.get(r.id)!).map((r) => ({ label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : r.data.url ?? url(`references/#${r.id}`), title: r.data.title }));
+const sortedRefs = [...refs].sort((a, b) => a.data.authors[0].localeCompare(b.data.authors[0]) || a.data.year - b.data.year);
+const properties = [...d.properties].sort((a, b) => PROPERTY_ORDER.indexOf(a.kind) - PROPERTY_ORDER.indexOf(b.kind));
+const mechanisms = d.mechanisms.length ? ((await getEntries(d.mechanisms)) as Mechanism[]) : [];
+const theories = d.theories.length ? ((await getEntries(d.theories)) as Theory[]) : [];
+const conditions = d.conditions.length ? ((await getEntries(d.conditions)) as any[]) : [];
+const relatedIds = new Set([...d.related.map((r) => r.id), ...all.filter((i) => i.data.related.some((r) => r.id === instrument.id)).map((i) => i.id)]);
+const related = all.filter((i) => relatedIds.has(i.id) && i.id !== instrument.id);
+const reviewLabel = { stub: 'Stub: only the basic facts are filled in.', draft: 'Draft: not yet reviewed by a domain expert.', reviewed: '' }[d.review];
+const psych = d.category === 'psychophysical';
+---
+
+<Base title={`${d.title} (${d.short})`} description={d.summary}>
+  <p class="crumbs"><a href={url('assessment/')}>Pain Assessment</a> / {CATEGORIES[d.category].label}</p>
+  <header class="i-head">
+    <p class="eyebrow">{CATEGORIES[d.category].label} · {d.constructs.map((k) => CONSTRUCTS[k].label).join(' · ')}</p>
+    <h1>{d.title} <span class="short">{d.short}</span></h1>
+    {d.aliases.length > 0 && <p class="aka">Also: {d.aliases.join('; ')}</p>}
+    <p class="lede">{d.summary}</p>
+  </header>
+  {reviewLabel && <div data-pagefind-ignore><Notice>{reviewLabel} Spotted an error? <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>Report it on GitHub</a>.</Notice></div>}
+
+  <div class="theory-layout">
+    <article class="prose article">
+      <Content />
+
+      <h2 id="properties">Measurement properties</h2>
+      {properties.length ? (
+        <dl class="props">
+          {properties.map((p) => (
+            <div class="prop">
+              <dt><span class={`pk pk-${p.kind}`} title={PROPERTY_KINDS[p.kind].description}>{PROPERTY_KINDS[p.kind].label}</span></dt>
+              <dd>{p.value}{p.population && <span class="sub">Sample: {p.population}</span>}<span class="refl">{links(p.refs).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></dd>
+            </div>
+          ))}
+        </dl>
+      ) : <p class="muted">No measurement properties recorded yet.</p>}
+      <p class="muted fn">Values are given as the cited source reports them, in the sample studied; they may not transfer to other populations or versions. Terms follow COSMIN [{links([{ id: 'mokkink2010' }]).map((l) => <a href={l.href} title={l.title}>{l.label}</a>)}]. {d.properties.some((p) => p.kind === 'mic') && <>See <a href={url('assessment/meaningful-change/')}>Meaningful change</a>.</>}</p>
+
+      {d.immpact && <>
+        <h2 id="immpact">In clinical trials</h2>
+        <p><span class="dom">IMMPACT: {IMMPACT_DOMAINS[d.immpact.domain].label}</span> {d.immpact.note} <span class="refl">{links(d.immpact.refs).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></p>
+        <p class="fn"><a href={url('assessment/core-outcomes/')}>All core outcome domains →</a></p>
+      </>}
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        {sortedRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl ? <a class="doi" href={f.doiUrl}>DOI ↗</a> : r.data.url && <a class="doi" href={r.data.url}>Link ↗</a>}</li>; })}
+      </ul>
+      <p class="muted" style="font-size:.85rem">Last updated {d.updated.toISOString().slice(0, 10)} · <a href={`https://github.com/mpcoll/paintheories/blob/main/src/content/instruments/${instrument.id}.md`}>View source</a></p>
+    </article>
+    <aside class="side" data-pagefind-ignore>
+      <section class="card">
+        <h2>At a glance</h2>
+        <dl class="facts">
+          <dt>Type</dt><dd>{CATEGORIES[d.category].label}</dd>
+          <dt>Measures</dt><dd>{d.constructs.map((k) => CONSTRUCTS[k].label).join(', ')}</dd>
+          <dt>Tested in</dt><dd>{d.populations.map((p) => POPULATIONS[p].label).join(', ')}</dd>
+          {d.format.items && <><dt>Items</dt><dd>{d.format.items}</dd></>}
+          <dt>{psych ? 'Duration' : 'Time'}</dt><dd>{d.format.time}</dd>
+          <dt>{psych ? 'Output' : 'Scoring'}</dt><dd>{d.format.scale}</dd>
+        </dl>
+      </section>
+      <section class="card">
+        <h2>{psych || d.category === 'neurophysiological' ? 'Access' : 'Terms of use'}</h2>
+        <p class={`av av-${d.availability.status}`}>{AVAILABILITY[d.availability.status].label}</p>
+        <p class="av-note">{d.availability.note}</p>
+        {d.availability.url && <a class="more" href={d.availability.url}>Developer or licence page ↗</a>}
+      </section>
+      {conditions.length > 0 && <section class="card"><h2>Used in</h2><ul>{conditions.map((c) => <li><a href={conditionUrl(c.id)}>{c.data.title}</a></li>)}</ul></section>}
+      {theories.length > 0 && <section class="card"><h2>Theories</h2><ul>{theories.map((t) => <li><a href={url(`theories/${t.id}/`)}>{t.data.shortTitle ?? t.data.title}</a></li>)}</ul></section>}
+      {mechanisms.length > 0 && <section class="card"><h2>Mechanisms</h2><ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul></section>}
+      {related.length > 0 && <section class="card"><h2>Related instruments</h2><ul>{related.map((i) => <li><a href={instrumentUrl(i.id)}>{i.data.title}</a></li>)}</ul></section>}
+    </aside>
+  </div>
+
+  <style>
+    .i-head { max-width: 52rem; }
+    .short { font: 600 .55em var(--font); color: var(--ink-3); vertical-align: .25em; margin-left: .2rem; }
+    .article { min-width: 0; }
+    .aka { color: var(--ink-3); margin: -.3rem 0 .6rem; font-size: .95rem; }
+    .refl { display: block; font-size: .82rem; color: var(--ink-3); }
+    .refl a { text-decoration: none; }
+    .props { margin: 0; display: grid; gap: 0; }
+    .prop { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .3rem 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+    @media (max-width: 560px) { .prop { grid-template-columns: 1fr; } }
+    .prop dt { margin: 0; }
+    .prop dd { margin: 0; font-size: .95rem; }
+    .pk { display: inline-block; font: 600 .72rem var(--font); padding: .1rem .45rem; border-radius: 6px; border: 1.5px solid var(--accent); color: var(--accent-ink); white-space: nowrap; }
+    .pk-mic, .pk-cutoff { background: var(--accent); color: var(--bg); }
+    .sub { display: block; font-size: .82rem; color: var(--ink-3); margin-top: .15rem; }
+    .fn { font-size: .82rem; }
+    .fn a { text-decoration: none; }
+    .dom { display: inline-block; font: 600 .74rem var(--font); padding: .1rem .5rem; border-radius: 6px; background: var(--ink); color: var(--bg); margin-right: .3rem; }
+    .av { display: inline-block; font: 600 .74rem var(--font); padding: .1rem .5rem; border-radius: 6px; border: 1.5px solid; margin: 0 0 .4rem; }
+    .av-free { color: var(--ev-support); border-color: var(--ev-support); }
+    .av-permission { color: var(--accent-ink); border-color: var(--accent); }
+    .av-licensed { color: var(--ink-2); border-color: var(--line-strong); background: var(--surface-2); }
+    .av-unclear { color: var(--ink-3); border-color: var(--line-strong); border-style: dashed; }
+    .av-note { font-size: .86rem; color: var(--ink-2); margin: 0 0 .5rem; }
+  </style>
+</Base>

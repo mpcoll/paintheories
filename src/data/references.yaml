@@ -14305,3 +14305,335 @@
   pages: 633-639
   doi: 10.1111/j.1469-7793.2000.t01-1-00633.x
   source: crossref
+- id: dworkin2005
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Turk, D. C.
+    - Farrar, J. T.
+    - Haythornthwaite, J. A.
+    - Jensen, M. P.
+    - Katz, N. P.
+    - Kerns, R. D.
+    - Stucki, G.
+    - Allen, R. R.
+    - Bellamy, N.
+    - Carr, D. B.
+    - Chandler, J.
+    - Cowan, P.
+    - Dionne, R.
+    - Galer, B. S.
+    - Hertz, S.
+    - Jadad, A. R.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - Martin, S.
+    - McCormick, C. G.
+    - McDermott, M. P.
+    - McGrath, P.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Robbins, W.
+    - Robinson, J. P.
+    - Rothman, M.
+    - Royal, M. A.
+    - Simon, L.
+    - Stauffer, J. W.
+    - Stein, W.
+    - Tollett, J.
+    - Wernicke, J.
+    - Witter, J.
+  year: 2005
+  title: "Core outcome measures for chronic pain clinical trials: IMMPACT recommendations"
+  container: Pain
+  volume: "113"
+  issue: "1"
+  pages: 9-19
+  doi: 10.1016/j.pain.2004.09.012
+  source: crossref
+- id: dworkin2008
+  type: article
+  authors:
+    - Dworkin, R. H.
+    - Turk, D. C.
+    - Wyrwich, K. W.
+    - Beaton, D.
+    - Cleeland, C. S.
+    - Farrar, J. T.
+    - Haythornthwaite, J. A.
+    - Jensen, M. P.
+    - Kerns, R. D.
+    - Ader, D. N.
+    - Brandenburg, N.
+    - Burke, L. B.
+    - Cella, D.
+    - Chandler, J.
+    - Cowan, P.
+    - Dimitrova, R.
+    - Dionne, R.
+    - Hertz, S.
+    - Jadad, A. R.
+    - Katz, N. P.
+    - Kehlet, H.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - McCormick, C.
+    - McDermott, M. P.
+    - McQuay, H. J.
+    - Patel, S.
+    - Porter, L.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Rauschkolb, C.
+    - Revicki, D. A.
+    - Rothman, M.
+    - Schmader, K. E.
+    - Stacey, B. R.
+    - Stauffer, J. W.
+    - von Stein, T.
+    - White, R. E.
+    - Witter, J.
+    - Zavisic, S.
+  year: 2008
+  title: "Interpreting the Clinical Importance of Treatment Outcomes in Chronic Pain Clinical Trials: IMMPACT Recommendations"
+  container: The Journal of Pain
+  volume: "9"
+  issue: "2"
+  pages: 105-121
+  doi: 10.1016/j.jpain.2007.09.005
+  source: crossref
+- id: farrar2001
+  type: article
+  authors:
+    - Farrar, J. T.
+    - Young, J. P.
+    - LaMoreaux, L.
+    - Werth, J. L.
+    - Poole, M. R.
+  year: 2001
+  title: Clinical importance of changes in chronic pain intensity measured on an 11-point numerical pain rating scale
+  container: Pain
+  volume: "94"
+  issue: "2"
+  pages: 149-158
+  doi: 10.1016/s0304-3959(01)00349-9
+  source: crossref
+- id: rolke2006
+  type: article
+  authors:
+    - Rolke, R.
+    - Baron, R.
+    - Maier, C.
+    - Tölle, T. R.
+    - Treede, D. R.
+    - Beyer, A.
+    - Binder, A.
+    - Birbaumer, N.
+    - Birklein, F.
+    - Bötefür, I. C.
+    - Braune, S.
+    - Flor, H.
+    - Huge, V.
+    - Klug, R.
+    - Landwehrmeyer, G. B.
+    - Magerl, W.
+    - Maihöfner, C.
+    - Rolko, C.
+    - Schaub, C.
+    - Scherens, A.
+    - Sprenger, T.
+    - Valet, M.
+    - Wasserka, B.
+  year: 2006
+  title: "Quantitative sensory testing in the German Research Network on Neuropathic Pain (DFNS): Standardized protocol and reference values"
+  container: Pain
+  volume: "123"
+  issue: "3"
+  pages: 231-243
+  doi: 10.1016/j.pain.2006.01.041
+  source: crossref
+- id: yarnitsky2015
+  type: article
+  authors:
+    - Yarnitsky, D.
+    - Bouhassira, D.
+    - Drewes, A. M.
+    - Fillingim, R. B.
+    - Granot, M.
+    - Hansson, P.
+    - Landau, R.
+    - Marchand, S.
+    - Matre, D.
+    - Nilsen, K. B.
+    - Stubhaug, A.
+    - Treede, R. D.
+    - Wilder‐Smith, O. H. G.
+  year: 2015
+  title: Recommendations on practice of conditioned pain modulation ( CPM ) testing
+  container: European Journal of Pain
+  volume: "19"
+  issue: "6"
+  pages: 805-806
+  doi: 10.1002/ejp.605
+  source: crossref
+- id: baron2017
+  type: article
+  authors:
+    - Baron, R.
+    - Maier, C.
+    - Attal, N.
+    - Binder, A.
+    - Bouhassira, D.
+    - Cruccu, G.
+    - Finnerup, N. B.
+    - Haanpää, M.
+    - Hansson, P.
+    - Hüllemann, P.
+    - Jensen, T. S.
+    - Freynhagen, R.
+    - Kennedy, J. D.
+    - Magerl, W.
+    - Mainka, T.
+    - Reimer, M.
+    - Rice, A. S. C.
+    - Segerdahl, M.
+    - Serra, J.
+    - Sindrup, S.
+    - Sommer, C.
+    - Tölle, T.
+    - Vollert, J.
+    - Treede, R. D.
+    - on behalf of the German Neuropathic Pain Research Network (DFNS), and the EUROPAIN, and NEUROPAIN consortia
+  year: 2017
+  title: "Peripheral neuropathic pain: a mechanism-related organizing principle based on sensory profiles"
+  container: Pain
+  volume: "158"
+  issue: "2"
+  pages: 261-272
+  doi: 10.1097/j.pain.0000000000000753
+  source: crossref
+- id: mokkink2010
+  type: article
+  authors:
+    - Mokkink, L. B.
+    - Terwee, C. B.
+    - Patrick, D. L.
+    - Alonso, J.
+    - Stratford, P. W.
+    - Knol, D. L.
+    - Bouter, L. M.
+    - de Vet, H. C. W.
+  year: 2010
+  title: The COSMIN study reached international consensus on taxonomy, terminology, and definitions of measurement properties for health-related patient-reported outcomes
+  container: Journal of Clinical Epidemiology
+  volume: "63"
+  issue: "7"
+  pages: 737-745
+  doi: 10.1016/j.jclinepi.2010.02.006
+  source: crossref
+- id: hjermstad2011
+  type: article
+  authors:
+    - Hjermstad, M. J.
+    - Fayers, P. M.
+    - Haugen, D. F.
+    - Caraceni, A.
+    - Hanks, G. W.
+    - Loge, J. H.
+    - Fainsinger, R.
+    - Aass, N.
+    - Kaasa, S.
+  year: 2011
+  title: "Studies Comparing Numerical Rating Scales, Verbal Rating Scales, and Visual Analogue Scales for Assessment of Pain Intensity in Adults: A Systematic Literature Review"
+  container: Journal of Pain and Symptom Management
+  volume: "41"
+  issue: "6"
+  pages: 1073-1093
+  doi: 10.1016/j.jpainsymman.2010.08.016
+  source: crossref
+- id: moore2010
+  type: article
+  authors:
+    - Moore, R. A.
+    - Moore, O. A.
+    - Derry, S.
+    - Peloso, P. M.
+    - Gammaitoni, A. R.
+    - Wang, H.
+  year: 2010
+  title: "Responder analysis for pain relief and numbers needed to treat in a meta-analysis of etoricoxib osteoarthritis trials: bridging a gap between clinical trials and clinical practice"
+  container: Annals of the Rheumatic Diseases
+  volume: "69"
+  issue: "2"
+  pages: 374-379
+  doi: 10.1136/ard.2009.107805
+  source: crossref
+- id: sullivan1995
+  type: article
+  authors:
+    - Sullivan, M. J. L.
+    - Bishop, S. R.
+    - Pivik, J.
+  year: 1995
+  title: "The Pain Catastrophizing Scale: Development and validation."
+  container: Psychological Assessment
+  volume: "7"
+  issue: "4"
+  pages: 524-532
+  doi: 10.1037/1040-3590.7.4.524
+  source: crossref
+- id: osman2000
+  type: article
+  authors:
+    - Osman, A.
+    - Barrios, F. X.
+    - Gutierrez, P. M.
+    - Kopper, B. A.
+    - Merrifield, T.
+    - Grittmann, L.
+  year: 2000
+  title: "The Pain Catastrophizing Scale: Further Psychometric Evaluation with Adult Samples"
+  container: Journal of Behavioral Medicine
+  volume: "23"
+  issue: "4"
+  pages: 351-365
+  doi: 10.1023/a:1005548801037
+  source: crossref
+- id: turk2003
+  type: article
+  authors:
+    - Turk, D. C.
+    - Dworkin, R. H.
+    - Allen, R. R.
+    - Bellamy, N.
+    - Brandenburg, N.
+    - Carr, D. B.
+    - Cleeland, C.
+    - Dionne, R.
+    - Farrar, J. T.
+    - Galer, B. S.
+    - Hewitt, D. J.
+    - Jadad, A. R.
+    - Katz, N. P.
+    - Kramer, L. D.
+    - Manning, D. C.
+    - McCormick, C. G.
+    - McDermott, M. P.
+    - McGrath, P.
+    - Quessy, S.
+    - Rappaport, B. A.
+    - Robinson, J. P.
+    - Royal, M. A.
+    - Simon, L.
+    - Stauffer, J. W.
+    - Stein, W.
+    - Tollett, J.
+    - Witter, J.
+  year: 2003
+  title: "Core outcome domains for chronic pain clinical trials: IMMPACT recommendations"
+  container: Pain
+  volume: "106"
+  issue: "3"
+  pages: 337-345
+  doi: 10.1016/j.pain.2003.08.001
+  source: crossref
