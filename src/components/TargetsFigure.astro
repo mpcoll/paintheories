@@ -1,0 +1,70 @@
+---
+/**
+ * "Where it acts": treatments placed on the levels of the pain system they are thought
+ * to target, from peripheral tissue to behaviour. A treatment can sit on several levels.
+ * Modality filter dims the others.
+ */
+import { MODALITIES, TARGETS } from '../data/treatments-taxonomy';
+import { TARGET_ORDER, MODALITY_ORDER, treatmentUrl, type Treatment } from '../lib/treatments';
+import { url } from '../lib/data';
+
+interface Props { treatments: Treatment[] }
+const { treatments } = Astro.props;
+const levels = [...TARGET_ORDER].reverse(); // behaviour at the top, periphery at the bottom
+const LINK: Record<string, string> = { periphery: 'biology/periphery/', spinal: 'biology/periphery/#gate', descending: 'biology/?pathway=descending', brain: 'biology/imaging/', mind: 'theories/', behaviour: 'theories/' };
+const present = MODALITY_ORDER.filter((m) => treatments.some((t) => t.data.modality === m));
+---
+<div class="tf card" id="tf">
+  <div class="tf-bar" role="group" aria-label="Highlight a modality">
+    <button type="button" class="chip" data-mod="" aria-pressed="true">All</button>
+    {present.map((m) => <button type="button" class="chip" data-mod={m} aria-pressed="false">{MODALITIES[m].label}</button>)}
+  </div>
+  <ol class="tf-levels">
+    {levels.map((lv, i) => (
+      <li class={`lv lv-${lv}`}>
+        <div class="lv-h">
+          <a href={url(LINK[lv])} class="lv-name">{TARGETS[lv].label}</a>
+          <span class="lv-d">{TARGETS[lv].description}</span>
+        </div>
+        <ul class="lv-t">
+          {treatments.filter((t) => t.data.targets.includes(lv)).map((t) => (
+            <li><a class="tchip" href={treatmentUrl(t.id)} data-mod={t.data.modality} title={`${t.data.title}: ${MODALITIES[t.data.modality].label}`}>{t.data.aliases[0] && t.data.title.length > 28 ? t.data.aliases[0] : t.data.title}</a></li>
+          ))}
+        </ul>
+        {i < levels.length - 1 && <span class="arrow" aria-hidden="true"></span>}
+      </li>
+    ))}
+  </ol>
+  <p class="tf-foot">Levels run from the body (bottom) to thoughts and behaviour (top). Placement follows each treatment's proposed mechanism, which for many treatments is uncertain. Select a level for the biology behind it.</p>
+</div>
+
+<style>
+  .tf { padding: 1rem 1.1rem; }
+  .tf-bar { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .8rem; }
+  .chip { font: 500 .82rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .26rem .66rem; cursor: pointer; }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .tf-levels { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+  .lv { display: grid; grid-template-columns: minmax(170px, 230px) minmax(0, 1fr); gap: .3rem 1rem; align-items: start; padding: .55rem .7rem; border-radius: 10px; background: color-mix(in srgb, var(--c) 9%, var(--surface)); border-left: 4px solid var(--c); position: relative; }
+  @media (max-width: 640px) { .lv { grid-template-columns: 1fr; } }
+  .lv-behaviour, .lv-mind { --c: var(--d5); }
+  .lv-brain, .lv-descending { --c: var(--d1); }
+  .lv-spinal, .lv-periphery { --c: var(--d3); }
+  .lv-name { font: 650 .95rem var(--font); text-decoration: none; color: var(--ink); }
+  .lv-name:hover { color: var(--accent-ink); }
+  .lv-d { display: block; font-size: .76rem; color: var(--ink-3); }
+  .lv-t { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem; align-content: start; }
+  .tchip { display: inline-block; font-size: .8rem; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 7px; padding: .14rem .5rem; transition: opacity .2s; }
+  .tchip:hover { border-color: var(--accent); color: var(--accent-ink); }
+  #tf[data-mod]:not([data-mod='']) .tchip:not(.on) { opacity: .22; }
+  .tf-foot { font-size: .78rem; color: var(--ink-3); margin: .7rem 0 0; }
+</style>
+
+<script>
+  const root = document.getElementById('tf')!;
+  root.querySelectorAll<HTMLButtonElement>('.tf-bar .chip').forEach((b) => b.addEventListener('click', () => {
+    const m = b.dataset.mod!;
+    root.dataset.mod = m;
+    root.querySelectorAll('.tf-bar .chip').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    root.querySelectorAll<HTMLElement>('.tchip').forEach((c) => c.classList.toggle('on', c.dataset.mod === m));
+  }));
+</script>

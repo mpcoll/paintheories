@@ -107,3 +107,21 @@ The /biology/imaging/ findings and signatures are drafts. Judgement calls to che
 - [ ] LEP figure: peak latencies from Hu et al. 2014 (one study); N1 shown only as the 120-200 ms window of Hu & Iannetti 2019; shapes and amplitudes are schematic, and repetition scales all components equally.
 - [ ] Methods chart: resolution boxes are approximate orders of magnitude (editorial), with qualitative comparisons from Morton et al. 2016.
 - [ ] Map explorer: Neurosynth uniformity (consistency) maps, not association (reverse-inference) maps; study counts from Planum's published term table (pain 516 from the viewer).
+
+# Pain Treatments review notes (2026-11-27)
+
+29 treatment entries, all `review: draft`. Effect labels follow the fixed rules on /treatments/reading-evidence/;
+guideline records quote the guideline wording (NICE text fetched 27 November 2026; NG59 last updated 29 July 2026).
+Judgement calls to check:
+
+- [ ] CDC 2022 for opioids recorded as "Consider" (weak-for): CDC prefers non-opioid therapies and says to "only consider initiating" opioids when benefits outweigh risks (category A).
+- [ ] NICE NG226 "do not routinely offer" paracetamol and weak opioids mapped to "Not recommended".
+- [ ] NeuPSIG 2025 outcomes are "responders" (≥50% or ≥30% reduction, or moderate relief); the NNT size rule is applied to them. Botulinum toxin NNT CI differs between the abstract (1.8 to 9.61) and the tables (1.8 to 5.1); both quoted.
+- [ ] Carbamazepine for trigeminal neuralgia: NNT 1.7 to 1.8 from small old trials, labelled large, not graded; NeuPSIG lists carbamazepine as inconclusive outside trigeminal neuralgia.
+- [ ] Migraine-day reductions (CGRP antibodies, botulinum toxin) labelled small by judgement; no listed guideline covers migraine.
+- [ ] TENS: Johnson 2022 (SMD -0.96, moderate certainty) pools acute and chronic pain during or right after stimulation, so it appears as "large" on the evidence map; the Cochrane overview is unclear, very low certainty.
+- [ ] Spinal cord stimulation add-on (open-label) downgraded from large to moderate by the lead editor.
+- [ ] Interdisciplinary programmes vs physical treatment (Kamper 2015, SMD 0.51, CI -0.01 to 1.04) labelled "no benefit" by the CI rule, although the review concluded programmes reduced pain.
+- [ ] Exercise: Fransen 2015 SMD -0.49 labelled small (authors: moderate); Hayden 2021 MD -15.2/100 labelled moderate (authors: clinically important); Bidonde 2017 labelled small.
+- [ ] Graded exposure, open-label placebo, acupuncture (targets, sham comparisons) and pain reprocessing therapy (one trial with 5-year follow-up) need expert reading.
+- [ ] EULAR 2017 full text was not accessible: only exercise (strong for) and multimodal rehabilitation (weak for, from the abstract) carry EULAR records.

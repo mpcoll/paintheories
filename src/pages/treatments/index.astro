@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import TargetsFigure from '../../components/TargetsFigure.astro';
+import { url } from '../../lib/data';
+import { getTreatments, treatmentUrl, guidelineCounts, bestEvidence, MODALITY_ORDER, GROUP_ORDER, type Treatment } from '../../lib/treatments';
+import { MODALITIES, GROUPS, EFFECT_SIZES, CERTAINTY } from '../../data/treatments-taxonomy';
+
+const treatments = await getTreatments();
+const byModality = MODALITY_ORDER.map((m) => ({ key: m, items: treatments.filter((t) => t.data.modality === m) })).filter((g) => g.items.length);
+const groupsPresent = GROUP_ORDER.filter((g) => treatments.some((t) => t.data.evidence.some((e) => e.group === g)));
+const evAttr = (t: Treatment) => Object.fromEntries(groupsPresent.map((g) => { const e = bestEvidence(t, g); return [`data-g-${g}`, e ? `${e.size}|${e.certainty}` : '']; }));
+---
+
+<Base title="Pain treatments" description="Treatments for pain (medicines, psychological, physical, interventional and other approaches) with where they act, the evidence by condition, and what guidelines recommend.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Treatments</p>
+    <h1>Treatments for pain</h1>
+    <p class="lede">{treatments.length} treatments, from medicines to psychological therapy, with where they are thought to act, the size and certainty of their effects, and what major guidelines recommend. This is a teaching and research resource, not medical advice.</p>
+  </header>
+
+  <section class="where">
+    <h2>Where they act</h2>
+    <TargetsFigure treatments={treatments} />
+  </section>
+
+  <section class="list" id="tl" data-g="">
+    <div class="tl-bar" data-pagefind-ignore>
+      <h2>All treatments</h2>
+      <label class="tl-pick">Show evidence for
+        <select id="tl-g">
+          <option value="">choose a condition group</option>
+          {groupsPresent.map((g) => <option value={g}>{GROUPS[g].label}</option>)}
+        </select>
+      </label>
+    </div>
+    <p class="tl-key" data-pagefind-ignore hidden>Best-supported result for the chosen group: effect size and GRADE certainty. "–" means no evidence record on this site yet. <a href={url('treatments/evidence/')}>Full evidence map →</a></p>
+    {byModality.map((g) => (
+      <div class="grp">
+        <h3>{MODALITIES[g.key].label}</h3>
+        <ul class="rows">
+          {g.items.map((t) => {
+            const gc = guidelineCounts(t);
+            return (
+              <li><a class="row" href={treatmentUrl(t.id)} {...evAttr(t)}>
+                <span class="r-t">{t.data.title}</span>
+                <span class="r-c">{t.data.class}</span>
+                <span class="r-g" title="Guideline recommendations on this site">
+                  {gc.for > 0 && <span class="gl-for">{gc.for} for</span>}
+                  {gc.against > 0 && <span class="gl-against">{gc.against} against</span>}
+                </span>
+                <span class="r-e" aria-live="polite"></span>
+              </a></li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </section>
+  <script type="application/json" id="tl-labels" set:html={JSON.stringify({ size: Object.fromEntries(Object.entries(EFFECT_SIZES).map(([k, v]) => [k, v.label])), cert: Object.fromEntries(Object.entries(CERTAINTY).map(([k, v]) => [k, v.label])) })} />
+
+  <style>
+    section { margin-bottom: 2.4rem; }
+    .where h2 { margin-top: 0; }
+    .tl-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; }
+    .tl-bar h2 { margin: 0; }
+    .tl-pick { font-size: .88rem; color: var(--ink-2); }
+    .tl-pick select { font: inherit; margin-left: .4rem; padding: .25rem .4rem; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+    .tl-key { font-size: .82rem; color: var(--ink-3); margin: .4rem 0 0; }
+    .tl-key a { text-decoration: none; }
+    .grp h3 { font-size: 1.1rem; margin: 1.3rem 0 .45rem; }
+    .rows { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .rows > li + li { border-top: 1px solid var(--line); }
+    .row { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr) auto auto; gap: .2rem 1rem; align-items: center; padding: .5rem .8rem; text-decoration: none; color: inherit; }
+    .row:hover { background: var(--accent-soft); }
+    .r-t { font-weight: 500; }
+    .r-c { font-size: .82rem; color: var(--ink-3); }
+    .r-g { display: flex; gap: .3rem; font-size: .74rem; white-space: nowrap; }
+    .gl-for, .gl-against { padding: .05rem .4rem; border-radius: 5px; border: 1px solid; }
+    .gl-for { color: var(--ev-support); border-color: var(--ev-support); }
+    .gl-against { color: var(--ev-contra); border-color: var(--ev-contra); }
+    .r-e { font-size: .8rem; color: var(--ink-2); white-space: nowrap; min-width: 0; }
+    #tl[data-g=''] .r-e { display: none; }
+    @media (max-width: 700px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .r-c { grid-column: 1 / -1; grid-row: 2; } .r-e { grid-column: 1 / -1; } }
+  </style>
+
+  <script>
+    const root = document.getElementById('tl')!;
+    const lab = JSON.parse(document.getElementById('tl-labels')!.textContent!);
+    const sel = document.getElementById('tl-g') as HTMLSelectElement;
+    function apply() {
+      const g = sel.value;
+      root.dataset.g = g;
+      (root.querySelector('.tl-key') as HTMLElement).hidden = !g;
+      root.querySelectorAll<HTMLElement>('.row').forEach((r) => {
+        const v = g ? r.getAttribute(`data-g-${g}`) : '';
+        const [size, cert] = (v || '').split('|');
+        r.querySelector('.r-e')!.textContent = v ? `${lab.size[size]} effect · ${lab.cert[cert]} certainty` : '–';
+      });
+      const p = new URLSearchParams(location.search); if (g) p.set('group', g); else p.delete('group');
+      history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+    }
+    sel.addEventListener('change', apply);
+    const g0 = new URLSearchParams(location.search).get('group');
+    if (g0 && [...sel.options].some((o) => o.value === g0)) sel.value = g0;
+    apply();
+  </script>
+</Base>

@@ -8,6 +8,7 @@ const mechanisms = await getCollection('mechanisms');
 const circuitStations = await getCollection('circuitStations');
 const gaps = await getCollection('gaps');
 const conditions = await getCollection('conditions');
+const treatments = await getCollection('treatments');
 const findings = theories.reduce((n, t) => n + t.data.evidence.length, 0);
 
 type Module = {
@@ -45,8 +46,10 @@ const modules: Module[] = [
   },
   {
     name: 'Pain Treatments',
-    status: 'planned',
-    blurb: 'Pharmacological, interventional, psychological and physical treatments, linked to their mechanisms of action and to the theories that motivate them.',
+    href: 'treatments/',
+    status: 'early',
+    blurb: 'Medicines, psychological, physical and interventional treatments: where they act, the size and certainty of their effects by condition, and what guidelines recommend.',
+    stats: [`${treatments.length} treatments`, 'evidence map', 'NICE · NeuPSIG · CDC · EULAR · ACP'],
     icon: 'M10 4 H14 V10 H20 V14 H14 V20 H10 V14 H4 V10 H10 Z',
   },
   {

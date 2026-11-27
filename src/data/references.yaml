@@ -12786,3 +12786,1522 @@
   pages: 2116-2124
   doi: 10.1152/jn.01088.2009
   source: crossref
+- id: soliman2025
+  type: article
+  authors:
+    - Soliman, N.
+    - Moisset, X.
+    - Ferraro, M. C.
+    - de Andrade, D. C.
+    - Baron, R.
+    - Belton, J.
+    - Bennett, D. L. H.
+    - Calvo, M.
+    - Dougherty, P.
+    - Gilron, I.
+    - Hietaharju, A. J.
+    - Hosomi, K.
+    - Kamerman, P. R.
+    - Kemp, H.
+    - Enax-Krumova, E. K.
+    - McNicol, E.
+    - Price, T. J.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Smith, B. H.
+    - Talkington, F.
+    - Truini, A.
+    - Vollert, J.
+    - Attal, N.
+    - Finnerup, N. B.
+    - Haroutounian, S.
+    - Abuukar Abdullahi, R.
+    - Evans, M.
+    - Freigang, S.
+    - Gwyther, B.
+    - Taricani Kubota, G.
+    - Phalip, J.
+    - Phillips, H.
+    - Ramirez Piriz, C.
+    - Istri Pramitasuri, T.
+    - Rottenberg, A.
+    - Hohenschurz-Schmidt, D.
+    - Tau-Lim, N.
+    - Than, Q. V.
+    - Wandrey, J. D.
+    - Wang, C.
+    - Zachariadis, A.
+    - Zunaid, M. D.
+  year: 2025
+  title: "Pharmacotherapy and non-invasive neuromodulation for neuropathic pain: a systematic review and meta-analysis"
+  container: The Lancet Neurology
+  volume: "24"
+  issue: "5"
+  pages: 413-428
+  doi: 10.1016/s1474-4422(25)00068-7
+  source: crossref
+- id: finnerup2015
+  type: article
+  authors:
+    - Finnerup, N. B.
+    - Attal, N.
+    - Haroutounian, S.
+    - McNicol, E.
+    - Baron, R.
+    - Dworkin, R. H.
+    - Gilron, I.
+    - Haanpää, M.
+    - Hansson, P.
+    - Jensen, T. S.
+    - Kamerman, P. R.
+    - Lund, K.
+    - Moore, A.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Rowbotham, M.
+    - Sena, E.
+    - Siddall, P.
+    - Smith, B. H.
+    - Wallace, M.
+  year: 2015
+  title: "Pharmacotherapy for neuropathic pain in adults: a systematic review and meta-analysis"
+  container: The Lancet Neurology
+  volume: "14"
+  issue: "2"
+  pages: 162-173
+  doi: 10.1016/s1474-4422(14)70251-0
+  source: crossref
+- id: dowell2022
+  type: article
+  authors:
+    - Dowell, D.
+    - Ragan, K. R.
+    - Jones, C. M.
+    - Baldwin, G. T.
+    - Chou, R.
+  year: 2022
+  title: CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022
+  container: MMWR. Recommendations and Reports
+  volume: "71"
+  issue: "3"
+  pages: 1-95
+  doi: 10.15585/mmwr.rr7103a1
+  source: crossref
+- id: macfarlane2017
+  type: article
+  authors:
+    - Macfarlane, G. J.
+    - Kronisch, C.
+    - Dean, L. E.
+    - Atzeni, F.
+    - Häuser, W.
+    - Fluß, E.
+    - Choy, E.
+    - Kosek, E.
+    - Amris, K.
+    - Branco, J.
+    - Dincer, F.
+    - Leino-Arjas, P.
+    - Longley, K.
+    - McCarthy, G. M.
+    - Makri, S.
+    - Perrot, S.
+    - Sarzi-Puttini, P.
+    - Taylor, A.
+    - Jones, G. T.
+  year: 2017
+  title: EULAR revised recommendations for the management of fibromyalgia
+  container: Annals of the Rheumatic Diseases
+  volume: "76"
+  issue: "2"
+  pages: 318-328
+  doi: 10.1136/annrheumdis-2016-209724
+  source: crossref
+- id: qaseem2017
+  type: article
+  authors:
+    - Qaseem, A.
+    - Wilt, T. J.
+    - McLean, R. M.
+    - Forciea, M. A.
+    - for the Clinical Guidelines Committee of the American College of Physicians*
+  year: 2017
+  title: "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians"
+  container: Annals of Internal Medicine
+  volume: "166"
+  issue: "7"
+  pages: 514-530
+  doi: 10.7326/m16-2367
+  source: crossref
+- id: guyatt2008
+  type: article
+  authors:
+    - Guyatt, G. H.
+    - Oxman, A. D.
+    - Vist, G. E.
+    - Kunz, R.
+    - Falck-Ytter, Y.
+    - Alonso-Coello, P.
+    - Schünemann, H. J.
+  year: 2008
+  title: "GRADE: an emerging consensus on rating quality of evidence and strength of recommendations"
+  container: BMJ
+  volume: "336"
+  issue: "7650"
+  pages: 924-926
+  doi: 10.1136/bmj.39489.470347.ad
+  source: crossref
+- id: nice2021
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2021
+  title: "Chronic pain (primary and secondary) in over 16s: assessment of all chronic pain and management of chronic primary pain (NICE guideline NG193)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng193
+  source: manual
+- id: nice2016
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2016
+  title: "Low back pain and sciatica in over 16s: assessment and management (NICE guideline NG59)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng59
+  note: Published 30 November 2016; last updated 29 July 2026.
+  source: manual
+- id: nice2022
+  type: other
+  authors:
+    - National Institute for Health and Care Excellence
+  year: 2022
+  title: "Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)"
+  publisher: National Institute for Health and Care Excellence
+  url: https://www.nice.org.uk/guidance/ng226
+  source: manual
+- id: lunn2014
+  type: article
+  authors:
+    - Lunn, M. P.
+    - Hughes, R. A.
+    - Wiffen, P. J.
+  year: 2014
+  title: Duloxetine for treating painful neuropathy, chronic pain or fibromyalgia
+  container: Cochrane Database of Systematic Reviews
+  volume: "2015"
+  issue: "10"
+  doi: 10.1002/14651858.cd007115.pub3
+  source: crossref
+- id: machado2015
+  type: article
+  authors:
+    - Machado, G. C.
+    - Maher, C. G.
+    - Ferreira, P. H.
+    - Pinheiro, M. B.
+    - Lin, C. W. C.
+    - Day, R. O.
+    - McLachlan, A. J.
+    - Ferreira, M. L.
+  year: 2015
+  title: "Efficacy and safety of paracetamol for spinal pain and osteoarthritis: systematic review and meta-analysis of randomised placebo controlled trials"
+  container: BMJ
+  volume: "350"
+  issue: mar31 2
+  pages: h1225-h1225
+  doi: 10.1136/bmj.h1225
+  source: crossref
+- id: leopoldino2019
+  type: article
+  authors:
+    - Leopoldino, A. O.
+    - Machado, G. C.
+    - Ferreira, P. H.
+    - Pinheiro, M. B.
+    - Day, R.
+    - McLachlan, A. J.
+    - Hunter, D. J.
+    - Ferreira, M. L.
+  year: 2019
+  title: Paracetamol versus placebo for knee and hip osteoarthritis
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "8"
+  doi: 10.1002/14651858.cd013273
+  source: crossref
+- id: saragiotto2016
+  type: article
+  authors:
+    - Saragiotto, B. T.
+    - Machado, G. C.
+    - Ferreira, M. L.
+    - Pinheiro, M. B.
+    - Abdel Shaheed, C.
+    - Maher, C. G.
+  year: 2016
+  title: Paracetamol for low back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "1"
+  doi: 10.1002/14651858.cd012230
+  source: crossref
+- id: ohashi2020
+  type: article
+  authors:
+    - Ohashi, N.
+    - Kohno, T.
+  year: 2020
+  title: "Analgesic Effect of Acetaminophen: A Review of Known and Novel Mechanisms of Action"
+  container: Frontiers in Pharmacology
+  volume: "11"
+  pages: "580289"
+  doi: 10.3389/fphar.2020.580289
+  source: crossref
+- id: enthoven2016
+  type: article
+  authors:
+    - Enthoven, W. T.
+    - Roelofs, P. D.
+    - Deyo, R. A.
+    - van Tulder, M. W.
+    - Koes, B. W.
+  year: 2016
+  title: Non-steroidal anti-inflammatory drugs for chronic low back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2016"
+  issue: "8"
+  doi: 10.1002/14651858.cd012087
+  source: crossref
+- id: dacosta2017
+  type: article
+  authors:
+    - da Costa, B. R.
+    - Reichenbach, S.
+    - Keller, N.
+    - Nartey, L.
+    - Wandel, S.
+    - Jüni, P.
+    - Trelle, S.
+  year: 2017
+  title: "Effectiveness of non-steroidal anti-inflammatory drugs for the treatment of pain in knee and hip osteoarthritis: a network meta-analysis"
+  container: The Lancet
+  volume: "390"
+  issue: "10090"
+  pages: e21-e33
+  doi: 10.1016/s0140-6736(17)31744-0
+  source: crossref
+- id: derry2016
+  type: article
+  authors:
+    - Derry, S.
+    - Conaghan, P.
+    - Da Silva, J. A. P.
+    - Wiffen, P. J.
+    - Moore, R. A.
+  year: 2016
+  title: Topical NSAIDs for chronic musculoskeletal pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2020"
+  issue: "2"
+  doi: 10.1002/14651858.cd007400.pub3
+  source: crossref
+- id: cnt2013
+  type: article
+  authors:
+    - Coxib and traditional NSAID Trialists' (CNT) Collaboration
+  year: 2013
+  title: "Vascular and upper gastrointestinal effects of non-steroidal anti-inflammatory drugs: meta-analyses of individual participant data from randomised trials"
+  container: The Lancet
+  volume: "382"
+  pages: 769-779
+  doi: 10.1016/s0140-6736(13)60900-9
+  source: manual
+- id: busse2018
+  type: article
+  authors:
+    - Busse, J. W.
+    - Wang, L.
+    - Kamaleldin, M.
+    - Craigie, S.
+    - Riva, J. J.
+    - Montoya, L.
+    - Mulla, S. M.
+    - Lopes, L. C.
+    - Vogel, N.
+    - Chen, E.
+    - Kirmayr, K.
+    - De Oliveira, K.
+    - Olivieri, L.
+    - Kaushal, A.
+    - Chaparro, L. E.
+    - Oyberman, I.
+    - Agarwal, A.
+    - Couban, R.
+    - Tsoi, L.
+    - Lam, T.
+    - Vandvik, P. O.
+    - Hsu, S.
+    - Bala, M. M.
+    - Schandelmaier, S.
+    - Scheidecker, A.
+    - Ebrahim, S.
+    - Ashoorion, V.
+    - Rehman, Y.
+    - Hong, P. J.
+    - Ross, S.
+    - Johnston, B. C.
+    - Kunz, R.
+    - Sun, X.
+    - Buckley, N.
+    - Sessler, D. I.
+    - Guyatt, G. H.
+  year: 2018
+  title: Opioids for Chronic Noncancer Pain
+  container: JAMA
+  volume: "320"
+  issue: "23"
+  pages: "2448"
+  doi: 10.1001/jama.2018.18472
+  source: crossref
+- id: krebs2018
+  type: article
+  authors:
+    - Krebs, E. E.
+    - Gravely, A.
+    - Nugent, S.
+    - Jensen, A. C.
+    - DeRonne, B.
+    - Goldsmith, E. S.
+    - Kroenke, K.
+    - Bair, M. J.
+    - Noorbaloochi, S.
+  year: 2018
+  title: Effect of Opioid vs Nonopioid Medications on Pain-Related Function in Patients With Chronic Back Pain or Hip or Knee Osteoarthritis Pain
+  container: JAMA
+  volume: "319"
+  issue: "9"
+  pages: "872"
+  doi: 10.1001/jama.2018.0899
+  source: crossref
+- id: duehmke2017
+  type: article
+  authors:
+    - Duehmke, R. M.
+    - Derry, S.
+    - Wiffen, P. J.
+    - Bell, R. F.
+    - Aldington, D.
+    - Moore, R. A.
+  year: 2017
+  title: Tramadol for neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2017"
+  issue: "6"
+  doi: 10.1002/14651858.cd003726.pub4
+  source: crossref
+- id: wiffen2017
+  type: article
+  authors:
+    - Wiffen, P. J.
+    - Derry, S.
+    - Bell, R. F.
+    - Rice, A. S.
+    - Tölle, T. R.
+    - Phillips, T.
+    - Moore, R. A.
+  year: 2017
+  title: Gabapentin for chronic neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2020"
+  issue: "2"
+  doi: 10.1002/14651858.cd007938.pub4
+  source: crossref
+- id: derry2019
+  type: article
+  authors:
+    - Derry, S.
+    - Bell, R. F.
+    - Straube, S.
+    - Wiffen, P. J.
+    - Aldington, D.
+    - Moore, R. A.
+  year: 2019
+  title: Pregabalin for neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "5"
+  doi: 10.1002/14651858.cd007076.pub3
+  source: crossref
+- id: mathieson2017
+  type: article
+  authors:
+    - Mathieson, S.
+    - Maher, C. G.
+    - McLachlan, A. J.
+    - Latimer, J.
+    - Koes, B. W.
+    - Hancock, M. J.
+    - Harris, I.
+    - Day, R. O.
+    - Billot, L.
+    - Pik, J.
+    - Jan, S.
+    - Lin, C. W. C.
+  year: 2017
+  title: Trial of Pregabalin for Acute and Chronic Sciatica
+  container: New England Journal of Medicine
+  volume: "376"
+  issue: "12"
+  pages: 1111-1120
+  doi: 10.1056/nejmoa1614292
+  source: crossref
+- id: patel2016
+  type: article
+  authors:
+    - Patel, R.
+    - Dickenson, A. H.
+  year: 2016
+  title: Mechanisms of the gabapentinoids and α 2 δ ‐1 calcium channel subunit in neuropathic pain
+  container: Pharmacology Research &amp; Perspectives
+  volume: "4"
+  issue: "2"
+  pages: e00205
+  doi: 10.1002/prp2.205
+  source: crossref
+- id: moore2015
+  type: article
+  authors:
+    - Moore, R. A.
+    - Derry, S.
+    - Aldington, D.
+    - Cole, P.
+    - Wiffen, P. J.
+  year: 2015
+  title: Amitriptyline for neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "5"
+  doi: 10.1002/14651858.cd008242.pub3
+  source: crossref
+- id: moore2015b
+  type: article
+  authors:
+    - Moore, R. A.
+    - Derry, S.
+    - Aldington, D.
+    - Cole, P.
+    - Wiffen, P. J.
+  year: 2015
+  title: Amitriptyline for fibromyalgia in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "5"
+  doi: 10.1002/14651858.cd011824
+  source: crossref
+- id: obata2017
+  type: article
+  authors:
+    - Obata, H.
+  year: 2017
+  title: Analgesic Mechanisms of Antidepressants for Neuropathic Pain
+  container: International Journal of Molecular Sciences
+  volume: "18"
+  issue: "11"
+  pages: "2483"
+  doi: 10.3390/ijms18112483
+  source: crossref
+- id: derry2017
+  type: article
+  authors:
+    - Derry, S.
+    - Rice, A. S.
+    - Cole, P.
+    - Tan, T.
+    - Moore, R. A.
+  year: 2017
+  title: Topical capsaicin (high concentration) for chronic neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2021"
+  issue: "7"
+  doi: 10.1002/14651858.cd007393.pub4
+  source: crossref
+- id: anand2011
+  type: article
+  authors:
+    - Anand, P.
+    - Bley, K.
+  year: 2011
+  title: "Topical capsaicin for pain management: therapeutic potential and mechanisms of action of the new high-concentration capsaicin 8% patch"
+  container: British Journal of Anaesthesia
+  volume: "107"
+  issue: "4"
+  pages: 490-502
+  doi: 10.1093/bja/aer260
+  source: crossref
+- id: derry2014
+  type: other
+  authors:
+    - Derry, S.
+    - Moore, R. A.
+  year: 2014
+  title: Topical lidocaine for neuropathic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  publisher: John Wiley & Sons, Ltd
+  doi: 10.1002/14651858.cd010958
+  source: crossref
+- id: krumova2012
+  type: article
+  authors:
+    - Krumova, E. K.
+    - Zeller, M.
+    - Westermann, A.
+    - Maier, C.
+  year: 2012
+  title: Lidocaine patch (5%) produces a selective, but incomplete block of Aδ and C fibers
+  container: Pain
+  volume: "153"
+  issue: "2"
+  pages: 273-280
+  doi: 10.1016/j.pain.2011.08.020
+  source: crossref
+- id: wiffen2014
+  type: article
+  authors:
+    - Wiffen, P. J.
+    - Derry, S.
+    - Moore, R. A.
+    - Kalso, E. A.
+  year: 2014
+  title: Carbamazepine for chronic neuropathic pain and fibromyalgia in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2019"
+  issue: "5"
+  doi: 10.1002/14651858.cd005451.pub3
+  source: crossref
+- id: distefano2018
+  type: article
+  authors:
+    - Di Stefano, G.
+    - Truini, A.
+    - Cruccu, G.
+  year: 2018
+  title: Current and Innovative Pharmacological Options to Treat Typical and Atypical Trigeminal Neuralgia
+  container: Drugs
+  volume: "78"
+  issue: "14"
+  pages: 1433-1442
+  doi: 10.1007/s40265-018-0964-9
+  source: crossref
+- id: bendtsen2019
+  type: article
+  authors:
+    - Bendtsen, L.
+    - Zakrzewska, J. M.
+    - Abbott, J.
+    - Braschinsky, M.
+    - Di Stefano, G.
+    - Donnet, A.
+    - Eide, P. K.
+    - Leal, P. R. L.
+    - Maarbjerg, S.
+    - May, A.
+    - Nurmikko, T.
+    - Obermann, M.
+    - Jensen, T. S.
+    - Cruccu, G.
+  year: 2019
+  title: European Academy of Neurology guideline on trigeminal neuralgia
+  container: European Journal of Neurology
+  volume: "26"
+  issue: "6"
+  pages: 831-849
+  doi: 10.1111/ene.13950
+  source: crossref
+- id: forbes2020
+  type: article
+  authors:
+    - Forbes, R. B.
+    - McCarron, M.
+    - Cardwell, C. R.
+  year: 2020
+  title: "Efficacy and Contextual (Placebo) Effects of CGRP Antibodies for Migraine: Systematic Review and Meta‐analysis"
+  container: "Headache: The Journal of Head and Face Pain"
+  volume: "60"
+  issue: "8"
+  pages: 1542-1557
+  doi: 10.1111/head.13907
+  source: crossref
+- id: sacco2022
+  type: article
+  authors:
+    - Sacco, S.
+    - Amin, F. M.
+    - Ashina, M.
+    - Bendtsen, L.
+    - Deligianni, C. I.
+    - Gil-Gouveia, R.
+    - Katsarava, Z.
+    - MaassenVanDenBrink, A.
+    - Martelletti, P.
+    - Mitsikostas, D. D.
+    - Ornello, R.
+    - Reuter, U.
+    - Sanchez-del-Rio, M.
+    - Sinclair, A. J.
+    - Terwindt, G.
+    - Uluduz, D.
+    - Versijpt, J.
+    - Lampl, C.
+  year: 2022
+  title: European Headache Federation guideline on the use of monoclonal antibodies targeting the calcitonin gene related peptide pathway for migraine prevention – 2022 update
+  container: The Journal of Headache and Pain
+  volume: "23"
+  issue: "1"
+  pages: "67"
+  doi: 10.1186/s10194-022-01431-x
+  source: crossref
+- id: edvinsson2018
+  type: article
+  authors:
+    - Edvinsson, L.
+    - Haanes, K. A.
+    - Warfvinge, K.
+    - Krause, D. N.
+  year: 2018
+  title: CGRP as the target of new migraine therapies — successful translation from bench to clinic
+  container: Nature Reviews Neurology
+  volume: "14"
+  issue: "6"
+  pages: 338-350
+  doi: 10.1038/s41582-018-0003-1
+  source: crossref
+- id: herd2018
+  type: article
+  authors:
+    - Herd, C. P.
+    - Tomlinson, C. L.
+    - Rick, C.
+    - Scotton, W. J.
+    - Edwards, J.
+    - Ives, N.
+    - Clarke, C. E.
+    - Sinclair, A.
+  year: 2018
+  title: Botulinum toxins for the prevention of migraine in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2018"
+  issue: "6"
+  doi: 10.1002/14651858.cd011616.pub2
+  source: crossref
+- id: matak2019
+  type: article
+  authors:
+    - Matak, I.
+    - Bölcskei, K.
+    - Bach-Rojecky, L.
+    - Helyes, Z.
+  year: 2019
+  title: Mechanisms of Botulinum Toxin Type A Action on Pain
+  container: Toxins
+  volume: "11"
+  issue: "8"
+  pages: "459"
+  doi: 10.3390/toxins11080459
+  source: crossref
+- id: wang2021
+  type: article
+  authors:
+    - Wang, L.
+    - Hong, P. J.
+    - May, C.
+    - Rehman, Y.
+    - Oparin, Y.
+    - Hong, C. J.
+    - Hong, B. Y.
+    - AminiLari, M.
+    - Gallo, L.
+    - Kaushal, A.
+    - Craigie, S.
+    - Couban, R. J.
+    - Kum, E.
+    - Shanthanna, H.
+    - Price, I.
+    - Upadhye, S.
+    - Ware, M. A.
+    - Campbell, F.
+    - Buchbinder, R.
+    - Agoritsas, T.
+    - Busse, J. W.
+  year: 2021
+  title: "Medical cannabis or cannabinoids for chronic non-cancer and cancer related pain: a systematic review and meta-analysis of randomised clinical trials"
+  container: BMJ
+  pages: n1034
+  doi: 10.1136/bmj.n1034
+  source: crossref
+- id: fisher2020
+  type: article
+  authors:
+    - Fisher, E.
+    - Moore, R. A.
+    - Fogarty, A. E.
+    - Finn, D. P.
+    - Finnerup, N. B.
+    - Gilron, I.
+    - Haroutounian, S.
+    - Krane, E.
+    - Rice, A. S. C.
+    - Rowbotham, M.
+    - Wallace, M.
+    - Eccleston, C.
+  year: 2020
+  title: "Cannabinoids, cannabis, and cannabis-based medicine for pain management: a systematic review of randomised controlled trials"
+  container: Pain
+  volume: "162"
+  issue: "1"
+  pages: S45-S66
+  doi: 10.1097/j.pain.0000000000001929
+  source: crossref
+- id: iasp2021
+  type: article
+  authors:
+    - IASP Presidential Task Force on Cannabis and Cannabinoid Analgesia
+  year: 2021
+  title: International Association for the Study of Pain Presidential Task Force on Cannabis and Cannabinoid Analgesia position statement
+  container: Pain
+  volume: "162"
+  issue: "1"
+  pages: S1-S2
+  doi: 10.1097/j.pain.0000000000002265
+  source: crossref
+- id: finn2021
+  type: article
+  authors:
+    - Finn, D. P.
+    - Haroutounian, S.
+    - Hohmann, A. G.
+    - Krane, E.
+    - Soliman, N.
+    - Rice, A. S. C.
+  year: 2021
+  title: "Cannabinoids, the endocannabinoid system, and pain: a review of preclinical studies"
+  container: Pain
+  volume: "162"
+  issue: "1"
+  pages: S5-S25
+  doi: 10.1097/j.pain.0000000000002268
+  source: crossref
+- id: tanelian1991
+  type: article
+  authors:
+    - Tanelian, D. L.
+    - Brose, W. G.
+  year: 1991
+  title: Neuropathic Pain Can Be Relieved by Drugs That Are Use-dependent Sodium Channel Blockers
+  container: Anesthesiology
+  volume: "74"
+  issue: "5"
+  pages: 949-951
+  doi: 10.1097/00000542-199105000-00026
+  source: crossref
+- id: messina2023
+  type: article
+  authors:
+    - Messina, R.
+    - Huessler, E. M.
+    - Puledda, F.
+    - Haghdoost, F.
+    - Lebedeva, E. R.
+    - Diener, H. C.
+  year: 2023
+  title: "Safety and tolerability of monoclonal antibodies targeting the CGRP pathway and gepants in migraine prevention: A systematic review and network meta-analysis"
+  container: Cephalalgia
+  volume: "43"
+  issue: "3"
+  pages: "03331024231152169"
+  doi: 10.1177/03331024231152169
+  source: crossref
+- id: haghdoost2023
+  type: article
+  authors:
+    - Haghdoost, F.
+    - Puledda, F.
+    - Garcia-Azorin, D.
+    - Huessler, E. M.
+    - Messina, R.
+    - Pozo-Rosich, P.
+  year: 2023
+  title: "Evaluating the efficacy of CGRP mAbs and gepants for the preventive treatment of migraine: A systematic review and network meta-analysis of phase 3 randomised controlled trials"
+  container: Cephalalgia
+  volume: "43"
+  issue: "4"
+  pages: "03331024231159366"
+  doi: 10.1177/03331024231159366
+  source: crossref
+- id: haroutounian2021
+  type: article
+  authors:
+    - Haroutounian, S.
+    - Arendt-Nielsen, L.
+    - Belton, J.
+    - Blyth, F. M.
+    - Degenhardt, L.
+    - Di Forti, M.
+    - Eccleston, C.
+    - Finn, D. P.
+    - Finnerup, N. B.
+    - Fisher, E.
+    - Fogarty, A. E.
+    - Gilron, I.
+    - Hohmann, A. G.
+    - Kalso, E.
+    - Krane, E.
+    - Mohiuddin, M.
+    - Moore, R. A.
+    - Rowbotham, M.
+    - Soliman, N.
+    - Wallace, M.
+    - Zinboonyahgoon, N.
+    - Rice, A. S. C.
+  year: 2021
+  title: "International Association for the Study of Pain Presidential Task Force on Cannabis and Cannabinoid Analgesia: research agenda on the use of cannabinoids, cannabis, and cannabis-based medicines for pain management"
+  container: Pain
+  volume: "162"
+  issue: "1"
+  pages: S117-S124
+  doi: 10.1097/j.pain.0000000000002266
+  source: crossref
+- id: ma2023
+  type: article
+  authors:
+    - Ma, T. W.
+    - Yuen, A. S. K.
+    - Yang, Z.
+  year: 2023
+  title: The Efficacy of Acceptance and Commitment Therapy for Chronic Pain
+  container: The Clinical Journal of Pain
+  volume: "39"
+  issue: "3"
+  pages: 147-157
+  doi: 10.1097/ajp.0000000000001096
+  source: crossref
+- id: hilton2016
+  type: article
+  authors:
+    - Hilton, L.
+    - Hempel, S.
+    - Ewing, B. A.
+    - Apaydin, E.
+    - Xenakis, L.
+    - Newberry, S.
+    - Colaiaco, B.
+    - Maher, A. R.
+    - Shanman, R. M.
+    - Sorbero, M. E.
+    - Maglione, M. A.
+  year: 2016
+  title: "Mindfulness Meditation for Chronic Pain: Systematic Review and Meta-analysis"
+  container: Annals of Behavioral Medicine
+  volume: "51"
+  issue: "2"
+  pages: 199-213
+  doi: 10.1007/s12160-016-9844-2
+  source: crossref
+- id: ashar2022
+  type: article
+  authors:
+    - Ashar, Y. K.
+    - Gordon, A.
+    - Schubiner, H.
+    - Uipi, C.
+    - Knight, K.
+    - Anderson, Z.
+    - Carlisle, J.
+    - Polisky, L.
+    - Geuter, S.
+    - Flood, T. F.
+    - Kragel, P. A.
+    - Dimidjian, S.
+    - Lumley, M. A.
+    - Wager, T. D.
+  year: 2022
+  title: Effect of Pain Reprocessing Therapy vs Placebo and Usual Care for Patients With Chronic Back Pain
+  container: JAMA Psychiatry
+  volume: "79"
+  issue: "1"
+  pages: "13"
+  doi: 10.1001/jamapsychiatry.2021.2669
+  source: crossref
+- id: ashar2025
+  type: article
+  authors:
+    - Ashar, Y. K.
+    - Low, E. L.
+    - Knight, K.
+    - Schubiner, H.
+    - Gordon, A.
+    - LeRoux, A.
+    - Lumley, M. A.
+    - Wager, T. D.
+  year: 2025
+  title: Pain Reprocessing Therapy vs Placebo and Usual Care for Patients With Chronic Back Pain
+  container: JAMA Psychiatry
+  volume: "82"
+  issue: "10"
+  pages: "1049"
+  doi: 10.1001/jamapsychiatry.2025.1844
+  source: crossref
+- id: bagg2022
+  type: article
+  authors:
+    - Bagg, M. K.
+    - Wand, B. M.
+    - Cashin, A. G.
+    - Lee, H.
+    - Hübscher, M.
+    - Stanton, T. R.
+    - O’Connell, N. E.
+    - O’Hagan, E. T.
+    - Rizzo, R. R. N.
+    - Wewege, M. A.
+    - Rabey, M.
+    - Goodall, S.
+    - Saing, S.
+    - Lo, S. N.
+    - Luomajoki, H.
+    - Herbert, R. D.
+    - Maher, C. G.
+    - Moseley, G. L.
+    - McAuley, J. H.
+  year: 2022
+  title: Effect of Graded Sensorimotor Retraining on Pain Intensity in Patients With Chronic Low Back Pain
+  container: JAMA
+  volume: "328"
+  issue: "5"
+  pages: "430"
+  doi: 10.1001/jama.2022.9930
+  source: crossref
+- id: cashin2023
+  type: article
+  authors:
+    - Cashin, A. G.
+    - Lee, H.
+    - Wand, B. M.
+    - Bagg, M. K.
+    - O'Hagan, E. T.
+    - Rizzo, R. R. N.
+    - Stanton, T. R.
+    - Moseley, G. L.
+    - McAuley, J. H.
+  year: 2023
+  title: "Mechanisms of education and graded sensorimotor retraining in people with chronic low back pain: a mediation analysis"
+  container: Pain
+  volume: "164"
+  issue: "12"
+  pages: 2792-2800
+  doi: 10.1097/j.pain.0000000000002978
+  source: crossref
+- id: lopezdeuraldevillanueva2016
+  type: article
+  authors:
+    - López-de-Uralde-Villanueva, I.
+    - Muñoz-García, D.
+    - Gil-Martínez, A.
+    - Pardo-Montero, J.
+    - Muñoz-Plata, R.
+    - Angulo-Díaz-Parreño, S.
+    - Gómez-Martínez, M.
+    - La Touche, R.
+  year: 2016
+  title: A Systematic Review and Meta-Analysis on the Effectiveness of Graded Activity and Graded Exposure for Chronic Nonspecific Low Back Pain
+  container: Pain Medicine
+  volume: "17"
+  issue: "1"
+  pages: 172-188
+  doi: 10.1111/pme.12882
+  source: crossref
+- id: zhang2026
+  type: article
+  authors:
+    - Zhang, Q.
+    - Wu, Y.
+    - Zhao, Y.
+    - Meng, T.
+    - Zhao, Y.
+    - Qin, X.
+    - Long, H.
+    - Zhang, C.
+  year: 2026
+  title: "Effects of Graded Exposure on Functional Improvement, Quality of Life, and Mental Health in Chronic Musculoskeletal Pain: A Systematic Review and Meta-Analysis"
+  container: Journal of Pain Research
+  volume: Volume 19
+  pages: 1-28
+  doi: 10.2147/jpr.s631975
+  source: crossref
+- id: glombiewski2018
+  type: article
+  authors:
+    - Glombiewski, J. A.
+    - Holzapfel, S.
+    - Riecke, J.
+    - Vlaeyen, J. W. S.
+    - de Jong, J.
+    - Lemmer, G.
+    - Rief, W.
+  year: 2018
+  title: "Exposure and CBT for chronic back pain: An RCT on differential efficacy and optimal length of treatment."
+  container: Journal of Consulting and Clinical Psychology
+  volume: "86"
+  issue: "6"
+  pages: 533-545
+  doi: 10.1037/ccp0000298
+  source: crossref
+- id: borg2025
+  type: article
+  authors:
+    - Borg, F.
+    - Gedin, F.
+    - Franzén, E.
+    - Grooten, W. J. A.
+  year: 2025
+  title: A systematic review and meta analysis of open label placebo effects in chronic musculoskeletal pain
+  container: Scientific Reports
+  volume: "15"
+  issue: "1"
+  pages: "24007"
+  doi: 10.1038/s41598-025-09415-y
+  source: crossref
+- id: vonwernsdorff2021
+  type: article
+  authors:
+    - von Wernsdorff, M.
+    - Loef, M.
+    - Tuschen-Caffier, B.
+    - Schmidt, S.
+  year: 2021
+  title: "Effects of open-label placebos in clinical trials: a systematic review and meta-analysis"
+  container: Scientific Reports
+  volume: "11"
+  issue: "1"
+  pages: "3855"
+  doi: 10.1038/s41598-021-83148-6
+  source: crossref
+- id: fendel2025
+  type: article
+  authors:
+    - Fendel, J. C.
+    - Tiersch, C.
+    - Sölder, P.
+    - Gaab, J.
+    - Schmidt, S.
+  year: 2025
+  title: "Effects of open-label placebos across populations and outcomes: an updated systematic review and meta-analysis of randomized controlled trials"
+  container: Scientific Reports
+  volume: "15"
+  issue: "1"
+  pages: "29940"
+  doi: 10.1038/s41598-025-14895-z
+  source: crossref
+- id: vickers2018
+  type: article
+  authors:
+    - Vickers, A. J.
+    - Vertosick, E. A.
+    - Lewith, G.
+    - MacPherson, H.
+    - Foster, N. E.
+    - Sherman, K. J.
+    - Irnich, D.
+    - Witt, C. M.
+    - Linde, K.
+  year: 2018
+  title: "Acupuncture for Chronic Pain: Update of an Individual Patient Data Meta-Analysis"
+  container: The Journal of Pain
+  volume: "19"
+  issue: "5"
+  pages: 455-474
+  doi: 10.1016/j.jpain.2017.11.005
+  source: crossref
+- id: witt2009
+  type: article
+  authors:
+    - Witt, C. M.
+    - Pach, D.
+    - Brinkhaus, B.
+    - Wruck, K.
+    - Tag, B.
+    - Mank, S.
+    - Willich, S. N.
+  year: 2009
+  title: "Safety of Acupuncture: Results of a Prospective Observational Study with 229,230 Patients and Introduction of a Medical Information and Consent Form"
+  container: Complementary Medicine Research
+  volume: "16"
+  issue: "2"
+  pages: 91-97
+  doi: 10.1159/000209315
+  source: crossref
+- id: geneen2017
+  type: article
+  authors:
+    - Geneen, L. J.
+    - Moore, R. A.
+    - Clarke, C.
+    - Martin, D.
+    - Colvin, L. A.
+    - Smith, B. H.
+  year: 2017
+  title: "Physical activity and exercise for chronic pain in adults: an overview of Cochrane Reviews"
+  container: Cochrane Database of Systematic Reviews
+  volume: "2020"
+  issue: "2"
+  doi: 10.1002/14651858.cd011279.pub3
+  source: crossref
+- id: hayden2021
+  type: article
+  authors:
+    - Hayden, J. A.
+    - Ellis, J.
+    - Ogilvie, R.
+    - Malmivaara, A.
+    - van Tulder, M. W.
+  year: 2021
+  title: Exercise therapy for chronic low back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2021"
+  issue: "10"
+  doi: 10.1002/14651858.cd009790.pub2
+  source: crossref
+- id: fransen2015
+  type: article
+  authors:
+    - Fransen, M.
+    - McConnell, S.
+    - Harmer, A. R.
+    - Van der Esch, M.
+    - Simic, M.
+    - Bennell, K. L.
+  year: 2015
+  title: Exercise for osteoarthritis of the knee
+  container: Cochrane Database of Systematic Reviews
+  volume: "2015"
+  issue: "1"
+  doi: 10.1002/14651858.cd004376.pub3
+  source: crossref
+- id: bidonde2017
+  type: article
+  authors:
+    - Bidonde, J.
+    - Busch, A. J.
+    - Schachter, C. L.
+    - Overend, T. J.
+    - Kim, S. Y.
+    - Góes, S. M.
+    - Boden, C.
+    - Foulds, H. J.
+  year: 2017
+  title: Aerobic exercise training for adults with fibromyalgia
+  container: Cochrane Database of Systematic Reviews
+  volume: "2017"
+  issue: "6"
+  doi: 10.1002/14651858.cd012700
+  source: crossref
+- id: rice2019
+  type: article
+  authors:
+    - Rice, D.
+    - Nijs, J.
+    - Kosek, E.
+    - Wideman, T.
+    - Hasenbring, M. I.
+    - Koltyn, K.
+    - Graven-Nielsen, T.
+    - Polli, A.
+  year: 2019
+  title: "Exercise-Induced Hypoalgesia in Pain-Free and Chronic Pain Populations: State of the Art and Future Directions"
+  container: The Journal of Pain
+  volume: "20"
+  issue: "11"
+  pages: 1249-1266
+  doi: 10.1016/j.jpain.2019.03.005
+  source: crossref
+- id: koltyn2014
+  type: article
+  authors:
+    - Koltyn, K. F.
+    - Brellenthin, A. G.
+    - Cook, D. B.
+    - Sehgal, N.
+    - Hillard, C.
+  year: 2014
+  title: Mechanisms of Exercise-Induced Hypoalgesia
+  container: The Journal of Pain
+  volume: "15"
+  issue: "12"
+  pages: 1294-1304
+  doi: 10.1016/j.jpain.2014.09.006
+  source: crossref
+- id: rubinstein2019
+  type: article
+  authors:
+    - Rubinstein, S. M.
+    - de Zoete, A.
+    - van Middelkoop, M.
+    - Assendelft, W. J. J.
+    - de Boer, M. R.
+    - van Tulder, M. W.
+  year: 2019
+  title: "Benefits and harms of spinal manipulative therapy for the treatment of chronic low back pain: systematic review and meta-analysis of randomised controlled trials"
+  container: BMJ
+  pages: l689
+  doi: 10.1136/bmj.l689
+  source: crossref
+- id: bialosky2009
+  type: article
+  authors:
+    - Bialosky, J. E.
+    - Bishop, M. D.
+    - Price, D. D.
+    - Robinson, M. E.
+    - George, S. Z.
+  year: 2009
+  title: "The mechanisms of manual therapy in the treatment of musculoskeletal pain: A comprehensive model"
+  container: Manual Therapy
+  volume: "14"
+  issue: "5"
+  pages: 531-538
+  doi: 10.1016/j.math.2008.09.001
+  source: crossref
+- id: gibson2019
+  type: article
+  authors:
+    - Gibson, W.
+    - Wand, B. M.
+    - Meads, C.
+    - Catley, M. J.
+    - O'Connell, N. E.
+  year: 2019
+  title: Transcutaneous electrical nerve stimulation (TENS) for chronic pain - an overview of Cochrane Reviews
+  container: Cochrane Database of Systematic Reviews
+  doi: 10.1002/14651858.cd011890.pub3
+  source: crossref
+- id: johnson2022
+  type: article
+  authors:
+    - Johnson, M. I.
+    - Paley, C. A.
+    - Jones, G.
+    - Mulvey, M. R.
+    - Wittkopf, P. G.
+  year: 2022
+  title: "Efficacy and safety of transcutaneous electrical nerve stimulation (TENS) for acute and chronic pain in adults: a systematic review and meta-analysis of 381 studies (the meta-TENS study)"
+  container: BMJ Open
+  volume: "12"
+  issue: "2"
+  pages: e051073
+  doi: 10.1136/bmjopen-2021-051073
+  source: crossref
+- id: sluka2003
+  type: article
+  authors:
+    - Sluka, K. A.
+    - Walsh, D.
+  year: 2003
+  title: "Transcutaneous electrical nerve stimulation: Basic science mechanisms and clinical effectiveness"
+  container: The Journal of Pain
+  volume: "4"
+  issue: "3"
+  pages: 109-121
+  doi: 10.1054/jpai.2003.434
+  source: crossref
+- id: juch2017
+  type: article
+  authors:
+    - Juch, J. N. S.
+    - Maas, E. T.
+    - Ostelo, R. W. J. G.
+    - Groeneweg, J. G.
+    - Kallewaard, J. W.
+    - Koes, B. W.
+    - Verhagen, A. P.
+    - van Dongen, J. M.
+    - Huygen, F. J. P. M.
+    - van Tulder, M. W.
+  year: 2017
+  title: Effect of Radiofrequency Denervation on Pain Intensity Among Patients With Chronic Low Back Pain
+  container: JAMA
+  volume: "318"
+  issue: "1"
+  pages: "68"
+  doi: 10.1001/jama.2017.7918
+  source: crossref
+- id: maas2015
+  type: article
+  authors:
+    - Maas, E. T.
+    - Ostelo, R. W.
+    - Niemisto, L.
+    - Jousimaa, J.
+    - Hurri, H.
+    - Malmivaara, A.
+    - van Tulder, M. W.
+  year: 2015
+  title: Radiofrequency denervation for chronic low back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2015"
+  issue: "10"
+  doi: 10.1002/14651858.cd008572.pub2
+  source: crossref
+- id: cohen2020
+  type: article
+  authors:
+    - Cohen, S. P.
+    - Bhaskar, A.
+    - Bhatia, A.
+    - Buvanendran, A.
+    - Deer, T.
+    - Garg, S.
+    - Hooten, W. M.
+    - Hurley, R. W.
+    - Kennedy, D. J.
+    - McLean, B. C.
+    - Moon, J. Y.
+    - Narouze, S.
+    - Pangarkar, S.
+    - Provenzano, D. A.
+    - Rauck, R.
+    - Sitzman, B. T.
+    - Smuck, M.
+    - van Zundert, J.
+    - Vorenkamp, K.
+    - Wallace, M. S.
+    - Zhao, Z.
+  year: 2020
+  title: Consensus practice guidelines on interventions for lumbar facet joint pain from a multispecialty, international working group
+  container: Regional Anesthesia &amp; Pain Medicine
+  volume: "45"
+  issue: "6"
+  pages: 424-467
+  doi: 10.1136/rapm-2019-101243
+  source: crossref
+- id: oliveira2020
+  type: article
+  authors:
+    - Oliveira, C. B.
+    - Maher, C. G.
+    - Ferreira, M. L.
+    - Hancock, M. J.
+    - Oliveira, V. C.
+    - McLachlan, A. J.
+    - Koes, B. W.
+    - Ferreira, P. H.
+    - Cohen, S. P.
+    - Pinto, R. Z.
+  year: 2020
+  title: Epidural corticosteroid injections for lumbosacral radicular pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2020"
+  issue: "4"
+  doi: 10.1002/14651858.cd013577
+  source: crossref
+- id: pinto2012
+  type: article
+  authors:
+    - Pinto, R. Z.
+    - Maher, C. G.
+    - Ferreira, M. L.
+    - Hancock, M.
+    - Oliveira, V. C.
+    - McLachlan, A. J.
+    - Koes, B.
+    - Ferreira, P. H.
+  year: 2012
+  title: Epidural Corticosteroid Injections in the Management of Sciatica
+  container: Annals of Internal Medicine
+  volume: "157"
+  issue: "12"
+  pages: 865-877
+  doi: 10.7326/0003-4819-157-12-201212180-00564
+  source: crossref
+- id: traeger2023
+  type: article
+  authors:
+    - Traeger, A. C.
+    - Gilbert, S. E.
+    - Harris, I. A.
+    - Maher, C. G.
+  year: 2023
+  title: Spinal cord stimulation for low back pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2023"
+  issue: "8"
+  doi: 10.1002/14651858.cd014789.pub2
+  source: crossref
+- id: oconnell2021
+  type: article
+  authors:
+    - O'Connell, N. E.
+    - Ferraro, M. C.
+    - Gibson, W.
+    - Rice, A. S.
+    - Vase, L.
+    - Coyle, D.
+    - Eccleston, C.
+  year: 2021
+  title: Implanted spinal neuromodulation interventions for chronic pain in adults
+  container: Cochrane Database of Systematic Reviews
+  volume: "2022"
+  issue: "4"
+  doi: 10.1002/14651858.cd013756.pub2
+  source: crossref
+- id: joosten2020
+  type: article
+  authors:
+    - Joosten, E. A.
+    - Franken, G.
+  year: 2020
+  title: "Spinal cord stimulation in chronic neuropathic pain: mechanisms of action, new locations, new paradigms"
+  container: Pain
+  volume: "161"
+  issue: Supplement 1
+  pages: S104-S113
+  doi: 10.1097/j.pain.0000000000001854
+  source: crossref
+- id: oconnell2018
+  type: article
+  authors:
+    - O'Connell, N. E.
+    - Marston, L.
+    - Spencer, S.
+    - DeSouza, L. H.
+    - Wand, B. M.
+  year: 2018
+  title: Non-invasive brain stimulation techniques for chronic pain
+  container: Cochrane Database of Systematic Reviews
+  volume: "2018"
+  issue: "8"
+  doi: 10.1002/14651858.cd008208.pub5
+  source: crossref
+- id: lefaucheur2016
+  type: article
+  authors:
+    - Lefaucheur, J. P.
+  year: 2016
+  title: Cortical neurostimulation for neuropathic pain
+  container: Pain
+  volume: "157"
+  issue: Supplement 1
+  pages: S81-S89
+  doi: 10.1097/j.pain.0000000000000401
+  source: crossref
+- id: nitsche2000
+  type: article
+  authors:
+    - Nitsche, M. A.
+    - Paulus, W.
+  year: 2000
+  title: Excitability changes induced in the human motor cortex by weak transcranial direct current stimulation
+  container: The Journal of Physiology
+  volume: "527"
+  issue: "3"
+  pages: 633-639
+  doi: 10.1111/j.1469-7793.2000.t01-1-00633.x
+  source: crossref

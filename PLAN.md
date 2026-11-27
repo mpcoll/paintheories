@@ -105,3 +105,12 @@ without a DOI are marked `source: manual`.
 - `/conditions/crosswalk/`: alluvial strands family → ICD-11 → descriptor, plus category × descriptor matrix.
 - Decisions (owner, 2026-11-27): chronic conditions only; ICD-11 only (no ICD-10); no AAPT lens; prevalence included; treatment left for the Pain Treatments module; body map included.
 - Next: owner review of all condition entries (review: draft); more conditions on request.
+
+## Pain Treatments module (started 2026-11-27)
+
+- `/treatments/`: "where it acts" figure (periphery → spinal → descending → brain → thoughts and emotions → behaviour) and the list by modality, with evidence for a chosen condition group.
+- `/treatments/evidence/`: evidence map (treatments × condition groups; marker size = effect, fill = GRADE certainty).
+- `/treatments/guidelines/`: NICE NG193/NG59/NG226, NeuPSIG 2025/2015, CDC 2022, EULAR 2017, ACP 2017; matrix and per-guideline lists with quoted wording.
+- `/treatments/reading-evidence/`: NNT demo with placebo response, effect-size rules, GRADE, recommendation strength, sources of bias.
+- Treatment pages; links from conditions, theories and mechanisms; treatments.json export.
+- Next: owner review of entries (review: draft); more treatments and condition groups on request.

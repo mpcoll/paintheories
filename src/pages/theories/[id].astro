@@ -34,6 +34,7 @@ const openQuestions = (await getCollection('gaps'))
   .filter((g) => g.data.predictions.some((p) => p.theory.id === theory.id))
   .sort((a, b) => a.data.order - b.data.order);
 const met = computeMetrics(all).get(theory.id)!;
+const treatmentsLinked = (await getCollection('treatments')).filter((t) => t.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const imagingFindings = (await getCollection('imagingFindings')).filter((f) => f.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.year - b.data.year);
 const conditions = (await getCollection('conditions')).filter((c) => c.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draft: 'Draft — not yet reviewed by a domain expert.', reviewed: '' }[d.review];
@@ -124,6 +125,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         <section class="card">
           <h2>Mechanisms invoked</h2>
           <ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {treatmentsLinked.length > 0 && (
+        <section class="card">
+          <h2>Treatments it motivates</h2>
+          <ul>{treatmentsLinked.map((t) => <li><a href={url(`treatments/${t.id}/`)}>{t.data.title}</a></li>)}</ul>
         </section>
       )}
       {imagingFindings.length > 0 && (

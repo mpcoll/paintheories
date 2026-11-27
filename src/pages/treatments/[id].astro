@@ -1,0 +1,134 @@
+---
+import { getEntries, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Notice from '../../components/Notice.astro';
+import { url, cite, formatReference, resolveRefs, type Mechanism, type Theory } from '../../lib/data';
+import { getTreatments, treatmentUrl, GROUP_ORDER, REC_ORDER, type Treatment } from '../../lib/treatments';
+import { MODALITIES, TARGETS, GROUPS, EFFECT_SIZES, CERTAINTY, RECOMMENDATIONS, GUIDELINES } from '../../data/treatments-taxonomy';
+
+export async function getStaticPaths() {
+  const all = await getTreatments();
+  return all.map((t) => ({ params: { id: t.id }, props: { treatment: t, all } }));
+}
+const { treatment, all } = Astro.props as { treatment: Treatment; all: Treatment[] };
+const d = treatment.data;
+const { Content } = await render(treatment);
+const refIds = [...new Set([...d.mechanism.refs, ...d.evidence.flatMap((e) => e.refs), ...(d.harms?.refs ?? []), ...d.references, ...d.guidelines.map((g) => ({ id: GUIDELINES[g.guideline].ref }))].map((r) => r.id))];
+const refs = await resolveRefs(refIds.map((id) => ({ id, collection: 'references' })));
+const byId = new Map(refs.map((r) => [r.id, r]));
+const links = (rs: { id: string }[]) => rs.map((r) => byId.get(r.id)!).map((r) => ({ label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : r.data.url ?? url(`references/#${r.id}`), title: r.data.title }));
+const sortedRefs = [...refs].sort((a, b) => a.data.authors[0].localeCompare(b.data.authors[0]) || a.data.year - b.data.year);
+const evidence = [...d.evidence].sort((a, b) => GROUP_ORDER.indexOf(a.group) - GROUP_ORDER.indexOf(b.group));
+const guidelines = [...d.guidelines].sort((a, b) => REC_ORDER.indexOf(a.recommendation) - REC_ORDER.indexOf(b.recommendation));
+const mechanisms = d.mechanisms.length ? ((await getEntries(d.mechanisms)) as Mechanism[]) : [];
+const theories = d.theories.length ? ((await getEntries(d.theories)) as Theory[]) : [];
+const related = d.related.map((r) => all.find((t) => t.id === r.id)).filter(Boolean) as Treatment[];
+const conditionNames = new Map((await getEntries([...new Set(d.evidence.filter((e) => e.condition).map((e) => e.condition!.id))].map((id) => ({ collection: 'conditions' as const, id })))).map((c: any) => [c.id, c.data.title]));
+const reviewLabel = { stub: 'Stub: only the basic facts are filled in.', draft: 'Draft: not yet reviewed by a domain expert.', reviewed: '' }[d.review];
+---
+
+<Base title={d.title} description={d.summary}>
+  <p class="crumbs"><a href={url('treatments/')}>Pain Treatments</a> / {MODALITIES[d.modality].label}</p>
+  <header class="t-head">
+    <p class="eyebrow">{MODALITIES[d.modality].label} · {d.class}</p>
+    <h1>{d.title}</h1>
+    {d.aliases.length > 0 && <p class="aka">Also: {d.aliases.join('; ')}</p>}
+    <p class="lede">{d.summary}</p>
+  </header>
+  {reviewLabel && <div data-pagefind-ignore><Notice>{reviewLabel} This is a teaching and research summary, not medical advice. Spotted an error? <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>Report it on GitHub</a>.</Notice></div>}
+
+  <div class="theory-layout">
+    <article class="prose article">
+      <Content />
+
+      <h2 id="mechanism">How it is thought to work</h2>
+      <p>{d.mechanism.summary} <span class="refl">{links(d.mechanism.refs).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></p>
+
+      <h2 id="evidence-summary">Evidence summary</h2>
+      {evidence.length ? (
+        <div class="ev-wrap">
+          <table class="ev">
+            <thead><tr><th>Population</th><th>Compared with</th><th>Result</th><th>Effect</th><th>Certainty</th></tr></thead>
+            <tbody>
+              {evidence.map((e) => (
+                <tr>
+                  <td><strong>{GROUPS[e.group].label}</strong>{e.condition && <span class="sub">{conditionNames.get(e.condition.id) ?? e.condition.id}</span>}</td>
+                  <td>{e.comparator}</td>
+                  <td>{e.effect}<span class="sub">{e.outcome}</span><span class="refl">{links(e.refs).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></td>
+                  <td><span class={`sz s-${e.size}`}>{EFFECT_SIZES[e.size].label}</span></td>
+                  <td><span class={`ct c-${e.certainty}`}>{CERTAINTY[e.certainty].label}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : <p class="muted">No evidence records yet.</p>}
+      <p class="muted fn">Effect labels follow fixed rules; see <a href={url('treatments/reading-evidence/')}>Reading the evidence</a>.</p>
+
+      {d.harms && <>
+        <h2 id="harms">Harms</h2>
+        <p>{d.harms.summary} <span class="refl">{links(d.harms.refs).map((l, i) => <>{i > 0 && '; '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></p>
+      </>}
+
+      {guidelines.length > 0 && <>
+        <h2 id="guidelines">What guidelines say</h2>
+        <ul class="gl">
+          {guidelines.map((g) => { const l = links([{ id: GUIDELINES[g.guideline].ref }])[0]; return (
+            <li><span class={`rec r-${g.recommendation}`}>{RECOMMENDATIONS[g.recommendation].label}</span> <a href={l.href} title={l.title}>{GUIDELINES[g.guideline].label}</a>, {g.population.charAt(0).toLowerCase() + g.population.slice(1)}. <span class="note">{g.note}</span></li>
+          ); })}
+        </ul>
+      </>}
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        {sortedRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl ? <a class="doi" href={f.doiUrl}>DOI ↗</a> : r.data.url && <a class="doi" href={r.data.url}>Link ↗</a>}</li>; })}
+      </ul>
+      <p class="muted" style="font-size:.85rem">Last updated {d.updated.toISOString().slice(0, 10)} · <a href={`https://github.com/mpcoll/paintheories/blob/main/src/content/treatments/${treatment.id}.md`}>View source</a></p>
+    </article>
+    <aside class="side" data-pagefind-ignore>
+      <section class="card">
+        <h2>At a glance</h2>
+        <dl class="facts">
+          <dt>Type</dt><dd>{MODALITIES[d.modality].label}</dd>
+          <dt>Class</dt><dd>{d.class}</dd>
+          <dt>Acts on</dt><dd>{d.targets.map((t) => TARGETS[t].label).join(', ')}</dd>
+          <dt>Evidence</dt><dd>{d.evidence.length} record{d.evidence.length === 1 ? '' : 's'} in {new Set(d.evidence.map((e) => e.group)).size} condition group{new Set(d.evidence.map((e) => e.group)).size === 1 ? '' : 's'}</dd>
+        </dl>
+      </section>
+      {theories.length > 0 && <section class="card"><h2>Theories behind it</h2><ul>{theories.map((t) => <li><a href={url(`theories/${t.id}/`)}>{t.data.shortTitle ?? t.data.title}</a></li>)}</ul></section>}
+      {mechanisms.length > 0 && <section class="card"><h2>Mechanisms</h2><ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul></section>}
+      {related.length > 0 && <section class="card"><h2>Related treatments</h2><ul>{related.map((t) => <li><a href={treatmentUrl(t.id)}>{t.data.title}</a></li>)}</ul></section>}
+    </aside>
+  </div>
+
+  <style>
+    .t-head { max-width: 52rem; }
+    .article { min-width: 0; }
+    .aka { color: var(--ink-3); margin: -.3rem 0 .6rem; font-size: .95rem; }
+    .refl { font-size: .82rem; color: var(--ink-3); }
+    .refl a { text-decoration: none; }
+    .ev-wrap { overflow-x: auto; }
+    .ev { border-collapse: collapse; width: 100%; font-size: .88rem; line-height: 1.45; min-width: 600px; }
+    .ev th, .ev td { border-bottom: 1px solid var(--line); padding: .45rem .5rem; text-align: left; vertical-align: top; }
+    .ev thead th { font: 600 .72rem var(--font); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+    .sub { display: block; font-size: .8rem; color: var(--ink-3); }
+    .ev .refl { display: block; }
+    .sz, .ct { display: inline-block; font: 600 .74rem var(--font); padding: .1rem .45rem; border-radius: 6px; border: 1.5px solid var(--accent); white-space: nowrap; }
+    .s-large { background: var(--accent); color: var(--bg); }
+    .s-moderate { background: color-mix(in srgb, var(--accent) 45%, var(--surface)); color: var(--ink); }
+    .s-small { color: var(--accent-ink); }
+    .s-none, .s-unclear { border-color: var(--line-strong); color: var(--ink-3); border-style: dashed; }
+    .ct { border-color: var(--line-strong); color: var(--ink-2); }
+    .c-high { border-color: var(--ink); color: var(--ink); }
+    .fn { font-size: .82rem; }
+    .fn a { text-decoration: none; }
+    .gl { list-style: none; padding: 0; display: grid; gap: .55rem; }
+    .gl a { text-decoration: none; }
+    .gl .note { display: block; font-size: .88rem; color: var(--ink-2); margin-top: .1rem; }
+    .rec { display: inline-block; font: 600 .72rem var(--font); padding: .1rem .45rem; border-radius: 6px; border: 1.5px solid; }
+    .r-strong-for { color: var(--bg); background: var(--ev-support); border-color: var(--ev-support); }
+    .r-weak-for { color: var(--ev-support); border-color: var(--ev-support); }
+    .r-against { color: var(--bg); background: var(--ev-contra); border-color: var(--ev-contra); }
+    .r-insufficient { color: var(--ink-3); border-color: var(--line-strong); }
+  </style>
+</Base>
