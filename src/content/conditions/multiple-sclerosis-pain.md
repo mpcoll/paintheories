@@ -1,7 +1,7 @@
 ---
 title: Pain in multiple sclerosis
 aliases: [MS pain, Central neuropathic pain in multiple sclerosis]
-summary: Several distinct pains occur in multiple sclerosis, including ongoing burning pain in the limbs, Lhermitte's sign, trigeminal neuralgia and painful spasms. About two thirds of people with MS report pain; some is central neuropathic, some musculoskeletal from altered movement.
+summary: Several distinct pains occur in multiple sclerosis, including ongoing pain in the limbs, Lhermitte's sign, trigeminal neuralgia and painful spasms. About two thirds of people with MS report pain; some is central neuropathic, some musculoskeletal from altered movement.
 family: nerve
 regions: [lower-limb, upper-limb, face, back]
 icd:
@@ -46,7 +46,7 @@ Because the pains have different mechanisms, they are classified separately. In 
 
 ## Mechanisms
 
-Ongoing burning pain in the legs and arms is attributed to deafferentation from lesions in the spino-thalamo-cortical pathways, while trigeminal neuralgia and Lhermitte's sign are thought to arise from ectopic impulses generated in demyelinated primary afferents. Painful tonic spasms and spasticity pain are mixed: they follow lesions of central motor pathways but are signalled by muscle nociceptors [@truini2012].
+Ongoing pain in the legs and arms is attributed to deafferentation from lesions in the spino-thalamo-cortical pathways, while trigeminal neuralgia and Lhermitte's sign are thought to arise from ectopic impulses generated along primary afferent fibres. Painful tonic spasms and spasticity pain are mixed: they follow lesions of central motor pathways but are signalled by muscle nociceptors [@truini2012].
 
 ## Open questions
 

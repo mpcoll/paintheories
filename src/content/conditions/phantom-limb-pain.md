@@ -43,13 +43,13 @@ Nearly everyone continues to feel a limb after it has been amputated, and many f
 
 ## How it is classified
 
-ICD-11 has a neurological code for phantom limb syndrome (8E43.00), which covers phantom sensations whether or not they hurt. For chronic pain, the IASP Task Force lists pain after amputation under chronic postsurgical or posttraumatic pain, and cross-lists chronic neuropathic pain after peripheral nerve injury there, so the same pain can be approached by its cause or by its mechanism [@scholz2019; @schug2019].
+ICD-11 has a neurological code for phantom limb syndrome (8E43.00), which covers phantom sensations whether or not they hurt [@who2026]. For chronic pain, the IASP Task Force lists pain after amputation under chronic postsurgical or posttraumatic pain, and cross-lists chronic neuropathic pain after peripheral nerve injury there, so the same pain can be approached by its cause or by its mechanism [@scholz2019; @schug2019].
 
 ## Mechanisms
 
-The dominant account links phantom pain to maladaptive plasticity in the central nervous system, especially reorganization of the somatosensory cortex after loss of input [@flor1995; @flor2006]. Later imaging found the opposite pattern: more phantom pain went with better preserved structure and function in the former hand area, suggesting that the pain experience maintains the old representation [@makin2013]. A third line of evidence points to the periphery: blocking the dorsal root ganglia with local anaesthetic rapidly and reversibly abolished phantom pain and non-painful phantom sensations in 31 amputees, consistent with ectopic activity in injured sensory neurons [@vaso2014]. Reviews treat the relative roles of central and peripheral mechanisms as unresolved [@collins2018].
+The dominant account links phantom pain to maladaptive plasticity in the central nervous system, especially reorganization of the somatosensory cortex after loss of input [@flor1995; @flor2006]. Later imaging found the opposite pattern: more phantom pain went with better preserved structure and function in the former hand area, suggesting that the pain experience maintains the old representation [@makin2013]. A third line of evidence points to the periphery: blocking the dorsal root ganglia with local anaesthetic rapidly and reversibly abolished phantom pain and non-painful phantom sensations in a study of 31 amputees, consistent with ectopic activity in injured sensory neurons [@vaso2014]. Reviews treat the relative roles of central and peripheral mechanisms as unresolved [@collins2018].
 
 ## Open questions
 
-- Whether cortical reorganization causes phantom pain, follows from it, or is largely absent remains contested between competing imaging findings [@makin2013; @flor2006].
+- Whether cortical reorganization causes phantom pain, follows from it, or is largely absent remains contested between competing imaging findings [@flor2006; @makin2013; @schone2025].
 - How peripheral ectopic input and central changes interact, and whether targeting the dorsal root ganglion is an effective treatment, needs controlled trials [@vaso2014].

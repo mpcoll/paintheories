@@ -1,7 +1,7 @@
 ---
 title: Painful diabetic neuropathy
 aliases: [Painful diabetic polyneuropathy, Painful diabetic peripheral neuropathy, Diabetic neuropathic pain]
-summary: Burning, tingling or aching pain in the feet and later the hands caused by diabetic damage to peripheral nerves. One of the commonest causes of neuropathic pain; about a fifth of people with diabetes in a large UK community study had it.
+summary: Pain caused by diabetic damage to peripheral nerves, in a neuropathy that begins in the feet. One of the commonest causes of neuropathic pain; about a fifth of people with diabetes in a large UK community study had it.
 family: nerve
 regions: [lower-limb, upper-limb]
 icd:
@@ -36,7 +36,7 @@ updated: 2026-11-27
 
 ## Overview
 
-Distal symmetric polyneuropathy is the most common complication of diabetes: a loss of sensory function that starts in the feet and spreads upwards, and at least half of people with diabetes develop it over time [@feldman2019]. In some of them it is painful. In a community study of more than 15,000 people with diabetes in England, about a third reported painful neuropathic symptoms and about a fifth met criteria for painful diabetic neuropathy; it was more common in type 2 diabetes, in women and in people of South Asian origin [@abbott2011].
+Neuropathy is the most prevalent complication of diabetes, and distal symmetric polyneuropathy, a loss of sensory function that begins in the feet, is a very common form of it; at least half of people with diabetes develop it over time [@feldman2019]. In some of them it is painful. In a community study of more than 15,000 people with diabetes in England, about a third reported painful neuropathic symptoms and about a fifth met criteria for painful diabetic neuropathy; it was more common in type 2 diabetes, in women and in people of South Asian origin [@abbott2011].
 
 ## How it is classified
 

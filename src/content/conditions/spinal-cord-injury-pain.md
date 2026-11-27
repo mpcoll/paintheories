@@ -45,11 +45,11 @@ Chronic pain is common after spinal cord injury. In a cohort followed for 5 year
 
 ## How it is classified
 
-The International Spinal Cord Injury Pain classification separates nociceptive pains (musculoskeletal, visceral) from neuropathic pains, which are labelled at-level or below-level according to where they are felt relative to the injury [@bryce2011]. In ICD-11, the neuropathic pain is chronic central neuropathic pain (MG30.50); the IASP Task Force requires pain in dermatomes at or below the level of injury with sensory disturbance there, and cross-lists it under posttraumatic pain [@scholz2019; @schug2019].
+The International Spinal Cord Injury Pain classification separates nociceptive pains (musculoskeletal, visceral) from neuropathic pains, which are labelled at-level or below-level according to where they are felt relative to the injury [@bryce2011]. In ICD-11, the neuropathic pain is chronic central neuropathic pain (MG30.50); the IASP Task Force requires pain in dermatomes at or below the level of injury with sensory disturbance there, and cross-lists it under posttraumatic pain [@scholz2019; @who2026].
 
 ## Mechanisms
 
-Below-level pain is felt in areas with disturbed sensation below the lesion [@scholz2019]. Patients with and without such pain had similar loss of sensation below the injury, but those with pain more often had hypersensitivity at the lesion level, pointing to neuronal hyperexcitability around the injury [@finnerup2007]. Another study found that heat and capsaicin applied below a clinically complete injury rekindled sensations resembling their usual pain in 8 of 12 patients with central pain, but evoked nothing in pain-free patients, suggesting that surviving spinothalamic fibres carry the abnormal activity [@wasner2008].
+Below-level pain is felt in areas with disturbed sensation below the lesion [@scholz2019]. Patients with and without such pain had similar loss of sensation below the injury, but those with pain more often had hypersensitivity at the lesion level, pointing to neuronal hyperexcitability around the injury [@finnerup2007]. Another study found that heat with topical capsaicin (or, in one case, cold) applied below a clinically complete injury rekindled sensations resembling their usual pain in 8 of 12 patients with central pain, but evoked nothing in pain-free patients, suggesting that surviving spinothalamic fibres carry the abnormal activity [@wasner2008].
 
 ## Open questions
 

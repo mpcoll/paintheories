@@ -41,7 +41,7 @@ updated: 2026-11-27
 
 ## Overview
 
-Sciatica is pain in the distribution of the sciatic nerve, most often caused by herniation of a lumbar intervertebral disc; its lifetime incidence has been estimated at 13% to 40%, and most cases resolve with simple measures [@stafford2007]. Estimates of how common it is vary widely because studies define sciatica in very different ways [@konstantinou2008]. The same process at the cervical spine produces arm pain.
+Sciatica is pain in the distribution of the sciatic nerve, most often caused by herniation of a lumbar intervertebral disc; its lifetime incidence has been estimated at 13% to 40%, and most cases resolve with simple measures [@stafford2007]. Estimates of how common it is vary widely because studies define sciatica in very different ways [@konstantinou2008]. Painful radiculopathy can involve cervical, thoracic, lumbar or sacral roots, so the pain may run down an arm as well as a leg [@scholz2019].
 
 ## How it is classified
 
