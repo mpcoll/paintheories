@@ -1,0 +1,233 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { cite, url, type Reference } from '../../lib/data';
+import { getConditions, conditionUrl, descriptorProfile, DESC_ORDER, CATEGORY_ORDER, categoriesOf } from '../../lib/conditions';
+import { DESCRIPTORS, DESCRIPTOR_ROLES, ICD_CATEGORIES } from '../../data/conditions-taxonomy';
+
+const conditions = await getConditions();
+const ids = ['raja2020', 'kosek2016', 'granan2017', 'kosek2021', 'cohen2022', 'schmidt2024', 'yoo2024', 'fitzcharles2021', 'treede2008', 'finnerup2016', 'scholz2019', 'freynhagen2019', 'freynhagen2026', 'attal2026'];
+const refs = new Map(((await getEntries(ids.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+const A = (id: string) => { const l = L(id); return `<a href="${l.href}" title="${l.title.replace(/"/g, '&quot;')}">${l.label}</a>`; };
+
+const profiles = conditions.map((c) => ({ c, p: descriptorProfile(c) }));
+const examples = (t: (typeof DESC_ORDER)[number]) => profiles.filter((x) => x.p[t] === 'defining').map((x) => x.c);
+const mixed = profiles.filter((x) => DESC_ORDER.filter((t) => x.p[t] && x.p[t] !== 'subset').length >= 2).map((x) => x.c);
+
+const INFO = {
+  nociceptive: { src: 'kosek2016', hallmark: 'Pain that tracks tissue damage or inflammation and is felt where the damage is.', biology: [['biology/periphery/', 'Nociceptors and transduction'], ['biology/sensitization/', 'Inflammation and peripheral sensitization']] },
+  neuropathic: { src: 'treede2008', hallmark: 'Pain in the territory of a damaged nerve, root or central pathway, often burning or shooting, with sensory loss or abnormal sensations in the same area.', biology: [['biology/periphery/', 'Fibre classes'], ['biology/', 'Pain circuits']] },
+  nociplastic: { src: 'kosek2016', hallmark: 'Regional or widespread pain beyond any identified damage, with heightened sensitivity and often fatigue, poor sleep, cognitive and mood problems.', biology: [['biology/sensitization/', 'Central sensitization'], ['biology/', 'Descending modulation']] },
+} as const;
+
+// Grading flowcharts (questions asked in order; a "no" stops at the current grade).
+const flows = {
+  neuropathic: {
+    title: 'Neuropathic pain grading',
+    src: ['finnerup2016'],
+    steps: [
+      { q: 'Is there a history of a relevant lesion or disease of the somatosensory nervous system (for example herpes zoster, nerve injury, stroke, diabetes), and is the pain distribution neuroanatomically plausible?', yes: 'Possible neuropathic pain', no: 'Neuropathic pain unlikely: consider other mechanisms.' },
+      { q: 'Does examination show sensory signs (loss or gain of sensation) in the same neuroanatomically plausible distribution?', yes: 'Probable neuropathic pain', no: null },
+      { q: 'Does a diagnostic test (imaging, nerve conduction, skin biopsy, surgery or genetics) confirm a lesion or disease of the somatosensory nervous system that explains the pain?', yes: 'Definite neuropathic pain', no: null },
+    ],
+    note: '"Definite" means the pain is fully compatible with neuropathic pain; it does not by itself establish that the lesion causes the pain.',
+  },
+  nociplastic: {
+    title: 'Nociplastic pain grading (simplified)',
+    src: ['kosek2021', 'yoo2024'],
+    steps: [
+      { q: 'Is there chronic regional, multifocal or widespread pain (more than 3 months) that cannot be entirely explained by nociceptive or neuropathic mechanisms?', yes: null, no: 'Nociplastic pain unlikely: consider nociceptive or neuropathic mechanisms.' },
+      { q: 'Does examination show evoked pain hypersensitivity in the region of pain (for example allodynia, with or without after-sensations)?', yes: 'Possible nociplastic pain', no: 'Criteria not met (but see the field-study critique below).' },
+      { q: 'Does the person also report pain hypersensitivity in that region and comorbid symptoms (sensitivity to sound, light or odours, sleep disturbance, fatigue or cognitive problems)?', yes: 'Probable nociplastic pain', no: null },
+    ],
+    note: 'Simplified from the published criteria, which apply to pain affecting the musculoskeletal system; see the original paper for exact wording. Nociplastic pain can coexist with nociceptive or neuropathic pain.',
+  },
+} as const;
+const toc = [['three', 'Three descriptors'], ['grading', 'Grading'], ['mixed', 'Mixed pain'], ['matrix', 'Conditions'], ['debate', 'Debates']];
+---
+
+<Base title="Nociceptive, neuropathic, nociplastic" description="The IASP mechanistic descriptors of pain: definitions, the grading systems for neuropathic and nociplastic pain, mixed pain, how common conditions map onto them, and open debates.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Conditions · mechanisms</p>
+    <h1>Nociceptive, neuropathic, nociplastic</h1>
+    <p class="lede">IASP describes pain by its presumed mechanism with three descriptors. They are not diagnoses and they are not exclusive: many people have more than one kind of pain at once.</p>
+    <nav class="toc" aria-label="On this page">{toc.map(([id, l]) => <a href={`#${id}`}>{l}</a>)}</nav>
+  </header>
+
+  <section id="three">
+    <h2>Three descriptors</h2>
+    <div class="three">
+      {DESC_ORDER.map((t) => (
+        <article class={`card dcard desc-${t}`}>
+          <h3><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</h3>
+          <p class="def">{DESCRIPTORS[t].description}</p>
+          <p class="src">IASP terminology; <Fragment set:html={A(INFO[t].src)} /></p>
+          <p class="hall"><strong>Typical picture.</strong> {INFO[t].hallmark}</p>
+          {examples(t).length > 0 && <p class="ex"><strong>Defining for:</strong> {examples(t).map((c, i) => <>{i > 0 && ', '}<a href={conditionUrl(c.id)}>{c.data.title}</a></>)}</p>}
+          <p class="bio">{INFO[t].biology.map(([h, l], i) => <>{i > 0 && ' · '}<a href={url(h)}>{l}</a></>)}</p>
+        </article>
+      ))}
+    </div>
+    <p class="muted intro">The third descriptor, <em>nociplastic</em>, was proposed in 2016 for pain that is neither clearly nociceptive nor neuropathic but reflects altered nociception (<Fragment set:html={A('kosek2016')} />). Augmented central pain and sensory processing and altered pain modulation are thought to play prominent roles (<Fragment set:html={A('fitzcharles2021')} />). See also the <a href={url('theories/nociplastic-pain/')}>nociplastic pain</a> and <a href={url('theories/central-sensitization/')}>central sensitization</a> theory pages.</p>
+  </section>
+
+  <section id="grading">
+    <h2>Grading: how certain is the mechanism?</h2>
+    <p class="muted intro">Both grading systems build certainty step by step, from history to examination to tests. Step through them with a case in mind. These are teaching illustrations of published research and clinical criteria, not diagnostic tools.</p>
+    <div class="flows">
+      {(['neuropathic', 'nociplastic'] as const).map((k) => {
+        const f = flows[k];
+        return (
+          <div class={`card flow desc-${k}`} data-flow={k} data-step="0">
+            <h3><span class="dsw" aria-hidden="true"></span>{f.title}</h3>
+            <ol class="steps">
+              {f.steps.map((s, i) => (
+                <li class="step" data-i={i}>
+                  <p class="q">{s.q}</p>
+                  <div class="ans" role="group" aria-label={`Answer step ${i + 1}`}>
+                    <button type="button" data-a="yes">Yes</button>
+                    <button type="button" data-a="no">No</button>
+                  </div>
+                  <p class="out" hidden data-yes={s.yes ?? ''} data-no={s.no ?? ''}></p>
+                </li>
+              ))}
+            </ol>
+            <p class="result" aria-live="polite"></p>
+            <button type="button" class="reset" hidden>Start again</button>
+            <p class="fnote">{f.note} Source: <Fragment set:html={f.src.map(A).join('; ')} /></p>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <section id="mixed" class="prose">
+    <h2>Mixed pain</h2>
+    <p>Many common conditions, such as chronic low back pain, cancer pain and osteoarthritis, do not fit neatly into one descriptor (<Fragment set:html={A('freynhagen2019')} />). A 2026 international consensus defined <strong>mixed pain</strong> as pain associated with a lesion, disease or disorder that results in an overlap of at least two mechanistic descriptors (<Fragment set:html={A('freynhagen2026')} />). The definition has prompted published commentary (<Fragment set:html={A('attal2026')} />). On this site, {mixed.length} of {conditions.length} conditions have at least two descriptors marked as defining or common.</p>
+  </section>
+
+  <section id="matrix">
+    <h2>How the conditions map</h2>
+    <p class="muted intro">Each condition's descriptors, with the ICD-11 category beside them. Note that chronic primary pain and nociplastic pain overlap but are not the same thing.</p>
+    <div class="mx-wrap">
+      <table class="mx">
+        <thead><tr><th scope="col">Condition</th>{DESC_ORDER.map((t) => <th scope="col" class={`desc-${t}`}><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</th>)}<th scope="col">ICD-11</th></tr></thead>
+        <tbody>
+          {profiles.map(({ c, p }) => (
+            <tr>
+              <th scope="row"><a href={conditionUrl(c.id)}>{c.data.title}</a></th>
+              {DESC_ORDER.map((t) => <td class={`cell desc-${t} role-${p[t] ?? 'none'}`}><span class="cbox" aria-hidden="true"></span><span class="cl">{p[t] ? DESCRIPTOR_ROLES[p[t]!].label : '–'}</span></td>)}
+              <td class="icd">{categoriesOf(c).map((cat) => <span class={`kind kind-${ICD_CATEGORIES[cat].kind}`} title={ICD_CATEGORIES[cat].label}>{ICD_CATEGORIES[cat].short}</span>)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted foot">Roles: <strong>defining</strong>, the condition is defined by or almost always involves the mechanism; <strong>common</strong>, it contributes in many or most patients; <strong>in a subset</strong>, in some patients or debated. <a href={url('conditions/crosswalk/')}>See all three lenses side by side →</a></p>
+  </section>
+
+  <section id="debate" class="prose">
+    <h2>Debates</h2>
+    <ul>
+      <li><strong>Do we need a third descriptor?</strong> The proposal was challenged as premature soon after it appeared (<Fragment set:html={A('granan2017')} />).</li>
+      <li><strong>Are the nociplastic criteria valid?</strong> The 2021 clinical criteria (<Fragment set:html={A('kosek2021')} />) have been criticised as flawed (<Fragment set:html={A('cohen2022')} />). In a field study they separated chronic primary from secondary pain well at the first step, but evidence of hypersensitivity and comorbidities did not discriminate, sensitivity fell to 60%, and the authors proposed putting patient history before examination (<Fragment set:html={A('schmidt2024')} />).</li>
+      <li><strong>Mechanism or description?</strong> Descriptors are inferred from clinical features; whether they track distinct biological mechanisms, and whether matching treatment to them improves outcomes, is still being tested (<Fragment set:html={A('fitzcharles2021')} />).</li>
+    </ul>
+  </section>
+
+  <style>
+    section { margin-bottom: 2.6rem; scroll-margin-top: 130px; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a { text-decoration: none; }
+    .intro { max-width: var(--measure); }
+    section :global(a) { text-decoration-thickness: 1px; }
+    .dsw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: var(--c); margin-right: .4rem; vertical-align: -1px; }
+    .desc-nociceptive { --c: var(--desc-noc); }
+    .desc-neuropathic { --c: var(--desc-neu); }
+    .desc-nociplastic { --c: var(--desc-npl); }
+    .three { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+    .dcard { border-top: 4px solid var(--c); display: flex; flex-direction: column; gap: .45rem; }
+    .dcard h3 { margin: 0; font-size: 1.25rem; }
+    .dcard p { margin: 0; font-size: .9rem; }
+    .def { font-family: var(--serif); font-size: 1.02rem !important; }
+    .src, .bio { font-size: .8rem !important; color: var(--ink-3); }
+    .src :global(a), .bio a, .ex a { text-decoration: none; }
+    .flows { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .flow { border-top: 4px solid var(--c); }
+    .flow h3 { margin: 0 0 .6rem; }
+    .steps { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; gap: .6rem; }
+    .step { counter-increment: s; border-left: 2px solid var(--line); padding: 0 0 0 .8rem; opacity: .4; }
+    .step.active, .step.done { opacity: 1; }
+    .step.active { border-left-color: var(--c); }
+    .step .q { margin: 0 0 .4rem; font-size: .9rem; }
+    .step .q::before { content: counter(s) '. '; font-weight: 700; color: var(--ink-3); }
+    .ans { display: flex; gap: .4rem; }
+    .ans button { font: 600 .82rem var(--font); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2); border-radius: 8px; padding: .25rem .8rem; cursor: pointer; }
+    .ans button:disabled { cursor: default; opacity: .5; }
+    .ans button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); opacity: 1; }
+    .out { margin: .4rem 0 0; font-size: .85rem; font-weight: 600; color: var(--ink); }
+    .result { font: 650 1.05rem var(--serif); margin: .8rem 0 .3rem; min-height: 1.4em; }
+    .reset { font: 500 .82rem var(--font); background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+    .fnote { font-size: .8rem; color: var(--ink-3); margin: .7rem 0 0; }
+    .fnote :global(a) { text-decoration: none; }
+    .mx-wrap { overflow-x: auto; }
+    .mx { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 560px; }
+    .mx th, .mx td { padding: .38rem .55rem; border-bottom: 1px solid var(--line); text-align: left; }
+    .mx thead th { font: 600 .74rem var(--font); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); white-space: nowrap; }
+    .mx tbody th { font-weight: 500; }
+    .mx tbody th a { text-decoration: none; }
+    .cell { white-space: nowrap; }
+    .cbox { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid var(--c); vertical-align: -2px; margin-right: .35rem; }
+    .role-defining .cbox { background: var(--c); }
+    .role-common .cbox { background: linear-gradient(to top, var(--c) 55%, transparent 55%); }
+    .role-subset .cbox { background: radial-gradient(circle, var(--c) 1.2px, transparent 1.6px) 0 0 / 4px 4px; }
+    .role-none .cbox { border-color: var(--line); }
+    .role-none .cl { color: var(--ink-3); }
+    .cl { color: var(--ink-2); }
+    .kind { display: inline-block; font: 600 .66rem var(--font); text-transform: uppercase; letter-spacing: .05em; padding: .1rem .38rem; border-radius: 5px; border: 1px solid var(--line-strong); color: var(--ink-3); margin-right: .2rem; white-space: nowrap; }
+    .kind-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .foot { font-size: .84rem; max-width: var(--measure); }
+  </style>
+
+  <script>
+    document.querySelectorAll<HTMLElement>('.flow').forEach((flow) => {
+      const steps = [...flow.querySelectorAll<HTMLElement>('.step')];
+      const result = flow.querySelector<HTMLElement>('.result')!;
+      const reset = flow.querySelector<HTMLButtonElement>('.reset')!;
+      let grade = '';
+      const start = () => {
+        grade = '';
+        result.textContent = '';
+        reset.hidden = true;
+        steps.forEach((s, i) => {
+          s.classList.toggle('active', i === 0);
+          s.classList.remove('done');
+          s.querySelectorAll('button').forEach((b) => { b.disabled = i !== 0; b.removeAttribute('aria-pressed'); });
+          (s.querySelector('.out') as HTMLElement).hidden = true;
+        });
+      };
+      steps.forEach((s, i) => s.querySelectorAll<HTMLButtonElement>('.ans button').forEach((b) => b.addEventListener('click', () => {
+        const out = s.querySelector<HTMLElement>('.out')!;
+        const yes = b.dataset.a === 'yes';
+        b.setAttribute('aria-pressed', 'true');
+        s.querySelectorAll('button').forEach((x) => (x.disabled = true));
+        s.classList.replace('active', 'done') || s.classList.add('done');
+        const msg = yes ? out.dataset.yes : out.dataset.no;
+        if (msg) { out.textContent = '→ ' + msg; out.hidden = false; }
+        if (yes && out.dataset.yes) grade = out.dataset.yes;
+        const stop = !yes || i === steps.length - 1;
+        if (stop) {
+          result.textContent = !yes && out.dataset.no ? out.dataset.no : grade ? `Result: ${grade}` : '';
+          reset.hidden = false;
+        } else {
+          const n = steps[i + 1];
+          n.classList.add('active');
+          n.querySelectorAll('button').forEach((x) => (x.disabled = false));
+        }
+      })));
+      reset.addEventListener('click', start);
+      start();
+    });
+  </script>
+</Base>

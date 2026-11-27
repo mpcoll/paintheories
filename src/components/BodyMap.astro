@@ -1,0 +1,100 @@
+---
+/**
+ * Schematic body map (front and back) with clickable regions (REGIONS in
+ * conditions-taxonomy.ts). mode="filter": buttons that dispatch a `bodyregion`
+ * event (detail: region id or null). mode="show": static, highlights `regions`.
+ * Original drawing; positions are schematic, not anatomical.
+ */
+import { REGIONS } from '../data/conditions-taxonomy';
+
+interface Props { mode?: 'filter' | 'show'; regions?: string[]; counts?: Record<string, number>; id?: string }
+const { mode = 'filter', regions = [], counts = {}, id = 'bodymap' } = Astro.props;
+const on = new Set(regions);
+const interactive = mode === 'filter';
+const label = (r: string) => `${REGIONS[r as keyof typeof REGIONS].label}${counts[r] != null ? ` (${counts[r]} conditions)` : ''}`;
+
+// Figure geometry (one figure is 200 wide; back view offset by 220)
+const limbs = (dx: number) => [
+  `M${dx + 66},86 Q${dx + 50},88 ${dx + 46},104 L${dx + 32},222 Q${dx + 31},234 ${dx + 42},235 Q${dx + 51},236 ${dx + 52},226 L${dx + 64},128 Z`,
+  `M${dx + 134},86 Q${dx + 150},88 ${dx + 154},104 L${dx + 168},222 Q${dx + 169},234 ${dx + 158},235 Q${dx + 149},236 ${dx + 148},226 L${dx + 136},128 Z`,
+];
+const legs = (dx: number) => [
+  `M${dx + 70},230 L${dx + 98},230 L${dx + 96},404 Q${dx + 96},414 ${dx + 85},414 Q${dx + 74},414 ${dx + 74},404 Z`,
+  `M${dx + 102},230 L${dx + 130},230 L${dx + 126},404 Q${dx + 126},414 ${dx + 115},414 Q${dx + 104},414 ${dx + 104},404 Z`,
+];
+type Shape = { r: string; d: string };
+const front: Shape[] = [
+  { r: 'head', d: 'M100,12 a26,26 0 1 1 -0.1,0 Z' },
+  { r: 'face', d: 'M84,44 Q84,64 100,66 Q116,64 116,44 Z' },
+  { r: 'neck', d: 'M91,66 L109,66 L111,82 L89,82 Z' },
+  ...limbs(0).map((d) => ({ r: 'upper-limb', d })),
+  { r: 'chest', d: 'M68,84 Q100,78 132,84 L134,140 L66,140 Z' },
+  { r: 'abdomen', d: 'M66,142 L134,142 L132,192 L68,192 Z' },
+  { r: 'pelvis', d: 'M68,194 L132,194 Q134,222 118,230 L82,230 Q66,222 68,194 Z' },
+  ...legs(0).map((d) => ({ r: 'lower-limb', d })),
+];
+const B = 220;
+const back: Shape[] = [
+  { r: 'head', d: `M${B + 100},12 a26,26 0 1 1 -0.1,0 Z` },
+  { r: 'neck', d: `M${B + 91},66 L${B + 109},66 L${B + 111},82 L${B + 89},82 Z` },
+  ...limbs(B).map((d) => ({ r: 'upper-limb', d })),
+  { r: 'back', d: `M${B + 68},84 Q${B + 100},78 ${B + 132},84 L${B + 134},140 L${B + 132},192 L${B + 68},192 L${B + 66},140 Z` },
+  { r: 'pelvis', d: `M${B + 68},194 L${B + 132},194 Q${B + 134},222 ${B + 118},230 L${B + 82},230 Q${B + 66},222 ${B + 68},194 Z` },
+  ...legs(B).map((d) => ({ r: 'lower-limb', d })),
+];
+---
+<div class:list={['bm', { interactive }]} id={id} data-mode={mode}>
+  <svg viewBox="0 0 420 440" role={interactive ? 'group' : 'img'} aria-label={interactive ? 'Body map: select a region to filter conditions' : `Body regions affected: ${regions.map((r) => REGIONS[r as keyof typeof REGIONS]?.label).join(', ')}`}>
+    {[{ shapes: front, x: 100, label: 'Front' }, { shapes: back, x: B + 100, label: 'Back' }].map((fig) => (
+      <g>
+        {fig.shapes.map((s) => (
+          interactive
+            ? <path class:list={['rg', `r-${s.r}`]} data-region={s.r} d={s.d} tabindex="0" role="button" aria-label={`${label(s.r)}: filter`} aria-pressed="false"><title>{label(s.r)}</title></path>
+            : <path class:list={['rg', `r-${s.r}`, { on: on.has(s.r) || on.has('widespread') }]} d={s.d}><title>{REGIONS[s.r as keyof typeof REGIONS].label}</title></path>
+        ))}
+        <text class="bm-l" x={fig.x} y="434" text-anchor="middle">{fig.label}</text>
+      </g>
+    ))}
+  </svg>
+  {interactive && (
+    <div class="bm-buttons">
+      <button type="button" class="chip" data-region="widespread" aria-pressed="false">{label('widespread')}</button>
+      <button type="button" class="chip bm-clear" data-region="" hidden>Clear region</button>
+    </div>
+  )}
+  {!interactive && on.has('widespread') && <p class="bm-note">Widespread: many regions at once</p>}
+</div>
+
+<style>
+  .bm svg { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+  .rg { fill: var(--surface-2); stroke: var(--line-strong); stroke-width: 1.2; transition: fill .15s, stroke .15s; }
+  .interactive .rg { cursor: pointer; }
+  .interactive .rg:hover, .interactive .rg:focus-visible { fill: color-mix(in srgb, var(--accent) 25%, var(--surface)); outline: none; }
+  .rg.on, .interactive .rg[aria-pressed='true'] { fill: color-mix(in srgb, var(--accent) 55%, var(--surface)); stroke: var(--accent); }
+  .bm-l { fill: var(--ink-3); font: 600 12px var(--font); letter-spacing: .06em; text-transform: uppercase; }
+  .bm-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin-top: .5rem; }
+  .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .3rem .75rem; cursor: pointer; }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .bm-note { text-align: center; font-size: .82rem; color: var(--ink-3); margin: .3rem 0 0; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.bm.interactive').forEach((root) => {
+    let current: string | null = null;
+    const set = (r: string | null) => {
+      current = r && r !== current ? r : null;
+      root.querySelectorAll<HTMLElement | SVGElement>('[data-region]').forEach((el) => {
+        if (el.classList.contains('bm-clear')) return;
+        el.setAttribute('aria-pressed', String(el.dataset.region === current));
+      });
+      (root.querySelector('.bm-clear') as HTMLElement).hidden = !current;
+      root.dispatchEvent(new CustomEvent('bodyregion', { detail: current, bubbles: true }));
+    };
+    root.querySelectorAll<HTMLElement | SVGElement>('[data-region]').forEach((el) => {
+      el.addEventListener('click', () => set(el.dataset.region || null));
+      el.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'Enter' || k === ' ') { e.preventDefault(); set(el.dataset.region || null); } });
+    });
+    (root as any).setRegion = (r: string | null) => { current = null; set(r); };
+  });
+</script>

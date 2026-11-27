@@ -1,0 +1,188 @@
+---
+import { getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { cite, url, type Reference } from '../../lib/data';
+import { getConditions, conditionUrl, CATEGORY_ORDER } from '../../lib/conditions';
+import { ICD_CATEGORIES, ICD_MG30, ICD_EXTENSIONS, ICD_RELEASE, icdBrowser } from '../../data/conditions-taxonomy';
+
+const conditions = await getConditions();
+const refIds = ['who2026', 'treede2015', 'treede2019', 'nicholas2019', 'bennett2019', 'schug2019', 'perrot2019', 'aziz2019', 'scholz2019', 'benoliel2019', 'merskey1994'];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : r.data.url ?? url(`references/#${id}`), title: r.data.title }; };
+const CAT_REF: Record<string, string> = { 'MG30.0': 'nicholas2019', 'MG30.1': 'bennett2019', 'MG30.2': 'schug2019', 'MG30.3': 'perrot2019', 'MG30.4': 'aziz2019', 'MG30.5': 'scholz2019', 'MG30.6': 'benoliel2019' };
+
+// Our paraphrases of the WHO definitions (third level).
+const SUB: Record<string, string> = {
+  'MG30.00': 'Pain in the chest, abdomen or pelvis in a pattern typical of referral from an organ, with distress or disability, not better explained by secondary visceral pain.',
+  'MG30.01': 'Diffuse pain in at least 4 of 5 body regions with distress or disability, not directly attributable to a nociceptive process; features consistent with nociplastic pain.',
+  'MG30.02': 'Pain in muscles, bones, joints or tendons with distress or disability, not better accounted for by another diagnosis.',
+  'MG30.03': 'Headache or orofacial pain on at least half the days for at least 3 months, at least 2 hours a day, with distress or disability.',
+  'MG30.04': 'Regional pain in a limb, usually after trauma, disproportionate to the injury, with autonomic and neuro-inflammatory signs.',
+  'MG30.10': 'Pain caused by the primary cancer or metastases.',
+  'MG30.11': 'Pain caused by cancer treatment, most often chemotherapy-induced polyneuropathy or delayed nerve damage after radiotherapy.',
+  'MG30.20': 'Pain after an accidental tissue injury (including burns), persisting beyond healing.',
+  'MG30.21': 'Pain after a surgical procedure, persisting beyond healing; often neuropathic depending on the operation.',
+  'MG30.30': 'Pain from inflammation in joints, bones, tendons, muscles or the spine.',
+  'MG30.31': 'Pain attributable to structural changes in joints, bones or tendons, seen on examination or imaging.',
+  'MG30.32': 'Musculoskeletal pain caused by the altered movement or sensation of a neurological disease.',
+  'MG30.40': 'Visceral pain from obstruction (for example stones), stenosis, or traction or compression of organs.',
+  'MG30.41': 'Visceral pain from changes in the blood vessels supplying organs.',
+  'MG30.42': 'Visceral pain from long-lasting inflammation of internal organs.',
+  'MG30.50': 'Neuropathic pain from a lesion or disease of the brain or spinal cord.',
+  'MG30.51': 'Neuropathic pain from a lesion or disease of peripheral nerves, roots or ganglia.',
+  'MG30.61': 'Pain from a disorder of the teeth or their supporting tissues.',
+  'MG30.62': 'Orofacial pain from a lesion or disease of a peripheral cranial nerve.',
+  'MG30.63': 'Jaw-joint or jaw-muscle pain from inflammation, structural change, injury or neurological disease.',
+  'MG30.64': 'Headache or facial pain caused by a disorder of homoeostasis or its non-drug treatment.',
+  'MG30.65': 'Headache or facial pain caused by a cranial or cervical vascular disorder.',
+  'MG30.66': 'Headache or facial pain caused by a non-vascular intracranial disorder.',
+  'MG30.67': 'Headache caused by use of, exposure to or withdrawal from a substance.',
+};
+const subcodes = (cat: string) => ICD_MG30.filter((c) => c.code.startsWith(cat) && c.code.length === cat.length + 1);
+const at = (code: string) => conditions.filter((c) => c.data.icd.pain.some((p) => p.code === code));
+const atCategoryOnly = (cat: string) => conditions.filter((c) => c.data.icd.pain.some((p) => p.code === cat));
+const atOther = (cat: string) => conditions.filter((c) => c.data.icd.pain.some((p) => p.code === `${cat}Y`));
+const toc = [['chapter', 'The chronic pain chapter'], ['tree', 'The ICD-11 tree'], ['coding', 'Coding a patient'], ['history', 'Before ICD-11']];
+---
+
+<Base title="How ICD-11 classifies chronic pain" description="The ICD-11 chronic pain chapter (MG30): chronic primary and secondary pain, its seven categories and subcodes, extension codes for severity and psychosocial factors, and where common conditions fit.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Conditions · classification</p>
+    <h1>How ICD-11 classifies chronic pain</h1>
+    <p class="lede">Since ICD-11, chronic pain has its own place in the World Health Organization's classification of diseases. The key distinction is whether pain is a condition in its own right or a symptom of another disease.</p>
+    <nav class="toc" aria-label="On this page">{toc.map(([id, l]) => <a href={`#${id}`}>{l}</a>)}</nav>
+  </header>
+
+  <section id="chapter" class="prose">
+    <h2>The chronic pain chapter</h2>
+    <p>ICD-11 defines chronic pain as pain that persists or recurs for longer than 3 months. An IASP task force, working with WHO, organised it into one group of <strong>chronic primary pain</strong> and six groups of <strong>chronic secondary pain</strong> (<a href={L('treede2019').href}>{L('treede2019').label}</a>; <a href={L('who2026').href}>{L('who2026').label}</a>).</p>
+    <div class="twoup">
+      <div class="card kindc primary">
+        <h3>Chronic primary pain</h3>
+        <p>Pain is the condition. It is diagnosed when chronic pain comes with significant emotional distress or functional disability and is not better accounted for by another diagnosis, whatever biological or psychological contributors are identified. Examples: fibromyalgia, non-specific low back pain, irritable bowel syndrome.</p>
+        <p class="src"><a href={L('nicholas2019').href}>{L('nicholas2019').label}</a></p>
+      </div>
+      <div class="card kindc secondary">
+        <h3>Chronic secondary pain</h3>
+        <p>Pain is, at least initially, a symptom of an underlying disease: cancer, surgery or injury, musculoskeletal disease, visceral disease, a lesion of the nervous system, or a cause of headache or orofacial pain. Coders are asked to code the causing condition as well.</p>
+        <p class="src"><a href={L('treede2019').href}>{L('treede2019').label}</a></p>
+      </div>
+    </div>
+    <p class="callout">Chronic primary pain is <strong>not</strong> a mechanistic label. It does not mean "nociplastic", and secondary pain can have nociplastic features too. ICD-11 classifies by clinical situation; the IASP descriptors classify by mechanism. <a href={url('conditions/descriptors/')}>See the mechanistic descriptors →</a></p>
+  </section>
+
+  <section id="tree">
+    <h2>The ICD-11 tree</h2>
+    <p class="muted intro">Codes and titles from ICD-11 MMS {ICD_RELEASE}; descriptions are our paraphrases. Conditions on this site appear under the code they are usually given; open a branch to see them. Residual "other specified" codes appear only where a condition uses them.</p>
+    <div class="tree">
+      <div class="root"><a class="code" href={icdBrowser('MG30')}>MG30</a> Chronic pain <span class="muted">persists or recurs for longer than 3 months</span></div>
+      <ul>
+        {CATEGORY_ORDER.map((cat) => {
+          const c = ICD_CATEGORIES[cat];
+          const direct = atCategoryOnly(cat);
+          return (
+            <li class={`cat ${c.kind}`}>
+              <details open={cat === 'MG30.0'}>
+                <summary><a class="code" href={icdBrowser(cat)}>{cat}</a> <span class="t">{c.label}</span> <span class={`kind kind-${c.kind}`}>{c.kind}</span></summary>
+                <p class="cat-d">{c.description} <a href={L(CAT_REF[cat]).href} title={L(CAT_REF[cat]).title}>{L(CAT_REF[cat]).label}</a></p>
+                {direct.length > 0 && <p class="conds">Coded at this level: {direct.map((x, i) => <>{i > 0 && ', '}<a href={conditionUrl(x.id)}>{x.data.title}</a></>)}</p>}
+                <ul>
+                  {subcodes(cat).map((s) => {
+                    const cs = at(s.code);
+                    return (
+                      <li>
+                        <p class="sub"><a class="code" href={icdBrowser(s.code)}>{s.code}</a> <span class="t">{s.title}</span></p>
+                        <p class="sub-d">{SUB[s.code]}</p>
+                        {cs.length > 0 && <p class="conds">{cs.map((x, i) => <>{i > 0 && ', '}<a href={conditionUrl(x.id)}>{x.data.title}</a></>)}</p>}
+                      </li>
+                    );
+                  })}
+                  {atOther(cat).length > 0 && (
+                    <li>
+                      <p class="sub"><a class="code" href={icdBrowser(`${cat}Y`)}>{cat}Y</a> <span class="t">Other specified</span></p>
+                      <p class="sub-d">Residual code for conditions that fit the category but none of its subcodes.</p>
+                      <p class="conds">{atOther(cat).map((x, i) => <>{i > 0 && ', '}<a href={conditionUrl(x.id)}>{x.data.title}</a></>)}</p>
+                    </li>
+                  )}
+                </ul>
+              </details>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+    <p class="muted foot">"Coded elsewhere": many familiar diagnoses keep their own code in another chapter and are only cross-listed under chronic pain. Irritable bowel syndrome (DD91.0), chronic migraine (8A80.2) and postherpetic neuralgia (1E91.5) are examples; their condition pages show both codes.</p>
+  </section>
+
+  <section id="coding">
+    <h2>Coding a patient</h2>
+    <p class="muted intro">A full chronic pain diagnosis combines a pain code, the underlying condition for secondary pain, and optional extension codes that describe severity and the role of psychosocial factors (<a href={L('treede2019').href}>{L('treede2019').label}</a>; <a href={L('who2026').href}>{L('who2026').label}</a>).</p>
+    <div class="ext">
+      {ICD_EXTENSIONS.map((e) => (
+        <div class="card extc">
+          <h3>{e.scale}</h3>
+          <p>{e.description}</p>
+          <ul>{e.codes.map((c) => <li><span class="code">{c.code}</span> {c.title}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+    <div class="card example">
+      <p class="ex-h">Worked example</p>
+      <p>Persistent pain three years after a mastectomy, in the territory of the intercostobrachial nerve, rated as severe, with moderate interference in daily life and clear psychosocial contributors:</p>
+      <ul>
+        <li><span class="code">MG30.21</span> Chronic postsurgical pain: the pain diagnosis</li>
+        <li><span class="code">XS2E</span> Severe pain · <span class="code">XS2L</span> Moderate pain-related interference · <span class="code">XS7G</span> Psychosocial factors present: extension codes</li>
+      </ul>
+      <p class="muted">The extension codes attach to the stem code (in ICD-11 notation, joined with "&amp;"). The descriptors on this site's condition pages (nociceptive, neuropathic, nociplastic) are not part of the code: here, a neuropathic mechanism would be recorded separately.</p>
+    </div>
+  </section>
+
+  <section id="history" class="prose">
+    <h2>Before ICD-11</h2>
+    <p>The previous revision, ICD-10, organised pain mainly by anatomical site and disease and did not represent chronic pain systematically, which made it hard to count, study or fund its care (<a href={L('treede2019').href}>{L('treede2019').label}</a>; <a href={L('perrot2019').href}>{L('perrot2019').label}</a>). IASP had its own taxonomy, which described chronic pain syndromes along several axes, including body region, system, temporal pattern, intensity and cause (<a href={L('merskey1994').href}>{L('merskey1994').label}</a>), but it was not part of the WHO classification. The IASP task force first proposed the new structure in 2015 (<a href={L('treede2015').href}>{L('treede2015').label}</a>) and published the detailed categories in 2019.</p>
+  </section>
+
+  <style>
+    section { margin-bottom: 2.6rem; scroll-margin-top: 130px; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a, .src a, .intro a, .cat-d a, .conds a { text-decoration: none; }
+    .intro { max-width: var(--measure); }
+    .twoup { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .kindc h3 { margin: 0 0 .4rem; }
+    .kindc p { margin: 0 0 .4rem; font-size: .95rem; }
+    .kindc.primary { border-top: 4px solid var(--ink); }
+    .kindc.secondary { border-top: 4px solid var(--line-strong); }
+    .src { font-size: .82rem !important; color: var(--ink-3); }
+    .callout { background: var(--accent-soft); border-radius: 10px; padding: .8rem 1rem; font-size: .95rem; }
+    .code { font: 600 .85rem var(--mono); color: var(--ink-2); text-decoration: none; }
+    a.code { color: var(--accent); }
+    .tree .root { font-weight: 600; padding: .5rem .8rem; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); display: inline-block; }
+    .tree .root .muted { font-weight: 400; font-size: .85rem; margin-left: .4rem; }
+    .tree ul { list-style: none; margin: 0; padding: 0 0 0 1.4rem; border-left: 2px solid var(--line); }
+    .tree > ul { margin-left: 1.2rem; }
+    .tree li { position: relative; padding: .35rem 0 .35rem .6rem; }
+    .tree li::before { content: ''; position: absolute; left: -1.4rem; top: 1.1rem; width: 1.6rem; border-top: 2px solid var(--line); }
+    .tree ul ul li::before { top: .95rem; }
+    .cat > details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .5rem .8rem; }
+    .cat.primary > details { border-color: var(--ink-3); }
+    summary { cursor: pointer; font-weight: 600; }
+    summary .t { font-family: var(--serif); font-size: 1.05rem; }
+    .kind { display: inline-block; font: 600 .64rem var(--font); text-transform: uppercase; letter-spacing: .07em; padding: .1rem .4rem; border-radius: 5px; border: 1px solid var(--line-strong); color: var(--ink-3); margin-left: .3rem; vertical-align: 2px; }
+    .kind-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .cat-d { font-size: .88rem; color: var(--ink-2); margin: .4rem 0; max-width: var(--measure); }
+    .sub { margin: 0; font-size: .92rem; }
+    .sub .t { font-weight: 600; }
+    .sub-d { margin: .1rem 0 0; font-size: .84rem; color: var(--ink-3); max-width: var(--measure); }
+    .conds { margin: .25rem 0 0; font-size: .84rem; }
+    .conds::before { content: '→ '; color: var(--ink-3); }
+    .foot { font-size: .85rem; max-width: var(--measure); margin-top: 1rem; }
+    .ext { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; margin: 1rem 0; }
+    .extc h3 { margin: 0 0 .3rem; font-size: 1rem; }
+    .extc p { margin: 0 0 .5rem; font-size: .85rem; color: var(--ink-2); }
+    .extc ul { list-style: none; padding: 0; margin: 0; font-size: .84rem; display: grid; gap: .2rem; }
+    .example { max-width: 52rem; }
+    .example .ex-h { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 .4rem; }
+    .example ul { padding-left: 1.1rem; font-size: .92rem; }
+    .example .muted { font-size: .85rem; margin: 0; }
+  </style>
+</Base>

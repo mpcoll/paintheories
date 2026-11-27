@@ -11,6 +11,7 @@ const { m } = Astro.props as { m: Mechanism };
 const { Content } = await render(m);
 const users = (await getTheories()).filter((t) => t.data.mechanisms.some((x) => x.id === m.id));
 const refs = await resolveRefs(m.data.references);
+const conds = (await getCollection('conditions')).filter((c) => c.data.mechanisms.some((x) => x.id === m.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 <Base title={m.data.title} description={m.data.summary}>
   <p class="muted" style="margin:0"><a href={url('mechanisms/')}>Mechanisms</a></p>
@@ -20,6 +21,10 @@ const refs = await resolveRefs(m.data.references);
   <div class="prose"><Content /></div>
   <h2>Theories that invoke this mechanism</h2>
   {users.length ? <ul>{users.map((t) => <li><a href={url(`theories/${t.id}/`)}>{t.data.title}</a> ({t.data.year})</li>)}</ul> : <p class="muted">None yet.</p>}
+  {conds.length > 0 && <>
+    <h2>Conditions where it is implicated</h2>
+    <ul>{conds.map((c) => <li><a href={url(`conditions/${c.id}/`)}>{c.data.title}</a></li>)}</ul>
+  </>}
   {refs.length > 0 && <>
     <h2>References</h2>
     <ul class="refs">{refs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a href={f.doiUrl}>doi</a>}</li>; })}</ul>

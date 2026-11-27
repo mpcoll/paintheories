@@ -8837,3 +8837,1226 @@
   pages: 9686-9705
   doi: 10.1523/jneurosci.17-24-09686.1997
   source: crossref
+- id: treede2019
+  type: article
+  authors:
+    - Treede, R. D.
+    - Rief, W.
+    - Barke, A.
+    - Aziz, Q.
+    - Bennett, M. I.
+    - Benoliel, R.
+    - Cohen, M.
+    - Evers, S.
+    - Finnerup, N. B.
+    - First, M. B.
+    - Giamberardino, M. A.
+    - Kaasa, S.
+    - Korwisi, B.
+    - Kosek, E.
+    - Lavand'homme, P.
+    - Nicholas, M.
+    - Perrot, S.
+    - Scholz, J.
+    - Schug, S.
+    - Smith, B. H.
+    - Svensson, P.
+    - Vlaeyen, J. W. S.
+    - Wang, S. J.
+  year: 2019
+  title: "Chronic pain as a symptom or a disease: the IASP Classification of Chronic Pain for the International Classification of Diseases (ICD-11)"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 19-27
+  doi: 10.1097/j.pain.0000000000001384
+  source: crossref
+- id: treede2015
+  type: article
+  authors:
+    - Treede, R. D.
+    - Rief, W.
+    - Barke, A.
+    - Aziz, Q.
+    - Bennett, M. I.
+    - Benoliel, R.
+    - Cohen, M.
+    - Evers, S.
+    - Finnerup, N. B.
+    - First, M. B.
+    - Giamberardino, M. A.
+    - Kaasa, S.
+    - Kosek, E.
+    - Lavand'homme, P.
+    - Nicholas, M.
+    - Perrot, S.
+    - Scholz, J.
+    - Schug, S.
+    - Smith, B. H.
+    - Svensson, P.
+    - Vlaeyen, J. W. S.
+    - Wang, S. J.
+  year: 2015
+  title: A classification of chronic pain for ICD-11
+  container: Pain
+  volume: "156"
+  issue: "6"
+  pages: 1003-1007
+  doi: 10.1097/j.pain.0000000000000160
+  source: crossref
+- id: nicholas2019
+  type: article
+  authors:
+    - Nicholas, M.
+    - Vlaeyen, J. W. S.
+    - Rief, W.
+    - Barke, A.
+    - Aziz, Q.
+    - Benoliel, R.
+    - Cohen, M.
+    - Evers, S.
+    - Giamberardino, M. A.
+    - Goebel, A.
+    - Korwisi, B.
+    - Perrot, S.
+    - Svensson, P.
+    - Wang, S. J.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic primary pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 28-37
+  doi: 10.1097/j.pain.0000000000001390
+  source: crossref
+- id: bennett2019
+  type: article
+  authors:
+    - Bennett, M. I.
+    - Kaasa, S.
+    - Barke, A.
+    - Korwisi, B.
+    - Rief, W.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic cancer-related pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 38-44
+  doi: 10.1097/j.pain.0000000000001363
+  source: crossref
+- id: schug2019
+  type: article
+  authors:
+    - Schug, S. A.
+    - Lavand'homme, P.
+    - Barke, A.
+    - Korwisi, B.
+    - Rief, W.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic postsurgical or posttraumatic pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 45-52
+  doi: 10.1097/j.pain.0000000000001413
+  source: crossref
+- id: scholz2019
+  type: article
+  authors:
+    - Scholz, J.
+    - Finnerup, N. B.
+    - Attal, N.
+    - Aziz, Q.
+    - Baron, R.
+    - Bennett, M. I.
+    - Benoliel, R.
+    - Cohen, M.
+    - Cruccu, G.
+    - Davis, K. D.
+    - Evers, S.
+    - First, M.
+    - Giamberardino, M. A.
+    - Hansson, P.
+    - Kaasa, S.
+    - Korwisi, B.
+    - Kosek, E.
+    - Lavand'homme, P.
+    - Nicholas, M.
+    - Nurmikko, T.
+    - Perrot, S.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Rowbotham, M. C.
+    - Schug, S.
+    - Simpson, D. M.
+    - Smith, B. H.
+    - Svensson, P.
+    - Vlaeyen, J. W. S.
+    - Wang, S. J.
+    - Barke, A.
+    - Rief, W.
+    - Treede, R. D.
+    - Classification Committee of the Neuropathic Pain Special Interest Group (NeuPSIG)
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic neuropathic pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 53-59
+  doi: 10.1097/j.pain.0000000000001365
+  source: crossref
+- id: perrot2019
+  type: article
+  authors:
+    - Perrot, S.
+    - Cohen, M.
+    - Barke, A.
+    - Korwisi, B.
+    - Rief, W.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic secondary musculoskeletal pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 77-82
+  doi: 10.1097/j.pain.0000000000001389
+  source: crossref
+- id: aziz2019
+  type: article
+  authors:
+    - Aziz, Q.
+    - Giamberardino, M. A.
+    - Barke, A.
+    - Korwisi, B.
+    - Baranowski, A. P.
+    - Wesselmann, U.
+    - Rief, W.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic secondary visceral pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 69-76
+  doi: 10.1097/j.pain.0000000000001362
+  source: crossref
+- id: benoliel2019
+  type: article
+  authors:
+    - Benoliel, R.
+    - Svensson, P.
+    - Evers, S.
+    - Wang, S. J.
+    - Barke, A.
+    - Korwisi, B.
+    - Rief, W.
+    - Treede, R. D.
+    - The IASP Taskforce for the Classification of Chronic Pain
+  year: 2019
+  title: "The IASP classification of chronic pain for ICD-11: chronic secondary headache or orofacial pain"
+  container: Pain
+  volume: "160"
+  issue: "1"
+  pages: 60-68
+  doi: 10.1097/j.pain.0000000000001435
+  source: crossref
+- id: finnerup2016
+  type: article
+  authors:
+    - Finnerup, N. B.
+    - Haroutounian, S.
+    - Kamerman, P.
+    - Baron, R.
+    - Bennett, D. L. H.
+    - Bouhassira, D.
+    - Cruccu, G.
+    - Freeman, R.
+    - Hansson, P.
+    - Nurmikko, T.
+    - Raja, S. N.
+    - Rice, A. S. C.
+    - Serra, J.
+    - Smith, B. H.
+    - Treede, R. D.
+    - Jensen, T. S.
+  year: 2016
+  title: "Neuropathic pain: an updated grading system for research and clinical practice"
+  container: Pain
+  volume: "157"
+  issue: "8"
+  pages: 1599-1606
+  doi: 10.1097/j.pain.0000000000000492
+  source: crossref
+- id: treede2008
+  type: article
+  authors:
+    - Treede, R. D.
+    - Jensen, T. S.
+    - Campbell, J. N.
+    - Cruccu, G.
+    - Dostrovsky, J. O.
+    - Griffin, J. W.
+    - Hansson, P.
+    - Hughes, R.
+    - Nurmikko, T.
+    - Serra, J.
+  year: 2008
+  title: "Neuropathic pain: redefinition and a grading system for clinical and research purposes"
+  container: Neurology
+  volume: "70"
+  issue: "18"
+  pages: 1630-1635
+  doi: 10.1212/01.wnl.0000282763.29778.59
+  source: crossref
+- id: freynhagen2019
+  type: article
+  authors:
+    - Freynhagen, R.
+    - Parada, H. A.
+    - Calderon-Ospina, C. A.
+    - Chen, J.
+    - Rakhmawati Emril, D.
+    - Fernández-Villacorta, F. J.
+    - Franco, H.
+    - Ho, K. Y.
+    - Lara-Solares, A.
+    - Li, C. C. F.
+    - Mimenza Alvarado, A.
+    - Nimmaanrat, S.
+    - Dolma Santos, M.
+    - Ciampi de Andrade, D.
+  year: 2019
+  title: "Current understanding of the mixed pain concept: a brief narrative review"
+  container: Current Medical Research and Opinion
+  volume: "35"
+  issue: "6"
+  pages: 1011-1018
+  doi: 10.1080/03007995.2018.1552042
+  source: crossref
+- id: freynhagen2026
+  type: article
+  authors:
+    - Freynhagen, R.
+    - Morlion, B.
+    - Alcántara Montero, A.
+    - Ciampi de Andrade, D.
+    - Hernández‐Ortiz, A.
+    - Hodges, P. W.
+    - Nimmaanrat, S.
+    - Pogatzki‐Zahn, E. M.
+    - Raff, M.
+    - Rey, R. D.
+    - Tesfaye, S.
+    - Truini, A.
+    - Varrassi, G.
+    - Baron, R.
+  year: 2026
+  title: "Mixed Pain: Toward a Consensus Definition and a Mechanism-Based Framework"
+  container: European Journal of Pain
+  volume: "30"
+  issue: "7"
+  pages: e70356
+  doi: 10.1002/ejp.70356
+  source: crossref
+- id: attal2026
+  type: article
+  authors:
+    - Attal, N.
+  year: 2026
+  title: "International Consensus Definition of Mixed Pain: A Commentary on Freynhagen et al. Regarding the Mixed Pain Concept"
+  container: European Journal of Pain
+  volume: "30"
+  issue: "8"
+  pages: e70379
+  doi: 10.1002/ejp.70379
+  source: crossref
+- id: granan2017
+  type: article
+  authors:
+    - Granan, L. P.
+  year: 2017
+  title: We do not need a third mechanistic descriptor for chronic pain states! Not yet
+  container: Pain
+  volume: "158"
+  issue: "1"
+  pages: 179-179
+  doi: 10.1097/j.pain.0000000000000735
+  source: crossref
+- id: who2026
+  type: other
+  authors:
+    - World Health Organization
+  year: 2026
+  title: "ICD-11 for Mortality and Morbidity Statistics (version 2026-01): chapter 21, MG30 Chronic pain"
+  publisher: World Health Organization
+  url: https://icd.who.int/browse/2026-01/mms/en
+  source: manual
+  note: Codes and titles checked against the WHO simple tabulation with npm run icd:check.
+- id: merskey1994
+  type: book
+  authors:
+    - Merskey, H.
+    - Bogduk, N.
+  year: 1994
+  title: "Classification of chronic pain: descriptions of chronic pain syndromes and definitions of pain terms"
+  publisher: IASP Press
+  note: 2nd edition.
+  source: manual
+- id: wolfe2016
+  type: article
+  authors:
+    - Wolfe, F.
+    - Clauw, D. J.
+    - Fitzcharles, M. A.
+    - Goldenberg, D. L.
+    - Häuser, W.
+    - Katz, R. L.
+    - Mease, P. J.
+    - Russell, A. S.
+    - Russell, I. J.
+    - Walitt, B.
+  year: 2016
+  title: 2016 Revisions to the 2010/2011 fibromyalgia diagnostic criteria
+  container: Seminars in Arthritis and Rheumatism
+  volume: "46"
+  issue: "3"
+  pages: 319-329
+  doi: 10.1016/j.semarthrit.2016.08.012
+  source: crossref
+- id: heidari2017
+  type: article
+  authors:
+    - Heidari, F.
+    - Afshari, M.
+    - Moosazadeh, M.
+  year: 2017
+  title: Prevalence of fibromyalgia in general population and patients, a systematic review and meta-analysis
+  container: Rheumatology International
+  volume: "37"
+  issue: "9"
+  pages: 1527-1539
+  doi: 10.1007/s00296-017-3725-2
+  source: crossref
+- id: ferreira2023
+  type: article
+  authors:
+    - Ferreira, M. L.
+    - de Luca, K.
+    - Haile, L. M.
+    - Steinmetz, J. D.
+    - Culbreth, G. T.
+    - Cross, M.
+    - Kopec, J. A.
+    - Ferreira, P. H.
+    - Blyth, F. M.
+    - Buchbinder, R.
+    - Hartvigsen, J.
+    - Wu, A. M.
+    - Safiri, S.
+    - Woolf, A. D.
+    - Collins, G. S.
+    - Ong, K. L.
+    - Vollset, S. E.
+    - Smith, A. E.
+    - Cruz, J. A.
+    - Fukutaki, K. G.
+    - Abate, S. M.
+    - Abbasifard, M.
+    - Abbasi-Kangevari, M.
+    - Abbasi-Kangevari, Z.
+    - Abdelalim, A.
+    - Abedi, A.
+    - Abidi, H.
+    - Adnani, Q. E. S.
+    - Ahmadi, A.
+    - Akinyemi, R. O.
+    - Alamer, A. T.
+    - Alem, A. Z.
+    - Alimohamadi, Y.
+    - Alshehri, M. A.
+    - Alshehri, M. M.
+    - Alzahrani, H.
+    - Amini, S.
+    - Amiri, S.
+    - Amu, H.
+    - Andrei, C. L.
+    - Andrei, T.
+    - Antony, B.
+    - Arabloo, J.
+    - Arulappan, J.
+    - Arumugam, A.
+    - Ashraf, T.
+    - Athari, S. S.
+    - Awoke, N.
+    - Azadnajafabad, S.
+    - Bärnighausen, T. W.
+    - Barrero, L. H.
+    - Barrow, A.
+    - Barzegar, A.
+    - Bearne, L. M.
+    - Bensenor, I. M.
+    - Berhie, A. Y.
+    - Bhandari, B. B.
+    - Bhojaraja, V. S.
+    - Bijani, A.
+    - Bodicha, B. B. A.
+    - Bolla, S. R.
+    - Brazo-Sayavera, J.
+    - Briggs, A. M.
+    - Cao, C.
+    - Charalampous, P.
+    - Chattu, V. K.
+    - Cicuttini, F. M.
+    - Clarsen, B.
+    - Cuschieri, S.
+    - Dadras, O.
+    - Dai, X.
+    - Dandona, L.
+    - Dandona, R.
+    - Dehghan, A.
+    - Demie, T. G. G.
+    - Denova-Gutiérrez, E.
+    - Dewan, S. M. R.
+    - Dharmaratne, S. D.
+    - Dhimal, M. L.
+    - Dhimal, M.
+    - Diaz, D.
+    - Didehdar, M.
+    - Digesa, L. E.
+    - Diress, M.
+    - Do, H. T.
+    - Doan, L. P.
+    - Ekholuenetale, M.
+    - Elhadi, M.
+    - Eskandarieh, S.
+    - Faghani, S.
+    - Fares, J.
+    - Fatehizadeh, A.
+    - Fetensa, G.
+    - Filip, I.
+    - Fischer, F.
+    - Franklin, R. C.
+    - Ganesan, B.
+    - Gemeda, B. N. B.
+    - Getachew, M. E.
+    - Ghashghaee, A.
+    - Gill, T. K.
+    - Golechha, M.
+    - Goleij, P.
+    - Gupta, B.
+    - Hafezi-Nejad, N.
+    - Haj-Mirzaian, A.
+    - Hamal, P. K.
+    - Hanif, A.
+    - Harlianto, N. I.
+    - Hasani, H.
+    - Hay, S. I.
+    - Hebert, J. J.
+    - Heidari, G.
+    - Heidari, M.
+    - Heidari-Soureshjani, R.
+    - Hlongwa, M. M.
+    - Hosseini, M. S.
+    - Hsiao, A. K.
+    - Iavicoli, I.
+    - Ibitoye, S. E.
+    - Ilic, I. M.
+    - Ilic, M. D.
+    - Islam, S. M. S.
+    - Janodia, M. D.
+    - Jha, R. P.
+    - Jindal, H. A.
+    - Jonas, J. B.
+    - Kabito, G. G.
+    - Kandel, H.
+    - Kaur, R. J.
+    - Keshri, V. R.
+    - Khader, Y. S.
+    - Khan, E. A.
+    - Khan, M. J.
+    - Khan, M. A.
+    - Khayat Kashani, H. R.
+    - Khubchandani, J.
+    - Kim, Y. J.
+    - Kisa, A.
+    - Klugarová, J.
+    - Kolahi, A. A.
+    - Koohestani, H. R.
+    - Koyanagi, A.
+    - Kumar, G. A.
+    - Kumar, N.
+    - Lallukka, T.
+    - Lasrado, S.
+    - Lee, W. C.
+    - Lee, Y. H.
+    - Mahmoodpoor, A.
+    - Malagón-Rojas, J. N.
+    - Malekpour, M. R.
+    - Malekzadeh, R.
+    - Malih, N.
+    - Mehndiratta, M. M.
+    - Mehrabi Nasab, E.
+    - Menezes, R. G.
+    - Mentis, A. F. A.
+    - Mesregah, M. K.
+    - Miller, T. R.
+    - Mirza-Aghazadeh-Attari, M.
+    - Mobarakabadi, M.
+    - Mohammad, Y.
+    - Mohammadi, E.
+    - Mohammed, S.
+    - Mokdad, A. H.
+    - Momtazmanesh, S.
+    - Monasta, L.
+    - Moni, M. A.
+    - Mostafavi, E.
+    - Murray, C. J. L.
+    - Nair, T. S.
+    - Nazari, J.
+    - Nejadghaderi, S. A.
+    - Neupane, S.
+    - Neupane Kandel, S.
+    - Nguyen, C. T.
+    - Nowroozi, A.
+    - Okati-Aliabad, H.
+    - Omer, E.
+    - Oulhaj, A.
+    - Owolabi, M. O.
+    - Panda-Jonas, S.
+    - Pandey, A.
+    - Park, E. K.
+    - Pawar, S.
+    - Pedersini, P.
+    - Pereira, J.
+    - Peres, M. F. P.
+    - Petcu, I. R.
+    - Pourahmadi, M.
+    - Radfar, A.
+    - Rahimi-Dehgolan, S.
+    - Rahimi-Movaghar, V.
+    - Rahman, M.
+    - Rahmani, A. M.
+    - Rajai, N.
+    - Rao, C. R.
+    - Rashedi, V.
+    - Rashidi, M. M.
+    - Ratan, Z. A.
+    - Rawaf, D. L.
+    - Rawaf, S.
+    - Renzaho, A. M. N.
+    - Rezaei, N.
+    - Rezaei, Z.
+    - Roever, L.
+    - Ruela, G. D. A.
+    - Saddik, B.
+    - Sahebkar, A.
+    - Salehi, S.
+    - Sanmarchi, F.
+    - Sepanlou, S. G.
+    - Shahabi, S.
+    - Shahrokhi, S.
+    - Shaker, E.
+    - Shamsi, M.
+    - Shannawaz, M.
+    - Sharma, S.
+    - Shaygan, M.
+    - Sheikhi, R. A.
+    - Shetty, J. K.
+    - Shiri, R.
+    - Shivalli, S.
+    - Shobeiri, P.
+    - Sibhat, M. M.
+    - Singh, A.
+    - Singh, J. A.
+    - Slater, H.
+    - Solmi, M.
+    - Somayaji, R.
+    - Tan, K. K.
+    - Thapar, R.
+    - Tohidast, S. A.
+    - Valadan Tahbaz, S.
+    - Valizadeh, R.
+    - Vasankari, T. J.
+    - Venketasubramanian, N.
+    - Vlassov, V.
+    - Vo, B.
+    - Wang, Y. P.
+    - Wiangkham, T.
+    - Yadav, L.
+    - Yadollahpour, A.
+    - Yahyazadeh Jabbari, S. H.
+    - Yang, L.
+    - Yazdanpanah, F.
+    - Yonemoto, N.
+    - Younis, M. Z.
+    - Zare, I.
+    - Zarrintan, A.
+    - Zoladl, M.
+    - Vos, T.
+    - March, L. M.
+  year: 2023
+  title: "Global, regional, and national burden of low back pain, 1990–2020, its attributable risk factors, and projections to 2050: a systematic analysis of the Global Burden of Disease Study 2021"
+  container: The Lancet Rheumatology
+  volume: "5"
+  issue: "6"
+  pages: e316-e329
+  doi: 10.1016/s2665-9913(23)00098-x
+  source: crossref
+- id: hartvigsen2018
+  type: article
+  authors:
+    - Hartvigsen, J.
+    - Hancock, M. J.
+    - Kongsted, A.
+    - Louw, Q.
+    - Ferreira, M. L.
+    - Genevay, S.
+    - Hoy, D.
+    - Karppinen, J.
+    - Pransky, G.
+    - Sieper, J.
+    - Smeets, R. J.
+    - Underwood, M.
+    - Buchbinder, R.
+    - Hartvigsen, J.
+    - Cherkin, D.
+    - Foster, N. E.
+    - Maher, C. G.
+    - Underwood, M.
+    - van Tulder, M.
+    - Anema, J. R.
+    - Chou, R.
+    - Cohen, S. P.
+    - Menezes Costa, L.
+    - Croft, P.
+    - Ferreira, M.
+    - Ferreira, P. H.
+    - Fritz, J. M.
+    - Genevay, S.
+    - Gross, D. P.
+    - Hancock, M. J.
+    - Hoy, D.
+    - Karppinen, J.
+    - Koes, B. W.
+    - Kongsted, A.
+    - Louw, Q.
+    - Öberg, B.
+    - Peul, W. C.
+    - Pransky, G.
+    - Schoene, M.
+    - Sieper, J.
+    - Smeets, R. J.
+    - Turner, J. A.
+    - Woolf, A.
+  year: 2018
+  title: What low back pain is and why we need to pay attention
+  container: The Lancet
+  volume: "391"
+  issue: "10137"
+  pages: 2356-2367
+  doi: 10.1016/s0140-6736(18)30480-x
+  source: crossref
+- id: freynhagen2006
+  type: article
+  authors:
+    - Freynhagen, R.
+    - Baron, R.
+    - Gockel, U.
+    - Tölle, T. R.
+  year: 2006
+  title: "painDETECT: a new screening questionnaire to identify neuropathic components in patients with back pain"
+  container: Current Medical Research and Opinion
+  volume: "22"
+  issue: "10"
+  pages: 1911-1920
+  doi: 10.1185/030079906x132488
+  source: crossref
+- id: steinmetz2023
+  type: article
+  authors:
+    - Steinmetz, J. D.
+    - Culbreth, G. T.
+    - Haile, L. M.
+    - Rafferty, Q.
+    - Lo, J.
+    - Fukutaki, K. G.
+    - Cruz, J. A.
+    - Smith, A. E.
+    - Vollset, S. E.
+    - Brooks, P. M.
+    - Cross, M.
+    - Woolf, A. D.
+    - Hagins, H.
+    - Abbasi-Kangevari, M.
+    - Abedi, A.
+    - Ackerman, I. N.
+    - Amu, H.
+    - Antony, B.
+    - Arabloo, J.
+    - Aravkin, A. Y.
+    - Argaw, A. M.
+    - Artamonov, A. A.
+    - Ashraf, T.
+    - Barrow, A.
+    - Bearne, L. M.
+    - Bensenor, I. M.
+    - Berhie, A. Y.
+    - Bhardwaj, N.
+    - Bhardwaj, P.
+    - Bhojaraja, V. S.
+    - Bijani, A.
+    - Briant, P. S.
+    - Briggs, A. M.
+    - Butt, N. S.
+    - Charan, J.
+    - Chattu, V. K.
+    - Cicuttini, F. M.
+    - Coberly, K.
+    - Dadras, O.
+    - Dai, X.
+    - Dandona, L.
+    - Dandona, R.
+    - de Luca, K.
+    - Denova-Gutiérrez, E.
+    - Dharmaratne, S. D.
+    - Dhimal, M.
+    - Dianatinasab, M.
+    - Dreinhoefer, K. E.
+    - Elhadi, M.
+    - Farooque, U.
+    - Farpour, H. R.
+    - Filip, I.
+    - Fischer, F.
+    - Freitas, M.
+    - Ganesan, B.
+    - Gemeda, B. N. B.
+    - Getachew, T.
+    - Ghamari, S. H.
+    - Ghashghaee, A.
+    - Gill, T. K.
+    - Golechha, M.
+    - Golinelli, D.
+    - Gupta, B.
+    - Gupta, V. B.
+    - Gupta, V. K.
+    - Haddadi, R.
+    - Hafezi-Nejad, N.
+    - Halwani, R.
+    - Hamidi, S.
+    - Hanif, A.
+    - Harlianto, N. I.
+    - Haro, J. M.
+    - Hartvigsen, J.
+    - Hay, S. I.
+    - Hebert, J. J.
+    - Heidari, G.
+    - Hosseini, M. S.
+    - Hosseinzadeh, M.
+    - Hsiao, A. K.
+    - Ilic, I. M.
+    - Ilic, M. D.
+    - Jacob, L.
+    - Jayawardena, R.
+    - Jha, R. P.
+    - Jonas, J. B.
+    - Joseph, N.
+    - Kandel, H.
+    - Karaye, I. M.
+    - Khan, M. J.
+    - Kim, Y. J.
+    - Kolahi, A. A.
+    - Korzh, O.
+    - Koteeswaran, R.
+    - Krishnamoorthy, V.
+    - Kumar, G. A.
+    - Kumar, N.
+    - Lee, S. W.
+    - Lim, S. S.
+    - Lobo, S. W.
+    - Lucchetti, G.
+    - Malekpour, M. R.
+    - Malik, A. A.
+    - Mandarano-Filho, L. G. G.
+    - Martini, S.
+    - Mentis, A. F. A.
+    - Mesregah, M. K.
+    - Mestrovic, T.
+    - Mirrakhimov, E. M.
+    - Misganaw, A.
+    - Mohammadpourhodki, R.
+    - Mokdad, A. H.
+    - Momtazmanesh, S.
+    - Morrison, S. D.
+    - Murray, C. J. L.
+    - Nassereldine, H.
+    - Netsere, H. B.
+    - Neupane Kandel, S.
+    - Owolabi, M. O.
+    - Panda-Jonas, S.
+    - Pandey, A.
+    - Pawar, S.
+    - Pedersini, P.
+    - Pereira, J.
+    - Radfar, A.
+    - Rashidi, M. M.
+    - Rawaf, D. L.
+    - Rawaf, S.
+    - Rawassizadeh, R.
+    - Rayegani, S. M.
+    - Ribeiro, D.
+    - Roever, L.
+    - Saddik, B.
+    - Sahebkar, A.
+    - Salehi, S.
+    - Sanchez Riera, L.
+    - Sanmarchi, F.
+    - Santric-Milicevic, M. M.
+    - Shahabi, S.
+    - Shaikh, M. A.
+    - Shaker, E.
+    - Shannawaz, M.
+    - Sharma, R.
+    - Sharma, S.
+    - Shetty, J. K.
+    - Shiri, R.
+    - Shobeiri, P.
+    - Silva, D. A. S.
+    - Singh, A.
+    - Singh, J. A.
+    - Singh, S.
+    - Skou, S. T.
+    - Slater, H.
+    - Soltani-Zangbar, M. S.
+    - Starodubova, A. V.
+    - Tehrani-Banihashemi, A.
+    - Valadan Tahbaz, S.
+    - Valdez, P. R.
+    - Vo, B.
+    - Vu, L. G.
+    - Wang, Y. P.
+    - Yahyazadeh Jabbari, S. H.
+    - Yonemoto, N.
+    - Yunusa, I.
+    - March, L. M.
+    - Ong, K. L.
+    - Vos, T.
+    - Kopec, J. A.
+  year: 2023
+  title: "Global, regional, and national burden of osteoarthritis, 1990–2020 and projections to 2050: a systematic analysis for the Global Burden of Disease Study 2021"
+  container: The Lancet Rheumatology
+  volume: "5"
+  issue: "9"
+  pages: e508-e522
+  doi: 10.1016/s2665-9913(23)00163-7
+  source: crossref
+- id: lluch2014
+  type: article
+  authors:
+    - Lluch, E.
+    - Torres, R.
+    - Nijs, J.
+    - Van Oosterwijck, J.
+  year: 2014
+  title: "Evidence for central sensitization in patients with osteoarthritis pain: A systematic literature review"
+  container: European Journal of Pain
+  volume: "18"
+  issue: "10"
+  pages: 1367-1375
+  doi: 10.1002/j.1532-2149.2014.499.x
+  source: crossref
+- id: kawai2014
+  type: article
+  authors:
+    - Kawai, K.
+    - Gebremeskel, B. G.
+    - Acosta, C. J.
+  year: 2014
+  title: "Systematic review of incidence and complications of herpes zoster: towards a global perspective"
+  container: BMJ Open
+  volume: "4"
+  issue: "6"
+  pages: e004833
+  doi: 10.1136/bmjopen-2014-004833
+  source: crossref
+- id: johnson2014
+  type: article
+  authors:
+    - Johnson, R. W.
+    - Rice, A. S. C.
+  year: 2014
+  title: Postherpetic Neuralgia
+  container: New England Journal of Medicine
+  volume: "371"
+  issue: "16"
+  pages: 1526-1533
+  doi: 10.1056/nejmcp1403062
+  source: crossref
+- id: vandenbeuken2016
+  type: article
+  authors:
+    - van den Beuken-van Everdingen, M. H. J.
+    - Hochstenbach, L. M. J.
+    - Joosten, E. A. J.
+    - Tjan-Heijnen, V. C. G.
+    - Janssen, D. J. A.
+  year: 2016
+  title: "Update on Prevalence of Pain in Patients With Cancer: Systematic Review and Meta-Analysis"
+  container: Journal of Pain and Symptom Management
+  volume: "51"
+  issue: "6"
+  pages: 1070-1090.e9
+  doi: 10.1016/j.jpainsymman.2015.12.340
+  source: crossref
+- id: bennett2012
+  type: article
+  authors:
+    - Bennett, M. I.
+    - Rayment, C.
+    - Hjermstad, M.
+    - Aass, N.
+    - Caraceni, A.
+    - Kaasa, S.
+  year: 2012
+  title: "Prevalence and aetiology of neuropathic pain in cancer patients: A systematic review"
+  container: Pain
+  volume: "153"
+  issue: "2"
+  pages: 359-365
+  doi: 10.1016/j.pain.2011.10.028
+  source: crossref
+- id: haroutiunian2013
+  type: article
+  authors:
+    - Haroutiunian, S.
+    - Nikolajsen, L.
+    - Finnerup, N. B.
+    - Jensen, T. S.
+  year: 2013
+  title: "The neuropathic component in persistent postsurgical pain: A systematic literature review"
+  container: Pain
+  volume: "154"
+  issue: "1"
+  pages: 95-102
+  doi: 10.1016/j.pain.2012.09.010
+  source: crossref
+- id: lacy2016
+  type: article
+  authors:
+    - Lacy, B. E.
+    - Mearin, F.
+    - Chang, L.
+    - Chey, W. D.
+    - Lembo, A. J.
+    - Simren, M.
+    - Spiller, R.
+  year: 2016
+  title: Bowel Disorders
+  container: Gastroenterology
+  volume: "150"
+  issue: "6"
+  pages: 1393-1407.e5
+  doi: 10.1053/j.gastro.2016.02.031
+  source: crossref
+- id: sperber2021
+  type: article
+  authors:
+    - Sperber, A. D.
+    - Bangdiwala, S. I.
+    - Drossman, D. A.
+    - Ghoshal, U. C.
+    - Simren, M.
+    - Tack, J.
+    - Whitehead, W. E.
+    - Dumitrascu, D. L.
+    - Fang, X.
+    - Fukudo, S.
+    - Kellow, J.
+    - Okeke, E.
+    - Quigley, E. M. M.
+    - Schmulson, M.
+    - Whorwell, P.
+    - Archampong, T.
+    - Adibi, P.
+    - Andresen, V.
+    - Benninga, M. A.
+    - Bonaz, B.
+    - Bor, S.
+    - Fernandez, L. B.
+    - Choi, S. C.
+    - Corazziari, E. S.
+    - Francisconi, C.
+    - Hani, A.
+    - Lazebnik, L.
+    - Lee, Y. Y.
+    - Mulak, A.
+    - Rahman, M. M.
+    - Santos, J.
+    - Setshedi, M.
+    - Syam, A. F.
+    - Vanner, S.
+    - Wong, R. K.
+    - Lopez-Colombo, A.
+    - Costa, V.
+    - Dickman, R.
+    - Kanazawa, M.
+    - Keshteli, A. H.
+    - Khatun, R.
+    - Maleki, I.
+    - Poitras, P.
+    - Pratap, N.
+    - Stefanyuk, O.
+    - Thomson, S.
+    - Zeevenhooven, J.
+    - Palsson, O. S.
+  year: 2021
+  title: Worldwide Prevalence and Burden of Functional Gastrointestinal Disorders, Results of Rome Foundation Global Study
+  container: Gastroenterology
+  volume: "160"
+  issue: "1"
+  pages: 99-114.e3
+  doi: 10.1053/j.gastro.2020.04.014
+  source: crossref
+- id: ford2017
+  type: article
+  authors:
+    - Ford, A. C.
+    - Lacy, B. E.
+    - Talley, N. J.
+  year: 2017
+  title: Irritable Bowel Syndrome
+  container: New England Journal of Medicine
+  volume: "376"
+  issue: "26"
+  pages: 2566-2578
+  doi: 10.1056/nejmra1607547
+  source: crossref
+- id: ihs2018
+  type: article
+  authors:
+    - Headache Classification Committee of the International Headache Society
+  year: 2018
+  title: The International Classification of Headache Disorders, 3rd edition
+  container: Cephalalgia
+  volume: "38"
+  issue: "1"
+  pages: 1-211
+  doi: 10.1177/0333102417738202
+  source: crossref
+- id: stovner2018
+  type: article
+  authors:
+    - Stovner, L. J.
+    - Nichols, E.
+    - Steiner, T. J.
+    - Abd-Allah, F.
+    - Abdelalim, A.
+    - Al-Raddadi, R. M.
+    - Ansha, M. G.
+    - Barac, A.
+    - Bensenor, I. M.
+    - Doan, L. P.
+    - Edessa, D.
+    - Endres, M.
+    - Foreman, K. J.
+    - Gankpe, F. G.
+    - Gopalkrishna, G.
+    - Goulart, A. C.
+    - Gupta, R.
+    - Hankey, G. J.
+    - Hay, S. I.
+    - Hegazy, M. I.
+    - Hilawe, E. H.
+    - Kasaeian, A.
+    - Kassa, D. H.
+    - Khalil, I.
+    - Khang, Y. H.
+    - Khubchandan, J.
+    - Kim, Y. J.
+    - Kokubo, Y.
+    - Mohammed, M. A.
+    - Mokdad, A. H.
+    - Moradi-Lakeh, M.
+    - Nguyen, H. L. T.
+    - Nirayo, Y. L.
+    - Qorbani, M.
+    - Ranta, A.
+    - Roba, K. T.
+    - Safiri, S.
+    - Santos, I. S.
+    - Satpathy, M.
+    - Sawhney, M.
+    - Shiferaw, M. S.
+    - Shiue, I.
+    - Smith, M.
+    - Szoeke, C. E. I.
+    - Truong, N. T.
+    - Venketasubramanian, N.
+    - weldegwergs, K. G.
+    - Westerman, R.
+    - Wijeratne, T.
+    - Tran, B. X.
+    - Yonemoto, N.
+    - Feigin, V. L.
+    - Vos, T.
+    - Murray, C. J. L.
+  year: 2018
+  title: "Global, regional, and national burden of migraine and tension-type headache, 1990–2016: a systematic analysis for the Global Burden of Disease Study 2016"
+  container: The Lancet Neurology
+  volume: "17"
+  issue: "11"
+  pages: 954-976
+  doi: 10.1016/s1474-4422(18)30322-3
+  source: crossref
+- id: goadsby2017
+  type: article
+  authors:
+    - Goadsby, P. J.
+    - Holland, P. R.
+    - Martins-Oliveira, M.
+    - Hoffmann, J.
+    - Schankin, C.
+    - Akerman, S.
+  year: 2017
+  title: "Pathophysiology of Migraine: A Disorder of Sensory Processing"
+  container: Physiological Reviews
+  volume: "97"
+  issue: "2"
+  pages: 553-622
+  doi: 10.1152/physrev.00034.2015
+  source: crossref
+- id: chu2026
+  type: article
+  authors:
+    - Chu, C. C.
+    - Lin, Y. T.
+    - Wang, J. J.
+  year: 2026
+  title: "Nociplastic Pain: A Contemporary Narrative Review of Mechanisms, Clinical Assessment, Controversies, and Management"
+  container: Journal of Pain Research
+  volume: Volume 19
+  pages: 1-21
+  doi: 10.2147/jpr.s642440
+  source: crossref
+- id: yoo2024
+  type: article
+  authors:
+    - Yoo, Y. M.
+    - Kim, K. H.
+  year: 2024
+  title: Current understanding of nociplastic pain
+  container: The Korean Journal of Pain
+  volume: "37"
+  issue: "2"
+  pages: 107-118
+  doi: 10.3344/kjp.23326
+  source: crossref

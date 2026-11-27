@@ -1,0 +1,18 @@
+# Batch a (headache and orofacial conditions)
+ashina2021 = 10.1038/s41572-021-00257-2
+bendtsen2000 = 10.1046/j.1468-2982.2000.00070.x
+cruccu2016 = 10.1212/wnl.0000000000002840
+bendtsen2020 = 10.1016/s1474-4422(20)30233-7
+detoledo2016 = 10.1016/j.adaj.2016.02.014
+love2001 = 10.1093/brain/124.12.2347
+schiffman2014 = 10.11607/jop.1151
+harper2016 = 10.1177/0022034516657070
+slade2016 = 10.1177/0022034516653743
+alqutaibi2025 = manual | Alqutaibi, A. Y.; Alhammadi, M. S.; Hamadallah, H. H.; Altarjami, A. A.; Malosh, O. T.; Aloufi, A. M.; Alkahtani, L. M.; Alharbi, F. S.; Halboub, E.; Almashraqi, A. A. | 2025 | Global prevalence of temporomandibular disorders: a systematic review and meta-analysis | article | Journal of Oral & Facial Pain and Headache | 39 | 48-65
+jaaskelainen2017 = 10.1177/0333102417694883
+wu2021 = 10.1111/odi.13868
+orliaguet2021 = 10.3390/biom11081237
+diener2019 = 10.1016/s1474-4422(19)30146-2
+ashina2023 = 10.1038/s41572-022-00415-0
+ashina2019 = 10.1038/s41582-019-0243-8
+nampiaparampil2008 = 10.1001/jama.300.6.711

@@ -7,6 +7,7 @@ const theories = await getCollection('theories');
 const mechanisms = await getCollection('mechanisms');
 const circuitStations = await getCollection('circuitStations');
 const gaps = await getCollection('gaps');
+const conditions = await getCollection('conditions');
 const findings = theories.reduce((n, t) => n + t.data.evidence.length, 0);
 
 type Module = {
@@ -35,16 +36,18 @@ const modules: Module[] = [
     icon: 'M12 3 C8 7 8 11 12 13 C16 15 16 19 12 21 M8 6 H16 M8 18 H16 M7 12 H17',
   },
   {
+    name: 'Pain Conditions',
+    href: 'conditions/',
+    status: 'early',
+    blurb: 'Chronic pain conditions classified three ways (traditional family, ICD-11 chronic pain codes and IASP mechanistic descriptors), with prevalence, criteria, mechanisms and the theories proposed to explain each.',
+    stats: [`${conditions.length} conditions`, 'ICD-11 MG30', 'nociceptive · neuropathic · nociplastic'],
+    icon: 'M4 6 H20 M4 12 H20 M4 18 H14',
+  },
+  {
     name: 'Pain Treatments',
     status: 'planned',
     blurb: 'Pharmacological, interventional, psychological and physical treatments, linked to their mechanisms of action and to the theories that motivate them.',
     icon: 'M10 4 H14 V10 H20 V14 H14 V20 H10 V14 H4 V10 H10 Z',
-  },
-  {
-    name: 'Pain Conditions',
-    status: 'planned',
-    blurb: 'Fibromyalgia, CRPS, low back pain, neuropathic pain and others, with the mechanisms and theories proposed to explain each.',
-    icon: 'M4 6 H20 M4 12 H20 M4 18 H14',
   },
   {
     name: 'Pain Assessment',
