@@ -10,6 +10,7 @@ import { cite, url, type Reference } from '../lib/data';
 import { planumLink, planumTourLink } from '../lib/planum';
 
 const stations = await getCollection('circuitStations');
+const imaging = (await getCollection('imagingFindings')).sort((x, y) => x.data.year - y.data.year);
 const pathways = await getCollection('circuitPathways');
 const theories = new Map((await getCollection('theories')).map((t) => [t.id, t.data.shortTitle ?? t.data.title]));
 const mechanisms = new Map((await getCollection('mechanisms')).map((m) => [m.id, m.data.title]));
@@ -129,6 +130,7 @@ const payload = Object.fromEntries(
       planum: planumLink(s.data.planum),
       embed: planumLink(s.data.planum, { embed: true }),
       connections: connections(s.id),
+      imaging: imaging.filter((f) => f.data.stations.some((x) => x.id === s.id)).map((f) => ({ name: `${f.data.year} · ${f.data.title}`, href: url(`biology/imaging/#f-${f.id}`) })),
     },
   ]),
 );
@@ -317,6 +319,7 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
   .pc-open { margin: .6rem 0; }
   .pc-links { display: grid; gap: .5rem; font-size: .88rem; }
   .pc-links :global(h3) { font: 600 .72rem var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: .3rem 0 .15rem; }
+  .pc-links :global(ul.img-l) { display: grid; gap: .25rem; }
   .pc-links :global(ul) { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
 
   .pc-pathways { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
@@ -361,7 +364,8 @@ const sortedPathways = [...pathways].sort((a, b) => order.indexOf(a.id) - order.
     (panel.querySelector('.pc-open a') as HTMLAnchorElement).href = s.planum;
     panel.querySelector('.pc-links')!.innerHTML =
       (s.theories.length ? `<div><h3>Theories</h3><ul>${links(s.theories).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '') +
-      (s.mechanisms.length ? `<div><h3>Mechanisms</h3><ul>${links(s.mechanisms).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '');
+      (s.mechanisms.length ? `<div><h3>Mechanisms</h3><ul>${links(s.mechanisms).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '')
+      + (s.imaging.length ? `<div><h3>Imaging evidence</h3><ul class="img-l">${links(s.imaging).replace(/<a /g, '<li><a ').replace(/<\/a>/g, '</a></li>')}</ul></div>` : '');
     if (push) {
       const p = new URLSearchParams(location.search);
       p.delete('edge');

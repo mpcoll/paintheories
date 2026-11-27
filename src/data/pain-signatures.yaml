@@ -1,0 +1,53 @@
+# Multivariate brain signatures of pain (/biology/imaging/). Report performance as the source does.
+- id: nps
+  name: Neurologic Pain Signature
+  short: NPS
+  year: 2013
+  method: fmri
+  target: Pain intensity evoked by noxious heat, in individual people.
+  development: Machine-learning pattern trained on fMRI responses to painful heat; weights in thalamus, posterior and anterior insula, secondary somatosensory cortex, anterior cingulate, periaqueductal grey and other regions.
+  validation: Four studies, 114 participants. Painful heat vs non-painful warmth, pain anticipation and pain recall at 94% sensitivity and specificity or more; heat vs warmth in a new sample at 93%; response strongly reduced by the opioid remifentanil.
+  specificity: Physical vs social pain (romantic rejection) at 85% sensitivity and 73% specificity, and 95% in a forced choice of which condition was more painful.
+  caveats: Developed on brief noxious heat in healthy volunteers; it is a measure of evoked nociceptive pain, not a test for clinical pain.
+  availability: on-request
+  availabilityNote: The CANlab pattern repository (github.com/canlab/Neuroimaging_Pattern_Masks) lists the NPS as available for research use on request from Tor Wager; it is not among its public downloads.
+  refs: [wager2013]
+- id: siips1
+  name: Stimulus Intensity Independent Pain Signature-1
+  short: SIIPS1
+  year: 2017
+  method: fmri
+  target: Trial-by-trial variation in heat pain ratings beyond what noxious stimulus intensity and the NPS response explain, that is, cerebral contributions to pain beyond nociception.
+  development: Single-trial fMRI responses to noxious heat from four studies (137 participants, 6,740 images), after removing effects of stimulus intensity and the NPS response; principal component regression. Positive weights include nociceptive targets (insula, cingulate, thalamus) and regions such as dorsomedial prefrontal cortex, caudate and ventrolateral prefrontal cortex; negative weights include ventromedial prefrontal cortex, nucleus accumbens, parahippocampal cortex and posterior dorsolateral prefrontal cortex.
+  validation: Cross-validated in the four training studies and tested in two independent studies (46 participants). SIIPS1 and NPS each made unique contributions to single-trial pain; in the test studies they uniquely explained 6.73% and 6.34% of the variance. SIIPS1 responses mediated the pain-modulating effects of three psychological manipulations of expectations and perceived control.
+  specificity: As a preliminary negative control, neither SIIPS1 nor NPS contributed significantly to ratings of vicarious pain induced by pictures.
+  caveats: Developed on brief noxious heat in healthy volunteers. Its positive weights in insula, cingulate and thalamus still correlated with stimulus intensity, so it is not fully independent of nociception. Specificity was tested against a single control task.
+  availability: open
+  availabilityNote: The weight maps (NIfTI) are public in the CANlab Neuroimaging_Pattern_Masks GitHub repository (folder Multivariate_signature_patterns/2017_Woo_SIIPS1, GPL-3.0 licence). The paper itself states that the study data are available from the corresponding author on request.
+  refs: [woo2017]
+- id: tops
+  name: Tonic Pain Signature
+  short: ToPS
+  year: 2021
+  method: fmri
+  target: Intensity of sustained (tonic) pain over minutes, with a view to clinical pain.
+  development: Predictive model based on whole-brain dynamic functional connectivity, trained on fMRI while participants had capsaicin-rich hot sauce on the tongue (tonic orofacial pain; training study of 19 participants) and selected among candidate models across training and validation datasets.
+  validation: Predicted within-person changes in pain ratings in three independent datasets (r = 0.47 to 0.64). In two clinical datasets (192 participants) it predicted the severity of subacute and chronic back pain (r = 0.56 to 0.57, depending on task) and separated chronic back pain patients from healthy controls with 71 to 73% accuracy.
+  specificity: Discriminated tonic pain from non-painful aversive bitter taste and aversive odour with 76 to 85% accuracy. Connectivity patterns for tonic and clinical pain were similar and distinct from those for experimental phasic pain.
+  caveats: Trained on one tonic pain model (oral capsaicin) and tested clinically only in back pain, where patients and controls were classified with 71 to 73% accuracy.
+  availability: on-request
+  availabilityNote: According to the developers' page (cocoanlab.github.io/tops and github.com/cocoanlab/tops), the model weights are shared for research only under a mutual confidentiality agreement; tutorial code and connectivity data are public (GitHub, figshare).
+  refs: [lee2021]
+- id: gamma-ers
+  name: Laser-induced gamma-band synchronization
+  short: Gamma ERS
+  year: 2019
+  method: eeg
+  target: Pain intensity within a person and pain sensitivity across people, for brief nociceptive laser stimuli.
+  development: Not a trained weight map. A time-frequency feature of scalp EEG at central electrodes after laser stimuli to the hand dorsum (60 to 85 Hz, 180 to 260 ms after the stimulus, in the main analysis), studied in 96 healthy people, with rat recordings for comparison.
+  validation: Gamma ERS correlated with pain ratings within people (mean r = 0.16) and also across people (r = 0.24 for the predefined feature; r = 0.29 for a data-driven cluster), whereas the N1, N2 and P2 waves tracked pain only within people. Earlier MEG and EEG studies linked gamma over S1 to pain perception, including when saliency was reduced by repetition.
+  specificity: In 107 other people, gamma ERS did not track between-person intensity ratings of equally salient auditory, visual or non-nociceptive somatosensory stimuli.
+  caveats: Between-person correlations are modest (r of about 0.2 to 0.3), so it is a group-level marker, not an individual test. Scalp gamma is vulnerable to muscle and eye-movement artefacts, which the authors addressed with topography and electrooculogram checks. Tested with brief laser heat in healthy volunteers.
+  availability: not-shared
+  availabilityNote: There are no weights to share; the feature is defined in the paper's methods. We found no data availability statement or public dataset for the study.
+  refs: [hu2019, gross2007, zhang2012]

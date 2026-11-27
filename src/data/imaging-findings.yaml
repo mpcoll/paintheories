@@ -1,0 +1,243 @@
+# Key neuroimaging findings on pain (/biology/imaging/). One entry per study (or tightly linked pair).
+# finding = what was shown (supported by the cited abstract or paper); significance = why it matters.
+# evidence: robust (replicated), debated (contested interpretation), single-study.
+- id: rainville1997
+  title: Hypnosis separates pain unpleasantness from intensity in the anterior cingulate
+  year: 1997
+  method: pet
+  kind: mapping
+  population: experimental
+  finding: Hypnotic suggestions changed how unpleasant noxious heat felt without changing its perceived intensity. Pain-evoked activity changed in the anterior cingulate cortex, in line with unpleasantness, but not in primary somatosensory cortex.
+  significance: Early direct evidence in humans that the affective dimension of pain has partly separate cortical substrates, as the medial pain system predicts.
+  evidence: robust
+  stations: [cingulate, s1]
+  theories: [three-dimensional-model, neuromatrix-theory]
+  refs: [rainville1997]
+- id: segerdahl2015
+  title: The dorsal posterior insula and ongoing pain
+  year: 2015
+  method: fmri
+  kind: specificity
+  population: experimental
+  finding: With arterial spin labelling perfusion imaging of sustained pain, the authors identified a specific role for the dorsal posterior insula, a region that animal tract tracing marks as a target of nociceptive pathways.
+  significance: A candidate for a pain-specific cortical region, in contrast with views that pain-evoked responses mostly reflect salience.
+  evidence: debated
+  stations: [posterior-insula]
+  theories: [homeostatic-emotion]
+  refs: [segerdahl2015]
+- id: talbot1991
+  title: Painful heat activates S1, S2 and the anterior cingulate
+  year: 1991
+  method: pet
+  kind: mapping
+  population: experimental
+  finding: With PET registered to MRI, painful heat activated the contralateral anterior cingulate, secondary somatosensory and primary somatosensory cortices, whereas vibrotactile stimuli in similar experiments mainly activated primary somatosensory cortex. The cingulate activation was unilateral.
+  significance: One of the first imaging demonstrations that pain engages several cortical areas at once, including a limbic region, rather than a single pain centre.
+  evidence: robust
+  stations: [cingulate, operculum, s1]
+  theories: [neuromatrix-theory]
+  refs: [talbot1991]
+- id: ploghaus1999
+  title: Anticipating pain and feeling it engage neighbouring but distinct sites
+  year: 1999
+  method: fmri
+  kind: mapping
+  population: experimental
+  finding: In healthy volunteers, the expectation of pain activated sites in the medial frontal lobe, insular cortex and cerebellum that were distinct from, but close to, the sites activated by the painful stimulus itself.
+  significance: Showed that part of the activity seen in pain studies can reflect anticipation and threat rather than the pain experience, a confound that later designs separate explicitly.
+  evidence: robust
+  stations: []
+  theories: []
+  refs: [ploghaus1999]
+- id: hofbauer2001
+  title: Hypnotic changes in pain intensity change S1 activity
+  year: 2001
+  method: pet
+  kind: mapping
+  population: experimental
+  finding: Ten volunteers received tonic noxious heat to the hand. Hypnotic suggestions that increased or decreased perceived pain intensity changed pain-evoked activity in primary somatosensory cortex (S1), whereas an earlier study by the same group found that changing unpleasantness alone changed activity in the anterior cingulate.
+  significance: Together with the unpleasantness study, a double dissociation in humans between sensory (S1) and affective (cingulate) dimensions of pain.
+  evidence: single-study
+  stations: [s1]
+  theories: [three-dimensional-model]
+  refs: [hofbauer2001, rainville1997]
+- id: duerden2011
+  title: Meta-analysis of 140 neuroimaging studies of experimental pain
+  year: 2013
+  method: fmri
+  kind: mapping
+  population: experimental
+  finding: An activation-likelihood meta-analysis of 140 PET and fMRI studies of noxious stimuli in healthy volunteers found the highest likelihood of activation in the left thalamus, right anterior cingulate, both anterior insulae and the left dorsal posterior insula. Noxious cold, muscle stimuli and the choice of control condition shifted the pattern.
+  significance: Quantifies which regions respond most consistently to noxious stimuli across studies. Consistency of activation does not by itself show that a region is specific to pain.
+  evidence: robust
+  stations: [cingulate, anterior-insula, posterior-insula]
+  theories: []
+  refs: [duerden2011]
+- id: gross2007
+  title: Gamma oscillations over S1 track pain perception
+  year: 2007
+  method: meg
+  kind: timing
+  population: experimental
+  finding: Nociceptive stimuli induced gamma oscillations (60 to 95 Hz) in primary somatosensory cortex. Their amplitude varied with stimulus and pain intensity, and near pain threshold perceived stimuli gave stronger gamma than unperceived stimuli of equal intensity. With EEG, gamma over S1 still predicted pain intensity when saliency was reduced by stimulus repetition.
+  significance: Gamma oscillations follow the percept rather than only the stimulus, and unlike the large evoked potentials they kept tracking pain when saliency was reduced.
+  evidence: robust
+  stations: [s1]
+  theories: []
+  refs: [gross2007, zhang2012]
+- id: iannetti2008
+  title: Laser-evoked EEG responses follow saliency more than pain
+  year: 2008
+  method: eeg
+  kind: specificity
+  population: experimental
+  finding: Trains of three identical laser pulses at a constant interval reduced the laser-evoked N1, N2 and P2 waves and the laser-induced event-related synchronization, and disrupted the usual relation between their size and the intensity of pain perception.
+  significance: Suggests that laser-evoked potentials are mainly driven by stimulus saliency, the ability to capture attention, so they are an indirect readout of nociception rather than a measure of pain.
+  evidence: debated
+  stations: []
+  theories: [salience-detection-account]
+  refs: [iannetti2008]
+- id: mouraux2011
+  title: Most of the fMRI "pain matrix" response is multimodal
+  year: 2011
+  method: fmri
+  kind: specificity
+  population: experimental
+  finding: Brief nociceptive, non-nociceptive somatosensory, auditory and visual stimuli were presented in the same attentional context. The fMRI response to nociceptive stimuli was largely explained by activity common to all modalities, which scaled with perceived saliency, plus somatosensory activity that was not specific to nociception.
+  significance: A direct test of the specificity assumption behind the "pain matrix". It supports the view that much of the phasic pain response reflects detection of salient events.
+  evidence: debated
+  stations: []
+  theories: [salience-detection-account, specificity-theory]
+  refs: [mouraux2011]
+- id: lieberman2015
+  title: Is the dorsal anterior cingulate selective for pain?
+  year: 2015
+  method: fmri
+  kind: specificity
+  population: experimental
+  finding: Using reverse-inference analyses in Neurosynth, a database of over 10,000 fMRI studies, Lieberman and Eisenberger concluded that pain was the best psychological description of dACC activity. Wager and colleagues replied that word-frequency analyses cannot support this and estimated that only about 12% of studies activating a pain-selective dACC location were about physical pain.
+  significance: A public test of reverse inference, the step from "this region is active" to "the person is in pain", and of why region-level activity is a weak pain marker.
+  evidence: debated
+  stations: [cingulate]
+  theories: [social-pain-overlap, salience-detection-account]
+  refs: [lieberman2015, wager2016]
+- id: liberati2016
+  title: Insula field potentials respond to all senses, not only nociception
+  year: 2016
+  method: ieeg
+  kind: specificity
+  population: experimental
+  finding: Intracerebral recordings from 47 insular sites showed local field potentials to nociceptive, vibrotactile, auditory and visual stimuli in both posterior and anterior insula, with matching spatial distributions. Nociceptive responses were largely explained by multimodal activity that also contributed to non-nociceptive responses.
+  significance: Challenges the view of the posterior insula as a primary pain cortex, using recordings with much finer spatial and temporal resolution than fMRI.
+  evidence: debated
+  stations: [posterior-insula, anterior-insula]
+  theories: [salience-detection-account, specificity-theory]
+  refs: [liberati2016]
+- id: salomons2016
+  title: A "pain matrix" response in people who cannot feel pain
+  year: 2016
+  method: fmri
+  kind: specificity
+  population: experimental
+  finding: Two people with congenital insensitivity to pain (loss-of-function SCN9A mutations) and four controls received the same noxious mechanical stimuli. The two felt no pain but rated sensation like controls, and their fMRI responses did not differ from controls across the pain matrix or in thalamus, ACC, S2 and insula.
+  significance: Shows that typical pain-evoked fMRI responses can occur without any pain, which argues against reading them as a pain biomarker.
+  evidence: single-study
+  stations: [cingulate, operculum]
+  theories: [salience-detection-account, specificity-theory]
+  refs: [salomons2016]
+- id: hu2019
+  title: Gamma oscillations reflect pain sensitivity across people
+  year: 2019
+  method: eeg
+  kind: timing
+  population: experimental
+  finding: In 96 people, almost all laser-evoked EEG features tracked pain ratings within each person, but only gamma-band synchronization over central electrodes also tracked differences in pain sensitivity between people. In 107 other people it did not track between-person ratings of equally salient auditory, visual or non-nociceptive somatosensory stimuli.
+  significance: Separates within-person from between-person pain variability and proposes gamma oscillations as a more pain-selective EEG marker than the evoked potentials.
+  evidence: single-study
+  stations: [s1]
+  theories: [salience-detection-account]
+  refs: [hu2019]
+- id: wager2013
+  title: A multivariate fMRI signature of heat pain
+  year: 2013
+  method: fmri
+  kind: decoding
+  population: experimental
+  finding: A machine-learning pattern across thalamus, insula, S2, anterior cingulate, PAG and other regions predicted heat pain in individual people, separated painful heat from warmth, anticipation and recall, and from social rejection, and was reduced by remifentanil (see the signatures section).
+  significance: Moved pain imaging from single regions to a precisely defined, testable pattern that can be applied to new people.
+  evidence: robust
+  stations: [posterior-insula, anterior-insula, operculum, cingulate, pag]
+  theories: []
+  refs: [wager2013]
+- id: bantick2002
+  title: Distraction lowers pain and pain-related activity
+  year: 2002
+  method: fmri
+  kind: modulation
+  population: experimental
+  finding: A demanding counting Stroop task reduced ratings of intermittent painful heat. During distraction, activity increased in the affective division of the ACC and orbitofrontal regions and decreased in the thalamus, insula and cognitive division of the ACC.
+  significance: Showed that attention changes pain-evoked brain activity, not only reports, and pointed to frontal and cingulate regions that may exert the control.
+  evidence: robust
+  stations: [cingulate]
+  theories: [neurocognitive-attention-model]
+  refs: [bantick2002]
+- id: wager2004
+  title: Placebo changes pain-evoked and anticipatory brain activity
+  year: 2004
+  method: fmri
+  kind: modulation
+  population: experimental
+  finding: In two fMRI experiments, placebo analgesia was related to decreased pain-evoked activity in the thalamus, insula and anterior cingulate, and to increased prefrontal activity while pain was anticipated.
+  significance: Evidence that placebos change the processing of pain, not only what people report, and that expectation acts before the stimulus arrives.
+  evidence: robust
+  stations: [cingulate]
+  theories: [expectancy-placebo-analgesia]
+  refs: [wager2004]
+- id: eippert2009
+  title: Placebo analgesia engages the opioidergic descending system
+  year: 2009
+  method: fmri
+  kind: modulation
+  population: experimental
+  finding: The opioid antagonist naloxone reduced behavioural and neural placebo effects, including placebo responses in the rostral ACC, hypothalamus, PAG and RVM. It abolished placebo-induced coupling between rostral ACC and PAG, which predicted the behavioural and neural placebo effects.
+  significance: Links placebo analgesia in humans to the opioid-dependent cortex to PAG to RVM pathway described in animals.
+  evidence: single-study
+  stations: [pgacc, hypothalamus, pag, rvm]
+  theories: [expectancy-placebo-analgesia, endogenous-modulation-model]
+  refs: [eippert2009]
+- id: eippert2009b
+  title: Placebo reduces pain-related activity in the spinal cord
+  year: 2009
+  method: spinal-fmri
+  kind: modulation
+  population: experimental
+  finding: Functional MRI of the human spinal cord showed that pain-related spinal activity was strongly reduced under placebo, in line with reduced pain responses.
+  significance: Direct evidence in humans that a psychological factor can act at the first central stage of nociceptive processing, as descending control models predict.
+  evidence: single-study
+  stations: [dorsal-horn]
+  theories: [expectancy-placebo-analgesia, endogenous-modulation-model, gate-control-theory]
+  refs: [eippert2009b]
+- id: atlas2010
+  title: Expectation cues shape pain through frontal and striatal activity
+  year: 2010
+  method: fmri
+  kind: modulation
+  population: experimental
+  finding: Cues predicting low or high heat changed pain reports and heat-evoked responses in most pain-processing regions. The anterior cingulate, anterior insula and thalamus formally mediated the cue effects, and these were in turn mediated by anticipatory activity in medial orbitofrontal cortex and ventral striatum.
+  significance: Shows that activity in pain-processing regions combines nociceptive input with expectation, and identifies candidate sources of the expectation signal.
+  evidence: single-study
+  stations: [cingulate, anterior-insula]
+  theories: [expectancy-placebo-analgesia]
+  refs: [atlas2010]
+- id: zubieta2001
+  title: Sustained pain and placebo release endogenous opioids
+  year: 2001
+  method: pet
+  kind: molecular
+  population: experimental
+  finding: PET of mu-opioid receptors showed that sustained pain released endogenous opioids in several cortical and subcortical regions, and this was associated with lower sensory and affective pain ratings. In a later study, a placebo increased mu-opioid neurotransmission in pregenual and subgenual rostral ACC, dorsolateral prefrontal cortex, insula and nucleus accumbens.
+  significance: Molecular evidence that the brain's own opioids regulate pain and contribute to placebo analgesia in humans.
+  evidence: robust
+  stations: [pgacc, dlpfc, nucleus-accumbens]
+  theories: [endogenous-modulation-model, expectancy-placebo-analgesia]
+  refs: [zubieta2001, zubieta2005]

@@ -1,0 +1,154 @@
+---
+/**
+ * Spatial vs temporal resolution of methods for imaging pain (log–log), from
+ * src/data/imaging-methods.yaml. Boxes are approximate orders of magnitude.
+ * Methods with identical ranges share one box. Selecting a box shows its card.
+ */
+import { getCollection, getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+const methods = await getCollection('imagingMethods');
+const order = ['eeg', 'meg', 'ieeg', 'fmri', 'spinal-fmri', 'pet', 'structural'];
+methods.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+const refIds = [...new Set(methods.flatMap((m) => m.data.refs.map((r) => r.id)))];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const FAMILY: Record<string, 'electro' | 'haemo' | 'struct'> = { eeg: 'electro', meg: 'electro', ieeg: 'electro', fmri: 'haemo', 'spinal-fmri': 'haemo', pet: 'haemo', structural: 'struct' };
+const FAM_LABEL = { electro: 'Electrical activity', haemo: 'Blood flow, metabolism, chemistry', struct: 'Structure' };
+
+// Chart geometry
+const W = 720, H = 360, L = 64, R = 16, T = 18, B = 46;
+const iw = W - L - R, ih = H - T - B;
+const X0 = Math.log10(0.001), X1 = Math.log10(3.2e7), Y0 = Math.log10(0.5), Y1 = Math.log10(200);
+const sx = (s: number) => L + ((Math.log10(s) - X0) / (X1 - X0)) * iw;
+const sy = (mm: number) => T + ih - ((Math.log10(mm) - Y0) / (Y1 - Y0)) * ih;
+const xt = [[0.001, '1 ms'], [1, '1 s'], [60, '1 min'], [3600, '1 h'], [86400, '1 day'], [3.15e7, '1 year']] as const;
+const yt = [[1, '1 mm'], [10, '1 cm'], [100, '10 cm']] as const;
+
+// Group identical boxes
+type Box = { ids: string[]; label: string; fam: string; x: number; y: number; w: number; h: number };
+// where each box's label sits: top-left inside, bottom-left inside, or just below the box
+const LABEL_POS: Record<string, 'tl' | 'bl' | 'below'> = { ieeg: 'bl', fmri: 'below' };
+const boxes: Box[] = [];
+// larger boxes first so smaller ones are drawn on top
+for (const m of methods) {
+  const k = `${m.data.spatial}|${m.data.temporal}`;
+  const ex = boxes.find((b) => (b as any).k === k);
+  if (ex) { ex.ids.push(m.id); ex.label += ` / ${m.data.short}`; continue; }
+  const x = sx(m.data.temporal[0]), x2 = sx(m.data.temporal[1]), y = sy(m.data.spatial[1]), y2 = sy(m.data.spatial[0]);
+  boxes.push(Object.assign({ ids: [m.id], label: m.data.short, fam: FAMILY[m.id], x, y, w: x2 - x, h: y2 - y }, { k }));
+}
+boxes.sort((a, b) => b.w * b.h - a.w * a.h);
+const payload = Object.fromEntries(methods.map((m) => [m.id, {
+  name: m.data.name, measures: m.data.measures, strengths: m.data.strengths, limits: m.data.limits, painUse: m.data.painUse,
+  res: `${m.data.spatial[0]}–${m.data.spatial[1]} mm · ${fmtT(m.data.temporal[0])}–${fmtT(m.data.temporal[1])}`,
+  refs: m.data.refs.map((r) => { const x = refs.get(r.id)!; return { label: cite(x), href: x.data.doi ? `https://doi.org/${x.data.doi}` : url(`references/#${r.id}`) }; }),
+}]));
+function fmtT(s: number) {
+  if (s < 1) return `${+(s * 1000).toPrecision(2)} ms`;
+  if (s < 60) return `${+s.toPrecision(2)} s`;
+  if (s < 3600) return `${Math.round(s / 60)} min`;
+  if (s < 86400) return `${Math.round(s / 3600)} h`;
+  if (s < 3.1e7) return `${Math.round(s / 86400)} days`;
+  return `${Math.round(s / 3.15e7)} year`;
+}
+---
+<div class="rc card" id="rc">
+  <div class="rc-grid">
+    <figure class="rc-fig">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="rc-t">
+        <title id="rc-t">Approximate spatial and temporal resolution of methods for imaging pain, on logarithmic axes. EEG, MEG and intracranial EEG are fast; fMRI and PET are slower but localise better; structural MRI shows anatomy over days to years.</title>
+        {xt.map(([v, l], i) => <g><line class="gl" x1={sx(v)} x2={sx(v)} y1={T} y2={T + ih} /><text class="tk" x={sx(v)} y={T + ih + 16} text-anchor={i === xt.length - 1 ? 'end' : 'middle'}>{l}</text></g>)}
+        {yt.map(([v, l]) => <g><line class="gl" x1={L} x2={L + iw} y1={sy(v)} y2={sy(v)} /><text class="tk" x={L - 8} y={sy(v) + 4} text-anchor="end">{l}</text></g>)}
+        <text class="ax" x={L + iw / 2} y={H - 6} text-anchor="middle">time resolution (log scale) →  slower</text>
+        <text class="ax" x="14" y={T + ih / 2} text-anchor="middle" transform={`rotate(-90 14 ${T + ih / 2})`}>space resolution (log) ↑ coarser</text>
+        {boxes.map((b) => (
+          <g class={`bx f-${b.fam}`} data-id={b.ids[0]} tabindex="0" role="button" aria-label={`${b.label}: details`}>
+            <rect x={b.x} y={b.y} width={b.w} height={b.h} rx="6" />
+          </g>
+        ))}
+        {boxes.map((b) => {
+          const pos = LABEL_POS[b.ids[0]] ?? 'tl';
+          const [x, y] = pos === 'bl' ? [b.x + 7, b.y + b.h - 7] : pos === 'below' ? [b.x + 2, b.y + b.h + 15] : [b.x + 7, b.y + 15];
+          return <text class="bl" x={x} y={y}>{b.label}</text>;
+        })}
+      </svg>
+      <figcaption>
+        <span class="lg f-electro"><i></i>{FAM_LABEL.electro}</span>
+        <span class="lg f-haemo"><i></i>{FAM_LABEL.haemo}</span>
+        <span class="lg f-struct"><i></i>{FAM_LABEL.struct}</span>
+        <span class="muted">Boxes are approximate orders of magnitude. Select one.</span>
+      </figcaption>
+    </figure>
+    <div class="rc-card" aria-live="polite">
+      <h3 class="rc-name"></h3>
+      <p class="rc-res"></p>
+      <dl>
+        <dt>Measures</dt><dd class="rc-measures"></dd>
+        <dt>Strengths</dt><dd class="rc-strengths"></dd>
+        <dt>Limits</dt><dd class="rc-limits"></dd>
+        <dt>In pain research</dt><dd class="rc-use"></dd>
+      </dl>
+      <div class="rc-also"></div>
+      <p class="rc-refs"></p>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="rc-data" set:html={JSON.stringify({ methods: payload, groups: boxes.map((b) => b.ids) })} />
+
+<style>
+  .rc { padding: 1rem 1.1rem; }
+  .rc-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+  @media (max-width: 900px) { .rc-grid { grid-template-columns: 1fr; } }
+  .rc-fig { margin: 0; }
+  svg { width: 100%; height: auto; display: block; }
+  .gl { stroke: var(--line); }
+  .tk { fill: var(--ink-3); font: 12px var(--font); }
+  .ax { fill: var(--ink-2); font: 12.5px var(--font); }
+  .bx { cursor: pointer; }
+  .bx rect { fill: color-mix(in srgb, var(--c) 16%, var(--surface)); stroke: var(--c); stroke-width: 1.6; transition: fill .15s; }
+  .bl { fill: var(--ink); font: 650 13px var(--font); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+  .bx:hover rect, .bx:focus-visible rect { fill: color-mix(in srgb, var(--c) 32%, var(--surface)); }
+  .bx.sel rect { fill: color-mix(in srgb, var(--c) 42%, var(--surface)); stroke-width: 2.6; }
+  .bx:focus { outline: none; }
+  .f-electro { --c: var(--d1); }
+  .f-haemo { --c: var(--d2); }
+  .f-struct { --c: var(--d3); }
+  figcaption { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .8rem; color: var(--ink-2); margin-top: .3rem; }
+  .lg { display: inline-flex; align-items: center; gap: .35rem; }
+  .lg i { width: 12px; height: 12px; border-radius: 3px; background: color-mix(in srgb, var(--c) 35%, transparent); border: 1.5px solid var(--c); }
+  .rc-card h3 { margin: 0; font-size: 1.15rem; }
+  .rc-res { margin: .15rem 0 .6rem; font-size: .8rem; color: var(--ink-3); }
+  .rc-card dl { margin: 0; display: grid; gap: .35rem; font-size: .88rem; }
+  .rc-card dt { font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+  .rc-card dd { margin: 0 0 .2rem; color: var(--ink-2); }
+  .rc-also { font-size: .82rem; margin-top: .4rem; }
+  .rc-also :global(button) { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+  .rc-refs { font-size: .78rem; color: var(--ink-3); margin: .5rem 0 0; }
+  .rc-refs :global(a) { text-decoration: none; }
+</style>
+
+<script>
+  const root = document.getElementById('rc')!;
+  const { methods, groups } = JSON.parse(document.getElementById('rc-data')!.textContent!);
+  const $ = (s: string) => root.querySelector(s)!;
+  function show(id: string) {
+    const m = methods[id];
+    const group: string[] = groups.find((g: string[]) => g.includes(id));
+    root.querySelectorAll<SVGGElement>('.bx').forEach((b) => b.classList.toggle('sel', group.includes(b.dataset.id!)));
+    $('.rc-name').textContent = m.name;
+    $('.rc-res').textContent = m.res;
+    $('.rc-measures').textContent = m.measures;
+    $('.rc-strengths').textContent = m.strengths;
+    $('.rc-limits').textContent = m.limits;
+    $('.rc-use').textContent = m.painUse;
+    const others = group.filter((g) => g !== id);
+    $('.rc-also').innerHTML = others.length ? 'Same range: ' + others.map((o) => `<button type="button" data-m="${o}">${methods[o].name}</button>`).join(', ') : '';
+    $('.rc-refs').innerHTML = 'Source: ' + m.refs.map((r: any) => `<a href="${r.href}">${r.label}</a>`).join(' · ');
+  }
+  root.querySelectorAll<SVGGElement>('.bx').forEach((b) => {
+    b.addEventListener('click', () => show(b.dataset.id!));
+    b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(b.dataset.id!); } });
+  });
+  root.addEventListener('click', (e) => { const t = (e.target as HTMLElement).closest<HTMLElement>('[data-m]'); if (t) show(t.dataset.m!); });
+  show('fmri');
+</script>

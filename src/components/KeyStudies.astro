@@ -1,0 +1,23 @@
+---
+/** Compact list of imaging findings that links to their entries in the page timeline (#f-<id>). */
+import type { CollectionEntry } from 'astro:content';
+interface Props { list: CollectionEntry<'imagingFindings'>[]; label?: string }
+const { list, label = 'Key studies' } = Astro.props;
+const EVIDENCE = { robust: 'Replicated', debated: 'Debated', 'single-study': 'Single study' } as const;
+---
+{list.length > 0 && (
+  <div class="ks">
+    <p class="ks-h">{label}</p>
+    <ul>{list.map((f) => <li><a href={`#f-${f.id}`}><span class="ks-y">{f.data.year}</span> {f.data.title}</a> <span class={`ev ev-${f.data.evidence}`}>{EVIDENCE[f.data.evidence]}</span></li>)}</ul>
+  </div>
+)}
+<style>
+  .ks { margin: 1rem 0 0; max-width: 52rem; }
+  .ks-h { font: 600 .7rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin: 0 0 .3rem; }
+  .ks ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; font-size: .9rem; }
+  .ks a { text-decoration: none; }
+  .ks-y { font-weight: 650; color: var(--ink-3); margin-right: .3rem; font-variant-numeric: tabular-nums; }
+  .ev { font-size: .72rem; color: var(--ink-3); margin-left: .3rem; }
+  .ev-robust { color: var(--ev-support); }
+  .ev-debated { color: var(--ev-mixed); }
+</style>

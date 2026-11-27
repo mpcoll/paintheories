@@ -1,0 +1,168 @@
+---
+import { getCollection, getEntries } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ResolutionChart from '../../components/ResolutionChart.astro';
+import PainMapExplorer from '../../components/PainMapExplorer.astro';
+import ReverseInference from '../../components/ReverseInference.astro';
+import KeyStudies from '../../components/KeyStudies.astro';
+import LepFigure from '../../components/LepFigure.astro';
+import { cite, url, type Reference } from '../../lib/data';
+
+const findings = (await getCollection('imagingFindings')).sort((a, b) => a.data.year - b.data.year);
+const signatures = (await getCollection('painSignatures')).sort((a, b) => a.data.year - b.data.year);
+const methods = new Map((await getCollection('imagingMethods')).map((m) => [m.id, m.data.short]));
+const stations = new Map((await getCollection('circuitStations')).map((s) => [s.id, s.data.short]));
+const theories = new Map((await getCollection('theories')).map((t) => [t.id, t.data.shortTitle ?? t.data.title]));
+const extra = ['poldrack2006', 'yarkoni2011', 'lieberman2015', 'wager2016', 'morton2016'];
+const refIds = [...new Set([...findings.flatMap((f) => f.data.refs.map((r) => r.id)), ...signatures.flatMap((s) => s.data.refs.map((r) => r.id)), ...extra])];
+const refs = new Map(((await getEntries(refIds.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+const EVIDENCE = { robust: 'Replicated', debated: 'Debated', 'single-study': 'Single study' } as const;
+const AVAIL = { open: 'Openly available', 'on-request': 'Available on request', 'not-shared': 'Not shared' } as const;
+const byKind = (...kinds: string[]) => findings.filter((f) => kinds.includes(f.data.kind));
+const toc = [['methods', 'Methods'], ['where', 'Where'], ['meaning', 'What it means'], ['timing', 'Timing'], ['signatures', 'Signatures'], ['modulation', 'Modulation'], ['timeline', 'Timeline']];
+---
+
+<Base title="Neuroimaging of pain" description="How brain imaging studies pain: methods, real meta-analytic brain maps, reverse inference, timing with EEG and MEG, brain signatures of pain, modulation, and a timeline of landmark studies.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Biology · neuroimaging</p>
+    <h1>Imaging pain in the human brain</h1>
+    <p class="lede">What brain imaging shows about pain, and what it cannot show. This first part covers acute pain evoked in healthy volunteers; chronic pain comes next.</p>
+    <nav class="toc" aria-label="On this page">{toc.map(([id, l]) => <a href={`#${id}`}>{l}</a>)}</nav>
+  </header>
+
+  <section id="methods">
+    <h2>How we image pain</h2>
+    <p class="intro muted">Each method trades speed against precision in space. Electrical recordings follow pain in milliseconds but localise poorly; blood-flow and tracer methods localise well but are slow (<a href={L('morton2016').href}>{L('morton2016').label}</a>).</p>
+    <ResolutionChart />
+  </section>
+
+  <section id="where">
+    <h2>Where pain-related activity appears</h2>
+    <p class="intro muted">These are real meta-analytic maps from Neurosynth, which pools coordinates from thousands of published fMRI studies (<a href={L('yarkoni2011').href}>{L('yarkoni2011').label}</a>). A "consistency" map shows where studies of a topic tend to report activation. It answers "what does pain do to the brain?", not "does this activation mean pain?" (see <a href="#meaning">What it means</a>). The regions correspond to stations on the <a href={url('biology/')}>Pain circuits</a> figure.</p>
+    <PainMapExplorer />
+    <KeyStudies list={byKind('mapping', 'connectivity')} />
+  </section>
+
+  <section id="meaning">
+    <h2>What an activation means: reverse inference</h2>
+    <p class="intro muted">Seeing activity in a "pain region" and concluding that the person is in pain is called reverse inference. It is only as strong as the region's selectivity: if the region is also active in many situations without pain, its activation says little (<a href={L('poldrack2006').href}>{L('poldrack2006').label}</a>). Move the sliders to see why.</p>
+    <ReverseInference />
+    <p class="intro muted">A real example: a large Neurosynth reverse-inference analysis concluded that the dorsal anterior cingulate cortex is selective for pain (<a href={L('lieberman2015').href}>{L('lieberman2015').label}</a>), and a reply disputed that this analysis could establish selectivity (<a href={L('wager2016').href}>{L('wager2016').label}</a>). The studies below test specificity directly.</p>
+    <KeyStudies list={byKind('specificity')} label="Tests of specificity" />
+  </section>
+
+  <section id="timing">
+    <h2>Timing: electrophysiology</h2>
+    <p class="intro muted">EEG and MEG follow the brain's response to a brief noxious stimulus millisecond by millisecond, and intracranial recordings do so inside the brain.</p>
+    <LepFigure />
+    <KeyStudies list={byKind('timing')} />
+  </section>
+
+  <section id="signatures">
+    <h2>Brain signatures of pain</h2>
+    <p class="intro muted">Machine learning can combine activity across many regions into a single "signature" that predicts pain. Each one is only as good as its tests: in new people, against other unpleasant or salient states, and in patients.</p>
+    <KeyStudies list={byKind('decoding')} />
+    <div class="sigs">
+      {signatures.map((s) => (
+        <article class="card sig" id={`sig-${s.id}`}>
+          <header>
+            <h3>{s.data.name} <span class="muted">({s.data.short}, {s.data.year})</span></h3>
+            <span class="tag">{methods.get(s.data.method)}</span>
+            <span class={`tag av-${s.data.availability}`} title={s.data.availabilityNote}>{AVAIL[s.data.availability]}</span>
+          </header>
+          <dl>
+            <dt>Predicts</dt><dd>{s.data.target}</dd>
+            <dt>Built from</dt><dd>{s.data.development}</dd>
+            <dt>Tested</dt><dd>{s.data.validation}</dd>
+            <dt>Specificity</dt><dd>{s.data.specificity}</dd>
+            <dt>Caveats</dt><dd>{s.data.caveats}</dd>
+            {s.data.availabilityNote && <><dt>Availability</dt><dd>{s.data.availabilityNote}</dd></>}
+          </dl>
+          <p class="refs">{s.data.refs.map((r, i) => { const l = L(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="modulation">
+    <h2>Modulation: expectation, attention and placebo</h2>
+    <p class="intro muted">The same stimulus can hurt more or less depending on context. Imaging shows where that modulation acts, from prefrontal cortex down to the spinal cord; see also the descending pathways on <a href={url('biology/?pathway=descending')}>Pain circuits</a>.</p>
+    <KeyStudies list={byKind('modulation', 'molecular')} />
+  </section>
+
+  <section id="timeline">
+    <h2>Landmark studies</h2>
+    <div class="tl-filter" role="group" aria-label="Filter by method" data-pagefind-ignore>
+      <button type="button" class="chip" data-m="" aria-pressed="true">All</button>
+      {[...new Set(findings.map((f) => f.data.method))].map((m) => <button type="button" class="chip" data-m={m} aria-pressed="false">{methods.get(m)}</button>)}
+    </div>
+    <ol class="tl">
+      {findings.map((f) => (
+        <li class="tl-item" id={`f-${f.id}`} data-m={f.data.method} data-kind={f.data.kind}>
+          <span class="tl-year">{f.data.year}</span>
+          <div class="card tl-card">
+            <h3>{f.data.title}</h3>
+            <p class="tl-meta"><span class="tag">{methods.get(f.data.method)}</span> <span class="tag">{f.data.kind}</span> <span class={`tag ev-${f.data.evidence}`}>{EVIDENCE[f.data.evidence]}</span></p>
+            <p>{f.data.finding}</p>
+            <p class="tl-sig"><strong>Why it matters.</strong> {f.data.significance}</p>
+            <p class="tl-links">
+              {f.data.stations.map((s) => <a href={url(`biology/?station=${s.id}`)}>{stations.get(s.id)}</a>)}
+              {f.data.theories.map((t) => <a class="th" href={url(`theories/${t.id}/`)}>{theories.get(t.id)}</a>)}
+            </p>
+            <p class="refs">{f.data.refs.map((r, i) => { const l = L(r.id); return <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>; })}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <p class="next card">Next: <strong>chronic pain</strong>. Brain structure and connectivity, the transition from acute to chronic back pain, neuroinflammation and receptor PET, and what replicates.</p>
+
+  <style>
+    section { margin-bottom: 2.8rem; scroll-margin-top: 130px; }
+    section h2 { margin-top: 0; }
+    .toc { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .9rem; font-size: .9rem; }
+    .toc a, .intro a, .refs a, .tl-links a { text-decoration: none; }
+    .intro { max-width: var(--measure); }
+    .tag { display: inline-block; font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .05em; padding: .12rem .45rem; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--ink-3); }
+    .ev-robust { border-color: var(--ev-support); color: var(--ev-support); }
+    .ev-debated { border-color: var(--ev-mixed); color: var(--ev-mixed); }
+    .av-open { border-color: var(--ev-support); color: var(--ev-support); }
+    .sigs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    .sig header { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: .6rem; }
+    .sig h3 { margin: 0; font-size: 1.1rem; flex-basis: 100%; }
+    .sig h3 .muted { font: 500 .85rem var(--font); }
+    .sig dl { margin: 0; display: grid; gap: .3rem; font-size: .87rem; }
+    .sig dt { font: 600 .66rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+    .sig dd { margin: 0 0 .2rem; color: var(--ink-2); }
+    .refs { font-size: .8rem; color: var(--ink-3); margin: .5rem 0 0; }
+    .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .28rem .7rem; cursor: pointer; }
+    .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    .tl-filter { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+    .tl { list-style: none; margin: 0; padding: 0 0 0 1rem; border-left: 2px solid var(--line-strong); display: grid; gap: .9rem; }
+    .tl-item { position: relative; display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: .8rem; align-items: start; scroll-margin-top: 130px; }
+    .tl-item::before { content: ''; position: absolute; left: calc(-1rem - 6px); top: .55rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--bg); }
+    .tl-item[hidden] { display: none; }
+    .tl-year { font: 700 1rem var(--serif); color: var(--ink-2); padding-top: .25rem; }
+    .tl-card { padding: .8rem 1rem; }
+    .tl-card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .tl-card p { margin: .3rem 0; font-size: .9rem; }
+    .tl-meta { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .tl-sig { color: var(--ink-2); }
+    .tl-links { display: flex; flex-wrap: wrap; gap: .3rem .8rem; font-size: .82rem; }
+    .tl-links a::before { content: '◆ '; color: var(--ink-3); font-size: .7em; }
+    .tl-links a.th::before { content: '◇ '; }
+    @media (max-width: 560px) { .tl-item { grid-template-columns: 1fr; gap: .2rem; } }
+    .next { font-size: .95rem; }
+
+  </style>
+
+  <script>
+    const items = [...document.querySelectorAll<HTMLElement>('.tl-item')];
+    document.querySelectorAll<HTMLButtonElement>('.tl-filter .chip').forEach((b) => b.addEventListener('click', () => {
+      document.querySelectorAll('.tl-filter .chip').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      items.forEach((i) => (i.hidden = !!b.dataset.m && i.dataset.m !== b.dataset.m));
+    }));
+  </script>
+</Base>

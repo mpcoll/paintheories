@@ -12513,3 +12513,276 @@
   volume: "20"
   pages: 1S-73S
   source: manual
+- id: morton2016
+  type: article
+  authors:
+    - Morton, D.
+    - Jones, A.
+    - Sandhu, J.
+  year: 2016
+  title: "Brain imaging of pain: state of the art"
+  container: Journal of Pain Research
+  volume: Volume 9
+  pages: 613-624
+  doi: 10.2147/jpr.s60433
+  source: crossref
+- id: yarkoni2011
+  type: article
+  authors:
+    - Yarkoni, T.
+    - Poldrack, R. A.
+    - Nichols, T. E.
+    - Van Essen, D. C.
+    - Wager, T. D.
+  year: 2011
+  title: Large-scale automated synthesis of human functional neuroimaging data
+  container: Nature Methods
+  volume: "8"
+  issue: "8"
+  pages: 665-670
+  doi: 10.1038/nmeth.1635
+  source: crossref
+- id: poldrack2006
+  type: article
+  authors:
+    - Poldrack, R.
+  year: 2006
+  title: Can cognitive processes be inferred from neuroimaging data?
+  container: Trends in Cognitive Sciences
+  volume: "10"
+  issue: "2"
+  pages: 59-63
+  doi: 10.1016/j.tics.2005.12.004
+  source: crossref
+- id: talbot1991
+  type: article
+  authors:
+    - Talbot, J. D.
+    - Marrett, S.
+    - Evans, A. C.
+    - Meyer, E.
+    - Bushnell, M. C.
+    - Duncan, G. H.
+  year: 1991
+  title: Multiple Representations of Pain in Human Cerebral Cortex
+  container: Science
+  volume: "251"
+  issue: "4999"
+  pages: 1355-1358
+  doi: 10.1126/science.2003220
+  source: crossref
+- id: ploghaus1999
+  type: article
+  authors:
+    - Ploghaus, A.
+    - Tracey, I.
+    - Gati, J. S.
+    - Clare, S.
+    - Menon, R. S.
+    - Matthews, P. M.
+    - Rawlins, J. N. P.
+  year: 1999
+  title: Dissociating Pain from Its Anticipation in the Human Brain
+  container: Science
+  volume: "284"
+  issue: "5422"
+  pages: 1979-1981
+  doi: 10.1126/science.284.5422.1979
+  source: crossref
+- id: duerden2011
+  type: article
+  authors:
+    - Duerden, E. G.
+    - Albanese, M.
+  year: 2013
+  title: "Localization of pain‐related brain activation: A meta‐analysis of neuroimaging data"
+  container: Human Brain Mapping
+  volume: "34"
+  issue: "1"
+  pages: 109-149
+  doi: 10.1002/hbm.21416
+  source: crossref
+- id: gross2007
+  type: article
+  authors:
+    - Gross, J.
+    - Schnitzler, A.
+    - Timmermann, L.
+    - Ploner, M.
+  year: 2007
+  title: Gamma Oscillations in Human Primary Somatosensory Cortex Reflect Pain Perception
+  container: PLoS Biology
+  volume: "5"
+  issue: "5"
+  pages: e133
+  doi: 10.1371/journal.pbio.0050133
+  source: crossref
+- id: zubieta2001
+  type: article
+  authors:
+    - Zubieta, J. K.
+    - Smith, Y. R.
+    - Bueller, J. A.
+    - Xu, Y.
+    - Kilbourn, M. R.
+    - Jewett, D. M.
+    - Meyer, C. R.
+    - Koeppe, R. A.
+    - Stohler, C. S.
+  year: 2001
+  title: Regional Mu Opioid Receptor Regulation of Sensory and Affective Dimensions of Pain
+  container: Science
+  volume: "293"
+  issue: "5528"
+  pages: 311-315
+  doi: 10.1126/science.1060952
+  source: crossref
+- id: zubieta2005
+  type: article
+  authors:
+    - Zubieta, J. K.
+    - Bueller, J. A.
+    - Jackson, L. R.
+    - Scott, D. J.
+    - Xu, Y.
+    - Koeppe, R. A.
+    - Nichols, T. E.
+    - Stohler, C. S.
+  year: 2005
+  title: Placebo Effects Mediated by Endogenous Opioid Activity on μ-Opioid Receptors
+  container: The Journal of Neuroscience
+  volume: "25"
+  issue: "34"
+  pages: 7754-7762
+  doi: 10.1523/jneurosci.0439-05.2005
+  source: crossref
+- id: woo2017
+  type: article
+  authors:
+    - Woo, C. W.
+    - Schmidt, L.
+    - Krishnan, A.
+    - Jepma, M.
+    - Roy, M.
+    - Lindquist, M. A.
+    - Atlas, L. Y.
+    - Wager, T. D.
+  year: 2017
+  title: Quantifying cerebral contributions to pain beyond nociception
+  container: Nature Communications
+  volume: "8"
+  issue: "1"
+  pages: "14211"
+  doi: 10.1038/ncomms14211
+  source: crossref
+- id: lee2021
+  type: article
+  authors:
+    - Lee, J. J.
+    - Kim, H. J.
+    - Čeko, M.
+    - Park, B. Y.
+    - Lee, S. A.
+    - Park, H.
+    - Roy, M.
+    - Kim, S. G.
+    - Wager, T. D.
+    - Woo, C. W.
+  year: 2021
+  title: A neuroimaging biomarker for sustained experimental and clinical pain
+  container: Nature Medicine
+  volume: "27"
+  issue: "1"
+  pages: 174-182
+  doi: 10.1038/s41591-020-1142-7
+  source: crossref
+- id: hu2014
+  type: article
+  authors:
+    - Hu, L.
+    - Cai, M. M.
+    - Xiao, P.
+    - Luo, F.
+    - Iannetti, G. D.
+  year: 2014
+  title: Human Brain Responses to Concomitant Stimulation of Aδ and C Nociceptors
+  container: The Journal of Neuroscience
+  volume: "34"
+  issue: "34"
+  pages: 11439-11451
+  doi: 10.1523/jneurosci.1355-14.2014
+  source: crossref
+- id: mouraux2009
+  type: article
+  authors:
+    - Mouraux, A.
+    - Iannetti, G. D.
+  year: 2009
+  title: Nociceptive Laser-Evoked Brain Potentials Do Not Reflect Nociceptive-Specific Neural Activity
+  container: Journal of Neurophysiology
+  volume: "101"
+  issue: "6"
+  pages: 3258-3269
+  doi: 10.1152/jn.91181.2008
+  source: crossref
+- id: garcialarrea2003
+  type: article
+  authors:
+    - Garcia-Larrea, L.
+    - Frot, M.
+    - Valeriani, M.
+  year: 2003
+  title: "Brain generators of laser-evoked potentials: from dipoles to functional significance"
+  container: Neurophysiologie Clinique/Clinical Neurophysiology
+  volume: "33"
+  issue: "6"
+  pages: 279-292
+  doi: 10.1016/j.neucli.2003.10.008
+  source: crossref
+- id: valentini2012
+  type: article
+  authors:
+    - Valentini, E.
+    - Hu, L.
+    - Chakrabarti, B.
+    - Hu, Y.
+    - Aglioti, S. M.
+    - Iannetti, G. D.
+  year: 2012
+  title: The primary somatosensory cortex largely contributes to the early part of the cortical response elicited by nociceptive stimuli
+  container: NeuroImage
+  volume: "59"
+  issue: "2"
+  pages: 1571-1581
+  doi: 10.1016/j.neuroimage.2011.08.069
+  source: crossref
+- id: valentini2011
+  type: article
+  authors:
+    - Valentini, E.
+    - Torta, D. M. E.
+    - Mouraux, A.
+    - Iannetti, G. D.
+  year: 2011
+  title: "Dishabituation of Laser-evoked EEG Responses: Dissecting the Effect of Certain and Uncertain Changes in Stimulus Modality"
+  container: Journal of Cognitive Neuroscience
+  volume: "23"
+  issue: "10"
+  pages: 2822-2837
+  doi: 10.1162/jocn.2011.21609
+  source: crossref
+- id: wang2010
+  type: article
+  authors:
+    - Wang, A. L.
+    - Mouraux, A.
+    - Liang, M.
+    - Iannetti, G. D.
+  year: 2010
+  title: Stimulus Novelty, and Not Neural Refractoriness, Explains the Repetition Suppression of Laser-Evoked Potentials
+  container: Journal of Neurophysiology
+  volume: "104"
+  issue: "4"
+  pages: 2116-2124
+  doi: 10.1152/jn.01088.2009
+  source: crossref

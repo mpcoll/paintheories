@@ -94,3 +94,16 @@ These are the judgement calls and unverified details to review.
 ## Prevalence figures with caveats
 
 - [ ] TMD 29.5% counts any diagnosis including painless joint sounds; radiculopathy is a 1.2–43% range; CRPS and CIPN figures are incidence/neuropathy (not pain); whiplash is persistence at 1 year; sickle cell figures are pain frequency, not prevalence; chronic pancreatitis from one US county.
+
+# Neuroimaging review notes (2026-11-27)
+
+The /biology/imaging/ findings and signatures are drafts. Judgement calls to check:
+
+- [ ] Evidence grades (robust / debated / single-study) are editorial. wager2004 and the zubieta2001/2005 pair are "robust" from general knowledge, without a replication check.
+- [ ] duerden2011 (print 2013, Hum Brain Mapp 34:109-149) pools PET and fMRI but is tagged fmri.
+- [ ] lieberman2015 + wager2016 are one "debated" entry; Wager 2016's argument is summarised from the letter.
+- [ ] salomons2016 (2 people with congenital insensitivity to pain, 4 controls) is tagged experimental; text based on the accepted manuscript.
+- [ ] Signature availability: NPS on request (CANlab README), SIIPS1 open (CANlab Neuroimaging_Pattern_Masks, GPL-3.0), ToPS on request under a mutual confidentiality agreement (cocoanlab/tops); gamma ERS has no weights ("not shared" means nothing to share).
+- [ ] LEP figure: peak latencies from Hu et al. 2014 (one study); N1 shown only as the 120-200 ms window of Hu & Iannetti 2019; shapes and amplitudes are schematic, and repetition scales all components equally.
+- [ ] Methods chart: resolution boxes are approximate orders of magnitude (editorial), with qualitative comparisons from Morton et al. 2016.
+- [ ] Map explorer: Neurosynth uniformity (consistency) maps, not association (reverse-inference) maps; study counts from Planum's published term table (pain 516 from the viewer).

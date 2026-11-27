@@ -1,0 +1,136 @@
+---
+/**
+ * Schematic laser-evoked potentials (LEPs) after brief laser heat to the hand dorsum.
+ * Peak latencies from Hu et al. 2014 (vertex, Aδ-N2 230, Aδ-P2 385, C-N2 830, C-P2 974 ms);
+ * N1 drawn inside the 120–200 ms analysis window of Hu & Iannetti 2019 (no mean peak reported).
+ * Amplitudes and shapes are schematic. Repetition effect: Iannetti 2008, Wang 2010, Valentini 2011.
+ */
+import { getEntries } from 'astro:content';
+import { cite, url, type Reference } from '../lib/data';
+
+const ids = ['hu2014', 'hu2019', 'valentini2012', 'garcialarrea2003', 'mouraux2009', 'iannetti2008', 'wang2010', 'valentini2011', 'zhang2012'];
+const refs = new Map(((await getEntries(ids.map((id) => ({ collection: 'references' as const, id })))) as Reference[]).map((r) => [r.id, r]));
+const L = (id: string) => { const r = refs.get(id)!; return { label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${id}`), title: r.data.title }; };
+
+const W = 720, H = 300, PL = 56, PR = 16, PT = 22, PB = 40;
+const iw = W - PL - PR, ih = H - PT - PB;
+const TMAX = 1200;
+const sx = (ms: number) => PL + (ms / TMAX) * iw;
+const yMid = PT + ih * 0.52, A = ih * 0.38;
+const sy = (v: number) => yMid - v * A; // positive up
+type Comp = { t: number; a: number; w: number };
+const gauss = (cs: Comp[], t: number) => cs.reduce((s, c) => s + c.a * Math.exp(-((t - c.t) ** 2) / (2 * c.w ** 2)), 0);
+const path = (cs: Comp[]) => Array.from({ length: 241 }, (_, i) => { const t = (i / 240) * TMAX; return `${i ? 'L' : 'M'}${sx(t).toFixed(1)},${sy(gauss(cs, t)).toFixed(1)}`; }).join(' ');
+const ADELTA: Comp[] = [{ t: 230, a: -0.75, w: 32 }, { t: 385, a: 1, w: 55 }];
+const CFIB: Comp[] = [{ t: 830, a: -0.3, w: 60 }, { t: 974, a: 0.4, w: 75 }];
+const N1: Comp[] = [{ t: 160, a: -0.35, w: 22 }];
+const scaled = (cs: Comp[], k: number) => cs.map((c) => ({ ...c, a: c.a * k }));
+const paths = {
+  vertex: path(ADELTA), vertexRep: path(scaled(ADELTA, 0.45)),
+  vertexC: path([...ADELTA, ...CFIB]), vertexCRep: path([...scaled(ADELTA, 0.45), ...scaled(CFIB, 0.45)]),
+  lateral: path(N1), lateralRep: path(scaled(N1, 0.5)),
+};
+const ticks = [0, 200, 400, 600, 800, 1000, 1200];
+const peaks = [
+  { id: 'n2', label: 'N2', t: 230, v: -0.75, dy: -12, note: '230 ms' },
+  { id: 'p2', label: 'P2', t: 385, v: 1, dy: -8, note: '385 ms' },
+  { id: 'cn2', label: 'C-N2', t: 830, v: -0.3, dy: -12, note: '830 ms', c: true },
+  { id: 'cp2', label: 'C-P2', t: 974, v: 0.4, dy: -8, note: '974 ms', c: true },
+];
+---
+<div class="lep card" id="lep" data-rep="0" data-c="0">
+  <div class="lep-bar" role="group" aria-label="Stimulation">
+    <button type="button" class="chip" data-rep="0" aria-pressed="true">One stimulus</button>
+    <button type="button" class="chip" data-rep="1" aria-pressed="false">Repeated at a fixed 1 s interval</button>
+    <label class="lep-c"><input type="checkbox" id="lep-c" /> Show C-fibre responses</label>
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="lep-t">
+    <title id="lep-t">Schematic laser-evoked potentials after heat to the hand. At the vertex, a negative N2 at about 230 ms and a positive P2 at about 385 ms follow Aδ-fibre input; much later C-fibre responses peak near 830 and 974 ms. An earlier N1 appears over the opposite hemisphere between 120 and 200 ms. When stimuli repeat at a constant interval, the responses shrink although pain ratings change little.</title>
+    <rect class="win" x={sx(120)} y={PT} width={sx(200) - sx(120)} height={ih} />
+    <text class="t-xs" x={sx(160)} y={PT + 12} text-anchor="middle">N1 window</text>
+    {ticks.map((t) => <g><line class="gl" x1={sx(t)} x2={sx(t)} y1={PT} y2={PT + ih} /><text class="tk" x={sx(t)} y={PT + ih + 16} text-anchor="middle">{t}</text></g>)}
+    <text class="ax" x={PL + iw / 2} y={H - 4} text-anchor="middle">time after the laser pulse (ms)</text>
+    <line class="zero" x1={PL} x2={PL + iw} y1={yMid} y2={yMid} />
+    <line class="stim" x1={sx(0)} x2={sx(0)} y1={PT} y2={PT + ih} />
+    <text class="t-xs" x={sx(0) + 4} y={PT + ih - 6}>laser</text>
+    <text class="ax" x="14" y={yMid} text-anchor="middle" transform={`rotate(-90 14 ${yMid})`}>voltage, positive up</text>
+    <path class="tr lat a" d={paths.lateral} /><path class="tr lat b" d={paths.lateralRep} />
+    <path class="tr vx a noc" d={paths.vertex} /><path class="tr vx b noc" d={paths.vertexRep} />
+    <path class="tr vx a wc" d={paths.vertexC} /><path class="tr vx b wc" d={paths.vertexCRep} />
+    {peaks.map((p) => <text class:list={['pk', { cpk: p.c }]} x={sx(p.t)} y={sy(p.v) + (p.v < 0 ? 20 : -10)} text-anchor="middle">{p.label} <tspan class="pk-t">{p.note}</tspan></text>)}
+    <g class="lg"><line x1={PL + iw - 210} x2={PL + iw - 186} y1={PT + 10} y2={PT + 10} class="tr vx" /><text x={PL + iw - 180} y={PT + 14}>vertex (Cz)</text>
+    <line x1={PL + iw - 100} x2={PL + iw - 76} y1={PT + 10} y2={PT + 10} class="tr lat" /><text x={PL + iw - 70} y={PT + 14}>opposite side</text></g>
+  </svg>
+  <div class="lep-side">
+    <div class="rating">
+      <span class="rl">Pain rating</span>
+      <span class="rbar"><span class="rfill"></span></span>
+      <span class="rnote" aria-live="polite"></span>
+    </div>
+  </div>
+  <div class="lep-text">
+    <p><strong>What the waves are.</strong> Laser heat activates Aδ and C nociceptors without touching the skin. At the vertex, the N2 and P2 peak at about 230 and 385 ms after heat to the hand dorsum; C-fibre responses, from slower fibres, peak much later, near 830 and 974 ms (<a href={L('hu2014').href}>{L('hu2014').label}</a>). The earlier N1, over the opposite hemisphere, arises mainly in contralateral primary somatosensory cortex (<a href={L('valentini2012').href}>{L('valentini2012').label}</a>).</p>
+    <p><strong>What they mean.</strong> The vertex N2–P2 has opercular and cingulate generators (<a href={L('garcialarrea2003').href}>{L('garcialarrea2003').label}</a>) and can be explained by activity that other salient sensory events also evoke, plus somatosensory activity that is not specific to nociception (<a href={L('mouraux2009').href}>{L('mouraux2009').label}</a>).</p>
+    <p><strong>Repetition.</strong> When identical stimuli repeat at a short, constant interval, the responses shrink strongly while pain perception changes little (<a href={L('valentini2011').href}>{L('valentini2011').label}</a>; <a href={L('wang2010').href}>{L('wang2010').label}</a>; <a href={L('iannetti2008').href}>{L('iannetti2008').label}</a>). Gamma oscillations over S1 still tracked pain intensity in that situation (<a href={L('zhang2012').href}>{L('zhang2012').label}</a>).</p>
+    <p class="muted fn">Peak latencies are means from one study; shapes and amplitudes are schematic. Conduction speed of Aδ and C fibres: see <a href={url('biology/periphery/')}>Nociceptors &amp; gate</a>.</p>
+  </div>
+</div>
+
+<style>
+  .lep { padding: 1rem 1.1rem; display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: .6rem 1.2rem; }
+  @media (max-width: 760px) { .lep { grid-template-columns: 1fr; } }
+  .lep-bar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: center; }
+  .chip { font: 500 .84rem var(--font); color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: .28rem .7rem; cursor: pointer; }
+  .chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .lep-c { font-size: .85rem; color: var(--ink-2); display: inline-flex; gap: .35rem; align-items: center; margin-left: .4rem; }
+  svg { width: 100%; height: auto; display: block; }
+  .gl { stroke: var(--line); }
+  .tk, .t-xs { fill: var(--ink-3); font: 12px var(--font); }
+  .ax { fill: var(--ink-2); font: 12.5px var(--font); }
+  .zero { stroke: var(--line-strong); }
+  .stim { stroke: var(--d2); stroke-width: 2; stroke-dasharray: 4 3; }
+  .win { fill: color-mix(in srgb, var(--d1) 10%, transparent); }
+  .tr { fill: none; stroke-width: 2.6; stroke-linejoin: round; transition: opacity .3s; }
+  .tr.vx { stroke: var(--ink); }
+  .tr.lat { stroke: var(--d1); stroke-width: 2; stroke-dasharray: 5 3; }
+  .tr.b, .tr.wc { opacity: 0; }
+  .lep[data-rep='1'] .tr.a { opacity: 0; }
+  .lep[data-rep='1'] .tr.b.lat { opacity: 1; }
+  .lep[data-rep='0'][data-c='0'] .tr.a.noc, .lep[data-rep='0'] .tr.a.lat { opacity: 1; }
+  .lep[data-rep='0'][data-c='1'] .tr.a.wc { opacity: 1; }
+  .lep[data-rep='0'][data-c='1'] .tr.a.noc { opacity: 0; }
+  .lep[data-rep='1'][data-c='0'] .tr.b.noc { opacity: 1; }
+  .lep[data-rep='1'][data-c='1'] .tr.b.wc { opacity: 1; }
+  .lg .tr { opacity: 1 !important; }
+  .lg text { fill: var(--ink-2); font: 12px var(--font); }
+  .pk { fill: var(--ink); font: 650 13px var(--font); transition: opacity .3s; }
+  .pk-t { fill: var(--ink-3); font-weight: 400; font-size: 11.5px; }
+  .cpk { opacity: 0; }
+  .lep[data-c='1'] .cpk { opacity: 1; }
+  .lep[data-rep='1'] .pk { opacity: .35; }
+  .lep[data-rep='1'][data-c='0'] .cpk { opacity: 0; }
+  .lep-side { display: flex; align-items: center; }
+  .rating { display: grid; gap: .3rem; width: 100%; }
+  .rl { font: 600 .7rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
+  .rbar { height: 14px; border-radius: 7px; background: var(--surface-2); overflow: hidden; }
+  .rfill { display: block; height: 100%; width: 70%; background: var(--d2); border-radius: 7px; transition: width .3s; }
+  .lep[data-rep='1'] .rfill { width: 64%; }
+  .rnote { font-size: .78rem; color: var(--ink-3); }
+  .lep-text { grid-column: 1 / -1; font-size: .9rem; max-width: var(--measure); }
+  .lep-text p { margin: .4rem 0; }
+  .lep-text a { text-decoration: none; }
+  .fn { font-size: .8rem; }
+</style>
+
+<script>
+  const root = document.getElementById('lep')!;
+  const note = root.querySelector('.rnote')!;
+  const set = (rep: string) => {
+    root.dataset.rep = rep;
+    root.querySelectorAll<HTMLButtonElement>('[data-rep].chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.rep === rep)));
+    note.textContent = rep === '1' ? 'Much the same, while the brain response shrinks' : 'Schematic';
+  };
+  root.querySelectorAll<HTMLButtonElement>('.chip[data-rep]').forEach((b) => b.addEventListener('click', () => set(b.dataset.rep!)));
+  (root.querySelector('#lep-c') as HTMLInputElement).addEventListener('change', (e) => (root.dataset.c = (e.target as HTMLInputElement).checked ? '1' : '0'));
+  set('0');
+</script>

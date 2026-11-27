@@ -81,6 +81,7 @@ without a DOI are marked `source: manual`.
   descending) with 14 stations, each shown in 3D through embedded Planum views.
 - `/biology/periphery/`: nociceptor classes (skin → DRG → laminae), gate-control simulator, stimulus–response functions (heat, force), transduction by modality (mechanical, thermal, chemical, encoding).
 - `/biology/sensitization/`: allodynia vs hyperalgesia (stimulus–response shift), primary vs secondary hyperalgesia zones by test stimulus, inflammatory soup and neurogenic inflammation.
+- `/biology/imaging/`: neuroimaging of acute experimental pain: methods chart, Neurosynth maps via Planum (pain, painful, noxious, touch, salience, placebo, comparisons), reverse-inference demo, LEP figure, signatures (NPS, SIIPS1, ToPS, gamma ERS), 20 findings with timeline. Next: chronic pain (structure, connectivity, transition, neuroinflammation PET, replication).
 - Next: station pages; deeper cellular level (nociceptor types, dorsal horn laminae and
   interneurons, receptors/channels); more circuits (trigeminal, spinoreticular);
   propose pain tours to Planum (descending PAG–RVM, spinoparabrachial).
