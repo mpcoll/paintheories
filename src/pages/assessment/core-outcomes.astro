@@ -39,8 +39,11 @@ const core = ['pain', 'physical', 'emotional', 'global'];
               <p class="lab">Recommended measures</p>
               <ul class="meas">
                 {named[k].map((m) => <li>{m.id && has.has(m.id) ? <a href={instrumentUrl(m.id)}>{m.name}</a> : m.name}</li>)}
-                {onSite.map((i) => <li><a href={instrumentUrl(i.id)}>{i.data.title}</a></li>)}
               </ul>
+              {onSite.length > 0 && <>
+                <p class="lab lab2">Also mentioned by IMMPACT</p>
+                <ul class="meas">{onSite.map((i) => <li><a href={instrumentUrl(i.id)} title={i.data.immpact!.note}>{i.data.title}</a></li>)}</ul>
+              </>}
             </>
           ) : (
             <p class="lab muted">Recorded as part of trial conduct rather than with a rating scale.</p>
@@ -67,6 +70,7 @@ const core = ['pain', 'physical', 'emotional', 'global'];
     .desc { font-size: .88rem; color: var(--ink-2); margin: 0 0 .6rem; }
     .lab { font: 600 .68rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin: 0 0 .25rem; }
     .lab.muted { text-transform: none; letter-spacing: 0; font: 400 .84rem var(--font); }
+    .lab2 { margin-top: .6rem; }
     .meas { margin: 0; padding-left: 1.1rem; font-size: .9rem; }
     .meas a { text-decoration: none; }
     .fn { font-size: .82rem; }

@@ -140,3 +140,10 @@ Observational, psychophysical and neurophysiological entries (batch c):
 - arendtnielsen2017 cited for local versus widespread pressure thresholds and temporal summation as a sign of central facilitation; only the abstract was read.
 - Availability: FLACC licensed (Michigan: free academic/research licence, paid licence for clinical operations); CPOT and PAINAD unclear (no terms page found); QST unclear (dfns.de unreachable); CPM, temporal summation, pressure pain threshold, LEPs and skin biopsy marked "method" (no licence applies; our reading, not a quoted source).
 - Links by judgement: observational scales → pain-communication, social-communication-model; LEPs → salience-detection-account; QST and PPT → synaptic-plasticity; PPT → central-sensitization.
+
+Self-report entries for pain and function (batch a):
+- Format fields without a citation: VAS "usually 100 mm"; FPS-R scoring 0, 2, 4, 6, 8, 10 (abstract: six faces, 0-10 metric); ODI 10 sections scored 0 to 5, percentage; PROMIS T-score mean 50, SD 10; completion times for VAS, FPS-R, ODI, RMDQ and PGIC.
+- roland1983 property is the developers' own wording ("short, simple, sensitive, and reliable"); full text closed.
+- Availability: VAS free (generic format, no licence holder; confirm); FPS-R unclear (IASP page blocked automated access: please check it); BPI licensed (MD Anderson: permission required, fees may apply); MPQ family licensed (immpact.org: contact Mapi Research Trust for SF-MPQ-2; terms for the original MPQ and SF-MPQ not confirmed); ODI and PGIC unclear (Mapi ePROVIDE under maintenance on 2026-11-27); RMDQ free (rmdq.org: public domain); PROMIS free for paper use (HealthMeasures: digital or translated use may need permission or fees).
+- MPQ immpact field records the SF-MPQ as a secondary measure (dworkin2005); ODI and RMDQ have no immpact field because IMMPACT names them only as examples of disease-specific measures.
+- MPQ → three-dimensional-model link and BPI → osteoarthritis and painful-diabetic-neuropathy links are judgement (MD Anderson's version list, Keller's arthritis sample), not validation papers per condition.
