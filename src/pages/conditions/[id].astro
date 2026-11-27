@@ -1,0 +1,170 @@
+---
+import { getEntries, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Notice from '../../components/Notice.astro';
+import BodyMap from '../../components/BodyMap.astro';
+import DescriptorPills from '../../components/DescriptorPills.astro';
+import { url, cite, formatReference, resolveRefs, type Mechanism, type Theory } from '../../lib/data';
+import { getConditions, conditionUrl, DESC_ORDER, ROLE_ORDER, type Condition } from '../../lib/conditions';
+import { FAMILIES, REGIONS, ICD_CATEGORIES, DESCRIPTORS, DESCRIPTOR_ROLES, icdCategoryOf, icdBrowser } from '../../data/conditions-taxonomy';
+
+export async function getStaticPaths() {
+  const all = await getConditions();
+  return all.map((c) => ({ params: { id: c.id }, props: { condition: c, all } }));
+}
+const { condition, all } = Astro.props as { condition: Condition; all: Condition[] };
+const d = condition.data;
+const { Content } = await render(condition);
+
+const refIds = [...new Set([
+  ...d.icd.refs, ...d.descriptors.flatMap((x) => x.refs), ...(d.prevalence?.refs ?? []), ...(d.criteria?.refs ?? []), ...d.references,
+].map((r) => r.id))];
+const refs = await resolveRefs(refIds.map((id) => ({ id, collection: 'references' })));
+const byId = new Map(refs.map((r) => [r.id, r]));
+const links = (rs: { id: string }[]) => rs.map((r) => byId.get(r.id)!).map((r) => ({ label: cite(r), href: r.data.doi ? `https://doi.org/${r.data.doi}` : url(`references/#${r.id}`), title: r.data.title }));
+const sortedRefs = [...refs].sort((a, b) => a.data.authors[0].localeCompare(b.data.authors[0]) || a.data.year - b.data.year);
+
+const theories = d.theories.length ? ((await getEntries(d.theories)) as Theory[]) : [];
+const mechanisms = d.mechanisms.length ? ((await getEntries(d.mechanisms)) as Mechanism[]) : [];
+const related = d.related.map((r) => all.find((c) => c.id === r.id)).filter(Boolean) as Condition[];
+const descriptors = [...d.descriptors].sort((a, b) => DESC_ORDER.indexOf(a.type) - DESC_ORDER.indexOf(b.type) || ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role));
+const reviewLabel = { stub: 'Stub: only the basic facts are filled in.', draft: 'Draft: not yet reviewed by a domain expert.', reviewed: '' }[d.review];
+---
+
+<Base title={d.title} description={d.summary}>
+  <p class="crumbs"><a href={url('conditions/')}>Pain Conditions</a> / {FAMILIES[d.family].label}</p>
+  <header class="cond-head">
+    <p class="eyebrow">Chronic pain condition · {FAMILIES[d.family].label}</p>
+    <h1>{d.title}</h1>
+    {d.aliases.length > 0 && <p class="aka">Also known as {d.aliases.join('; ')}</p>}
+    <p class="lede">{d.summary}</p>
+  </header>
+  {reviewLabel && <div data-pagefind-ignore><Notice>{reviewLabel} Spotted an error? <a href={`https://github.com/mpcoll/paintheories/issues/new?title=${encodeURIComponent('Correction: ' + d.title)}`}>Report it on GitHub</a>.</Notice></div>}
+
+  <section class="lenses" aria-label="Three classifications">
+    <div class="card lensc">
+      <p class="lens-h">Traditional</p>
+      <p class="lens-big">{FAMILIES[d.family].label}</p>
+      <p class="lens-sub">{d.regions.map((r) => REGIONS[r].label).join(', ')}</p>
+      <BodyMap mode="show" regions={d.regions} id={`bm-${condition.id}`} />
+    </div>
+    <div class="card lensc">
+      <p class="lens-h">ICD-11 <a href={url('conditions/classification/')} class="lens-more">how it works</a></p>
+      <ul class="icd-list">
+        {d.icd.pain.map((p) => {
+          const cat = icdCategoryOf(p.code)!;
+          return (
+            <li>
+              <a class="code" href={icdBrowser(p.code)} title="Open in the WHO ICD-11 browser">{p.code}</a> {p.title}
+              <span class={`kind kind-${ICD_CATEGORIES[cat].kind}`}>{ICD_CATEGORIES[cat].kind === 'primary' ? 'Chronic primary pain' : 'Chronic secondary pain'}</span>
+              {p.when && <span class="when">{p.when}</span>}
+              {p.descriptors && <span class="when">Mechanism under this code: {p.descriptors.map((t) => DESCRIPTORS[t].label.toLowerCase()).join(', ')}</span>}
+            </li>
+          );
+        })}
+      </ul>
+      {d.icd.condition.length > 0 && <>
+        <p class="lens-h2">Code also the condition</p>
+        <ul class="icd-list small">{d.icd.condition.map((c) => <li><a class="code" href={icdBrowser(c.code)}>{c.code}</a> {c.title}</li>)}</ul>
+      </>}
+      {d.icd.note && <p class="lens-note">{d.icd.note}</p>}
+      <p class="lens-refs">{links(d.icd.refs).map((l, i) => <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>)}</p>
+    </div>
+    <div class="card lensc">
+      <p class="lens-h">IASP mechanisms <a href={url('conditions/descriptors/')} class="lens-more">what they mean</a></p>
+      <DescriptorPills condition={condition} />
+      <ul class="desc-list">
+        {descriptors.map((x) => (
+          <li class={`desc-${x.type}`}>
+            <span class="dl-h"><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[x.type].label} <span class="dl-role">{DESCRIPTOR_ROLES[x.role].label.toLowerCase()}</span></span>
+            {x.note} <span class="lens-refs">{links(x.refs).map((l, i) => <>{i > 0 && ' · '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div class="theory-layout">
+    <article class="prose article">
+      <Content />
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        {sortedRefs.map((r) => { const f = formatReference(r.data); return <li>{f.text} {f.doiUrl && <a class="doi" href={f.doiUrl}>DOI ↗</a>}</li>; })}
+      </ul>
+      <p class="muted" style="font-size:.85rem">Last updated {d.updated.toISOString().slice(0, 10)} · <a href={`https://github.com/mpcoll/paintheories/blob/main/src/content/conditions/${condition.id}.md`}>View source</a> · ICD-11 codes and titles © WHO, ICD-11 MMS 2026-01 (CC BY-ND 3.0 IGO)</p>
+    </article>
+    <aside class="side" data-pagefind-ignore>
+      <section class="card">
+        <h2>At a glance</h2>
+        <dl class="facts">
+          {d.prevalence && <>
+            <dt>Prevalence</dt>
+            <dd>{d.prevalence.value}<span class="muted cit-src">{d.prevalence.population} · {links(d.prevalence.refs).map((l, i) => <>{i > 0 && ', '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></dd>
+          </>}
+          {d.criteria && <>
+            <dt>Criteria</dt>
+            <dd><strong>{d.criteria.name}.</strong> {d.criteria.summary}<span class="muted cit-src">{links(d.criteria.refs).map((l, i) => <>{i > 0 && ', '}<a href={l.href} title={l.title}>{l.label}</a></>)}</span></dd>
+          </>}
+          <dt>Family</dt><dd>{FAMILIES[d.family].label}</dd>
+        </dl>
+      </section>
+      {theories.length > 0 && (
+        <section class="card">
+          <h2>Theories that address it</h2>
+          <ul>{theories.map((t) => <li><a href={url(`theories/${t.id}/`)}>{t.data.shortTitle ?? t.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {mechanisms.length > 0 && (
+        <section class="card">
+          <h2>Mechanisms</h2>
+          <ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {related.length > 0 && (
+        <section class="card">
+          <h2>Related conditions</h2>
+          <ul>{related.map((c) => <li><a href={conditionUrl(c.id)}>{c.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      <section class="card">
+        <h2>Biology</h2>
+        <ul>
+          <li><a href={url('biology/sensitization/')}>Sensitization, allodynia and hyperalgesia</a></li>
+          <li><a href={url('biology/periphery/')}>Nociceptors and the gate</a></li>
+          <li><a href={url('biology/')}>Pain circuits</a></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <style>
+    .cond-head { max-width: 52rem; }
+    .aka { color: var(--ink-3); margin: -.3rem 0 .6rem; font-size: .95rem; }
+    .lenses { display: grid; grid-template-columns: 0.8fr 1.1fr 1.1fr; gap: 1rem; margin: 1.2rem 0 2.2rem; align-items: start; }
+    @media (max-width: 980px) { .lenses { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .lenses { grid-template-columns: 1fr; } }
+    .lensc { padding: 1rem 1.1rem; }
+    .lens-h { font: 600 .72rem var(--font); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 .5rem; display: flex; justify-content: space-between; gap: .5rem; }
+    .lens-more { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: .78rem; text-decoration: none; }
+    .lens-h2 { font: 600 .7rem var(--font); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin: .8rem 0 .3rem; }
+    .lens-big { font: 600 1.15rem var(--serif); margin: 0; }
+    .lens-sub { color: var(--ink-2); font-size: .88rem; margin: .1rem 0 .6rem; }
+    .lensc :global(.bm svg) { max-width: 200px; }
+    .icd-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; font-size: .9rem; }
+    .icd-list.small { font-size: .85rem; gap: .3rem; }
+    .code { font: 600 .85rem var(--mono); text-decoration: none; margin-right: .2rem; }
+    .kind { display: inline-block; font: 600 .66rem var(--font); text-transform: uppercase; letter-spacing: .07em; padding: .1rem .4rem; border-radius: 5px; border: 1px solid var(--line-strong); color: var(--ink-3); margin-left: .25rem; vertical-align: 1px; }
+    .kind-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .when { display: block; font-size: .8rem; color: var(--ink-3); font-style: italic; margin-top: .15rem; }
+    .lens-note { font-size: .82rem; color: var(--ink-2); margin: .7rem 0 .3rem; }
+    .lens-refs { font-size: .78rem; color: var(--ink-3); margin: 0; }
+    .lens-refs a { text-decoration: none; }
+    .desc-list { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; gap: .7rem; font-size: .86rem; color: var(--ink-2); }
+    .dl-h { display: flex; align-items: center; gap: .35rem; font-weight: 600; color: var(--ink); }
+    .dl-role { font-weight: 500; color: var(--ink-3); }
+    .dsw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; background: var(--c); }
+    .desc-nociceptive { --c: var(--desc-noc); }
+    .desc-neuropathic { --c: var(--desc-neu); }
+    .desc-nociplastic { --c: var(--desc-npl); }
+  </style>
+</Base>

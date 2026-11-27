@@ -21,6 +21,10 @@
   --d3: #1baf7a; /* psychosocial */
   --d4: #eda100; /* integrative */
   --d5: #e87ba4; /* conceptual */
+  /* IASP mechanistic descriptors (Pain Conditions); follow the domain slots in both themes */
+  --desc-noc: var(--d4);
+  --desc-neu: var(--d1);
+  --desc-npl: var(--d5);
   --ev-support: #0ca30c;
   --ev-contra: #d03b3b;
   --ev-mixed: #c98500;

@@ -34,6 +34,7 @@ const openQuestions = (await getCollection('gaps'))
   .filter((g) => g.data.predictions.some((p) => p.theory.id === theory.id))
   .sort((a, b) => a.data.order - b.data.order);
 const met = computeMetrics(all).get(theory.id)!;
+const conditions = (await getCollection('conditions')).filter((c) => c.data.theories.some((x) => x.id === theory.id)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draft: 'Draft — not yet reviewed by a domain expert.', reviewed: '' }[d.review];
 ---
 
@@ -122,6 +123,12 @@ const reviewLabel = { stub: 'Stub — only the basic facts are filled in.', draf
         <section class="card">
           <h2>Mechanisms invoked</h2>
           <ul>{mechanisms.map((m) => <li><a href={url(`mechanisms/${m.id}/`)}>{m.data.title}</a></li>)}</ul>
+        </section>
+      )}
+      {conditions.length > 0 && (
+        <section class="card">
+          <h2>Conditions it addresses</h2>
+          <ul>{conditions.map((c) => <li><a href={url(`conditions/${c.id}/`)}>{c.data.title}</a></li>)}</ul>
         </section>
       )}
       {openQuestions.length > 0 && (

@@ -21,6 +21,7 @@ const is = (path: string) => here.startsWith(url(path));
 const nav: [string, string][] = [
   ['theories/', 'Theories'],
   ['biology/', 'Biology'],
+  ['conditions/', 'Conditions'],
   ['references/', 'References'],
   ['search/', 'Search'],
   ['about/', 'About'],
@@ -37,6 +38,13 @@ const theorySub: [string, string, boolean][] = [
   ['theories/gaps/', 'Gaps', is('theories/gaps/')],
 ];
 const inTheories = is('theories/');
+const inConditions = is('conditions/');
+const conditionsSub: [string, string, boolean][] = [
+  ['conditions/', 'Overview', inConditions && !['classification', 'descriptors', 'crosswalk'].some((p) => is(`conditions/${p}/`))],
+  ['conditions/classification/', 'ICD-11', is('conditions/classification/')],
+  ['conditions/descriptors/', 'Mechanisms', is('conditions/descriptors/')],
+  ['conditions/crosswalk/', 'Crosswalk', is('conditions/crosswalk/')],
+];
 const inBiology = is('biology/') || is('mechanisms/');
 const biologySub: [string, string, boolean][] = [
   ['biology/', 'Pain circuits', here === url('biology/')],
@@ -85,6 +93,18 @@ const biologySub: [string, string, boolean][] = [
             <a class="module-name" href={url('biology/')}>Pain Biology</a>
             <nav aria-label="Pain Biology">
               {biologySub.map(([href, label, active]) => (
+                <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+      {inConditions && (
+        <div class="subnav">
+          <div class="wrap">
+            <a class="module-name" href={url('conditions/')}>Pain Conditions</a>
+            <nav aria-label="Pain Conditions">
+              {conditionsSub.map(([href, label, active]) => (
                 <a href={url(href)} aria-current={active ? 'page' : undefined}>{label}</a>
               ))}
             </nav>

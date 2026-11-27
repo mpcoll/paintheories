@@ -27,8 +27,11 @@ export const cite = (r: Reference) => citationLabel(r.data);
 
 /** APA-like plain-text formatting; used on pages and in exports. */
 export function formatReference(r: Reference['data']): { text: string; doiUrl?: string } {
+  // Very long lists (consortium papers) are shortened to the first six authors, "et al."
   const authors =
-    r.authors.length <= 1
+    r.authors.length > 20
+      ? `${r.authors.slice(0, 6).join(', ')}, et al.`
+      : r.authors.length <= 1
       ? r.authors.join('')
       : r.authors.length === 2
         ? `${r.authors[0]}, & ${r.authors[1]}`

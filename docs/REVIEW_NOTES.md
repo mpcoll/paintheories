@@ -57,3 +57,40 @@ judgement calls. Tick them off or delete them as you review.
 ## Housekeeping
 
 - [ ] Delete the leftover `wip/theory-batches` branch on GitHub (this session isn't allowed to delete branches).
+
+# Pain Conditions review notes (2026-11-27)
+
+All 32 condition entries are `review: draft`. ICD-11 codes and titles are checked against the WHO
+2026-01 release (`npm run icd:check`); every DOI against Crossref; most claims against abstracts.
+These are the judgement calls and unverified details to review.
+
+## ICD-11 mappings that are our reading (WHO does not state them)
+
+- [ ] **medication-overuse-headache**: MG30.03 for the underlying headache; MG30.6Y for MOH itself (MG30.67 excludes MOH; condition code 8A84.Y).
+- [ ] **post-traumatic-headache**: MG30.6Y (no MG30.6 subcode names trauma) or MG30.03 when the link is vague; condition 8A84.1.
+- [ ] **phantom-limb-pain**: MG30.21 (surgical amputation), MG30.20 (traumatic), MG30.51 (neuropathic after nerve injury). ICD-11 does not say which takes priority; choose.
+- [ ] **trigeminal-neuralgia**: MG30.62 and MG30.51; MS-related (central) trigeminal neuralgia not addressed.
+- [ ] **temporomandibular-disorders**: primary TMD pain under MG30.03 (from memory of Nicholas 2019; full text not checked).
+- [ ] **endometriosis**: MG30.42 (no MG30.4x subcode names it); MG30.00 for pain the lesions do not explain.
+- [ ] **bladder-pain-syndrome**: Hunner-lesion cases as MG30.42 + GC00.3 is our inference.
+- [ ] **sickle-cell-disease-pain**: no clean mapping; MG30.31 (avascular necrosis) and MG30.01 (widespread pain without tissue source). Family set to "widespread".
+- [ ] **rheumatoid-arthritis / inflammatory-bowel-disease / chronic-pancreatitis / axial-spondyloarthritis**: secondary subcodes (MG30.30/31/40/42, MG30.01 for coexisting fibromyalgia) are our readings.
+- [ ] **central-post-stroke-pain**: condition codes 8B25.0/8B25.1 (late effects of stroke) are examples, not prescribed.
+- [ ] **chronic-neck-pain**: ME84.0 listed as condition code although it excludes chronic primary cervical pain (as for ME84.2 and low back pain).
+- [ ] Per-code `descriptors` (which mechanisms apply under each code, used by the crosswalk) were set by the lead editor for 11 multi-code conditions.
+
+## Criteria written from knowledge, not checked against the source text
+
+- [ ] ICHD-3 summaries: chronic TTH (2.3), BMS (13.10), MOH (8.2), persistent PTH (5.2), trigeminal neuralgia (13.1.1); ICHD-3 classical/secondary/idiopathic split for TN.
+- [ ] Budapest criteria (Harden 2010), Toronto consensus (Tesfaye 2010), ISCIP classification (Bryce 2011), Bogduk 2009 definitions, AAPT sickle cell criteria details (Dampier 2017).
+- [ ] Marinus 2011 for the CRPS type I/II distinction; Nicholas 2019 for CRPS under chronic primary pain (placement confirmed by ICD-11 itself).
+- [ ] Nociplastic grading flowchart on /conditions/descriptors/ is a simplification of Kosek 2021 (order of steps from Yoo & Kim 2024 and Schmidt 2024); full text of Kosek 2021 not checked.
+
+## Descriptor roles that are editorial judgement
+
+- [ ] medication-overuse-headache nociplastic "common" and post-traumatic-headache nociplastic "subset" are inferred from proposed mechanisms; no source calls them nociplastic.
+- [ ] Tension-type headache nociceptive "common"; CRPS (nociplastic common, nociceptive common, neuropathic subset); radiculopathy; SCI and MS; vulvodynia (nociplastic only, "common"); chronic pancreatitis nociplastic "subset" (Olesen 2017 says "neuropathic-like").
+
+## Prevalence figures with caveats
+
+- [ ] TMD 29.5% counts any diagnosis including painless joint sounds; radiculopathy is a 1.2–43% range; CRPS and CIPN figures are incidence/neuropathy (not pain); whiplash is persistence at 1 year; sickle cell figures are pain frequency, not prevalence; chronic pancreatitis from one US county.

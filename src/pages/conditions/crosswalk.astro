@@ -1,0 +1,196 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/data';
+import { getConditions, conditionUrl, categoriesOf, descriptorsUnder, DESC_ORDER, ROLE_ORDER, CATEGORY_ORDER, FAMILY_ORDER } from '../../lib/conditions';
+import { FAMILIES, ICD_CATEGORIES, DESCRIPTORS, DESCRIPTOR_ROLES } from '../../data/conditions-taxonomy';
+
+const conditions = await getConditions();
+
+// One strand per (condition, ICD category, descriptor) combination.
+type Strand = { id: string; title: string; fam: string; cat: string; desc: string; role: string };
+const strands: Strand[] = conditions.flatMap((c) =>
+  categoriesOf(c).flatMap((cat) =>
+    descriptorsUnder(c, cat).flatMap((t) => {
+      const ds = c.data.descriptors.filter((x) => x.type === t);
+      if (!ds.length) return [];
+      const role = ROLE_ORDER.find((r) => ds.some((x) => x.role === r))!;
+      return [{ id: c.id, title: c.data.title, fam: c.data.family, cat, desc: t, role }];
+    }),
+  ),
+);
+const fi = (s: Strand) => FAMILY_ORDER.indexOf(s.fam as any), ci = (s: Strand) => CATEGORY_ORDER.indexOf(s.cat as any), di = (s: Strand) => DESC_ORDER.indexOf(s.desc as any);
+
+// Layout
+const W = 960, TOP = 46, GAP = 7, GROUP_GAP = 16, X = [190, 480, 770], NODE_W = 12;
+type Col = { key: string; label: string; sub?: string; y0: number; y1: number }[];
+function column(order: string[], keyOf: (s: Strand) => string, sort: (a: Strand, b: Strand) => number, label: (k: string) => string, sub?: (k: string) => string) {
+  const slots = new Map<Strand, number>();
+  const nodes: Col = [];
+  let y = TOP;
+  for (const k of order) {
+    const ss = strands.filter((s) => keyOf(s) === k).sort(sort);
+    if (!ss.length) continue;
+    const y0 = y;
+    ss.forEach((s, i) => slots.set(s, y + GAP / 2 + i * GAP));
+    y += ss.length * GAP;
+    nodes.push({ key: k, label: label(k), sub: sub?.(k), y0, y1: y });
+    y += GROUP_GAP;
+  }
+  return { slots, nodes, height: y };
+}
+const famCol = column(FAMILY_ORDER, (s) => s.fam, (a, b) => ci(a) - ci(b) || di(a) - di(b), (k) => FAMILIES[k as keyof typeof FAMILIES].label);
+const catCol = column(CATEGORY_ORDER, (s) => s.cat, (a, b) => fi(a) - fi(b) || di(a) - di(b), (k) => `${k} ${ICD_CATEGORIES[k as keyof typeof ICD_CATEGORIES].short}`, (k) => ICD_CATEGORIES[k as keyof typeof ICD_CATEGORIES].kind);
+const descCol = column(DESC_ORDER, (s) => s.desc, (a, b) => ci(a) - ci(b) || fi(a) - fi(b), (k) => DESCRIPTORS[k as keyof typeof DESCRIPTORS].label);
+const H = Math.max(famCol.height, catCol.height, descCol.height) + 10;
+const curve = (x1: number, y1: number, x2: number, y2: number) => { const m = (x1 + x2) / 2; return `M${x1},${y1.toFixed(1)} C${m},${y1.toFixed(1)} ${m},${y2.toFixed(1)} ${x2},${y2.toFixed(1)}`; };
+const uniq = (key: string, f: (s: Strand) => string) => new Set(strands.filter((s) => f(s) === key).map((s) => s.id)).size;
+
+// Matrix: ICD category x descriptor
+const cell = (cat: string, t: string) => conditions.filter((c) => descriptorsUnder(c, cat as any).includes(t as any));
+---
+
+<Base title="Crosswalk: three ways to classify pain" description="How traditional pain families, ICD-11 chronic pain categories and the IASP mechanistic descriptors line up across chronic pain conditions.">
+  <header class="page-head">
+    <p class="eyebrow">Pain Conditions · crosswalk</p>
+    <h1>Three ways to classify the same pain</h1>
+    <p class="lede">Each strand is one condition, followed from its traditional family to the ICD-11 category it can be coded under and on to each mechanistic descriptor that applies. Where strands fan out, the systems disagree about what belongs together.</p>
+  </header>
+
+  <div class="card cw" id="cw">
+    <div class="cw-tools" data-pagefind-ignore>
+      <label>Highlight a condition
+        <select id="cw-pick">
+          <option value="">All conditions</option>
+          {conditions.map((c) => <option value={c.id}>{c.data.title}</option>)}
+        </select>
+      </label>
+      <span class="cw-key">
+        {ROLE_ORDER.map((r) => <span class={`k role-${r}`}><svg width="26" height="8" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" /></svg>{DESCRIPTOR_ROLES[r].label}</span>)}
+      </span>
+    </div>
+    <div class="cw-scroll">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="cw-t">
+        <title id="cw-t">Alluvial diagram linking traditional families, ICD-11 chronic pain categories and IASP descriptors for each condition. The same information is in the table below.</title>
+        <text class="colh" x={X[0]} y="20" text-anchor="end">Traditional family</text>
+        <text class="colh" x={X[1]} y="20" text-anchor="middle">ICD-11 category</text>
+        <text class="colh" x={X[2]} y="20" text-anchor="start">IASP descriptor</text>
+        <g class="strands">
+          {strands.map((s) => {
+            const a = famCol.slots.get(s)!, b = catCol.slots.get(s)!, c = descCol.slots.get(s)!;
+            return (
+              <g class={`st desc-${s.desc} role-${s.role}`} data-id={s.id} data-fam={s.fam} data-cat={s.cat} data-desc={s.desc}>
+                <title>{s.title}: {FAMILIES[s.fam as keyof typeof FAMILIES].label} → {s.cat} {ICD_CATEGORIES[s.cat as keyof typeof ICD_CATEGORIES].short} → {DESCRIPTORS[s.desc as keyof typeof DESCRIPTORS].label} ({DESCRIPTOR_ROLES[s.role as keyof typeof DESCRIPTOR_ROLES].label.toLowerCase()})</title>
+                <path d={curve(X[0] + NODE_W / 2, a, X[1] - NODE_W / 2, b)} />
+                <path d={curve(X[1] + NODE_W / 2, b, X[2] - NODE_W / 2, c)} />
+              </g>
+            );
+          })}
+        </g>
+        {famCol.nodes.map((n) => (
+          <g class="node" data-col="fam" data-key={n.key}>
+            <rect x={X[0] - NODE_W / 2} y={n.y0} width={NODE_W} height={n.y1 - n.y0} rx="3" />
+            <text x={X[0] - 12} y={(n.y0 + n.y1) / 2 + 4} text-anchor="end">{n.label} <tspan class="cnt">{uniq(n.key, (s) => s.fam)}</tspan></text>
+          </g>
+        ))}
+        {catCol.nodes.map((n) => (
+          <g class={`node cat-${n.sub}`} data-col="cat" data-key={n.key}>
+            <rect x={X[1] - NODE_W / 2} y={n.y0} width={NODE_W} height={n.y1 - n.y0} rx="3" />
+            <text class="catl" x={X[1]} y={n.y0 - 4} text-anchor="middle">{n.label}</text>
+          </g>
+        ))}
+        {descCol.nodes.map((n) => (
+          <g class={`node desc-${n.key}`} data-col="desc" data-key={n.key}>
+            <rect x={X[2] - NODE_W / 2} y={n.y0} width={NODE_W} height={n.y1 - n.y0} rx="3" />
+            <text x={X[2] + 12} y={(n.y0 + n.y1) / 2 + 4}>{n.label} <tspan class="cnt">{uniq(n.key, (s) => s.desc)}</tspan></text>
+          </g>
+        ))}
+      </svg>
+    </div>
+    <p class="cw-foot">A condition with two possible ICD-11 codes or several descriptors contributes one strand per combination (where a code applies only to one mechanism, such as radicular pain coded as neuropathic, only that strand is drawn). Strand colour shows the descriptor; line style shows its role. Primary-pain category boxes are dark. Numbers count conditions.</p>
+  </div>
+
+  <section class="mxs">
+    <h2>ICD-11 category × mechanism</h2>
+    <p class="muted intro">Which conditions fall in each cell. Chronic primary pain is mostly but not only nociplastic, and every secondary category contains conditions with more than one mechanism.</p>
+    <div class="mx-wrap">
+      <table class="mx">
+        <thead><tr><th scope="col">ICD-11 category</th>{DESC_ORDER.map((t) => <th scope="col" class={`desc-${t}`}><span class="dsw" aria-hidden="true"></span>{DESCRIPTORS[t].label}</th>)}</tr></thead>
+        <tbody>
+          {CATEGORY_ORDER.map((cat) => (
+            <tr>
+              <th scope="row"><span class="code">{cat}</span> {ICD_CATEGORIES[cat].label}</th>
+              {DESC_ORDER.map((t) => { const cs = cell(cat, t); return <td>{cs.length ? cs.map((c, i) => <>{i > 0 && ', '}<a href={conditionUrl(c.id)}>{c.data.title}</a></>) : <span class="muted">–</span>}</td>; })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted foot"><a href={url('conditions/classification/')}>ICD-11 classification</a> · <a href={url('conditions/descriptors/')}>Mechanistic descriptors</a></p>
+  </section>
+
+  <style>
+    .cw { padding: 1rem 1.1rem .8rem; }
+    .cw-tools { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; align-items: center; justify-content: space-between; margin-bottom: .6rem; font-size: .88rem; }
+    .cw-tools select { font: inherit; margin-left: .4rem; padding: .25rem .4rem; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+    .cw-key { display: inline-flex; gap: 1rem; color: var(--ink-3); font-size: .8rem; }
+    .cw-key .k { display: inline-flex; align-items: center; gap: .35rem; }
+    .cw-key line { stroke: var(--ink-2); stroke-width: 2.4; }
+    .cw-key .role-common line { stroke-opacity: .6; }
+    .cw-key .role-subset line { stroke-dasharray: 3 3; stroke-opacity: .6; }
+    .cw-scroll { overflow-x: auto; }
+    .cw-scroll svg { width: 100%; min-width: 720px; height: auto; display: block; }
+    .colh { fill: var(--ink-3); font: 600 12px var(--font); letter-spacing: .07em; text-transform: uppercase; }
+    .st path { fill: none; stroke: var(--c); stroke-width: 2.6; stroke-opacity: .75; transition: stroke-opacity .15s, stroke-width .15s; }
+    .st.role-common path { stroke-opacity: .45; }
+    .st.role-subset path { stroke-opacity: .4; stroke-dasharray: 3 3; }
+    .st { cursor: pointer; }
+    .desc-nociceptive { --c: var(--desc-noc); }
+    .desc-neuropathic { --c: var(--desc-neu); }
+    .desc-nociplastic { --c: var(--desc-npl); }
+    .cw.focus .st path { stroke-opacity: .07; }
+    .cw.focus .st.hl path { stroke-opacity: 1; stroke-width: 3.6; }
+    .node rect { fill: var(--surface-2); stroke: var(--line-strong); }
+    .node.cat-primary rect { fill: var(--ink); stroke: var(--ink); }
+    .node[data-col='desc'] rect { fill: var(--c); stroke: none; }
+    .node text { fill: var(--ink); font: 500 13px var(--font); }
+    .node .catl { font: 600 12.5px var(--font); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+    .node .cnt { fill: var(--ink-3); font-weight: 400; }
+    .node { cursor: pointer; }
+    .cw-foot { font-size: .8rem; color: var(--ink-3); margin: .5rem 0 0; }
+    .mxs { margin-top: 2.4rem; }
+    .intro { max-width: var(--measure); }
+    .mx-wrap { overflow-x: auto; }
+    .mx { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 640px; }
+    .mx th, .mx td { padding: .45rem .55rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .mx thead th { font: 600 .74rem var(--font); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); white-space: nowrap; }
+    .mx tbody th { font-weight: 500; width: 30%; }
+    .mx a { text-decoration: none; }
+    .dsw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; background: var(--c); margin-right: .35rem; vertical-align: -1px; }
+    .code { font: 600 .8rem var(--mono); color: var(--ink-3); }
+    .foot { font-size: .85rem; }
+  </style>
+
+  <script>
+    const root = document.getElementById('cw')!;
+    const pick = document.getElementById('cw-pick') as HTMLSelectElement;
+    const sts = [...root.querySelectorAll<SVGGElement>('.st')];
+    let pinned: ((s: SVGGElement) => boolean) | null = null;
+    const show = (f: ((s: SVGGElement) => boolean) | null) => {
+      root.classList.toggle('focus', !!f);
+      sts.forEach((s) => s.classList.toggle('hl', !!f && f(s)));
+    };
+    sts.forEach((s) => {
+      s.addEventListener('mouseenter', () => show((x) => x.dataset.id === s.dataset.id));
+      s.addEventListener('mouseleave', () => show(pinned));
+      s.addEventListener('click', () => { location.href = `${location.pathname.replace(/crosswalk\/?$/, '')}${s.dataset.id}/`; });
+    });
+    root.querySelectorAll<SVGGElement>('.node').forEach((n) => {
+      const col = n.dataset.col!, key = n.dataset.key!;
+      const match = (s: SVGGElement) => s.dataset[col] === key;
+      n.addEventListener('mouseenter', () => show(match));
+      n.addEventListener('mouseleave', () => show(pinned));
+      n.addEventListener('click', () => { pinned = pinned ? null : match; pick.value = ''; show(pinned); });
+    });
+    pick.addEventListener('change', () => { pinned = pick.value ? (s) => s.dataset.id === pick.value : null; show(pinned); });
+  </script>
+</Base>

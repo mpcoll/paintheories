@@ -94,3 +94,12 @@ without a DOI are marked `source: manual`.
 - Social/interpersonal: empathy and vicarious pain accounts
 - Sex/gender and developmental accounts (e.g. early-life programming of pain)
 - Computational: reinforcement-learning models of pain avoidance
+
+## Pain Conditions module (started 2026-11-27)
+
+- `/conditions/`: explorer with three lenses (traditional family, ICD-11 MG30 category, IASP descriptor), body-map and descriptor filters.
+- `/conditions/classification/`: ICD-11 chronic pain tree (WHO 2026-01), primary vs secondary, extension codes, worked example, history.
+- `/conditions/descriptors/`: nociceptive / neuropathic / nociplastic, grading flowcharts (Finnerup 2016; Kosek 2021 simplified), mixed pain, condition matrix, debates.
+- `/conditions/crosswalk/`: alluvial strands family → ICD-11 → descriptor, plus category × descriptor matrix.
+- Decisions (owner, 2026-11-27): chronic conditions only; ICD-11 only (no ICD-10); no AAPT lens; prevalence included; treatment left for the Pain Treatments module; body map included.
+- Next: owner review of all condition entries (review: draft); more conditions on request.

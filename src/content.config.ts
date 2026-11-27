@@ -2,6 +2,7 @@ import { defineCollection, reference } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { KINDS, DOMAINS, LEVELS, QUESTIONS, PAIN_TYPES, STATUSES, RELATIONS, EVIDENCE_DIRECTIONS, EVIDENCE_METHODS, keys } from './data/taxonomy';
+import { FAMILIES, REGIONS, DESCRIPTORS, DESCRIPTOR_ROLES } from './data/conditions-taxonomy';
 
 /**
  * Bibliography. One shared list so that a paper cited by several theories is
@@ -204,4 +205,47 @@ const inflammatoryMediators = defineCollection({
   }),
 });
 
-export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators };
+/**
+ * Pain Conditions (/conditions/): chronic pain conditions seen through three lenses,
+ * traditional family, ICD-11 (MG30 chronic pain codes) and IASP mechanistic descriptors.
+ * ICD codes/titles are checked against the WHO release with `npm run icd:check`.
+ */
+const icdCode = z.object({ code: z.string(), title: z.string() });
+const conditions = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/conditions' }),
+  schema: z.object({
+    title: z.string(),
+    aliases: z.array(z.string()).default([]),
+    summary: z.string().max(400),
+    family: z.enum(keys(FAMILIES)),
+    regions: z.array(z.enum(keys(REGIONS))).min(1),
+    icd: z.object({
+      // MG30 chronic pain code(s); `when` explains a conditional mapping (e.g. primary vs secondary);
+      // `descriptors` (optional) limits which of the condition's descriptors apply under this code
+      pain: z.array(icdCode.extend({ code: z.string().regex(/^MG30\.\d/), when: z.string().optional(), descriptors: z.array(z.enum(keys(DESCRIPTORS))).optional() })).min(1),
+      condition: z.array(icdCode).default([]), // underlying disease code(s) to "code also"
+      note: z.string().optional(),
+      refs: z.array(reference('references')).min(1),
+    }),
+    descriptors: z
+      .array(
+        z.object({
+          type: z.enum(keys(DESCRIPTORS)),
+          role: z.enum(keys(DESCRIPTOR_ROLES)),
+          note: z.string(),
+          refs: z.array(reference('references')).min(1),
+        }),
+      )
+      .min(1),
+    prevalence: z.object({ value: z.string(), population: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
+    criteria: z.object({ name: z.string(), summary: z.string(), refs: z.array(reference('references')).min(1) }).optional(),
+    mechanisms: z.array(reference('mechanisms')).default([]),
+    theories: z.array(reference('theories')).default([]),
+    related: z.array(reference('conditions')).default([]),
+    references: z.array(reference('references')).default([]),
+    review: z.enum(['stub', 'draft', 'reviewed']).default('draft'),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { references, mechanisms, theories, gaps, circuitStations, circuitPathways, fibreTypes, transducers, inflammatoryMediators, conditions };

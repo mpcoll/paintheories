@@ -1,0 +1,47 @@
+---
+/**
+ * The IASP mechanistic descriptors of a condition as three fixed slots
+ * (nociceptive, neuropathic, nociplastic). Fill encodes role: solid = defining,
+ * half = common, outline + dots = in a subset, faint = does not apply.
+ * The label text always names the descriptor, so colour is not the only channel.
+ */
+import { DESCRIPTOR_ROLES } from '../data/conditions-taxonomy';
+import { DESC_ORDER, descriptorProfile, type Condition } from '../lib/conditions';
+
+interface Props { condition: Condition; compact?: boolean }
+const { condition, compact = false } = Astro.props;
+const prof = descriptorProfile(condition);
+const LABEL = { nociceptive: 'Nociceptive', neuropathic: 'Neuropathic', nociplastic: 'Nociplastic' } as const;
+const SHORT = { nociceptive: 'Nocicep.', neuropathic: 'Neuropath.', nociplastic: 'Nocipl.' } as const;
+---
+<ul class:list={['dp', { compact }]} aria-label="IASP mechanistic descriptors">
+  {DESC_ORDER.map((t) => {
+    const role = prof[t];
+    return (
+      <li class={`dp-i desc-${t} role-${role ?? 'none'}`} title={role ? `${LABEL[t]}: ${DESCRIPTOR_ROLES[role].label.toLowerCase()}. ${DESCRIPTOR_ROLES[role].description}` : `${LABEL[t]}: not typical`}>
+        <span class="dp-sw" aria-hidden="true"></span>
+        <span class="dp-l">{compact ? SHORT[t] : LABEL[t]}</span>
+        {!compact && <span class="dp-r">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
+        {compact && <span class="sr-only">{role ? DESCRIPTOR_ROLES[role].label : 'not typical'}</span>}
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .dp { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem; }
+  .dp-i { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; padding: .12rem .55rem .12rem .4rem; background: var(--surface); }
+  .dp-sw { width: 12px; height: 12px; border-radius: 3px; border: 1.5px solid var(--c); flex: none; }
+  .desc-nociceptive { --c: var(--desc-noc); }
+  .desc-neuropathic { --c: var(--desc-neu); }
+  .desc-nociplastic { --c: var(--desc-npl); }
+  .role-defining .dp-sw { background: var(--c); }
+  .role-common .dp-sw { background: linear-gradient(to top, var(--c) 55%, transparent 55%); }
+  .role-subset .dp-sw { background: radial-gradient(circle, var(--c) 1.2px, transparent 1.6px) 0 0 / 4px 4px; }
+  .role-none { opacity: .45; border-style: dashed; }
+  .role-none .dp-sw { border-color: var(--line-strong); }
+  .dp-r { color: var(--ink-3); }
+  .dp-r::before { content: '· '; }
+  .compact .dp-i { font-size: .72rem; padding: .08rem .45rem .08rem .32rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
